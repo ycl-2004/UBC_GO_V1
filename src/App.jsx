@@ -10,7 +10,7 @@ import './App.css'
 function App() {
   return (
     <AuthProvider>
-      <Router>
+      <Router basename="/UBC_GO_V1">
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/calculator" element={<CalculatorPage />} />
