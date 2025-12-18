@@ -14,7 +14,24 @@ const Navigation = () => {
         </Link>
         <div className="nav-links">
           <Link to="/" className="nav-link">Home</Link>
-          <Link to="/calculator" className="nav-link">Calculator</Link>
+          <Link 
+            to="/calculator" 
+            className="nav-link"
+            onClick={(e) => {
+              // If already on calculator page, scroll to calculator section
+              if (window.location.pathname === '/calculator' || window.location.pathname === '/UBC_GO_V1/calculator') {
+                e.preventDefault();
+                setTimeout(() => {
+                  const calculatorSection = document.getElementById('calculator-section');
+                  if (calculatorSection) {
+                    calculatorSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                  }
+                }, 100);
+              }
+            }}
+          >
+            Calculator
+          </Link>
           <Link to="/planner" className="nav-link">Planner</Link>
           {isAuthenticated ? (
             <>

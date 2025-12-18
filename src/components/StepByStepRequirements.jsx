@@ -292,16 +292,40 @@ const StepByStepRequirements = () => {
             Choose the Canadian province where you're completing high school
           </p>
           <div className="selection-grid provinces-grid">
-            {provinces.map((province) => (
-              <button
-                key={province}
-                className="selection-card"
-                onClick={() => handleProvinceSelect(province)}
-              >
-                <span className="card-icon">📍</span>
-                <span className="card-label">{province}</span>
-              </button>
-            ))}
+            {provinces.map((province) => {
+              // Get province abbreviation
+              const getProvinceAbbr = (provinceName) => {
+                const abbreviations = {
+                  "Alberta": "AB",
+                  "British Columbia": "BC",
+                  "Manitoba": "MB",
+                  "New Brunswick": "NB",
+                  "Newfoundland & Labrador": "NL",
+                  "Northwest Territories": "NT",
+                  "Nova Scotia": "NS",
+                  "Nunavut": "NU",
+                  "Ontario": "ON",
+                  "Prince Edward Island": "PE",
+                  "Quebec": "QC",
+                  "Saskatchewan": "SK",
+                  "Yukon": "YT"
+                };
+                return abbreviations[provinceName] || provinceName.substring(0, 2).toUpperCase();
+              };
+              
+              const isSelected = selectedProvince === province;
+              
+              return (
+                <button
+                  key={province}
+                  className={`selection-card province-card ${isSelected ? 'selected' : ''}`}
+                  onClick={() => handleProvinceSelect(province)}
+                >
+                  <div className="province-abbr">{getProvinceAbbr(province)}</div>
+                  <span className="card-label">{province}</span>
+                </button>
+              );
+            })}
           </div>
         </div>
       )}
