@@ -3,10 +3,23 @@
   "mappings": {
     "Alberta": {
       "Grade 12 English": [
-        "English Language Arts 30-1"
+        "English Language Arts 30-1 or English Language Arts 30-2"
       ],
       "A Grade 12 English": [
-        "English Language Arts 30-1"
+        "English Language Arts 30-1 or English Language Arts 30-2"
+      ],
+      "English Studies 12": [
+        "English Language Arts 30-1 or English Language Arts 30-2"
+      ],
+      "English First Peoples 12": [
+        "English Language Arts 30-1 or English Language Arts 30-2"
+      ],
+      "Pre-Calculus 12": [
+        "Math 30-1",
+        "Math 31 (5 credits)"
+      ],
+      "Calculus 12": [
+        "Math 31 (5 credits)"
       ],
       "A Grade 12 Pre-Calculus": [
         "Math 30-1 or Math 31 (5 credits)"
@@ -91,6 +104,25 @@
       ],
       "There are no specific Grade 11 course requirements": [
         "There are no specific Grade 11 course requirements"
+      ],
+      "Foundations of Math 12": [
+        "Math 30-1",
+        "Math 31 (5 credits)"
+      ],
+      "Anatomy and Physiology 12": [
+        "Biology 30"
+      ],
+      "Biology 12": [
+        "Biology 30"
+      ],
+      "Chemistry 12": [
+        "Chemistry 30"
+      ],
+      "Physics 12": [
+        "Physics 30"
+      ],
+      "A Grade 11 Math (Pre-Calculus stream)": [
+        "Math 20-1"
       ]
     },
     "British Columbia": {
@@ -177,6 +209,9 @@
       ],
       "There are no specific Grade 11 course requirements": [
         "There are no specific Grade 11 course requirements"
+      ],
+      "A Grade 11 Math (Pre-Calculus stream)": [
+        "Pre-Calculus 11"
       ]
     },
     "Ontario": {
@@ -263,12 +298,44 @@
       ],
       "There are no specific Grade 11 course requirements": [
         "There are no specific Grade 11 course requirements"
+      ],
+      "English Studies 12": [
+        "ENG4U (English)"
+      ],
+      "English First Peoples 12": [
+        "ENG4U (English)"
+      ],
+      "Pre-Calculus 12": [
+        "MHF4U (Advanced Functions)",
+        "MCV4U (Calculus and Vectors)"
+      ],
+      "Calculus 12": [
+        "MCV4U (Calculus and Vectors)"
+      ],
+      "Foundations of Math 12": [
+        "MHF4U (Advanced Functions)",
+        "MCV4U (Calculus and Vectors)"
+      ],
+      "Anatomy and Physiology 12": [
+        "SBI4U (Biology)"
+      ],
+      "Biology 12": [
+        "SBI4U (Biology)"
+      ],
+      "Chemistry 12": [
+        "SCH4U (Chemistry)"
+      ],
+      "Physics 12": [
+        "SPH4U (Physics)"
+      ],
+      "A Grade 11 Math (Pre-Calculus stream)": [
+        "MCR3U (Functions)",
+        "MCF3M (Functions and Applications)"
       ]
     },
     "Saskatchewan": {
       "A Grade 12 English": [
-        "English Language Arts A30",
-        "English Language Arts B30"
+        "English Language Arts A30 or English Language Arts B30"
       ],
       "Grade 12 English": [
         "English Language Arts A30",
@@ -354,6 +421,35 @@
       ],
       "There are no specific Grade 11 course requirements": [
         "There are no specific Grade 11 course requirements"
+      ],
+      "English Studies 12": [
+        "English Language Arts A30",
+        "English Language Arts B30"
+      ],
+      "English First Peoples 12": [
+        "English Language Arts A30",
+        "English Language Arts B30"
+      ],
+      "Pre-Calculus 12": [
+        "Pre-Calculus 30"
+      ],
+      "Calculus 12": [
+        "Calculus 30"
+      ],
+      "Foundations of Math 12": [
+        "Pre-Calculus 30"
+      ],
+      "Anatomy and Physiology 12": [
+        "Biology 30"
+      ],
+      "Biology 12": [
+        "Biology 30"
+      ],
+      "Chemistry 12": [
+        "Chemistry 30"
+      ],
+      "Physics 12": [
+        "Physics 30"
       ]
     },
     "Manitoba": {
@@ -443,6 +539,33 @@
       ],
       "There are no specific Grade 11 course requirements": [
         "There are no specific Grade 11 course requirements"
+      ],
+      "English Studies 12": [
+        "English Language Arts 40S"
+      ],
+      "English First Peoples 12": [
+        "English Language Arts 40S"
+      ],
+      "Pre-Calculus 12": [
+        "Pre-Calculus Mathematics 40S"
+      ],
+      "Calculus 12": [
+        "Pre-Calculus Mathematics 40S"
+      ],
+      "Foundations of Math 12": [
+        "Pre-Calculus Mathematics 40S"
+      ],
+      "Anatomy and Physiology 12": [
+        "Biology 40S"
+      ],
+      "Biology 12": [
+        "Biology 40S"
+      ],
+      "Chemistry 12": [
+        "Chemistry 40S"
+      ],
+      "Physics 12": [
+        "Physics 40S"
       ]
     },
     "Quebec": {
@@ -529,6 +652,33 @@
       ],
       "There are no specific Grade 11 course requirements": [
         "There are no specific Grade 11 course requirements"
+      ],
+      "English Studies 12": [
+        "A CEGEP DEC or equivalent two-year pre-university program"
+      ],
+      "English First Peoples 12": [
+        "A CEGEP DEC or equivalent two-year pre-university program"
+      ],
+      "Pre-Calculus 12": [
+        "A CEGEP DEC or equivalent two-year pre-university program"
+      ],
+      "Calculus 12": [
+        "A CEGEP DEC or equivalent two-year pre-university program"
+      ],
+      "Foundations of Math 12": [
+        "A CEGEP DEC or equivalent two-year pre-university program"
+      ],
+      "Anatomy and Physiology 12": [
+        "A CEGEP DEC or equivalent two-year pre-university program"
+      ],
+      "Biology 12": [
+        "A CEGEP DEC or equivalent two-year pre-university program"
+      ],
+      "Chemistry 12": [
+        "A CEGEP DEC or equivalent two-year pre-university program"
+      ],
+      "Physics 12": [
+        "A CEGEP DEC or equivalent two-year pre-university program"
       ]
     },
     "New Brunswick": {
@@ -615,6 +765,45 @@
       ],
       "There are no specific Grade 11 course requirements": [
         "There are no specific Grade 11 course requirements"
+      ],
+      "English Studies 12": [
+        "English Language Arts 121",
+        "English Language Arts 122"
+      ],
+      "English First Peoples 12": [
+        "English Language Arts 121",
+        "English Language Arts 122"
+      ],
+      "Pre-Calculus 12": [
+        "Pre-Calculus A 120",
+        "Pre-Calculus B 120"
+      ],
+      "Calculus 12": [
+        "Calculus 120"
+      ],
+      "Foundations of Math 12": [
+        "Pre-Calculus A 120",
+        "Pre-Calculus B 120"
+      ],
+      "Anatomy and Physiology 12": [
+        "Biology 121",
+        "Biology 122"
+      ],
+      "Biology 12": [
+        "Biology 121",
+        "Biology 122"
+      ],
+      "Chemistry 12": [
+        "Chemistry 121",
+        "Chemistry 122"
+      ],
+      "Physics 12": [
+        "Physics 121",
+        "Physics 122"
+      ],
+      "A Grade 11 Math (Pre-Calculus stream)": [
+        "Pre-Calculus A 110",
+        "Pre-Calculus B 110"
       ]
     },
     "Newfoundland & Labrador": {
@@ -787,6 +976,38 @@
       ],
       "There are no specific Grade 11 course requirements": [
         "There are no specific Grade 11 course requirements"
+      ],
+      "English Studies 12": [
+        "English 12",
+        "English 12 African Heritage"
+      ],
+      "English First Peoples 12": [
+        "English 12",
+        "English 12 African Heritage"
+      ],
+      "Pre-Calculus 12": [
+        "Pre-Calculus 12"
+      ],
+      "Calculus 12": [
+        "Calculus 12"
+      ],
+      "Foundations of Math 12": [
+        "Pre-Calculus 12"
+      ],
+      "Anatomy and Physiology 12": [
+        "Biology 12"
+      ],
+      "Biology 12": [
+        "Biology 12"
+      ],
+      "Chemistry 12": [
+        "Chemistry 12"
+      ],
+      "Physics 12": [
+        "Physics 12"
+      ],
+      "A Grade 11 Math (Pre-Calculus stream)": [
+        "Pre-Calculus 11"
       ]
     },
     "Prince Edward Island": {
@@ -873,6 +1094,36 @@
       ],
       "There are no specific Grade 11 course requirements": [
         "There are no specific Grade 11 course requirements"
+      ],
+      "English Studies 12": [
+        "English 621A"
+      ],
+      "English First Peoples 12": [
+        "English 621A"
+      ],
+      "Pre-Calculus 12": [
+        "Pre-Calculus 621B"
+      ],
+      "Calculus 12": [
+        "Calculus 621B"
+      ],
+      "Foundations of Math 12": [
+        "Pre-Calculus 621B"
+      ],
+      "Anatomy and Physiology 12": [
+        "Biology 621A"
+      ],
+      "Biology 12": [
+        "Biology 621A"
+      ],
+      "Chemistry 12": [
+        "Chemistry 621A"
+      ],
+      "Physics 12": [
+        "Physics 621A"
+      ],
+      "A Grade 11 Math (Pre-Calculus stream)": [
+        "Pre-Calculus 521B"
       ]
     },
     "Northwest Territories": {
@@ -965,6 +1216,40 @@
       ],
       "There are no specific Grade 11 course requirements": [
         "There are no specific Grade 11 course requirements"
+      ],
+      "English Studies 12": [
+        "English Language Arts 30-1",
+        "English Language Arts 30-2"
+      ],
+      "English First Peoples 12": [
+        "English Language Arts 30-1",
+        "English Language Arts 30-2"
+      ],
+      "Pre-Calculus 12": [
+        "Math 30-1",
+        "Math 31 (5 credits)"
+      ],
+      "Calculus 12": [
+        "Math 31 (5 credits)"
+      ],
+      "Foundations of Math 12": [
+        "Math 30-1",
+        "Math 31 (5 credits)"
+      ],
+      "Anatomy and Physiology 12": [
+        "Biology 30"
+      ],
+      "Biology 12": [
+        "Biology 30"
+      ],
+      "Chemistry 12": [
+        "Chemistry 30"
+      ],
+      "Physics 12": [
+        "Physics 30"
+      ],
+      "A Grade 11 Math (Pre-Calculus stream)": [
+        "Math 20-1"
       ]
     },
     "Nunavut": {
@@ -1057,6 +1342,40 @@
       ],
       "There are no specific Grade 11 course requirements": [
         "There are no specific Grade 11 course requirements"
+      ],
+      "English Studies 12": [
+        "English Language Arts 30-1",
+        "English Language Arts 30-2"
+      ],
+      "English First Peoples 12": [
+        "English Language Arts 30-1",
+        "English Language Arts 30-2"
+      ],
+      "Pre-Calculus 12": [
+        "Math 30-1",
+        "Math 31 (5 credits)"
+      ],
+      "Calculus 12": [
+        "Math 31 (5 credits)"
+      ],
+      "Foundations of Math 12": [
+        "Math 30-1",
+        "Math 31 (5 credits)"
+      ],
+      "Anatomy and Physiology 12": [
+        "Biology 30"
+      ],
+      "Biology 12": [
+        "Biology 30"
+      ],
+      "Chemistry 12": [
+        "Chemistry 30"
+      ],
+      "Physics 12": [
+        "Physics 30"
+      ],
+      "A Grade 11 Math (Pre-Calculus stream)": [
+        "Math 20-1"
       ]
     },
     "Yukon": {
@@ -1143,6 +1462,40 @@
       ],
       "There are no specific Grade 11 course requirements": [
         "There are no specific Grade 11 course requirements"
+      ],
+      "English Studies 12": [
+        "English Language Arts 30-1",
+        "English Language Arts 30-2"
+      ],
+      "English First Peoples 12": [
+        "English Language Arts 30-1",
+        "English Language Arts 30-2"
+      ],
+      "Pre-Calculus 12": [
+        "Math 30-1",
+        "Math 31 (5 credits)"
+      ],
+      "Calculus 12": [
+        "Math 31 (5 credits)"
+      ],
+      "Foundations of Math 12": [
+        "Math 30-1",
+        "Math 31 (5 credits)"
+      ],
+      "Anatomy and Physiology 12": [
+        "Biology 30"
+      ],
+      "Biology 12": [
+        "Biology 30"
+      ],
+      "Chemistry 12": [
+        "Chemistry 30"
+      ],
+      "Physics 12": [
+        "Physics 30"
+      ],
+      "A Grade 11 Math (Pre-Calculus stream)": [
+        "Math 20-1"
       ]
     }
   }

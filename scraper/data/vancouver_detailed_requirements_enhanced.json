@@ -26,7 +26,7 @@
         "Applied Biology": {
           "degree_name": "Applied Biology",
           "grade_12_requirements": [
-            "English Language Arts 30-1",
+            "English Language Arts 30-1 or English Language Arts 30-2",
             "Math 30-1 or Math 31 (5 credits)",
             "Biology 30, Chemistry 30, or Physics 30"
           ],
@@ -46,7 +46,7 @@
         "Applied Science (Engineering)": {
           "degree_name": "Applied Science (Engineering)",
           "grade_12_requirements": [
-            "English Language Arts 30-1",
+            "English Language Arts 30-1 or English Language Arts 30-2",
             "Math 30-1 or Math 31 (5 credits)",
             "Chemistry 30",
             "Physics 30"
@@ -66,7 +66,7 @@
         "Arts": {
           "degree_name": "Arts",
           "grade_12_requirements": [
-            "English Language Arts 30-1"
+            "English Language Arts 30-1 or English Language Arts 30-2"
           ],
           "grade_11_requirements": [],
           "related_courses": [
@@ -95,7 +95,7 @@
         "Commerce (UBC Sauder School of Business)": {
           "degree_name": "Commerce (UBC Sauder School of Business)",
           "grade_12_requirements": [
-            "English Language Arts 30-1",
+            "English Language Arts 30-1 or English Language Arts 30-2",
             "Math 30-1 or Math 31 (5 credits)"
           ],
           "grade_11_requirements": [],
@@ -110,7 +110,7 @@
         "Dental Hygiene": {
           "degree_name": "Dental Hygiene",
           "grade_12_requirements": [
-            "English Language Arts 30-1",
+            "English Language Arts 30-1 or English Language Arts 30-2",
             "Biology 30",
             "Chemistry 30",
             "Supplemental submission and interview process"
@@ -126,7 +126,7 @@
         "Design in Architecture, Landscape Architecture, and Urbanism": {
           "degree_name": "Design in Architecture, Landscape Architecture, and Urbanism",
           "grade_12_requirements": [
-            "English Language Arts 30-1",
+            "English Language Arts 30-1 or English Language Arts 30-2",
             "Supplemental submission (video interview, creative test, and resume)"
           ],
           "grade_11_requirements": [],
@@ -141,7 +141,7 @@
         "Fine Arts (direct-entry specializations only; excludes Creative Writing)": {
           "degree_name": "Fine Arts (direct-entry specializations only; excludes Creative Writing)",
           "grade_12_requirements": [
-            "English Language Arts 30-1",
+            "English Language Arts 30-1 or English Language Arts 30-2",
             "Audition or portfolio"
           ],
           "grade_11_requirements": [],
@@ -156,9 +156,10 @@
         "Food and Resource Economics": {
           "degree_name": "Food and Resource Economics",
           "grade_12_requirements": [
-            "English Studies 12",
-            "Pre-Calculus 12 (minimum 67%)",
-            "Calculus 12 (recommended)"
+            "English Language Arts 30-1 or English Language Arts 30-2",
+            "Math 30-1",
+            "Math 31 (5 credits)",
+            "Math 31 (5 credits)"
           ],
           "grade_11_requirements": [
             "There are no specific Grade 11 course requirements"
@@ -174,7 +175,7 @@
         "Food, Nutrition, and Health": {
           "degree_name": "Food, Nutrition, and Health",
           "grade_12_requirements": [
-            "English Language Arts 30-1",
+            "English Language Arts 30-1 or English Language Arts 30-2",
             "Math 30-1 or Math 31 (5 credits)",
             "Biology 30, Chemistry 30, or Physics 30"
           ],
@@ -194,11 +195,11 @@
         "Indigenous Land Stewardship": {
           "degree_name": "Indigenous Land Stewardship",
           "grade_12_requirements": [
-            "English Language Arts 30-1",
+            "English Language Arts 30-1 or English Language Arts 30-2",
             "Positionality statement"
           ],
           "grade_11_requirements": [
-            "A Grade 11 Math (Pre-Calculus stream)",
+            "Math 20-1",
             "Biology 20 (strongly recommended) or another approved grade 11 science"
           ],
           "related_courses": [
@@ -213,7 +214,7 @@
         "Indigenous Teacher Education Program (NITEP)": {
           "degree_name": "Indigenous Teacher Education Program (NITEP)",
           "grade_12_requirements": [
-            "English Language Arts 30-1"
+            "English Language Arts 30-1 or English Language Arts 30-2"
           ],
           "grade_11_requirements": [],
           "related_courses": [],
@@ -223,7 +224,7 @@
         "International Economics": {
           "degree_name": "International Economics",
           "grade_12_requirements": [
-            "English Language Arts 30-1",
+            "English Language Arts 30-1 or English Language Arts 30-2",
             "Math 30-1 or Math 31 (5 credits)"
           ],
           "grade_11_requirements": [],
@@ -239,7 +240,7 @@
         "Kinesiology": {
           "degree_name": "Kinesiology",
           "grade_12_requirements": [
-            "English Language Arts 30-1",
+            "English Language Arts 30-1 or English Language Arts 30-2",
             "One of Math 30-1, Math 31 (5 credits), Biology 30, Chemistry 30, or Physics 30"
           ],
           "grade_11_requirements": [],
@@ -255,7 +256,7 @@
         "Media Studies": {
           "degree_name": "Media Studies",
           "grade_12_requirements": [
-            "English Language Arts 30-1",
+            "English Language Arts 30-1 or English Language Arts 30-2",
             "Portfolio submission",
             "Math 30-1 or Math 31 (5 credits)"
           ],
@@ -272,7 +273,7 @@
         "Music": {
           "degree_name": "Music",
           "grade_12_requirements": [
-            "English Language Arts 30-1",
+            "English Language Arts 30-1 or English Language Arts 30-2",
             "Audition, portfolio (students in composition), and letters of reference"
           ],
           "grade_11_requirements": [],
@@ -287,7 +288,7 @@
         "Natural Resources": {
           "degree_name": "Natural Resources",
           "grade_12_requirements": [
-            "English Language Arts 30-1",
+            "English Language Arts 30-1 or English Language Arts 30-2",
             "Math 30-1 or Math 31 (5 credits)",
             "Biology 30"
           ],
@@ -307,7 +308,7 @@
         "Pharmaceutical Sciences": {
           "degree_name": "Pharmaceutical Sciences",
           "grade_12_requirements": [
-            "English Language Arts 30-1",
+            "English Language Arts 30-1 or English Language Arts 30-2",
             "Math 30-1 or Math 31 (5 credits)",
             "Chemistry 30"
           ],
@@ -326,7 +327,7 @@
         "Science": {
           "degree_name": "Science",
           "grade_12_requirements": [
-            "English Language Arts 30-1",
+            "English Language Arts 30-1 or English Language Arts 30-2",
             "Math 30-1 or Math 31 (5 credits)",
             "Biology 30, Chemistry 30, or Physics 30"
           ],
@@ -345,7 +346,7 @@
         "Urban Forestry": {
           "degree_name": "Urban Forestry",
           "grade_12_requirements": [
-            "English Language Arts 30-1",
+            "English Language Arts 30-1 or English Language Arts 30-2",
             "Math 30-1 or Math 31 (5 credits)",
             "Biology 30"
           ],
@@ -551,7 +552,7 @@
             "Positionality statement"
           ],
           "grade_11_requirements": [
-            "A Grade 11 Math (Pre-Calculus stream)",
+            "Pre-Calculus 11",
             "Biology 11 (strongly recommended) or another approved grade 11 science"
           ],
           "related_courses": [
@@ -862,9 +863,9 @@
         "Food and Resource Economics": {
           "degree_name": "Food and Resource Economics",
           "grade_12_requirements": [
-            "English Studies 12",
-            "Pre-Calculus 12 (minimum 67%)",
-            "Calculus 12 (recommended)"
+            "English Language Arts 40S",
+            "Pre-Calculus Mathematics 40S",
+            "Pre-Calculus Mathematics 40S"
           ],
           "grade_11_requirements": [
             "There are no specific Grade 11 course requirements"
@@ -1215,9 +1216,11 @@
         "Food and Resource Economics": {
           "degree_name": "Food and Resource Economics",
           "grade_12_requirements": [
-            "English Studies 12",
-            "Pre-Calculus 12 (minimum 67%)",
-            "Calculus 12 (recommended)"
+            "English Language Arts 121",
+            "English Language Arts 122",
+            "Pre-Calculus A 120",
+            "Pre-Calculus B 120",
+            "Calculus 120"
           ],
           "grade_11_requirements": [
             "There are no specific Grade 11 course requirements"
@@ -1257,7 +1260,8 @@
             "Positionality statement"
           ],
           "grade_11_requirements": [
-            "A Grade 11 Math (Pre-Calculus stream)",
+            "Pre-Calculus A 110",
+            "Pre-Calculus B 110",
             "Biology 111 or Biology 112 (strongly recommended) or another approved grade 11 science"
           ],
           "related_courses": [
@@ -1921,9 +1925,11 @@
         "Food and Resource Economics": {
           "degree_name": "Food and Resource Economics",
           "grade_12_requirements": [
-            "English Studies 12",
-            "Pre-Calculus 12 (minimum 67%)",
-            "Calculus 12 (recommended)"
+            "English Language Arts 30-1",
+            "English Language Arts 30-2",
+            "Math 30-1",
+            "Math 31 (5 credits)",
+            "Math 31 (5 credits)"
           ],
           "grade_11_requirements": [
             "There are no specific Grade 11 course requirements"
@@ -1963,7 +1969,7 @@
             "Positionality statement"
           ],
           "grade_11_requirements": [
-            "A Grade 11 Math (Pre-Calculus stream)",
+            "Math 20-1",
             "Biology 20 (strongly recommended) or another approved grade 11 science"
           ],
           "related_courses": [
@@ -2274,9 +2280,10 @@
         "Food and Resource Economics": {
           "degree_name": "Food and Resource Economics",
           "grade_12_requirements": [
-            "English Studies 12",
-            "Pre-Calculus 12 (minimum 67%)",
-            "Calculus 12 (recommended)"
+            "English 12",
+            "English 12 African Heritage",
+            "Pre-Calculus 12",
+            "Calculus 12"
           ],
           "grade_11_requirements": [
             "There are no specific Grade 11 course requirements"
@@ -2316,7 +2323,7 @@
             "Positionality statement"
           ],
           "grade_11_requirements": [
-            "A Grade 11 Math (Pre-Calculus stream)",
+            "Pre-Calculus 11",
             "Biology 11 (strongly recommended) or another approved grade 11 science"
           ],
           "related_courses": [
@@ -2627,9 +2634,11 @@
         "Food and Resource Economics": {
           "degree_name": "Food and Resource Economics",
           "grade_12_requirements": [
-            "English Studies 12",
-            "Pre-Calculus 12 (minimum 67%)",
-            "Calculus 12 (recommended)"
+            "English Language Arts 30-1",
+            "English Language Arts 30-2",
+            "Math 30-1",
+            "Math 31 (5 credits)",
+            "Math 31 (5 credits)"
           ],
           "grade_11_requirements": [
             "There are no specific Grade 11 course requirements"
@@ -2669,7 +2678,7 @@
             "Positionality statement"
           ],
           "grade_11_requirements": [
-            "A Grade 11 Math (Pre-Calculus stream)",
+            "Math 20-1",
             "Biology 20 (strongly recommended) or another approved grade 11 science"
           ],
           "related_courses": [
@@ -2980,9 +2989,10 @@
         "Food and Resource Economics": {
           "degree_name": "Food and Resource Economics",
           "grade_12_requirements": [
-            "English Studies 12",
-            "Pre-Calculus 12 (minimum 67%)",
-            "Calculus 12 (recommended)"
+            "ENG4U (English)",
+            "MHF4U (Advanced Functions)",
+            "MCV4U (Calculus and Vectors)",
+            "MCV4U (Calculus and Vectors)"
           ],
           "grade_11_requirements": [
             "There are no specific Grade 11 course requirements"
@@ -3022,7 +3032,8 @@
             "Positionality statement"
           ],
           "grade_11_requirements": [
-            "A Grade 11 Math (Pre-Calculus stream)",
+            "MCR3U (Functions)",
+            "MCF3M (Functions and Applications)",
             "SBI3U (Grade 11 Biology) (strongly recommended) or another approved grade 11 science"
           ],
           "related_courses": [
@@ -3333,9 +3344,9 @@
         "Food and Resource Economics": {
           "degree_name": "Food and Resource Economics",
           "grade_12_requirements": [
-            "English Studies 12",
-            "Pre-Calculus 12 (minimum 67%)",
-            "Calculus 12 (recommended)"
+            "English 621A",
+            "Pre-Calculus 621B",
+            "Calculus 621B"
           ],
           "grade_11_requirements": [
             "There are no specific Grade 11 course requirements"
@@ -3375,7 +3386,7 @@
             "Positionality statement"
           ],
           "grade_11_requirements": [
-            "A Grade 11 Math (Pre-Calculus stream)",
+            "Pre-Calculus 521B",
             "BIO521 (strongly recommended) or another approved grade 11 science"
           ],
           "related_courses": [
@@ -3686,9 +3697,9 @@
         "Food and Resource Economics": {
           "degree_name": "Food and Resource Economics",
           "grade_12_requirements": [
-            "English Studies 12",
-            "Pre-Calculus 12 (minimum 67%)",
-            "Calculus 12 (recommended)"
+            "A CEGEP DEC or equivalent two-year pre-university program",
+            "A CEGEP DEC or equivalent two-year pre-university program",
+            "A CEGEP DEC or equivalent two-year pre-university program"
           ],
           "grade_11_requirements": [
             "There are no specific Grade 11 course requirements"
@@ -3909,8 +3920,7 @@
         "Applied Biology": {
           "degree_name": "Applied Biology",
           "grade_12_requirements": [
-            "English Language Arts A30",
-            "English Language Arts B30",
+            "English Language Arts A30 or English Language Arts B30",
             "Pre-Calculus 30",
             "Biology 30, Chemistry 30, or Physics 30"
           ],
@@ -3930,8 +3940,7 @@
         "Applied Science (Engineering)": {
           "degree_name": "Applied Science (Engineering)",
           "grade_12_requirements": [
-            "English Language Arts A30",
-            "English Language Arts B30",
+            "English Language Arts A30 or English Language Arts B30",
             "Pre-Calculus 30",
             "Chemistry 30",
             "Physics 30"
@@ -3951,8 +3960,7 @@
         "Arts": {
           "degree_name": "Arts",
           "grade_12_requirements": [
-            "English Language Arts A30",
-            "English Language Arts B30"
+            "English Language Arts A30 or English Language Arts B30"
           ],
           "grade_11_requirements": [],
           "related_courses": [
@@ -3981,8 +3989,7 @@
         "Commerce (UBC Sauder School of Business)": {
           "degree_name": "Commerce (UBC Sauder School of Business)",
           "grade_12_requirements": [
-            "English Language Arts A30",
-            "English Language Arts B30",
+            "English Language Arts A30 or English Language Arts B30",
             "Pre-Calculus 30"
           ],
           "grade_11_requirements": [],
@@ -3997,8 +4004,7 @@
         "Dental Hygiene": {
           "degree_name": "Dental Hygiene",
           "grade_12_requirements": [
-            "English Language Arts A30",
-            "English Language Arts B30",
+            "English Language Arts A30 or English Language Arts B30",
             "Biology 30",
             "Chemistry 30",
             "Supplemental submission and interview process"
@@ -4014,8 +4020,7 @@
         "Design in Architecture, Landscape Architecture, and Urbanism": {
           "degree_name": "Design in Architecture, Landscape Architecture, and Urbanism",
           "grade_12_requirements": [
-            "English Language Arts A30",
-            "English Language Arts B30",
+            "English Language Arts A30 or English Language Arts B30",
             "Supplemental submission (video interview, creative test, and resume)"
           ],
           "grade_11_requirements": [],
@@ -4030,8 +4035,7 @@
         "Fine Arts (direct-entry specializations only; excludes Creative Writing)": {
           "degree_name": "Fine Arts (direct-entry specializations only; excludes Creative Writing)",
           "grade_12_requirements": [
-            "English Language Arts A30",
-            "English Language Arts B30",
+            "English Language Arts A30 or English Language Arts B30",
             "Audition or portfolio"
           ],
           "grade_11_requirements": [],
@@ -4046,9 +4050,10 @@
         "Food and Resource Economics": {
           "degree_name": "Food and Resource Economics",
           "grade_12_requirements": [
-            "English Studies 12",
-            "Pre-Calculus 12 (minimum 67%)",
-            "Calculus 12 (recommended)"
+            "English Language Arts A30",
+            "English Language Arts B30",
+            "Pre-Calculus 30",
+            "Calculus 30"
           ],
           "grade_11_requirements": [
             "There are no specific Grade 11 course requirements"
@@ -4064,8 +4069,7 @@
         "Food, Nutrition, and Health": {
           "degree_name": "Food, Nutrition, and Health",
           "grade_12_requirements": [
-            "English Language Arts A30",
-            "English Language Arts B30",
+            "English Language Arts A30 or English Language Arts B30",
             "Pre-Calculus 30",
             "Biology 30, Chemistry 30, or Physics 30"
           ],
@@ -4085,8 +4089,7 @@
         "Indigenous Land Stewardship": {
           "degree_name": "Indigenous Land Stewardship",
           "grade_12_requirements": [
-            "English Language Arts A30",
-            "English Language Arts B30",
+            "English Language Arts A30 or English Language Arts B30",
             "Positionality statement"
           ],
           "grade_11_requirements": [
@@ -4105,8 +4108,7 @@
         "Indigenous Teacher Education Program (NITEP)": {
           "degree_name": "Indigenous Teacher Education Program (NITEP)",
           "grade_12_requirements": [
-            "English Language Arts A30",
-            "English Language Arts B30"
+            "English Language Arts A30 or English Language Arts B30"
           ],
           "grade_11_requirements": [],
           "related_courses": [],
@@ -4116,8 +4118,7 @@
         "International Economics": {
           "degree_name": "International Economics",
           "grade_12_requirements": [
-            "English Language Arts A30",
-            "English Language Arts B30",
+            "English Language Arts A30 or English Language Arts B30",
             "Pre-Calculus 30"
           ],
           "grade_11_requirements": [],
@@ -4133,8 +4134,7 @@
         "Kinesiology": {
           "degree_name": "Kinesiology",
           "grade_12_requirements": [
-            "English Language Arts A30",
-            "English Language Arts B30",
+            "English Language Arts A30 or English Language Arts B30",
             "One of Pre-Calculus 30, Biology 30, Chemistry 30, or Physics 30"
           ],
           "grade_11_requirements": [],
@@ -4150,8 +4150,7 @@
         "Media Studies": {
           "degree_name": "Media Studies",
           "grade_12_requirements": [
-            "English Language Arts A30",
-            "English Language Arts B30",
+            "English Language Arts A30 or English Language Arts B30",
             "Portfolio submission",
             "Pre-Calculus 30"
           ],
@@ -4168,8 +4167,7 @@
         "Music": {
           "degree_name": "Music",
           "grade_12_requirements": [
-            "English Language Arts A30",
-            "English Language Arts B30",
+            "English Language Arts A30 or English Language Arts B30",
             "Audition, portfolio (students in composition), and letters of reference"
           ],
           "grade_11_requirements": [],
@@ -4184,8 +4182,7 @@
         "Natural Resources": {
           "degree_name": "Natural Resources",
           "grade_12_requirements": [
-            "English Language Arts A30",
-            "English Language Arts B30",
+            "English Language Arts A30 or English Language Arts B30",
             "Pre-Calculus 30",
             "Biology 30"
           ],
@@ -4205,8 +4202,7 @@
         "Pharmaceutical Sciences": {
           "degree_name": "Pharmaceutical Sciences",
           "grade_12_requirements": [
-            "English Language Arts A30",
-            "English Language Arts B30",
+            "English Language Arts A30 or English Language Arts B30",
             "Pre-Calculus 30",
             "Chemistry 30"
           ],
@@ -4225,8 +4221,7 @@
         "Science": {
           "degree_name": "Science",
           "grade_12_requirements": [
-            "English Language Arts A30",
-            "English Language Arts B30",
+            "English Language Arts A30 or English Language Arts B30",
             "Pre-Calculus 30",
             "Biology 30, Chemistry 30, or Physics 30"
           ],
@@ -4245,8 +4240,7 @@
         "Urban Forestry": {
           "degree_name": "Urban Forestry",
           "grade_12_requirements": [
-            "English Language Arts A30",
-            "English Language Arts B30",
+            "English Language Arts A30 or English Language Arts B30",
             "Pre-Calculus 30",
             "Biology 30"
           ],
@@ -4410,9 +4404,11 @@
         "Food and Resource Economics": {
           "degree_name": "Food and Resource Economics",
           "grade_12_requirements": [
-            "English Studies 12",
-            "Pre-Calculus 12 (minimum 67%)",
-            "Calculus 12 (recommended)"
+            "English Language Arts 30-1",
+            "English Language Arts 30-2",
+            "Math 30-1",
+            "Math 31 (5 credits)",
+            "Math 31 (5 credits)"
           ],
           "grade_11_requirements": [
             "There are no specific Grade 11 course requirements"
@@ -4452,7 +4448,7 @@
             "Positionality statement"
           ],
           "grade_11_requirements": [
-            "A Grade 11 Math (Pre-Calculus stream)",
+            "Math 20-1",
             "Biology 11 (strongly recommended) or another approved grade 11 science"
           ],
           "related_courses": [

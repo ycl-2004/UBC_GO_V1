@@ -26,15 +26,14 @@
         "Applied Biology": {
           "degree_name": "Applied Biology",
           "grade_12_requirements": [
-            "English Language Arts 30-1",
-            "English Language Arts 30-2",
+            "English Language Arts 30-1 or English Language Arts 30-2",
             "Math 30-1",
             "Math 31 (5 credits)",
-            "Biology 30"
+            "Biology 30, Chemistry 30, or Physics 30"
           ],
           "grade_11_requirements": [
             "Chemistry 20",
-            "Physics 20"
+            "Physics 20 (may be waived with scores of 86% or higher in senior-level Math and junior-level or senior-level Chemistry, or scores of 5 or higher in IB Mathematics and IB Chemistry)"
           ],
           "related_courses": [
             "Language Arts",
@@ -48,8 +47,7 @@
         "Applied Science (Engineering)": {
           "degree_name": "Applied Science (Engineering)",
           "grade_12_requirements": [
-            "English Language Arts 30-1",
-            "English Language Arts 30-2",
+            "English Language Arts 30-1 or English Language Arts 30-2",
             "Math 30-1",
             "Math 31 (5 credits)",
             "Chemistry 30",
@@ -70,8 +68,7 @@
         "Arts": {
           "degree_name": "Arts",
           "grade_12_requirements": [
-            "English Language Arts 30-1",
-            "English Language Arts 30-2"
+            "English Language Arts 30-1 or English Language Arts 30-2"
           ],
           "grade_11_requirements": [],
           "related_courses": [
@@ -100,8 +97,7 @@
         "Commerce (UBC Sauder School of Business)": {
           "degree_name": "Commerce (UBC Sauder School of Business)",
           "grade_12_requirements": [
-            "English Language Arts 30-1",
-            "English Language Arts 30-2",
+            "English Language Arts 30-1 or English Language Arts 30-2",
             "Math 30-1",
             "Math 31 (5 credits)"
           ],
@@ -117,8 +113,7 @@
         "Dental Hygiene": {
           "degree_name": "Dental Hygiene",
           "grade_12_requirements": [
-            "English Language Arts 30-1",
-            "English Language Arts 30-2",
+            "English Language Arts 30-1 or English Language Arts 30-2",
             "Biology 30",
             "Chemistry 30",
             "Supplemental submission and interview process"
@@ -134,8 +129,7 @@
         "Design in Architecture, Landscape Architecture, and Urbanism": {
           "degree_name": "Design in Architecture, Landscape Architecture, and Urbanism",
           "grade_12_requirements": [
-            "English Language Arts 30-1",
-            "English Language Arts 30-2",
+            "English Language Arts 30-1 or English Language Arts 30-2",
             "Supplemental submission (video interview, creative test, and resume)"
           ],
           "grade_11_requirements": [],
@@ -150,8 +144,7 @@
         "Fine Arts (direct-entry specializations only; excludes Creative Writing)": {
           "degree_name": "Fine Arts (direct-entry specializations only; excludes Creative Writing)",
           "grade_12_requirements": [
-            "English Language Arts 30-1",
-            "English Language Arts 30-2",
+            "English Language Arts 30-1 or English Language Arts 30-2",
             "Audition or portfolio"
           ],
           "grade_11_requirements": [],
@@ -166,13 +159,11 @@
         "Food and Resource Economics": {
           "degree_name": "Food and Resource Economics",
           "grade_12_requirements": [
-            "English Studies 12",
-            "Pre-Calculus 12 (minimum 67%)",
-            "Calculus 12 (recommended)"
+            "English Language Arts 30-1 or English Language Arts 30-2",
+            "Math 30-1 (minimum 67%)",
+            "Math 31 (5 credits) (recommended)"
           ],
-          "grade_11_requirements": [
-            "There are no specific Grade 11 course requirements"
-          ],
+          "grade_11_requirements": [],
           "related_courses": [
             "Language Arts",
             "Mathematics and Computation (will consider Chemistry and Physics in this category)",
@@ -184,15 +175,14 @@
         "Food, Nutrition, and Health": {
           "degree_name": "Food, Nutrition, and Health",
           "grade_12_requirements": [
-            "English Language Arts 30-1",
-            "English Language Arts 30-2",
+            "English Language Arts 30-1 or English Language Arts 30-2",
             "Math 30-1",
             "Math 31 (5 credits)",
-            "Biology 30"
+            "Biology 30, Chemistry 30, or Physics 30"
           ],
           "grade_11_requirements": [
             "Chemistry 20",
-            "Physics 20"
+            "Physics 20 (may be waived with scores of 86% or higher in senior-level Math and junior-level or senior-level Chemistry, or scores of 5 or higher in IB Mathematics and IB Chemistry)"
           ],
           "related_courses": [
             "Language Arts",
@@ -206,12 +196,11 @@
         "Indigenous Land Stewardship": {
           "degree_name": "Indigenous Land Stewardship",
           "grade_12_requirements": [
-            "English Language Arts 30-1",
-            "English Language Arts 30-2",
+            "English Language Arts 30-1 or English Language Arts 30-2",
             "Positionality statement"
           ],
           "grade_11_requirements": [
-            "A Grade 11 Math (Pre-Calculus stream)",
+            "Math 20-1",
             "Biology 20 (strongly recommended) or another approved grade 11 science"
           ],
           "related_courses": [
@@ -226,8 +215,7 @@
         "Indigenous Teacher Education Program (NITEP)": {
           "degree_name": "Indigenous Teacher Education Program (NITEP)",
           "grade_12_requirements": [
-            "English Language Arts 30-1",
-            "English Language Arts 30-2"
+            "English Language Arts 30-1 or English Language Arts 30-2"
           ],
           "grade_11_requirements": [],
           "related_courses": [],
@@ -237,8 +225,7 @@
         "International Economics": {
           "degree_name": "International Economics",
           "grade_12_requirements": [
-            "English Language Arts 30-1",
-            "English Language Arts 30-2",
+            "English Language Arts 30-1 or English Language Arts 30-2",
             "Math 30-1",
             "Math 31 (5 credits)"
           ],
@@ -255,8 +242,7 @@
         "Kinesiology": {
           "degree_name": "Kinesiology",
           "grade_12_requirements": [
-            "English Language Arts 30-1",
-            "English Language Arts 30-2",
+            "English Language Arts 30-1 or English Language Arts 30-2",
             "Math 30-1",
             "Math 31 (5 credits)"
           ],
@@ -273,8 +259,7 @@
         "Media Studies": {
           "degree_name": "Media Studies",
           "grade_12_requirements": [
-            "English Language Arts 30-1",
-            "English Language Arts 30-2",
+            "English Language Arts 30-1 or English Language Arts 30-2",
             "Portfolio submission",
             "Math 30-1",
             "Math 31 (5 credits)"
@@ -292,8 +277,7 @@
         "Music": {
           "degree_name": "Music",
           "grade_12_requirements": [
-            "English Language Arts 30-1",
-            "English Language Arts 30-2",
+            "English Language Arts 30-1 or English Language Arts 30-2",
             "Audition, portfolio (students in composition), and letters of reference"
           ],
           "grade_11_requirements": [],
@@ -308,11 +292,10 @@
         "Natural Resources": {
           "degree_name": "Natural Resources",
           "grade_12_requirements": [
-            "English Language Arts 30-1",
-            "English Language Arts 30-2",
+            "English Language Arts 30-1 or English Language Arts 30-2",
             "Math 30-1",
             "Math 31 (5 credits)",
-            "Biology 30"
+            "Biology 30, Chemistry 30, or Physics 30 (see Related courses below)"
           ],
           "grade_11_requirements": [
             "Chemistry 20",
@@ -330,8 +313,7 @@
         "Pharmaceutical Sciences": {
           "degree_name": "Pharmaceutical Sciences",
           "grade_12_requirements": [
-            "English Language Arts 30-1",
-            "English Language Arts 30-2",
+            "English Language Arts 30-1 or English Language Arts 30-2",
             "Math 30-1",
             "Math 31 (5 credits)",
             "Chemistry 30"
@@ -351,11 +333,10 @@
         "Science": {
           "degree_name": "Science",
           "grade_12_requirements": [
-            "English Language Arts 30-1",
-            "English Language Arts 30-2",
+            "English Language Arts 30-1 or English Language Arts 30-2",
             "Math 30-1",
             "Math 31 (5 credits)",
-            "Biology 30"
+            "Biology 30, Chemistry 30, or Physics 30"
           ],
           "grade_11_requirements": [
             "Chemistry 20",
@@ -372,11 +353,10 @@
         "Urban Forestry": {
           "degree_name": "Urban Forestry",
           "grade_12_requirements": [
-            "English Language Arts 30-1",
-            "English Language Arts 30-2",
+            "English Language Arts 30-1 or English Language Arts 30-2",
             "Math 30-1",
             "Math 31 (5 credits)",
-            "Biology 30"
+            "Biology 30, Chemistry 30, or Physics 30"
           ],
           "grade_11_requirements": [
             "Chemistry 20",
@@ -408,15 +388,13 @@
         "Applied Biology": {
           "degree_name": "Applied Biology",
           "grade_12_requirements": [
-            "English Studies 12",
-            "English First Peoples 12",
+            "English Studies 12 or English First Peoples 12",
             "Pre-Calculus 12",
-            "Anatomy and Physiology 12",
-            "Biology 12"
+            "Anatomy and Physiology 12 (Biology 12), Chemistry 12, or Physics 12"
           ],
           "grade_11_requirements": [
             "Chemistry 11",
-            "Physics 11"
+            "Physics 11 (may be waived with scores of 86% or higher in senior-level Math and junior-level or senior-level Chemistry, or scores of 5 or higher in IB Mathematics and IB Chemistry)"
           ],
           "related_courses": [
             "Language Arts",
@@ -430,8 +408,7 @@
         "Applied Science (Engineering)": {
           "degree_name": "Applied Science (Engineering)",
           "grade_12_requirements": [
-            "English Studies 12",
-            "English First Peoples 12",
+            "English Studies 12 or English First Peoples 12",
             "Pre-Calculus 12",
             "Chemistry 12",
             "Physics 12"
@@ -451,8 +428,7 @@
         "Arts": {
           "degree_name": "Arts",
           "grade_12_requirements": [
-            "English Studies 12",
-            "English First Peoples 12"
+            "English Studies 12 or English First Peoples 12"
           ],
           "grade_11_requirements": [],
           "related_courses": [
@@ -481,8 +457,7 @@
         "Commerce (UBC Sauder School of Business)": {
           "degree_name": "Commerce (UBC Sauder School of Business)",
           "grade_12_requirements": [
-            "English Studies 12",
-            "English First Peoples 12",
+            "English Studies 12 or English First Peoples 12",
             "Pre-Calculus 12"
           ],
           "grade_11_requirements": [],
@@ -497,8 +472,7 @@
         "Dental Hygiene": {
           "degree_name": "Dental Hygiene",
           "grade_12_requirements": [
-            "English Studies 12",
-            "English First Peoples 12",
+            "English Studies 12 or English First Peoples 12",
             "Anatomy and Physiology 12",
             "Biology 12",
             "Chemistry 12",
@@ -515,8 +489,7 @@
         "Design in Architecture, Landscape Architecture, and Urbanism": {
           "degree_name": "Design in Architecture, Landscape Architecture, and Urbanism",
           "grade_12_requirements": [
-            "English Studies 12",
-            "English First Peoples 12",
+            "English Studies 12 or English First Peoples 12",
             "Supplemental submission (video interview, creative test, and resume)"
           ],
           "grade_11_requirements": [],
@@ -531,8 +504,7 @@
         "Fine Arts (direct-entry specializations only; excludes Creative Writing)": {
           "degree_name": "Fine Arts (direct-entry specializations only; excludes Creative Writing)",
           "grade_12_requirements": [
-            "English Studies 12",
-            "English First Peoples 12",
+            "English Studies 12 or English First Peoples 12",
             "Audition or portfolio"
           ],
           "grade_11_requirements": [],
@@ -547,13 +519,11 @@
         "Food and Resource Economics": {
           "degree_name": "Food and Resource Economics",
           "grade_12_requirements": [
-            "English Studies 12",
+            "English Studies 12 or English First Peoples 12",
             "Pre-Calculus 12 (minimum 67%)",
             "Calculus 12 (recommended)"
           ],
-          "grade_11_requirements": [
-            "There are no specific Grade 11 course requirements"
-          ],
+          "grade_11_requirements": [],
           "related_courses": [
             "Language Arts",
             "Mathematics and Computation (will consider Chemistry and Physics in this category)",
@@ -565,15 +535,13 @@
         "Food, Nutrition, and Health": {
           "degree_name": "Food, Nutrition, and Health",
           "grade_12_requirements": [
-            "English Studies 12",
-            "English First Peoples 12",
+            "English Studies 12 or English First Peoples 12",
             "Pre-Calculus 12",
-            "Anatomy and Physiology 12",
-            "Biology 12"
+            "Anatomy and Physiology 12 (Biology 12), Chemistry 12, or Physics 12"
           ],
           "grade_11_requirements": [
             "Chemistry 11",
-            "Physics 11"
+            "Physics 11 (may be waived with scores of 86% or higher in senior-level Math and junior-level or senior-level Chemistry, or scores of 5 or higher in IB Mathematics and IB Chemistry)"
           ],
           "related_courses": [
             "Language Arts",
@@ -587,12 +555,11 @@
         "Indigenous Land Stewardship": {
           "degree_name": "Indigenous Land Stewardship",
           "grade_12_requirements": [
-            "English Studies 12",
-            "English First Peoples 12",
+            "English Studies 12 or English First Peoples 12",
             "Positionality statement"
           ],
           "grade_11_requirements": [
-            "A Grade 11 Math (Pre-Calculus stream)",
+            "Pre-Calculus 11",
             "Biology 11 (strongly recommended) or another approved grade 11 science"
           ],
           "related_courses": [
@@ -607,8 +574,7 @@
         "Indigenous Teacher Education Program (NITEP)": {
           "degree_name": "Indigenous Teacher Education Program (NITEP)",
           "grade_12_requirements": [
-            "English Studies 12",
-            "English First Peoples 12"
+            "English Studies 12 or English First Peoples 12"
           ],
           "grade_11_requirements": [],
           "related_courses": [],
@@ -618,8 +584,7 @@
         "International Economics": {
           "degree_name": "International Economics",
           "grade_12_requirements": [
-            "English Studies 12",
-            "English First Peoples 12",
+            "English Studies 12 or English First Peoples 12",
             "Pre-Calculus 12"
           ],
           "grade_11_requirements": [],
@@ -635,8 +600,7 @@
         "Kinesiology": {
           "degree_name": "Kinesiology",
           "grade_12_requirements": [
-            "English Studies 12",
-            "English First Peoples 12",
+            "English Studies 12 or English First Peoples 12",
             "Pre-Calculus 12"
           ],
           "grade_11_requirements": [],
@@ -652,8 +616,7 @@
         "Media Studies": {
           "degree_name": "Media Studies",
           "grade_12_requirements": [
-            "English Studies 12",
-            "English First Peoples 12",
+            "English Studies 12 or English First Peoples 12",
             "Portfolio submission",
             "Pre-Calculus 12"
           ],
@@ -670,8 +633,7 @@
         "Music": {
           "degree_name": "Music",
           "grade_12_requirements": [
-            "English Studies 12",
-            "English First Peoples 12",
+            "English Studies 12 or English First Peoples 12",
             "Audition, portfolio (students in composition), and letters of reference"
           ],
           "grade_11_requirements": [],
@@ -686,11 +648,9 @@
         "Natural Resources": {
           "degree_name": "Natural Resources",
           "grade_12_requirements": [
-            "English Studies 12",
-            "English First Peoples 12",
+            "English Studies 12 or English First Peoples 12",
             "Pre-Calculus 12",
-            "Anatomy and Physiology 12",
-            "Biology 12"
+            "Anatomy and Physiology 12 (Biology 12), Chemistry 12, or Physics 12 (see Related courses below)"
           ],
           "grade_11_requirements": [
             "Chemistry 11",
@@ -708,8 +668,7 @@
         "Pharmaceutical Sciences": {
           "degree_name": "Pharmaceutical Sciences",
           "grade_12_requirements": [
-            "English Studies 12",
-            "English First Peoples 12",
+            "English Studies 12 or English First Peoples 12",
             "Pre-Calculus 12",
             "Chemistry 12"
           ],
@@ -728,11 +687,9 @@
         "Science": {
           "degree_name": "Science",
           "grade_12_requirements": [
-            "English Studies 12",
-            "English First Peoples 12",
+            "English Studies 12 or English First Peoples 12",
             "Pre-Calculus 12",
-            "Anatomy and Physiology 12",
-            "Biology 12"
+            "Anatomy and Physiology 12 (Biology 12), Chemistry 12, or Physics 12"
           ],
           "grade_11_requirements": [
             "Chemistry 11",
@@ -749,11 +706,9 @@
         "Urban Forestry": {
           "degree_name": "Urban Forestry",
           "grade_12_requirements": [
-            "English Studies 12",
-            "English First Peoples 12",
+            "English Studies 12 or English First Peoples 12",
             "Pre-Calculus 12",
-            "Anatomy and Physiology 12",
-            "Biology 12"
+            "Anatomy and Physiology 12 (Biology 12), Chemistry 12, or Physics 12"
           ],
           "grade_11_requirements": [
             "Chemistry 11",
@@ -787,11 +742,11 @@
           "grade_12_requirements": [
             "English Language Arts 40S",
             "Pre-Calculus Mathematics 40S",
-            "Biology 40S"
+            "Biology 40S, Chemistry 40S, or Physics 40S"
           ],
           "grade_11_requirements": [
             "Chemistry 30S",
-            "Physics 30S"
+            "Physics 30S (may be waived with scores of 86% or higher in senior-level Math and junior-level or senior-level Chemistry, or scores of 5 or higher in IB Mathematics and IB Chemistry)"
           ],
           "related_courses": [
             "Language Arts",
@@ -915,13 +870,11 @@
         "Food and Resource Economics": {
           "degree_name": "Food and Resource Economics",
           "grade_12_requirements": [
-            "English Studies 12",
-            "Pre-Calculus 12 (minimum 67%)",
-            "Calculus 12 (recommended)"
+            "English Language Arts 40S",
+            "Pre-Calculus Mathematics 40S (minimum 67%)",
+            "Calculus (recommended)"
           ],
-          "grade_11_requirements": [
-            "There are no specific Grade 11 course requirements"
-          ],
+          "grade_11_requirements": [],
           "related_courses": [
             "Language Arts",
             "Mathematics and Computation (will consider Chemistry and Physics in this category)",
@@ -935,11 +888,11 @@
           "grade_12_requirements": [
             "English Language Arts 40S",
             "Pre-Calculus Mathematics 40S",
-            "Biology 40S"
+            "Biology 40S, Chemistry 40S, or Physics 40S"
           ],
           "grade_11_requirements": [
             "Chemistry 30S",
-            "Physics 30S"
+            "Physics 30S (may be waived with scores of 86% or higher in senior-level Math and junior-level or senior-level Chemistry, or scores of 5 or higher in IB Mathematics and IB Chemistry)"
           ],
           "related_courses": [
             "Language Arts",
@@ -1048,7 +1001,7 @@
           "grade_12_requirements": [
             "English Language Arts 40S",
             "Pre-Calculus Mathematics 40S",
-            "Biology 40S"
+            "Biology 40S, Chemistry 40S, or Physics 40S (see Related courses below)"
           ],
           "grade_11_requirements": [
             "Chemistry 30S",
@@ -1087,7 +1040,7 @@
           "grade_12_requirements": [
             "English Language Arts 40S",
             "Pre-Calculus Mathematics 40S",
-            "Biology 40S"
+            "Biology 40S, Chemistry 40S, or Physics 40S"
           ],
           "grade_11_requirements": [
             "Chemistry 30S",
@@ -1106,7 +1059,7 @@
           "grade_12_requirements": [
             "English Language Arts 40S",
             "Pre-Calculus Mathematics 40S",
-            "Biology 40S"
+            "Biology 40S, Chemistry 40S, or Physics 40S"
           ],
           "grade_11_requirements": [
             "Chemistry 30S",
@@ -1144,7 +1097,7 @@
           ],
           "grade_11_requirements": [
             "Chemistry 111 or Chemistry 112",
-            "Physics 111 or Physics 112"
+            "Physics 111 or Physics 112 (may be waived with scores of 86% or higher in senior-level Math and junior-level or senior-level Chemistry, or scores of 5 or higher in IB Mathematics and IB Chemistry)"
           ],
           "related_courses": [
             "Language Arts",
@@ -1268,13 +1221,11 @@
         "Food and Resource Economics": {
           "degree_name": "Food and Resource Economics",
           "grade_12_requirements": [
-            "English Studies 12",
-            "Pre-Calculus 12 (minimum 67%)",
-            "Calculus 12 (recommended)"
+            "English Language Arts 121 or English Language Arts 122",
+            "Pre-Calculus A 120 or Pre-Calculus B 120 (minimum 67%)",
+            "Calculus 120 (recommended)"
           ],
-          "grade_11_requirements": [
-            "There are no specific Grade 11 course requirements"
-          ],
+          "grade_11_requirements": [],
           "related_courses": [
             "Language Arts",
             "Mathematics and Computation (will consider Chemistry and Physics in this category)",
@@ -1292,7 +1243,7 @@
           ],
           "grade_11_requirements": [
             "Chemistry 111 or Chemistry 112",
-            "Physics 111 or Physics 112"
+            "Physics 111 or Physics 112 (may be waived with scores of 86% or higher in senior-level Math and junior-level or senior-level Chemistry, or scores of 5 or higher in IB Mathematics and IB Chemistry)"
           ],
           "related_courses": [
             "Language Arts",
@@ -1310,7 +1261,8 @@
             "Positionality statement"
           ],
           "grade_11_requirements": [
-            "A Grade 11 Math (Pre-Calculus stream)",
+            "Pre-Calculus A 110",
+            "Pre-Calculus B 110",
             "Biology 111 or Biology 112 (strongly recommended) or another approved grade 11 science"
           ],
           "related_courses": [
@@ -1401,7 +1353,7 @@
           "grade_12_requirements": [
             "English 121 or English 122",
             "Pre-Calculus A 120 and Pre-Calculus B 120",
-            "Biology 121 or Biology 122"
+            "Biology 121 or Biology 122, Chemistry 121 or Chemistry 122, or Physics 121 or Physics 122 (see Related courses below)"
           ],
           "grade_11_requirements": [
             "Chemistry 111 or Chemistry 112",
@@ -1459,7 +1411,7 @@
           "grade_12_requirements": [
             "English 121 or English 122",
             "Pre-Calculus A 120 and Pre-Calculus B 120",
-            "Biology 121 or Biology 122"
+            "Biology 121 or Biology 122, Chemistry 121 or Chemistry 122, or Physics 121 or Physics 122"
           ],
           "grade_11_requirements": [
             "Chemistry 111 or Chemistry 112",
@@ -1497,7 +1449,7 @@
           ],
           "grade_11_requirements": [
             "Chemistry 2202",
-            "Physics 2204"
+            "Physics 2204 (may be waived with scores of 86% or higher in senior-level Math and junior-level or senior-level Chemistry, or scores of 5 or higher in IB Mathematics and IB Chemistry)"
           ],
           "related_courses": [
             "Language Arts",
@@ -1645,7 +1597,7 @@
           ],
           "grade_11_requirements": [
             "Chemistry 2202",
-            "Physics 2204"
+            "Physics 2204 (may be waived with scores of 86% or higher in senior-level Math and junior-level or senior-level Chemistry, or scores of 5 or higher in IB Mathematics and IB Chemistry)"
           ],
           "related_courses": [
             "Language Arts",
@@ -1754,7 +1706,7 @@
           "grade_12_requirements": [
             "English 3201",
             "Advanced Mathematics 3200 or Calculus 3208",
-            "Biology 3201"
+            "Biology 3201, Chemistry 3202, or Physics 3204 (see Related courses below)"
           ],
           "grade_11_requirements": [
             "Chemistry 2202",
@@ -1812,7 +1764,7 @@
           "grade_12_requirements": [
             "English 3201",
             "Advanced Mathematics 3200 or Calculus 3208",
-            "Biology 3201"
+            "Biology 3201, Chemistry 3202, or Physics 3204"
           ],
           "grade_11_requirements": [
             "Chemistry 2202",
@@ -1850,7 +1802,7 @@
           ],
           "grade_11_requirements": [
             "Chemistry 20",
-            "Physics 20"
+            "Physics 20 (may be waived with scores of 86% or higher in senior-level Math and junior-level or senior-level Chemistry, or scores of 5 or higher in IB Mathematics and IB Chemistry)"
           ],
           "related_courses": [
             "Language Arts",
@@ -1974,13 +1926,11 @@
         "Food and Resource Economics": {
           "degree_name": "Food and Resource Economics",
           "grade_12_requirements": [
-            "English Studies 12",
-            "Pre-Calculus 12 (minimum 67%)",
-            "Calculus 12 (recommended)"
+            "English Language Arts 30-1 or English Language Arts 30-2",
+            "Math 30-1 (minimum 67%)",
+            "Math 31 (5 credits) (recommended)"
           ],
-          "grade_11_requirements": [
-            "There are no specific Grade 11 course requirements"
-          ],
+          "grade_11_requirements": [],
           "related_courses": [
             "Language Arts",
             "Mathematics and Computation (will consider Chemistry and Physics in this category)",
@@ -1998,7 +1948,7 @@
           ],
           "grade_11_requirements": [
             "Chemistry 20",
-            "Physics 20"
+            "Physics 20 (may be waived with scores of 86% or higher in senior-level Math and junior-level or senior-level Chemistry, or scores of 5 or higher in IB Mathematics and IB Chemistry)"
           ],
           "related_courses": [
             "Language Arts",
@@ -2016,7 +1966,7 @@
             "Positionality statement"
           ],
           "grade_11_requirements": [
-            "A Grade 11 Math (Pre-Calculus stream)",
+            "Math 20-1",
             "Biology 20 (strongly recommended) or another approved grade 11 science"
           ],
           "related_courses": [
@@ -2107,7 +2057,7 @@
           "grade_12_requirements": [
             "English Language Arts 30-1",
             "Math 30-1 or Math 31 (5 credits)",
-            "Biology 30"
+            "Biology 30, Chemistry 30, or Physics 30 (see Related courses below)"
           ],
           "grade_11_requirements": [
             "Chemistry 20",
@@ -2165,7 +2115,7 @@
           "grade_12_requirements": [
             "English Language Arts 30-1",
             "Math 30-1 or Math 31 (5 credits)",
-            "Biology 30"
+            "Biology 30, Chemistry 30, or Physics 30"
           ],
           "grade_11_requirements": [
             "Chemistry 20",
@@ -2203,7 +2153,7 @@
           ],
           "grade_11_requirements": [
             "Chemistry 11",
-            "Physics 11"
+            "Physics 11 (may be waived with scores of 86% or higher in senior-level Math and junior-level or senior-level Chemistry, or scores of 5 or higher in IB Mathematics and IB Chemistry)"
           ],
           "related_courses": [
             "Language Arts",
@@ -2327,13 +2277,11 @@
         "Food and Resource Economics": {
           "degree_name": "Food and Resource Economics",
           "grade_12_requirements": [
-            "English Studies 12",
+            "English 12 or English 12 African Heritage",
             "Pre-Calculus 12 (minimum 67%)",
             "Calculus 12 (recommended)"
           ],
-          "grade_11_requirements": [
-            "There are no specific Grade 11 course requirements"
-          ],
+          "grade_11_requirements": [],
           "related_courses": [
             "Language Arts",
             "Mathematics and Computation (will consider Chemistry and Physics in this category)",
@@ -2351,7 +2299,7 @@
           ],
           "grade_11_requirements": [
             "Chemistry 11",
-            "Physics 11"
+            "Physics 11 (may be waived with scores of 86% or higher in senior-level Math and junior-level or senior-level Chemistry, or scores of 5 or higher in IB Mathematics and IB Chemistry)"
           ],
           "related_courses": [
             "Language Arts",
@@ -2369,7 +2317,7 @@
             "Positionality statement"
           ],
           "grade_11_requirements": [
-            "A Grade 11 Math (Pre-Calculus stream)",
+            "Pre-Calculus 11",
             "Biology 11 (strongly recommended) or another approved grade 11 science"
           ],
           "related_courses": [
@@ -2460,7 +2408,7 @@
           "grade_12_requirements": [
             "English 12 or English Communications 12",
             "Pre-Calculus 12",
-            "Biology 12"
+            "Biology 12, Chemistry 12, or Physics 12 (see Related courses below)"
           ],
           "grade_11_requirements": [
             "Chemistry 11",
@@ -2518,7 +2466,7 @@
           "grade_12_requirements": [
             "English 12 or English Communications 12",
             "Pre-Calculus 12",
-            "Biology 12"
+            "Biology 12, Chemistry 12, or Physics 12"
           ],
           "grade_11_requirements": [
             "Chemistry 11",
@@ -2556,7 +2504,7 @@
           ],
           "grade_11_requirements": [
             "Chemistry 20",
-            "Physics 20"
+            "Physics 20 (may be waived with scores of 86% or higher in senior-level Math and junior-level or senior-level Chemistry, or scores of 5 or higher in IB Mathematics and IB Chemistry)"
           ],
           "related_courses": [
             "Language Arts",
@@ -2680,13 +2628,11 @@
         "Food and Resource Economics": {
           "degree_name": "Food and Resource Economics",
           "grade_12_requirements": [
-            "English Studies 12",
-            "Pre-Calculus 12 (minimum 67%)",
-            "Calculus 12 (recommended)"
+            "English Language Arts 30-1 or English Language Arts 30-2",
+            "Math 30-1 (minimum 67%)",
+            "Math 31 (5 credits) (recommended)"
           ],
-          "grade_11_requirements": [
-            "There are no specific Grade 11 course requirements"
-          ],
+          "grade_11_requirements": [],
           "related_courses": [
             "Language Arts",
             "Mathematics and Computation (will consider Chemistry and Physics in this category)",
@@ -2704,7 +2650,7 @@
           ],
           "grade_11_requirements": [
             "Chemistry 20",
-            "Physics 20"
+            "Physics 20 (may be waived with scores of 86% or higher in senior-level Math and junior-level or senior-level Chemistry, or scores of 5 or higher in IB Mathematics and IB Chemistry)"
           ],
           "related_courses": [
             "Language Arts",
@@ -2722,7 +2668,7 @@
             "Positionality statement"
           ],
           "grade_11_requirements": [
-            "A Grade 11 Math (Pre-Calculus stream)",
+            "Math 20-1",
             "Biology 20 (strongly recommended) or another approved grade 11 science"
           ],
           "related_courses": [
@@ -2813,7 +2759,7 @@
           "grade_12_requirements": [
             "English Language Arts 30-1",
             "Math 30-1 or Math 31 (5 credits)",
-            "Biology 30"
+            "Biology 30, Chemistry 30, or Physics 30 (see Related courses below)"
           ],
           "grade_11_requirements": [
             "Chemistry 20",
@@ -2871,7 +2817,7 @@
           "grade_12_requirements": [
             "English Language Arts 30-1",
             "Math 30-1 or Math 31 (5 credits)",
-            "Biology 30"
+            "Biology 30, Chemistry 30, or Physics 30"
           ],
           "grade_11_requirements": [
             "Chemistry 20",
@@ -2906,11 +2852,11 @@
             "ENG4U (English)",
             "MHF4U (Advanced Functions)",
             "MCV4U (Calculus and Vectors)",
-            "SBI4U (Biology)"
+            "SBI4U (Biology), SCH4U (Chemistry), or SPH4U (Physics)"
           ],
           "grade_11_requirements": [
             "SCH3U (Grade 11 Chemistry)",
-            "SPH3U (Grade 11 Physics)"
+            "SPH3U (Physics) (may be waived with scores of 86% or higher in senior-level Math and junior-level or senior-level Chemistry, or scores of 5 or higher in IB Mathematics and IB Chemistry)"
           ],
           "related_courses": [
             "Language Arts",
@@ -3036,13 +2982,11 @@
         "Food and Resource Economics": {
           "degree_name": "Food and Resource Economics",
           "grade_12_requirements": [
-            "English Studies 12",
-            "Pre-Calculus 12 (minimum 67%)",
-            "Calculus 12 (recommended)"
+            "ENG4U (English)",
+            "MHF4U (Advanced Functions) (minimum 67%)",
+            "MCV4U (Calculus and Vectors) (recommended)"
           ],
-          "grade_11_requirements": [
-            "There are no specific Grade 11 course requirements"
-          ],
+          "grade_11_requirements": [],
           "related_courses": [
             "Language Arts",
             "Mathematics and Computation (will consider Chemistry and Physics in this category)",
@@ -3057,11 +3001,11 @@
             "ENG4U (English)",
             "MHF4U (Advanced Functions)",
             "MCV4U (Calculus and Vectors)",
-            "SBI4U (Biology)"
+            "SBI4U (Biology), SCH4U (Chemistry), or SPH4U (Physics)"
           ],
           "grade_11_requirements": [
             "SCH3U (Grade 11 Chemistry)",
-            "SPH3U (Grade 11 Physics)"
+            "SPH3U (Physics) (may be waived with scores of 86% or higher in senior-level Math and junior-level or senior-level Chemistry, or scores of 5 or higher in IB Mathematics and IB Chemistry)"
           ],
           "related_courses": [
             "Language Arts",
@@ -3079,7 +3023,8 @@
             "Positionality statement"
           ],
           "grade_11_requirements": [
-            "A Grade 11 Math (Pre-Calculus stream)",
+            "MCR3U (Functions)",
+            "MCF3M (Functions and Applications)",
             "SBI3U (Grade 11 Biology) (strongly recommended) or another approved grade 11 science"
           ],
           "related_courses": [
@@ -3174,7 +3119,7 @@
             "ENG4U (English)",
             "MHF4U (Advanced Functions)",
             "MCV4U (Calculus and Vectors)",
-            "SBI4U (Biology)"
+            "SBI4U (Biology), SCH4U (Chemistry), or SPH4U (Physics) (see Related courses below)"
           ],
           "grade_11_requirements": [
             "SCH3U (Chemistry)",
@@ -3215,7 +3160,7 @@
             "ENG4U (English)",
             "MHF4U (Advanced Functions)",
             "MCV4U (Calculus and Vectors)",
-            "SBI4U (Biology)"
+            "SBI4U (Biology), SCH4U (Chemistry), or SPH4U (Physics)"
           ],
           "grade_11_requirements": [
             "SCH3U (Chemistry)",
@@ -3235,7 +3180,7 @@
             "ENG4U (English)",
             "MHF4U (Advanced Functions)",
             "MCV4U (Calculus and Vectors)",
-            "SBI4U (Biology)"
+            "SBI4U (Biology), SCH4U (Chemistry), or SPH4U (Physics)"
           ],
           "grade_11_requirements": [
             "SCH3U (Chemistry)",
@@ -3397,13 +3342,11 @@
         "Food and Resource Economics": {
           "degree_name": "Food and Resource Economics",
           "grade_12_requirements": [
-            "English Studies 12",
-            "Pre-Calculus 12 (minimum 67%)",
-            "Calculus 12 (recommended)"
+            "English 621A",
+            "Pre-Calculus 621B (minimum 67%)",
+            "Calculus 621B (recommended)"
           ],
-          "grade_11_requirements": [
-            "There are no specific Grade 11 course requirements"
-          ],
+          "grade_11_requirements": [],
           "related_courses": [
             "Language Arts",
             "Mathematics and Computation (will consider Chemistry and Physics in this category)",
@@ -3439,7 +3382,7 @@
             "Positionality statement"
           ],
           "grade_11_requirements": [
-            "A Grade 11 Math (Pre-Calculus stream)",
+            "Pre-Calculus 521B",
             "BIO521 (strongly recommended) or another approved grade 11 science"
           ],
           "related_courses": [
@@ -3622,11 +3565,11 @@
           "grade_12_requirements": [
             "English 603 or 604",
             "Mathematics 201-NYA, 201-NYB, 201-NYC",
-            "Biology 101-NYA"
+            "A CEGEP DEC or equivalent two-year pre-university program"
           ],
           "grade_11_requirements": [
             "A Grade 11 Chemistry",
-            "A Grade 11 Physics"
+            "A Grade 11 Physics (may be waived with scores of 86% or higher in senior-level Math and junior-level or senior-level Chemistry, or scores of 5 or higher in IB Mathematics and IB Chemistry)"
           ],
           "related_courses": [
             "Language Arts",
@@ -3750,13 +3693,9 @@
         "Food and Resource Economics": {
           "degree_name": "Food and Resource Economics",
           "grade_12_requirements": [
-            "English Studies 12",
-            "Pre-Calculus 12 (minimum 67%)",
-            "Calculus 12 (recommended)"
+            "A CEGEP DEC or equivalent two-year pre-university program"
           ],
-          "grade_11_requirements": [
-            "There are no specific Grade 11 course requirements"
-          ],
+          "grade_11_requirements": [],
           "related_courses": [
             "Language Arts",
             "Mathematics and Computation (will consider Chemistry and Physics in this category)",
@@ -3770,11 +3709,11 @@
           "grade_12_requirements": [
             "English 603 or 604",
             "Mathematics 201-NYA, 201-NYB, 201-NYC",
-            "Biology 101-NYA"
+            "A CEGEP DEC or equivalent two-year pre-university program"
           ],
           "grade_11_requirements": [
             "A Grade 11 Chemistry",
-            "A Grade 11 Physics"
+            "A Grade 11 Physics (may be waived with scores of 86% or higher in senior-level Math and junior-level or senior-level Chemistry, or scores of 5 or higher in IB Mathematics and IB Chemistry)"
           ],
           "related_courses": [
             "Language Arts",
@@ -3883,7 +3822,7 @@
           "grade_12_requirements": [
             "English 603 or 604",
             "Mathematics 201-NYA, 201-NYB, 201-NYC",
-            "Biology 101-NYA"
+            "A CEGEP DEC or equivalent two-year pre-university program (see Related courses below)"
           ],
           "grade_11_requirements": [
             "A Grade 11 Chemistry",
@@ -3922,7 +3861,7 @@
           "grade_12_requirements": [
             "English 603 or 604",
             "Mathematics 201-NYA, 201-NYB, 201-NYC",
-            "Biology 101-NYA"
+            "A CEGEP DEC or equivalent two-year pre-university program"
           ],
           "grade_11_requirements": [
             "A Grade 11 Chemistry",
@@ -3941,7 +3880,7 @@
           "grade_12_requirements": [
             "English 603 or 604",
             "Mathematics 201-NYA, 201-NYB, 201-NYC",
-            "Biology 101-NYA"
+            "A CEGEP DEC or equivalent two-year pre-university program"
           ],
           "grade_11_requirements": [
             "A Grade 11 Chemistry",
@@ -3973,14 +3912,13 @@
         "Applied Biology": {
           "degree_name": "Applied Biology",
           "grade_12_requirements": [
-            "English Language Arts A30",
-            "English Language Arts B30",
+            "English Language Arts A30 or English Language Arts B30",
             "Pre-Calculus 30",
-            "Biology 30"
+            "Biology 30, Chemistry 30, or Physics 30"
           ],
           "grade_11_requirements": [
             "Chemistry 20",
-            "Physics 20"
+            "Physics 20 (may be waived with scores of 86% or higher in senior-level Math and junior-level or senior-level Chemistry, or scores of 5 or higher in IB Mathematics and IB Chemistry)"
           ],
           "related_courses": [
             "Language Arts",
@@ -3994,8 +3932,7 @@
         "Applied Science (Engineering)": {
           "degree_name": "Applied Science (Engineering)",
           "grade_12_requirements": [
-            "English Language Arts A30",
-            "English Language Arts B30",
+            "English Language Arts A30 or English Language Arts B30",
             "Pre-Calculus 30",
             "Chemistry 30",
             "Physics 30"
@@ -4015,8 +3952,7 @@
         "Arts": {
           "degree_name": "Arts",
           "grade_12_requirements": [
-            "English Language Arts A30",
-            "English Language Arts B30"
+            "English Language Arts A30 or English Language Arts B30"
           ],
           "grade_11_requirements": [],
           "related_courses": [
@@ -4045,8 +3981,7 @@
         "Commerce (UBC Sauder School of Business)": {
           "degree_name": "Commerce (UBC Sauder School of Business)",
           "grade_12_requirements": [
-            "English Language Arts A30",
-            "English Language Arts B30",
+            "English Language Arts A30 or English Language Arts B30",
             "Pre-Calculus 30"
           ],
           "grade_11_requirements": [],
@@ -4061,8 +3996,7 @@
         "Dental Hygiene": {
           "degree_name": "Dental Hygiene",
           "grade_12_requirements": [
-            "English Language Arts A30",
-            "English Language Arts B30",
+            "English Language Arts A30 or English Language Arts B30",
             "Biology 30",
             "Chemistry 30",
             "Supplemental submission and interview process"
@@ -4078,8 +4012,7 @@
         "Design in Architecture, Landscape Architecture, and Urbanism": {
           "degree_name": "Design in Architecture, Landscape Architecture, and Urbanism",
           "grade_12_requirements": [
-            "English Language Arts A30",
-            "English Language Arts B30",
+            "English Language Arts A30 or English Language Arts B30",
             "Supplemental submission (video interview, creative test, and resume)"
           ],
           "grade_11_requirements": [],
@@ -4094,8 +4027,7 @@
         "Fine Arts (direct-entry specializations only; excludes Creative Writing)": {
           "degree_name": "Fine Arts (direct-entry specializations only; excludes Creative Writing)",
           "grade_12_requirements": [
-            "English Language Arts A30",
-            "English Language Arts B30",
+            "English Language Arts A30 or English Language Arts B30",
             "Audition or portfolio"
           ],
           "grade_11_requirements": [],
@@ -4110,13 +4042,11 @@
         "Food and Resource Economics": {
           "degree_name": "Food and Resource Economics",
           "grade_12_requirements": [
-            "English Studies 12",
-            "Pre-Calculus 12 (minimum 67%)",
-            "Calculus 12 (recommended)"
+            "English Language Arts A30 or English Language Arts B30",
+            "Pre-Calculus 30 (minimum 67%)",
+            "Calculus 30 (recommended)"
           ],
-          "grade_11_requirements": [
-            "There are no specific Grade 11 course requirements"
-          ],
+          "grade_11_requirements": [],
           "related_courses": [
             "Language Arts",
             "Mathematics and Computation (will consider Chemistry and Physics in this category)",
@@ -4128,14 +4058,13 @@
         "Food, Nutrition, and Health": {
           "degree_name": "Food, Nutrition, and Health",
           "grade_12_requirements": [
-            "English Language Arts A30",
-            "English Language Arts B30",
+            "English Language Arts A30 or English Language Arts B30",
             "Pre-Calculus 30",
-            "Biology 30"
+            "Biology 30, Chemistry 30, or Physics 30"
           ],
           "grade_11_requirements": [
             "Chemistry 20",
-            "Physics 20"
+            "Physics 20 (may be waived with scores of 86% or higher in senior-level Math and junior-level or senior-level Chemistry, or scores of 5 or higher in IB Mathematics and IB Chemistry)"
           ],
           "related_courses": [
             "Language Arts",
@@ -4149,8 +4078,7 @@
         "Indigenous Land Stewardship": {
           "degree_name": "Indigenous Land Stewardship",
           "grade_12_requirements": [
-            "English Language Arts A30",
-            "English Language Arts B30",
+            "English Language Arts A30 or English Language Arts B30",
             "Positionality statement"
           ],
           "grade_11_requirements": [
@@ -4169,8 +4097,7 @@
         "Indigenous Teacher Education Program (NITEP)": {
           "degree_name": "Indigenous Teacher Education Program (NITEP)",
           "grade_12_requirements": [
-            "English Language Arts A30",
-            "English Language Arts B30"
+            "English Language Arts A30 or English Language Arts B30"
           ],
           "grade_11_requirements": [],
           "related_courses": [],
@@ -4180,8 +4107,7 @@
         "International Economics": {
           "degree_name": "International Economics",
           "grade_12_requirements": [
-            "English Language Arts A30",
-            "English Language Arts B30",
+            "English Language Arts A30 or English Language Arts B30",
             "Pre-Calculus 30"
           ],
           "grade_11_requirements": [],
@@ -4197,8 +4123,7 @@
         "Kinesiology": {
           "degree_name": "Kinesiology",
           "grade_12_requirements": [
-            "English Language Arts A30",
-            "English Language Arts B30",
+            "English Language Arts A30 or English Language Arts B30",
             "Pre-Calculus 30"
           ],
           "grade_11_requirements": [],
@@ -4214,8 +4139,7 @@
         "Media Studies": {
           "degree_name": "Media Studies",
           "grade_12_requirements": [
-            "English Language Arts A30",
-            "English Language Arts B30",
+            "English Language Arts A30 or English Language Arts B30",
             "Portfolio submission",
             "Pre-Calculus 30"
           ],
@@ -4232,8 +4156,7 @@
         "Music": {
           "degree_name": "Music",
           "grade_12_requirements": [
-            "English Language Arts A30",
-            "English Language Arts B30",
+            "English Language Arts A30 or English Language Arts B30",
             "Audition, portfolio (students in composition), and letters of reference"
           ],
           "grade_11_requirements": [],
@@ -4248,10 +4171,9 @@
         "Natural Resources": {
           "degree_name": "Natural Resources",
           "grade_12_requirements": [
-            "English Language Arts A30",
-            "English Language Arts B30",
+            "English Language Arts A30 or English Language Arts B30",
             "Pre-Calculus 30",
-            "Biology 30"
+            "Biology 30, Chemistry 30, or Physics 30 (see Related courses below)"
           ],
           "grade_11_requirements": [
             "Chemistry 20",
@@ -4269,8 +4191,7 @@
         "Pharmaceutical Sciences": {
           "degree_name": "Pharmaceutical Sciences",
           "grade_12_requirements": [
-            "English Language Arts A30",
-            "English Language Arts B30",
+            "English Language Arts A30 or English Language Arts B30",
             "Pre-Calculus 30",
             "Chemistry 30"
           ],
@@ -4289,10 +4210,9 @@
         "Science": {
           "degree_name": "Science",
           "grade_12_requirements": [
-            "English Language Arts A30",
-            "English Language Arts B30",
+            "English Language Arts A30 or English Language Arts B30",
             "Pre-Calculus 30",
-            "Biology 30"
+            "Biology 30, Chemistry 30, or Physics 30"
           ],
           "grade_11_requirements": [
             "Chemistry 20",
@@ -4309,10 +4229,9 @@
         "Urban Forestry": {
           "degree_name": "Urban Forestry",
           "grade_12_requirements": [
-            "English Language Arts A30",
-            "English Language Arts B30",
+            "English Language Arts A30 or English Language Arts B30",
             "Pre-Calculus 30",
-            "Biology 30"
+            "Biology 30, Chemistry 30, or Physics 30"
           ],
           "grade_11_requirements": [
             "Chemistry 20",
@@ -4346,11 +4265,11 @@
           "grade_12_requirements": [
             "English 12 or English Language Arts 12",
             "Pre-Calculus 12",
-            "Biology 12, Chemistry 12, or Physics 12"
+            "Biology 30, Chemistry 30, or Physics 30"
           ],
           "grade_11_requirements": [
             "Chemistry 11",
-            "Physics 11"
+            "Physics 20 (may be waived with scores of 86% or higher in senior-level Math and junior-level or senior-level Chemistry, or scores of 5 or higher in IB Mathematics and IB Chemistry)"
           ],
           "related_courses": [
             "Language Arts",
@@ -4474,13 +4393,11 @@
         "Food and Resource Economics": {
           "degree_name": "Food and Resource Economics",
           "grade_12_requirements": [
-            "English Studies 12",
-            "Pre-Calculus 12 (minimum 67%)",
-            "Calculus 12 (recommended)"
+            "English Language Arts 30-1 or English Language Arts 30-2",
+            "Math 30-1 (minimum 67%)",
+            "Math 31 (5 credits) (recommended)"
           ],
-          "grade_11_requirements": [
-            "There are no specific Grade 11 course requirements"
-          ],
+          "grade_11_requirements": [],
           "related_courses": [
             "Language Arts",
             "Mathematics and Computation (will consider Chemistry and Physics in this category)",
@@ -4494,11 +4411,11 @@
           "grade_12_requirements": [
             "English 12 or English Language Arts 12",
             "Pre-Calculus 12",
-            "Biology 12, Chemistry 12, or Physics 12"
+            "Biology 30, Chemistry 30, or Physics 30"
           ],
           "grade_11_requirements": [
             "Chemistry 11",
-            "Physics 11"
+            "Physics 20 (may be waived with scores of 86% or higher in senior-level Math and junior-level or senior-level Chemistry, or scores of 5 or higher in IB Mathematics and IB Chemistry)"
           ],
           "related_courses": [
             "Language Arts",
@@ -4516,7 +4433,7 @@
             "Positionality statement"
           ],
           "grade_11_requirements": [
-            "A Grade 11 Math (Pre-Calculus stream)",
+            "Math 20-1",
             "Biology 11 (strongly recommended) or another approved grade 11 science"
           ],
           "related_courses": [
@@ -4607,7 +4524,7 @@
           "grade_12_requirements": [
             "English 12 or English Language Arts 12",
             "Pre-Calculus 12",
-            "Biology 12"
+            "Biology 30, Chemistry 30, or Physics 30 (see Related courses below)"
           ],
           "grade_11_requirements": [
             "Chemistry 11",
@@ -4665,7 +4582,7 @@
           "grade_12_requirements": [
             "English 12 or English Language Arts 12",
             "Pre-Calculus 12",
-            "Biology 12"
+            "Biology 30, Chemistry 30, or Physics 30"
           ],
           "grade_11_requirements": [
             "Chemistry 11",
