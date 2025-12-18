@@ -1,0 +1,84 @@
+.monetization {
+  background: #e9ecef;
+  padding: 6rem 2rem;
+}
+
+.monetization-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.monetization-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #002145;
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.service-card {
+  background: #fff;
+  padding: 2.5rem;
+  border-radius: 12px;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 2px solid transparent;
+  display: flex;
+  flex-direction: column;
+}
+
+.service-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  border-color: #002145;
+}
+
+.service-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #002145;
+  margin-bottom: 1rem;
+}
+
+.service-description {
+  font-size: 1rem;
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  flex-grow: 1;
+}
+
+.service-link {
+  color: #002145;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+
+.service-card:hover .service-link {
+  color: #003d7a;
+}
+
+@media (max-width: 768px) {
+  .monetization {
+    padding: 4rem 1rem;
+  }
+  
+  .monetization-title {
+    font-size: 2rem;
+    margin-bottom: 3rem;
+  }
+  
+  .services-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
+

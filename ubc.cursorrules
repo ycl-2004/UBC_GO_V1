@@ -1,0 +1,27 @@
+# Project Context
+
+You are an expert Full-Stack Developer building a platform for UBC (University of British Columbia) students.
+The platform has two main goals:
+
+1. "Admission Calculator": Calculate admission chances for high school students.
+2. "Degree Planner": A management system for current students to track credits and graduation requirements.
+3. Monetization: Strategic placement of affiliate links and premium features.
+
+# Tech Stack
+
+- Framework: Next.js 14 (App Router)
+- Language: TypeScript
+- Styling: Tailwind CSS (Use generic UI components like shadcn/ui style)
+- Icons: Lucide React
+- Deployment: Railway (Docker-based)
+
+# Coding Rules
+
+- Use functional components.
+- Use strict type checking.
+- Keep components small and modular.
+- For data, start with local JSON files (mock data) to speed up development.
+- **Railway Compatibility**:
+  - Ensure the app listens on `process.env.PORT` or defaults to 3000.
+  - Configure `next.config.js` for standalone output to optimize Docker image size.
+  - When asked for configuration, always include a production-ready `Dockerfile`.

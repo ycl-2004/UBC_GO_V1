@@ -1,0 +1,321 @@
+{
+  "description": "Mapping of UBC generic requirements to province-specific high school course codes",
+  "mappings": {
+    "Alberta": {
+      "Grade 12 English": ["English Language Arts 30-1"],
+      "A Grade 12 English": ["English Language Arts 30-1"],
+      "A Grade 12 Pre-Calculus": ["Math 30-1 or Math 31 (5 credits)"],
+      "Grade 12 Pre-Calculus": ["Math 30-1 or Math 31 (5 credits)"],
+      "A Grade 12 Math": ["Math 30-1 or Math 31 (5 credits)"],
+      "Grade 12 Math": ["Math 30-1 or Math 31 (5 credits)"],
+      "A Grade 12 Biology": ["Biology 30"],
+      "Grade 12 Biology": ["Biology 30"],
+      "A Grade 12 Chemistry": ["Chemistry 30"],
+      "Grade 12 Chemistry": ["Chemistry 30"],
+      "A Grade 12 Physics": ["Physics 30"],
+      "Grade 12 Physics": ["Physics 30"],
+      "A Grade 12 Biology, a Grade 12 Chemistry, or a Grade 12 Physics": [
+        "Biology 30, Chemistry 30, or Physics 30"
+      ],
+      "A Grade 12 science": ["Biology 30, Chemistry 30, or Physics 30"],
+      "Grade 12 science": ["Biology 30, Chemistry 30, or Physics 30"],
+      "A Grade 11 Chemistry": ["Chemistry 20"],
+      "Chemistry 11": ["Chemistry 20"],
+      "A Grade 11 Physics": ["Physics 20"],
+      "Physics 11": ["Physics 20"],
+      "A Grade 11 Biology": ["Biology 20"],
+      "Biology 11": ["Biology 20"]
+    },
+    "British Columbia": {
+      "A Grade 12 English": ["English Studies 12 or English First Peoples 12"],
+      "Grade 12 English": ["English Studies 12 or English First Peoples 12"],
+      "A Grade 12 Pre-Calculus": ["Pre-Calculus 12"],
+      "Grade 12 Pre-Calculus": ["Pre-Calculus 12"],
+      "A Grade 12 Math": [
+        "Pre-Calculus 12, Foundations of Math 12, or Calculus 12"
+      ],
+      "Grade 12 Math": [
+        "Pre-Calculus 12, Foundations of Math 12, or Calculus 12"
+      ],
+      "A Grade 12 Biology": ["Anatomy and Physiology 12 or Biology 12"],
+      "Grade 12 Biology": ["Anatomy and Physiology 12 or Biology 12"],
+      "A Grade 12 Chemistry": ["Chemistry 12"],
+      "Grade 12 Chemistry": ["Chemistry 12"],
+      "A Grade 12 Physics": ["Physics 12"],
+      "Grade 12 Physics": ["Physics 12"],
+      "A Grade 12 Biology, a Grade 12 Chemistry, or a Grade 12 Physics": [
+        "Anatomy and Physiology 12, Biology 12, Chemistry 12, or Physics 12"
+      ],
+      "Chemistry 11": ["Chemistry 11"],
+      "Physics 11": ["Physics 11"],
+      "Biology 11": ["Biology 11"]
+    },
+    "Ontario": {
+      "A Grade 12 English": ["ENG4U (English)"],
+      "Grade 12 English": ["ENG4U (English)"],
+      "A Grade 12 Pre-Calculus": [
+        "MHF4U (Advanced Functions) or MCV4U (Calculus and Vectors)"
+      ],
+      "Grade 12 Pre-Calculus": [
+        "MHF4U (Advanced Functions) or MCV4U (Calculus and Vectors)"
+      ],
+      "A Grade 12 Math": [
+        "MHF4U (Advanced Functions), MCV4U (Calculus and Vectors), or MDM4U (Mathematics of Data Management)"
+      ],
+      "Grade 12 Math": ["MHF4U, MCV4U, or MDM4U"],
+      "A Grade 12 Biology": ["SBI4U (Biology)"],
+      "Grade 12 Biology": ["SBI4U (Biology)"],
+      "A Grade 12 Chemistry": ["SCH4U (Chemistry)"],
+      "Grade 12 Chemistry": ["SCH4U (Chemistry)"],
+      "A Grade 12 Physics": ["SPH4U (Physics)"],
+      "Grade 12 Physics": ["SPH4U (Physics)"],
+      "A Grade 12 Biology, a Grade 12 Chemistry, or a Grade 12 Physics": [
+        "SBI4U (Biology), SCH4U (Chemistry), or SPH4U (Physics)"
+      ],
+      "Chemistry 11": ["SCH3U (Grade 11 Chemistry)"],
+      "Physics 11": ["SPH3U (Grade 11 Physics)"],
+      "Biology 11": ["SBI3U (Grade 11 Biology)"]
+    },
+    "Saskatchewan": {
+      "A Grade 12 English": [
+        "English Language Arts A30 or English Language Arts B30"
+      ],
+      "Grade 12 English": [
+        "English Language Arts A30 or English Language Arts B30"
+      ],
+      "A Grade 12 Pre-Calculus": ["Pre-Calculus 30"],
+      "Grade 12 Pre-Calculus": ["Pre-Calculus 30"],
+      "A Grade 12 Math": [
+        "Pre-Calculus 30, Foundations of Math 30, or Calculus 30"
+      ],
+      "Grade 12 Math": [
+        "Pre-Calculus 30, Foundations of Math 30, or Calculus 30"
+      ],
+      "A Grade 12 Biology": ["Biology 30"],
+      "Grade 12 Biology": ["Biology 30"],
+      "A Grade 12 Chemistry": ["Chemistry 30"],
+      "Grade 12 Chemistry": ["Chemistry 30"],
+      "A Grade 12 Physics": ["Physics 30"],
+      "Grade 12 Physics": ["Physics 30"],
+      "A Grade 12 Biology, a Grade 12 Chemistry, or a Grade 12 Physics": [
+        "Biology 30, Chemistry 30, or Physics 30"
+      ]
+    },
+    "Manitoba": {
+      "A Grade 12 English": ["English Language Arts 40S"],
+      "Grade 12 English": ["English Language Arts 40S"],
+      "A Grade 12 Pre-Calculus": ["Pre-Calculus Mathematics 40S"],
+      "Grade 12 Pre-Calculus": ["Pre-Calculus Mathematics 40S"],
+      "A Grade 12 Math": [
+        "Pre-Calculus Mathematics 40S or Applied Mathematics 40S"
+      ],
+      "Grade 12 Math": [
+        "Pre-Calculus Mathematics 40S or Applied Mathematics 40S"
+      ],
+      "A Grade 12 Biology": ["Biology 40S"],
+      "Grade 12 Biology": ["Biology 40S"],
+      "A Grade 12 Chemistry": ["Chemistry 40S"],
+      "Grade 12 Chemistry": ["Chemistry 40S"],
+      "A Grade 12 Physics": ["Physics 40S"],
+      "Grade 12 Physics": ["Physics 40S"],
+      "A Grade 12 Biology, a Grade 12 Chemistry, or a Grade 12 Physics": [
+        "Biology 40S, Chemistry 40S, or Physics 40S"
+      ]
+    },
+    "Quebec": {
+      "A Grade 12 English": ["English 603 or 604"],
+      "Grade 12 English": ["English 603 or 604"],
+      "A Grade 12 Pre-Calculus": ["Mathematics 201-NYA, 201-NYB, 201-NYC"],
+      "Grade 12 Pre-Calculus": ["Mathematics 201-NYA, 201-NYB, 201-NYC"],
+      "A Grade 12 Math": ["Mathematics 201 courses"],
+      "Grade 12 Math": ["Mathematics 201 courses"],
+      "A Grade 12 Biology": ["Biology 101-NYA"],
+      "Grade 12 Biology": ["Biology 101-NYA"],
+      "A Grade 12 Chemistry": ["Chemistry 202-NYA, 202-NYB"],
+      "Grade 12 Chemistry": ["Chemistry 202-NYA, 202-NYB"],
+      "A Grade 12 Physics": ["Physics 203-NYA, 203-NYB"],
+      "Grade 12 Physics": ["Physics 203-NYA, 203-NYB"]
+    },
+    "New Brunswick": {
+      "A Grade 12 English": ["English 12 or English Language Arts 12"],
+      "Grade 12 English": ["English 12 or English Language Arts 12"],
+      "A Grade 12 Pre-Calculus": ["Pre-Calculus 12"],
+      "Grade 12 Pre-Calculus": ["Pre-Calculus 12"],
+      "A Grade 12 Math": [
+        "Pre-Calculus 12, Foundations of Math 12, or Calculus 12"
+      ],
+      "Grade 12 Math": [
+        "Pre-Calculus 12, Foundations of Math 12, or Calculus 12"
+      ],
+      "A Grade 12 Biology": ["Biology 12"],
+      "Grade 12 Biology": ["Biology 12"],
+      "A Grade 12 Chemistry": ["Chemistry 12"],
+      "Grade 12 Chemistry": ["Chemistry 12"],
+      "A Grade 12 Physics": ["Physics 12"],
+      "Grade 12 Physics": ["Physics 12"],
+      "A Grade 12 Biology, a Grade 12 Chemistry, or a Grade 12 Physics": [
+        "Biology 12, Chemistry 12, or Physics 12"
+      ],
+      "Chemistry 11": ["Chemistry 11"],
+      "Physics 11": ["Physics 11"],
+      "Biology 11": ["Biology 11"],
+      "A Grade 11 Chemistry": ["Chemistry 11"],
+      "A Grade 11 Physics": ["Physics 11"],
+      "A Grade 11 Biology": ["Biology 11"]
+    },
+    "Newfoundland & Labrador": {
+      "A Grade 12 English": ["English 3201"],
+      "Grade 12 English": ["English 3201"],
+      "A Grade 12 Pre-Calculus": ["Advanced Mathematics 3200 or Calculus 3208"],
+      "Grade 12 Pre-Calculus": ["Advanced Mathematics 3200 or Calculus 3208"],
+      "A Grade 12 Math": [
+        "Advanced Mathematics 3200, Calculus 3208, or Mathematics 3201"
+      ],
+      "Grade 12 Math": [
+        "Advanced Mathematics 3200, Calculus 3208, or Mathematics 3201"
+      ],
+      "A Grade 12 Biology": ["Biology 3201"],
+      "Grade 12 Biology": ["Biology 3201"],
+      "A Grade 12 Chemistry": ["Chemistry 3202"],
+      "Grade 12 Chemistry": ["Chemistry 3202"],
+      "A Grade 12 Physics": ["Physics 3204"],
+      "Grade 12 Physics": ["Physics 3204"],
+      "A Grade 12 Biology, a Grade 12 Chemistry, or a Grade 12 Physics": [
+        "Biology 3201, Chemistry 3202, or Physics 3204"
+      ],
+      "Chemistry 11": ["Chemistry 2202"],
+      "Physics 11": ["Physics 2204"],
+      "Biology 11": ["Biology 2201"],
+      "A Grade 11 Chemistry": ["Chemistry 2202"],
+      "A Grade 11 Physics": ["Physics 2204"],
+      "A Grade 11 Biology": ["Biology 2201"]
+    },
+    "Nova Scotia": {
+      "A Grade 12 English": ["English 12 or English Communications 12"],
+      "Grade 12 English": ["English 12 or English Communications 12"],
+      "A Grade 12 Pre-Calculus": ["Pre-Calculus 12"],
+      "Grade 12 Pre-Calculus": ["Pre-Calculus 12"],
+      "A Grade 12 Math": ["Pre-Calculus 12, Advanced Math 12, or Math 12"],
+      "Grade 12 Math": ["Pre-Calculus 12, Advanced Math 12, or Math 12"],
+      "A Grade 12 Biology": ["Biology 12"],
+      "Grade 12 Biology": ["Biology 12"],
+      "A Grade 12 Chemistry": ["Chemistry 12"],
+      "Grade 12 Chemistry": ["Chemistry 12"],
+      "A Grade 12 Physics": ["Physics 12"],
+      "Grade 12 Physics": ["Physics 12"],
+      "A Grade 12 Biology, a Grade 12 Chemistry, or a Grade 12 Physics": [
+        "Biology 12, Chemistry 12, or Physics 12"
+      ],
+      "Chemistry 11": ["Chemistry 11"],
+      "Physics 11": ["Physics 11"],
+      "Biology 11": ["Biology 11"],
+      "A Grade 11 Chemistry": ["Chemistry 11"],
+      "A Grade 11 Physics": ["Physics 11"],
+      "A Grade 11 Biology": ["Biology 11"]
+    },
+    "Prince Edward Island": {
+      "A Grade 12 English": ["English 621A"],
+      "Grade 12 English": ["English 621A"],
+      "A Grade 12 Pre-Calculus": ["Pre-Calculus 621B"],
+      "Grade 12 Pre-Calculus": ["Pre-Calculus 621B"],
+      "A Grade 12 Math": ["Pre-Calculus 621B, Math 621A, or Calculus 621B"],
+      "Grade 12 Math": ["Pre-Calculus 621B, Math 621A, or Calculus 621B"],
+      "A Grade 12 Biology": ["Biology 621A"],
+      "Grade 12 Biology": ["Biology 621A"],
+      "A Grade 12 Chemistry": ["Chemistry 621A"],
+      "Grade 12 Chemistry": ["Chemistry 621A"],
+      "A Grade 12 Physics": ["Physics 621A"],
+      "Grade 12 Physics": ["Physics 621A"],
+      "A Grade 12 Biology, a Grade 12 Chemistry, or a Grade 12 Physics": [
+        "Biology 621A, Chemistry 621A, or Physics 621A"
+      ],
+      "Chemistry 11": ["Chemistry 521A"],
+      "Physics 11": ["Physics 521A"],
+      "Biology 11": ["Biology 521A"],
+      "A Grade 11 Chemistry": ["Chemistry 521A"],
+      "A Grade 11 Physics": ["Physics 521A"],
+      "A Grade 11 Biology": ["Biology 521A"]
+    },
+    "Northwest Territories": {
+      "A Grade 12 English": ["English 12 or English Language Arts 12"],
+      "Grade 12 English": ["English 12 or English Language Arts 12"],
+      "A Grade 12 Pre-Calculus": ["Pre-Calculus 12"],
+      "Grade 12 Pre-Calculus": ["Pre-Calculus 12"],
+      "A Grade 12 Math": [
+        "Pre-Calculus 12, Foundations of Math 12, or Calculus 12"
+      ],
+      "Grade 12 Math": [
+        "Pre-Calculus 12, Foundations of Math 12, or Calculus 12"
+      ],
+      "A Grade 12 Biology": ["Biology 12"],
+      "Grade 12 Biology": ["Biology 12"],
+      "A Grade 12 Chemistry": ["Chemistry 12"],
+      "Grade 12 Chemistry": ["Chemistry 12"],
+      "A Grade 12 Physics": ["Physics 12"],
+      "Grade 12 Physics": ["Physics 12"],
+      "A Grade 12 Biology, a Grade 12 Chemistry, or a Grade 12 Physics": [
+        "Biology 12, Chemistry 12, or Physics 12"
+      ],
+      "Chemistry 11": ["Chemistry 11"],
+      "Physics 11": ["Physics 11"],
+      "Biology 11": ["Biology 11"],
+      "A Grade 11 Chemistry": ["Chemistry 11"],
+      "A Grade 11 Physics": ["Physics 11"],
+      "A Grade 11 Biology": ["Biology 11"]
+    },
+    "Nunavut": {
+      "A Grade 12 English": ["English 12 or English Language Arts 12"],
+      "Grade 12 English": ["English 12 or English Language Arts 12"],
+      "A Grade 12 Pre-Calculus": ["Pre-Calculus 12"],
+      "Grade 12 Pre-Calculus": ["Pre-Calculus 12"],
+      "A Grade 12 Math": [
+        "Pre-Calculus 12, Foundations of Math 12, or Calculus 12"
+      ],
+      "Grade 12 Math": [
+        "Pre-Calculus 12, Foundations of Math 12, or Calculus 12"
+      ],
+      "A Grade 12 Biology": ["Biology 12"],
+      "Grade 12 Biology": ["Biology 12"],
+      "A Grade 12 Chemistry": ["Chemistry 12"],
+      "Grade 12 Chemistry": ["Chemistry 12"],
+      "A Grade 12 Physics": ["Physics 12"],
+      "Grade 12 Physics": ["Physics 12"],
+      "A Grade 12 Biology, a Grade 12 Chemistry, or a Grade 12 Physics": [
+        "Biology 12, Chemistry 12, or Physics 12"
+      ],
+      "Chemistry 11": ["Chemistry 11"],
+      "Physics 11": ["Physics 11"],
+      "Biology 11": ["Biology 11"],
+      "A Grade 11 Chemistry": ["Chemistry 11"],
+      "A Grade 11 Physics": ["Physics 11"],
+      "A Grade 11 Biology": ["Biology 11"]
+    },
+    "Yukon": {
+      "A Grade 12 English": ["English 12 or English Language Arts 12"],
+      "Grade 12 English": ["English 12 or English Language Arts 12"],
+      "A Grade 12 Pre-Calculus": ["Pre-Calculus 12"],
+      "Grade 12 Pre-Calculus": ["Pre-Calculus 12"],
+      "A Grade 12 Math": [
+        "Pre-Calculus 12, Foundations of Math 12, or Calculus 12"
+      ],
+      "Grade 12 Math": [
+        "Pre-Calculus 12, Foundations of Math 12, or Calculus 12"
+      ],
+      "A Grade 12 Biology": ["Biology 12"],
+      "Grade 12 Biology": ["Biology 12"],
+      "A Grade 12 Chemistry": ["Chemistry 12"],
+      "Grade 12 Chemistry": ["Chemistry 12"],
+      "A Grade 12 Physics": ["Physics 12"],
+      "Grade 12 Physics": ["Physics 12"],
+      "A Grade 12 Biology, a Grade 12 Chemistry, or a Grade 12 Physics": [
+        "Biology 12, Chemistry 12, or Physics 12"
+      ],
+      "Chemistry 11": ["Chemistry 11"],
+      "Physics 11": ["Physics 11"],
+      "Biology 11": ["Biology 11"],
+      "A Grade 11 Chemistry": ["Chemistry 11"],
+      "A Grade 11 Physics": ["Physics 11"],
+      "A Grade 11 Biology": ["Biology 11"]
+    }
+  }
+}

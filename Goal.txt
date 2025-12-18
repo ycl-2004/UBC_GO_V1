@@ -1,0 +1,112 @@
+以下我為你整理的完整執行藍圖、關鍵 AI 指令 (Prompts) 以及獲利策略。
+
+第一部分：產品架構與功能拆解
+你提到的兩個核心功能其實是兩個不同的階段，建議分階段開發：
+
+入學前 (Acquisition): UBC Admission Chance Calculator (吸引流量的入口)
+
+入學後 (Retention): Academic Degree Planner (增加用戶黏性的工具)
+
+核心挑戰：數據來源
+UBC 的課程和畢業要求非常複雜（每年都在變）。你需要從 UBC Academic Calendar 獲取數據。
+
+難點： 每個系 (Major) 的要求不同，還有 Breadth requirements, Communication requirements 等。
+
+解決方案： 初期不要做全校，先做 Science 或 Arts 這種人數最多的學院，或者 Sauder (商學院) 這種需求最強的學院。
+
+
+Shutterstock
+第二部分：給 AI 的完整指令 (Prompts)
+你可以使用像我這樣的 AI 來協助你寫代碼和規劃。以下是你需要輸入的「更 Complete 的指令」，按開發順序排列：
+
+階段一：數據庫構建 (Data Scraping & Structuring)
+你需要先建立一個數據庫，包含所有課程和要求。
+
+指令範例： "我需要建立一個關於 UBC 課程的 SQL 數據庫。請幫我寫一個 Python script (使用 BeautifulSoup 或 Selenium)，目標網站是 UBC Academic Calendar (vancouver.calendar.ubc.ca)。 我需要抓取的數據欄位包括：
+
+Course Code (e.g., CPSC 110)
+
+Credits (e.g., 4)
+
+Pre-requisites (先修課)
+
+Co-requisites
+
+Course Description 請幫我設計這個 Database schema，並寫出抓取 'Computer Science Major' 畢業要求的邏輯。"
+
+階段二：錄取機率算法 (The Admission Algorithm)
+UBC 不只看成績，還看 Personal Profile。你的算法需要量化這些指標。
+
+指令範例： "我要做一個 UBC 錄取機率計算器。請幫我設計一個算法邏輯。 輸入變量：
+
+高中平均分 (GPA/Percentage)
+
+課程難度 (IB/AP/Regular)
+
+課外活動 (領導力、義工 - 分為 1-5 分評級)
+
+目標科系 (e.g., BSc Computer Science, BA Psychology)
+
+輸出結果：
+
+錄取機率 (Low/Medium/High)
+
+建議 (Actionable advice)
+
+請基於 UBC 的 Broad-based admission 政策，幫我寫出這個計算邏輯的偽代碼 (Pseudocode)，並給出針對不同科系的加權建議 (例如 Engineering 更看重 Math/Physics 成績)。"
+
+階段三：學業規劃系統 (Degree Planner)
+指令範例： "我想開發一個網頁應用 (使用 React 和 Node.js)。用戶可以輸入他們已修的課程，系統會自動比對 Database 中的畢業要求，顯示：
+
+還有多少學分未修
+
+推薦下學期修什麼課 (根據 Pre-requisites 鏈接)
+
+進度條可視化 請幫我生成前端的 Component 結構設計，以及後端如何檢查 Pre-requisite 的邏輯代碼。"
+
+第三部分：獲利方向 (Monetization Strategy)
+這是你最關心的部分。單純做工具很難收費，你要賣的是「確定性」和「便利性」。
+
+1. Freemium 模式 (免費+付費功能)
+免費版： 基礎的成績計算、查看課程列表、簡單的進度條。
+
+付費版 (VIP)：
+
+智能選課排程： 「我想在 4 年內畢業，不想早八，每學期最多 4 門課」，系統自動生成 4 年課表。
+
+Essay 評分： 針對 UBC Personal Profile 的寫作建議（可以接入 OpenAI API 來做自動批改）。
+
+GPA 救援計畫： 如果現在 GPA 只有 70%，系統計算出接下來每門課至少要拿多少分才能達到畢業目標。
+
+2. 流量變現 (Affiliate & Lead Gen) - 最快賺錢的方法
+高中生和新生是用戶群，誰最想賺他們的錢？
+
+補習/代寫機構： 連結當地的補習班 (Math, Physics, English)。如果用戶在你的網站測出來錄取率是 "Low"，立刻推薦「提升 10% 錄取率的補習課程」。
+
+留學中介/顧問： 你只負責前端引流，後端轉介給專業顧問，收取 Referral Fee (佣金)。這在留學產業非常高暴利。
+
+銀行/電信/租房： 針對國際新生的「落地大禮包」廣告位。
+
+3. 數據與導師平台 (Marketplace)
+學長姐導師制： 你的網站可以作為一個平台，連結「想申請 CS 的高中生」和「已經在 UBC CS 就讀的學長姐」。
+
+你提供平台進行 15 分鐘付費諮詢 (Coffee Chat)，你從中抽取 20% 平台費。
+
+第四部分：給你的具體執行建議 (Next Steps)
+MVP (最小可行性產品) 驗證：
+
+不要一開始就做全校系統，工程量太大。
+
+先做 Sauder 或 Science 的 Admission Calculator。
+
+用最簡單的網頁 (甚至 No-code 工具如 Bubble.io) 搭建，去小紅書、Discord、Reddit 宣傳，看有沒有人點擊。
+
+避開法律風險：
+
+你的網站必須有 Disclaimer (免責聲明)。你不能「保證」錄取，只能說是「基於過往數據的估算」。
+
+不要直接複製 UBC 的 Logo，避免商標侵權，可以使用 "Unofficial Guide for UBC" 這類的措辭。
+
+累積「私有數據」：
+
+鼓勵用戶輸入他們當年的錄取分數和結果。這些數據是你未來的護城河，因為 UBC 官方不會公佈這麼細的數據。
