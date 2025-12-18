@@ -397,7 +397,6 @@ const StepByStepRequirements = () => {
                           {currentReqs.degree.grade_12_requirements.map(
                             (req, index) => (
                               <li key={index}>
-                                <span className="req-bullet">✓</span>
                                 {req}
                               </li>
                             )

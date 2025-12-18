@@ -8,7 +8,7 @@ import re
 
 def load_mappings():
     """Load province course mappings"""
-    with open('scraper/province_course_mappings.json', 'r', encoding='utf-8') as f:
+    with open('province_course_mappings.json', 'r', encoding='utf-8') as f:
         return json.load(f)
 
 def map_requirement_to_province(requirement_text, province_name, mappings):
@@ -131,16 +131,16 @@ def main():
     
     # Apply to the raw scraped data
     apply_mappings_to_data(
-        'scraper/data/vancouver_detailed_requirements.json',
-        'scraper/data/vancouver_detailed_requirements_enhanced.json',
+        'data/vancouver_detailed_requirements.json',
+        'data/vancouver_detailed_requirements_enhanced.json',
         mappings
     )
     
     # Also apply to the processed data if it exists
     try:
         apply_mappings_to_data(
-            'src/data/detailed_requirements.json',
-            'src/data/detailed_requirements_enhanced.json',
+            '../src/data/detailed_requirements.json',
+            '../src/data/detailed_requirements_enhanced.json',
             mappings
         )
     except FileNotFoundError:

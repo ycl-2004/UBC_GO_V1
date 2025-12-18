@@ -199,7 +199,7 @@
           ],
           "grade_11_requirements": [
             "A Grade 11 Math (Pre-Calculus stream)",
-            "Biology 20"
+            "Biology 20 (strongly recommended) or another approved grade 11 science"
           ],
           "related_courses": [
             "Language Arts",
@@ -240,7 +240,7 @@
           "degree_name": "Kinesiology",
           "grade_12_requirements": [
             "English Language Arts 30-1",
-            "Math 30-1 or Math 31 (5 credits)"
+            "One of Math 30-1, Math 31 (5 credits), Biology 30, Chemistry 30, or Physics 30"
           ],
           "grade_11_requirements": [],
           "related_courses": [
@@ -328,7 +328,7 @@
           "grade_12_requirements": [
             "English Language Arts 30-1",
             "Math 30-1 or Math 31 (5 credits)",
-            "Biology 30"
+            "Biology 30, Chemistry 30, or Physics 30"
           ],
           "grade_11_requirements": [
             "Chemistry 20",
@@ -351,7 +351,7 @@
           ],
           "grade_11_requirements": [
             "Chemistry 20",
-            "Physics 20"
+            "Biology 20 (strongly recommended) or Physics 20"
           ],
           "related_courses": [
             "Language Arts",
@@ -405,8 +405,8 @@
             "Physics 12"
           ],
           "grade_11_requirements": [
-            "A Grade 11 Chemistry",
-            "A Grade 11 Physics"
+            "Chemistry 11",
+            "Physics 11"
           ],
           "related_courses": [
             "Language Arts",
@@ -552,7 +552,7 @@
           ],
           "grade_11_requirements": [
             "A Grade 11 Math (Pre-Calculus stream)",
-            "A Grade 11 Biology (strongly recommended) or another approved grade 11 science"
+            "Biology 11 (strongly recommended) or another approved grade 11 science"
           ],
           "related_courses": [
             "Language Arts",
@@ -593,7 +593,7 @@
           "degree_name": "Kinesiology",
           "grade_12_requirements": [
             "English Studies 12 or English First Peoples 12",
-            "Pre-Calculus 12"
+            "One of Pre-Calculus 12, Anatomy and Physiology 12 or Biology 12, Chemistry 12, or Physics 12"
           ],
           "grade_11_requirements": [],
           "related_courses": [
@@ -645,8 +645,8 @@
             "Anatomy and Physiology 12 or Biology 12"
           ],
           "grade_11_requirements": [
-            "A Grade 11 Chemistry",
-            "A Grade 11 Biology (see Related courses below)",
+            "Chemistry 11",
+            "Biology 11",
             "Physics 11"
           ],
           "related_courses": [
@@ -665,8 +665,8 @@
             "Chemistry 12"
           ],
           "grade_11_requirements": [
-            "A Grade 11 Chemistry",
-            "A Grade 11 Biology"
+            "Chemistry 11",
+            "Biology 11"
           ],
           "related_courses": [
             "Language Arts",
@@ -681,11 +681,11 @@
           "grade_12_requirements": [
             "English Studies 12 or English First Peoples 12",
             "Pre-Calculus 12",
-            "Anatomy and Physiology 12 or Biology 12"
+            "Anatomy and Physiology 12, Biology 12, Chemistry 12, or Physics 12"
           ],
           "grade_11_requirements": [
-            "A Grade 11 Chemistry",
-            "A Grade 11 Physics"
+            "Chemistry 11",
+            "Physics 11"
           ],
           "related_courses": [
             "Language Arts",
@@ -703,8 +703,8 @@
             "Anatomy and Physiology 12 or Biology 12"
           ],
           "grade_11_requirements": [
-            "A Grade 11 Chemistry",
-            "A Grade 11 Biology (strongly recommended) or a Grade 11 Physics"
+            "Chemistry 11",
+            "Biology 11 (strongly recommended) or Physics 11"
           ],
           "related_courses": [
             "Language Arts",
@@ -737,8 +737,8 @@
             "Biology 40S, Chemistry 40S, or Physics 40S"
           ],
           "grade_11_requirements": [
-            "Chemistry 11",
-            "Physics 11 (may be waived with scores of 86% or higher in senior-level Mathandjunior-level or senior-level Chemistry, or scores of 5 or higher in IB Mathematics and IB Chemistry)"
+            "Chemistry 30S",
+            "Physics 30S"
           ],
           "related_courses": [
             "Language Arts",
@@ -758,8 +758,8 @@
             "Physics 40S"
           ],
           "grade_11_requirements": [
-            "A Grade 11 Chemistry",
-            "A Grade 11 Physics"
+            "Chemistry 30S",
+            "Physics 30S"
           ],
           "related_courses": [
             "Language Arts",
@@ -885,8 +885,8 @@
             "Biology 40S, Chemistry 40S, or Physics 40S"
           ],
           "grade_11_requirements": [
-            "Chemistry 11",
-            "Physics 11 (may be waived with scores of 86% or higher in senior-level Mathandjunior-level or senior-level Chemistry, or scores of 5 or higher in IB Mathematics and IB Chemistry"
+            "Chemistry 30S",
+            "Physics 30S"
           ],
           "related_courses": [
             "Language Arts",
@@ -904,8 +904,8 @@
             "Positionality statement"
           ],
           "grade_11_requirements": [
-            "A Grade 11 Math (Pre-Calculus stream)",
-            "A Grade 11 Biology (strongly recommended) or another approved grade 11 science"
+            "Pre-Calculus Mathematics 30S",
+            "Biology 30S (strongly recommended) or another approved grade 11 science"
           ],
           "related_courses": [
             "Language Arts",
@@ -946,7 +946,7 @@
           "degree_name": "Kinesiology",
           "grade_12_requirements": [
             "English Language Arts 40S",
-            "Pre-Calculus Mathematics 40S"
+            "One of Pre-Calculus Mathematics 40S, Biology 40S, Chemistry 40S, or Physics 40S"
           ],
           "grade_11_requirements": [],
           "related_courses": [
@@ -998,9 +998,9 @@
             "Biology 40S"
           ],
           "grade_11_requirements": [
-            "A Grade 11 Chemistry",
-            "A Grade 11 Biology (see Related courses below)",
-            "If you intend to major in Wood Products or specialize inHarvest Planning and Engineering(Forest Operations), Physics 11 is strongly recommended."
+            "Chemistry 30S",
+            "Biology 30S",
+            "Physics 30S"
           ],
           "related_courses": [
             "Language Arts",
@@ -1018,8 +1018,8 @@
             "Chemistry 40S"
           ],
           "grade_11_requirements": [
-            "A Grade 11 Chemistry",
-            "A Grade 11 Biology"
+            "Chemistry 30S",
+            "Biology 30S"
           ],
           "related_courses": [
             "Language Arts",
@@ -1034,11 +1034,11 @@
           "grade_12_requirements": [
             "English Language Arts 40S",
             "Pre-Calculus Mathematics 40S",
-            "Biology 40S"
+            "Biology 40S, Chemistry 40S, or Physics 40S"
           ],
           "grade_11_requirements": [
-            "A Grade 11 Chemistry",
-            "A Grade 11 Physics"
+            "Chemistry 30S",
+            "Physics 30S"
           ],
           "related_courses": [
             "Language Arts",
@@ -1056,8 +1056,8 @@
             "Biology 40S"
           ],
           "grade_11_requirements": [
-            "A Grade 11 Chemistry",
-            "A Grade 11 Biology (strongly recommended) or a Grade 11 Physics"
+            "Chemistry 30S",
+            "Biology 30S (strongly recommended) or Physics 30S"
           ],
           "related_courses": [
             "Language Arts",
@@ -1085,13 +1085,13 @@
         "Applied Biology": {
           "degree_name": "Applied Biology",
           "grade_12_requirements": [
-            "English 12 or English Language Arts 12",
-            "Pre-Calculus 12",
-            "Biology 12, Chemistry 12, or Physics 12"
+            "English 121 or English 122",
+            "Pre-Calculus A 120 and Pre-Calculus B 120",
+            "Biology 121 or Biology 122, Chemistry 121 or Chemistry 122, or Physics 121 or Physics 122"
           ],
           "grade_11_requirements": [
-            "Chemistry 11",
-            "Physics 11"
+            "Chemistry 111 or Chemistry 112",
+            "Physics 111 or Physics 112"
           ],
           "related_courses": [
             "Language Arts",
@@ -1105,14 +1105,14 @@
         "Applied Science (Engineering)": {
           "degree_name": "Applied Science (Engineering)",
           "grade_12_requirements": [
-            "English 12 or English Language Arts 12",
-            "Pre-Calculus 12",
-            "Chemistry 12",
-            "Physics 12"
+            "English 121 or English 122",
+            "Pre-Calculus A 120 and Pre-Calculus B 120",
+            "Chemistry 121 or Chemistry 122",
+            "Physics 121 or Physics 122"
           ],
           "grade_11_requirements": [
-            "Chemistry 11",
-            "Physics 11"
+            "Chemistry 111 or Chemistry 112",
+            "Physics 111 or Physics 112"
           ],
           "related_courses": [
             "Language Arts",
@@ -1125,7 +1125,7 @@
         "Arts": {
           "degree_name": "Arts",
           "grade_12_requirements": [
-            "English 12 or English Language Arts 12"
+            "English 121 or English 122"
           ],
           "grade_11_requirements": [],
           "related_courses": [
@@ -1154,8 +1154,8 @@
         "Commerce (UBC Sauder School of Business)": {
           "degree_name": "Commerce (UBC Sauder School of Business)",
           "grade_12_requirements": [
-            "English 12 or English Language Arts 12",
-            "Pre-Calculus 12"
+            "English 121 or English 122",
+            "Pre-Calculus A 120 and Pre-Calculus B 120"
           ],
           "grade_11_requirements": [],
           "related_courses": [
@@ -1169,9 +1169,9 @@
         "Dental Hygiene": {
           "degree_name": "Dental Hygiene",
           "grade_12_requirements": [
-            "English 12 or English Language Arts 12",
-            "Biology 12",
-            "Chemistry 12",
+            "English 121 or English 122",
+            "Biology 121 or Biology 122",
+            "Chemistry 121 or Chemistry 122",
             "Supplemental submission and interview process"
           ],
           "grade_11_requirements": [],
@@ -1185,7 +1185,7 @@
         "Design in Architecture, Landscape Architecture, and Urbanism": {
           "degree_name": "Design in Architecture, Landscape Architecture, and Urbanism",
           "grade_12_requirements": [
-            "English 12 or English Language Arts 12",
+            "English 121 or English 122",
             "Supplemental submission (video interview, creative test, and resume)"
           ],
           "grade_11_requirements": [],
@@ -1200,7 +1200,7 @@
         "Fine Arts (direct-entry specializations only; excludes Creative Writing)": {
           "degree_name": "Fine Arts (direct-entry specializations only; excludes Creative Writing)",
           "grade_12_requirements": [
-            "English 12 or English Language Arts 12",
+            "English 121 or English 122",
             "Audition or portfolio"
           ],
           "grade_11_requirements": [],
@@ -1233,13 +1233,13 @@
         "Food, Nutrition, and Health": {
           "degree_name": "Food, Nutrition, and Health",
           "grade_12_requirements": [
-            "English 12 or English Language Arts 12",
-            "Pre-Calculus 12",
-            "Biology 12, Chemistry 12, or Physics 12"
+            "English 121 or English 122",
+            "Pre-Calculus A 120 and Pre-Calculus B 120",
+            "Biology 121 or Biology 122, Chemistry 121 or Chemistry 122, or Physics 121 or Physics 122"
           ],
           "grade_11_requirements": [
-            "Chemistry 11",
-            "Physics 11"
+            "Chemistry 111 or Chemistry 112",
+            "Physics 111 or Physics 112"
           ],
           "related_courses": [
             "Language Arts",
@@ -1253,12 +1253,12 @@
         "Indigenous Land Stewardship": {
           "degree_name": "Indigenous Land Stewardship",
           "grade_12_requirements": [
-            "English 12 or English Language Arts 12",
+            "English 121 or English 122",
             "Positionality statement"
           ],
           "grade_11_requirements": [
             "A Grade 11 Math (Pre-Calculus stream)",
-            "Biology 11"
+            "Biology 111 or Biology 112 (strongly recommended) or another approved grade 11 science"
           ],
           "related_courses": [
             "Language Arts",
@@ -1272,7 +1272,7 @@
         "Indigenous Teacher Education Program (NITEP)": {
           "degree_name": "Indigenous Teacher Education Program (NITEP)",
           "grade_12_requirements": [
-            "English 12 or English Language Arts 12"
+            "English 121 or English 122"
           ],
           "grade_11_requirements": [],
           "related_courses": [],
@@ -1282,8 +1282,8 @@
         "International Economics": {
           "degree_name": "International Economics",
           "grade_12_requirements": [
-            "English 12 or English Language Arts 12",
-            "Pre-Calculus 12"
+            "English 121 or English 122",
+            "Pre-Calculus A 120 and Pre-Calculus B 120"
           ],
           "grade_11_requirements": [],
           "related_courses": [
@@ -1298,8 +1298,8 @@
         "Kinesiology": {
           "degree_name": "Kinesiology",
           "grade_12_requirements": [
-            "English 12 or English Language Arts 12",
-            "Pre-Calculus 12"
+            "English 121 or English 122",
+            "One of Pre-Calculus A 120 and Pre-Calculus B 120, Biology 121 or Biology 122, Chemistry 121 or Chemistry 122, or Physics 121 or Physics 122"
           ],
           "grade_11_requirements": [],
           "related_courses": [
@@ -1314,9 +1314,9 @@
         "Media Studies": {
           "degree_name": "Media Studies",
           "grade_12_requirements": [
-            "English 12 or English Language Arts 12",
+            "English 121 or English 122",
             "Portfolio submission",
-            "Pre-Calculus 12"
+            "Pre-Calculus A 120 and Pre-Calculus B 120"
           ],
           "grade_11_requirements": [],
           "related_courses": [
@@ -1331,7 +1331,7 @@
         "Music": {
           "degree_name": "Music",
           "grade_12_requirements": [
-            "English 12 or English Language Arts 12",
+            "English 121 or English 122",
             "Audition, portfolio (students in composition), and letters of reference"
           ],
           "grade_11_requirements": [],
@@ -1346,14 +1346,14 @@
         "Natural Resources": {
           "degree_name": "Natural Resources",
           "grade_12_requirements": [
-            "English 12 or English Language Arts 12",
-            "Pre-Calculus 12",
-            "Biology 12"
+            "English 121 or English 122",
+            "Pre-Calculus A 120 and Pre-Calculus B 120",
+            "Biology 121 or Biology 122"
           ],
           "grade_11_requirements": [
-            "Chemistry 11",
-            "Biology 11",
-            "Physics 11"
+            "Chemistry 111 or Chemistry 112",
+            "Biology 111 or Biology 112",
+            "Physics 111 or Physics 112"
           ],
           "related_courses": [
             "Language Arts",
@@ -1366,13 +1366,13 @@
         "Pharmaceutical Sciences": {
           "degree_name": "Pharmaceutical Sciences",
           "grade_12_requirements": [
-            "English 12 or English Language Arts 12",
-            "Pre-Calculus 12",
-            "Chemistry 12"
+            "English 121 or English 122",
+            "Pre-Calculus A 120 and Pre-Calculus B 120",
+            "Chemistry 121 or Chemistry 122"
           ],
           "grade_11_requirements": [
-            "Chemistry 11",
-            "Biology 11"
+            "Chemistry 111 or Chemistry 112",
+            "Biology 111 or Biology 112"
           ],
           "related_courses": [
             "Language Arts",
@@ -1385,13 +1385,13 @@
         "Science": {
           "degree_name": "Science",
           "grade_12_requirements": [
-            "English 12 or English Language Arts 12",
-            "Pre-Calculus 12",
-            "Biology 12"
+            "English 121 or English 122",
+            "Pre-Calculus A 120 and Pre-Calculus B 120",
+            "Biology 121 or Biology 122, Chemistry 121 or Chemistry 122, or Physics 121 or Physics 122"
           ],
           "grade_11_requirements": [
-            "Chemistry 11",
-            "Physics 11"
+            "Chemistry 111 or Chemistry 112",
+            "Physics 111 or Physics 112"
           ],
           "related_courses": [
             "Language Arts",
@@ -1404,13 +1404,13 @@
         "Urban Forestry": {
           "degree_name": "Urban Forestry",
           "grade_12_requirements": [
-            "English 12 or English Language Arts 12",
-            "Pre-Calculus 12",
-            "Biology 12"
+            "English 121 or English 122",
+            "Pre-Calculus A 120 and Pre-Calculus B 120",
+            "Biology 121 or Biology 122"
           ],
           "grade_11_requirements": [
-            "Chemistry 11",
-            "Physics 11"
+            "Chemistry 111 or Chemistry 112",
+            "Biology 111 or Biology 112 (strongly recommended) or Physics 111 or Physics 112"
           ],
           "related_courses": [
             "Language Arts",
@@ -1611,7 +1611,7 @@
           ],
           "grade_11_requirements": [
             "A Grade 11 Math (Pre-Calculus stream)",
-            "Biology 2201"
+            "Biology 2201 (strongly recommended) or another approved grade 11 science"
           ],
           "related_courses": [
             "Language Arts",
@@ -1652,7 +1652,7 @@
           "degree_name": "Kinesiology",
           "grade_12_requirements": [
             "English 3201",
-            "Advanced Mathematics 3200 or Calculus 3208"
+            "One of Advanced Mathematics 3200 or Calculus 3208, Biology 3201, Chemistry 3202, or Physics 3204"
           ],
           "grade_11_requirements": [],
           "related_courses": [
@@ -1740,7 +1740,7 @@
           "grade_12_requirements": [
             "English 3201",
             "Advanced Mathematics 3200 or Calculus 3208",
-            "Biology 3201"
+            "Biology 3201, Chemistry 3202, or Physics 3204"
           ],
           "grade_11_requirements": [
             "Chemistry 2202",
@@ -1763,7 +1763,7 @@
           ],
           "grade_11_requirements": [
             "Chemistry 2202",
-            "Physics 2204"
+            "Biology 2201 (strongly recommended) or Physics 2204"
           ],
           "related_courses": [
             "Language Arts",
@@ -1791,13 +1791,13 @@
         "Applied Biology": {
           "degree_name": "Applied Biology",
           "grade_12_requirements": [
-            "English 12 or English Language Arts 12",
-            "Pre-Calculus 12",
-            "Biology 12, Chemistry 12, or Physics 12"
+            "English Language Arts 30-1",
+            "Math 30-1 or Math 31 (5 credits)",
+            "Biology 30, Chemistry 30, or Physics 30"
           ],
           "grade_11_requirements": [
-            "Chemistry 11",
-            "Physics 11"
+            "Chemistry 20",
+            "Physics 20"
           ],
           "related_courses": [
             "Language Arts",
@@ -1811,14 +1811,14 @@
         "Applied Science (Engineering)": {
           "degree_name": "Applied Science (Engineering)",
           "grade_12_requirements": [
-            "English 12 or English Language Arts 12",
-            "Pre-Calculus 12",
-            "Chemistry 12",
-            "Physics 12"
+            "English Language Arts 30-1",
+            "Math 30-1 or Math 31 (5 credits)",
+            "Chemistry 30",
+            "Physics 30"
           ],
           "grade_11_requirements": [
-            "Chemistry 11",
-            "Physics 11"
+            "Chemistry 20",
+            "Physics 20"
           ],
           "related_courses": [
             "Language Arts",
@@ -1831,7 +1831,7 @@
         "Arts": {
           "degree_name": "Arts",
           "grade_12_requirements": [
-            "English 12 or English Language Arts 12"
+            "English Language Arts 30-1"
           ],
           "grade_11_requirements": [],
           "related_courses": [
@@ -1860,8 +1860,8 @@
         "Commerce (UBC Sauder School of Business)": {
           "degree_name": "Commerce (UBC Sauder School of Business)",
           "grade_12_requirements": [
-            "English 12 or English Language Arts 12",
-            "Pre-Calculus 12"
+            "English Language Arts 30-1",
+            "Math 30-1 or Math 31 (5 credits)"
           ],
           "grade_11_requirements": [],
           "related_courses": [
@@ -1875,9 +1875,9 @@
         "Dental Hygiene": {
           "degree_name": "Dental Hygiene",
           "grade_12_requirements": [
-            "English 12 or English Language Arts 12",
-            "Biology 12",
-            "Chemistry 12",
+            "English Language Arts 30-1",
+            "Biology 30",
+            "Chemistry 30",
             "Supplemental submission and interview process"
           ],
           "grade_11_requirements": [],
@@ -1891,7 +1891,7 @@
         "Design in Architecture, Landscape Architecture, and Urbanism": {
           "degree_name": "Design in Architecture, Landscape Architecture, and Urbanism",
           "grade_12_requirements": [
-            "English 12 or English Language Arts 12",
+            "English Language Arts 30-1",
             "Supplemental submission (video interview, creative test, and resume)"
           ],
           "grade_11_requirements": [],
@@ -1906,7 +1906,7 @@
         "Fine Arts (direct-entry specializations only; excludes Creative Writing)": {
           "degree_name": "Fine Arts (direct-entry specializations only; excludes Creative Writing)",
           "grade_12_requirements": [
-            "English 12 or English Language Arts 12",
+            "English Language Arts 30-1",
             "Audition or portfolio"
           ],
           "grade_11_requirements": [],
@@ -1939,13 +1939,13 @@
         "Food, Nutrition, and Health": {
           "degree_name": "Food, Nutrition, and Health",
           "grade_12_requirements": [
-            "English 12 or English Language Arts 12",
-            "Pre-Calculus 12",
-            "Biology 12, Chemistry 12, or Physics 12"
+            "English Language Arts 30-1",
+            "Math 30-1 or Math 31 (5 credits)",
+            "Biology 30, Chemistry 30, or Physics 30"
           ],
           "grade_11_requirements": [
-            "Chemistry 11",
-            "Physics 11"
+            "Chemistry 20",
+            "Physics 20"
           ],
           "related_courses": [
             "Language Arts",
@@ -1959,12 +1959,12 @@
         "Indigenous Land Stewardship": {
           "degree_name": "Indigenous Land Stewardship",
           "grade_12_requirements": [
-            "English 12 or English Language Arts 12",
+            "English Language Arts 30-1",
             "Positionality statement"
           ],
           "grade_11_requirements": [
             "A Grade 11 Math (Pre-Calculus stream)",
-            "Biology 11"
+            "Biology 20 (strongly recommended) or another approved grade 11 science"
           ],
           "related_courses": [
             "Language Arts",
@@ -1978,7 +1978,7 @@
         "Indigenous Teacher Education Program (NITEP)": {
           "degree_name": "Indigenous Teacher Education Program (NITEP)",
           "grade_12_requirements": [
-            "English 12 or English Language Arts 12"
+            "English Language Arts 30-1"
           ],
           "grade_11_requirements": [],
           "related_courses": [],
@@ -1988,8 +1988,8 @@
         "International Economics": {
           "degree_name": "International Economics",
           "grade_12_requirements": [
-            "English 12 or English Language Arts 12",
-            "Pre-Calculus 12"
+            "English Language Arts 30-1",
+            "Math 30-1 or Math 31 (5 credits)"
           ],
           "grade_11_requirements": [],
           "related_courses": [
@@ -2004,8 +2004,8 @@
         "Kinesiology": {
           "degree_name": "Kinesiology",
           "grade_12_requirements": [
-            "English 12 or English Language Arts 12",
-            "Pre-Calculus 12"
+            "English Language Arts 30-1",
+            "One of Math 30-1, Math 31 (5 credits), Biology 30, Chemistry 30, or Physics 30"
           ],
           "grade_11_requirements": [],
           "related_courses": [
@@ -2020,9 +2020,9 @@
         "Media Studies": {
           "degree_name": "Media Studies",
           "grade_12_requirements": [
-            "English 12 or English Language Arts 12",
+            "English Language Arts 30-1",
             "Portfolio submission",
-            "Pre-Calculus 12"
+            "Math 30-1 or Math 31 (5 credits)"
           ],
           "grade_11_requirements": [],
           "related_courses": [
@@ -2037,7 +2037,7 @@
         "Music": {
           "degree_name": "Music",
           "grade_12_requirements": [
-            "English 12 or English Language Arts 12",
+            "English Language Arts 30-1",
             "Audition, portfolio (students in composition), and letters of reference"
           ],
           "grade_11_requirements": [],
@@ -2052,14 +2052,14 @@
         "Natural Resources": {
           "degree_name": "Natural Resources",
           "grade_12_requirements": [
-            "English 12 or English Language Arts 12",
-            "Pre-Calculus 12",
-            "Biology 12"
+            "English Language Arts 30-1",
+            "Math 30-1 or Math 31 (5 credits)",
+            "Biology 30"
           ],
           "grade_11_requirements": [
-            "Chemistry 11",
-            "Biology 11",
-            "Physics 11"
+            "Chemistry 20",
+            "Biology 20",
+            "Physics 20"
           ],
           "related_courses": [
             "Language Arts",
@@ -2072,13 +2072,13 @@
         "Pharmaceutical Sciences": {
           "degree_name": "Pharmaceutical Sciences",
           "grade_12_requirements": [
-            "English 12 or English Language Arts 12",
-            "Pre-Calculus 12",
-            "Chemistry 12"
+            "English Language Arts 30-1",
+            "Math 30-1 or Math 31 (5 credits)",
+            "Chemistry 30"
           ],
           "grade_11_requirements": [
-            "Chemistry 11",
-            "Biology 11"
+            "Chemistry 20",
+            "Biology 20"
           ],
           "related_courses": [
             "Language Arts",
@@ -2091,13 +2091,13 @@
         "Science": {
           "degree_name": "Science",
           "grade_12_requirements": [
-            "English 12 or English Language Arts 12",
-            "Pre-Calculus 12",
-            "Biology 12"
+            "English Language Arts 30-1",
+            "Math 30-1 or Math 31 (5 credits)",
+            "Biology 30, Chemistry 30, or Physics 30"
           ],
           "grade_11_requirements": [
-            "Chemistry 11",
-            "Physics 11"
+            "Chemistry 20",
+            "Physics 20"
           ],
           "related_courses": [
             "Language Arts",
@@ -2110,13 +2110,13 @@
         "Urban Forestry": {
           "degree_name": "Urban Forestry",
           "grade_12_requirements": [
-            "English 12 or English Language Arts 12",
-            "Pre-Calculus 12",
-            "Biology 12"
+            "English Language Arts 30-1",
+            "Math 30-1 or Math 31 (5 credits)",
+            "Biology 30"
           ],
           "grade_11_requirements": [
-            "Chemistry 11",
-            "Physics 11"
+            "Chemistry 20",
+            "Biology 20 (strongly recommended) or Physics 20"
           ],
           "related_courses": [
             "Language Arts",
@@ -2317,7 +2317,7 @@
           ],
           "grade_11_requirements": [
             "A Grade 11 Math (Pre-Calculus stream)",
-            "Biology 11"
+            "Biology 11 (strongly recommended) or another approved grade 11 science"
           ],
           "related_courses": [
             "Language Arts",
@@ -2358,7 +2358,7 @@
           "degree_name": "Kinesiology",
           "grade_12_requirements": [
             "English 12 or English Communications 12",
-            "Pre-Calculus 12"
+            "One of Pre-Calculus 12, Biology 12, Chemistry 12, or Physics 12"
           ],
           "grade_11_requirements": [],
           "related_courses": [
@@ -2446,7 +2446,7 @@
           "grade_12_requirements": [
             "English 12 or English Communications 12",
             "Pre-Calculus 12",
-            "Biology 12"
+            "Biology 12, Chemistry 12, or Physics 12"
           ],
           "grade_11_requirements": [
             "Chemistry 11",
@@ -2469,7 +2469,7 @@
           ],
           "grade_11_requirements": [
             "Chemistry 11",
-            "Physics 11"
+            "Biology 11 (strongly recommended) or Physics 11"
           ],
           "related_courses": [
             "Language Arts",
@@ -2497,13 +2497,13 @@
         "Applied Biology": {
           "degree_name": "Applied Biology",
           "grade_12_requirements": [
-            "English 12 or English Language Arts 12",
-            "Pre-Calculus 12",
-            "Biology 12, Chemistry 12, or Physics 12"
+            "English Language Arts 30-1",
+            "Math 30-1 or Math 31 (5 credits)",
+            "Biology 30, Chemistry 30, or Physics 30"
           ],
           "grade_11_requirements": [
-            "Chemistry 11",
-            "Physics 11"
+            "Chemistry 20",
+            "Physics 20"
           ],
           "related_courses": [
             "Language Arts",
@@ -2517,14 +2517,14 @@
         "Applied Science (Engineering)": {
           "degree_name": "Applied Science (Engineering)",
           "grade_12_requirements": [
-            "English 12 or English Language Arts 12",
-            "Pre-Calculus 12",
-            "Chemistry 12",
-            "Physics 12"
+            "English Language Arts 30-1",
+            "Math 30-1 or Math 31 (5 credits)",
+            "Chemistry 30",
+            "Physics 30"
           ],
           "grade_11_requirements": [
-            "Chemistry 11",
-            "Physics 11"
+            "Chemistry 20",
+            "Physics 20"
           ],
           "related_courses": [
             "Language Arts",
@@ -2537,7 +2537,7 @@
         "Arts": {
           "degree_name": "Arts",
           "grade_12_requirements": [
-            "English 12 or English Language Arts 12"
+            "English Language Arts 30-1"
           ],
           "grade_11_requirements": [],
           "related_courses": [
@@ -2566,8 +2566,8 @@
         "Commerce (UBC Sauder School of Business)": {
           "degree_name": "Commerce (UBC Sauder School of Business)",
           "grade_12_requirements": [
-            "English 12 or English Language Arts 12",
-            "Pre-Calculus 12"
+            "English Language Arts 30-1",
+            "Math 30-1 or Math 31 (5 credits)"
           ],
           "grade_11_requirements": [],
           "related_courses": [
@@ -2581,9 +2581,9 @@
         "Dental Hygiene": {
           "degree_name": "Dental Hygiene",
           "grade_12_requirements": [
-            "English 12 or English Language Arts 12",
-            "Biology 12",
-            "Chemistry 12",
+            "English Language Arts 30-1",
+            "Biology 30",
+            "Chemistry 30",
             "Supplemental submission and interview process"
           ],
           "grade_11_requirements": [],
@@ -2597,7 +2597,7 @@
         "Design in Architecture, Landscape Architecture, and Urbanism": {
           "degree_name": "Design in Architecture, Landscape Architecture, and Urbanism",
           "grade_12_requirements": [
-            "English 12 or English Language Arts 12",
+            "English Language Arts 30-1",
             "Supplemental submission (video interview, creative test, and resume)"
           ],
           "grade_11_requirements": [],
@@ -2612,7 +2612,7 @@
         "Fine Arts (direct-entry specializations only; excludes Creative Writing)": {
           "degree_name": "Fine Arts (direct-entry specializations only; excludes Creative Writing)",
           "grade_12_requirements": [
-            "English 12 or English Language Arts 12",
+            "English Language Arts 30-1",
             "Audition or portfolio"
           ],
           "grade_11_requirements": [],
@@ -2645,13 +2645,13 @@
         "Food, Nutrition, and Health": {
           "degree_name": "Food, Nutrition, and Health",
           "grade_12_requirements": [
-            "English 12 or English Language Arts 12",
-            "Pre-Calculus 12",
-            "Biology 12, Chemistry 12, or Physics 12"
+            "English Language Arts 30-1",
+            "Math 30-1 or Math 31 (5 credits)",
+            "Biology 30, Chemistry 30, or Physics 30"
           ],
           "grade_11_requirements": [
-            "Chemistry 11",
-            "Physics 11"
+            "Chemistry 20",
+            "Physics 20"
           ],
           "related_courses": [
             "Language Arts",
@@ -2665,12 +2665,12 @@
         "Indigenous Land Stewardship": {
           "degree_name": "Indigenous Land Stewardship",
           "grade_12_requirements": [
-            "English 12 or English Language Arts 12",
+            "English Language Arts 30-1",
             "Positionality statement"
           ],
           "grade_11_requirements": [
             "A Grade 11 Math (Pre-Calculus stream)",
-            "Biology 11"
+            "Biology 20 (strongly recommended) or another approved grade 11 science"
           ],
           "related_courses": [
             "Language Arts",
@@ -2684,7 +2684,7 @@
         "Indigenous Teacher Education Program (NITEP)": {
           "degree_name": "Indigenous Teacher Education Program (NITEP)",
           "grade_12_requirements": [
-            "English 12 or English Language Arts 12"
+            "English Language Arts 30-1"
           ],
           "grade_11_requirements": [],
           "related_courses": [],
@@ -2694,8 +2694,8 @@
         "International Economics": {
           "degree_name": "International Economics",
           "grade_12_requirements": [
-            "English 12 or English Language Arts 12",
-            "Pre-Calculus 12"
+            "English Language Arts 30-1",
+            "Math 30-1 or Math 31 (5 credits)"
           ],
           "grade_11_requirements": [],
           "related_courses": [
@@ -2710,8 +2710,8 @@
         "Kinesiology": {
           "degree_name": "Kinesiology",
           "grade_12_requirements": [
-            "English 12 or English Language Arts 12",
-            "Pre-Calculus 12"
+            "English Language Arts 30-1",
+            "One of Math 30-1, Math 31 (5 credits), Biology 30, Chemistry 30, or Physics 30"
           ],
           "grade_11_requirements": [],
           "related_courses": [
@@ -2726,9 +2726,9 @@
         "Media Studies": {
           "degree_name": "Media Studies",
           "grade_12_requirements": [
-            "English 12 or English Language Arts 12",
+            "English Language Arts 30-1",
             "Portfolio submission",
-            "Pre-Calculus 12"
+            "Math 30-1 or Math 31 (5 credits)"
           ],
           "grade_11_requirements": [],
           "related_courses": [
@@ -2743,7 +2743,7 @@
         "Music": {
           "degree_name": "Music",
           "grade_12_requirements": [
-            "English 12 or English Language Arts 12",
+            "English Language Arts 30-1",
             "Audition, portfolio (students in composition), and letters of reference"
           ],
           "grade_11_requirements": [],
@@ -2758,14 +2758,14 @@
         "Natural Resources": {
           "degree_name": "Natural Resources",
           "grade_12_requirements": [
-            "English 12 or English Language Arts 12",
-            "Pre-Calculus 12",
-            "Biology 12"
+            "English Language Arts 30-1",
+            "Math 30-1 or Math 31 (5 credits)",
+            "Biology 30"
           ],
           "grade_11_requirements": [
-            "Chemistry 11",
-            "Biology 11",
-            "Physics 11"
+            "Chemistry 20",
+            "Biology 20",
+            "Physics 20"
           ],
           "related_courses": [
             "Language Arts",
@@ -2778,13 +2778,13 @@
         "Pharmaceutical Sciences": {
           "degree_name": "Pharmaceutical Sciences",
           "grade_12_requirements": [
-            "English 12 or English Language Arts 12",
-            "Pre-Calculus 12",
-            "Chemistry 12"
+            "English Language Arts 30-1",
+            "Math 30-1 or Math 31 (5 credits)",
+            "Chemistry 30"
           ],
           "grade_11_requirements": [
-            "Chemistry 11",
-            "Biology 11"
+            "Chemistry 20",
+            "Biology 20"
           ],
           "related_courses": [
             "Language Arts",
@@ -2797,13 +2797,13 @@
         "Science": {
           "degree_name": "Science",
           "grade_12_requirements": [
-            "English 12 or English Language Arts 12",
-            "Pre-Calculus 12",
-            "Biology 12"
+            "English Language Arts 30-1",
+            "Math 30-1 or Math 31 (5 credits)",
+            "Biology 30, Chemistry 30, or Physics 30"
           ],
           "grade_11_requirements": [
-            "Chemistry 11",
-            "Physics 11"
+            "Chemistry 20",
+            "Physics 20"
           ],
           "related_courses": [
             "Language Arts",
@@ -2816,13 +2816,13 @@
         "Urban Forestry": {
           "degree_name": "Urban Forestry",
           "grade_12_requirements": [
-            "English 12 or English Language Arts 12",
-            "Pre-Calculus 12",
-            "Biology 12"
+            "English Language Arts 30-1",
+            "Math 30-1 or Math 31 (5 credits)",
+            "Biology 30"
           ],
           "grade_11_requirements": [
-            "Chemistry 11",
-            "Physics 11"
+            "Chemistry 20",
+            "Biology 20 (strongly recommended) or Physics 20"
           ],
           "related_courses": [
             "Language Arts",
@@ -2876,8 +2876,8 @@
             "SPH4U (Physics)"
           ],
           "grade_11_requirements": [
-            "A Grade 11 Chemistry",
-            "A Grade 11 Physics"
+            "SCH3U (Chemistry)",
+            "SPH3U (Physics)"
           ],
           "related_courses": [
             "Language Arts",
@@ -3023,7 +3023,7 @@
           ],
           "grade_11_requirements": [
             "A Grade 11 Math (Pre-Calculus stream)",
-            "A Grade 11 Biology (strongly recommended) or another approved grade 11 science"
+            "SBI3U (Grade 11 Biology) (strongly recommended) or another approved grade 11 science"
           ],
           "related_courses": [
             "Language Arts",
@@ -3064,7 +3064,7 @@
           "degree_name": "Kinesiology",
           "grade_12_requirements": [
             "ENG4U (English)",
-            "MHF4U (Advanced Functions) or MCV4U (Calculus and Vectors)"
+            "One of MHF4U (Advanced Functions) or MCV4U (Calculus and Vectors), SBI4U (Biology), SCH4U (Chemistry), or SPH4U (Physics)"
           ],
           "grade_11_requirements": [],
           "related_courses": [
@@ -3116,8 +3116,8 @@
             "SBI4U (Biology)"
           ],
           "grade_11_requirements": [
-            "A Grade 11 Chemistry",
-            "A Grade 11 Biology (see Related courses below)",
+            "SCH3U (Chemistry)",
+            "SBI3U (Grade 11 Biology)",
             "SPH3U (Grade 11 Physics)"
           ],
           "related_courses": [
@@ -3136,8 +3136,8 @@
             "SCH4U (Chemistry)"
           ],
           "grade_11_requirements": [
-            "A Grade 11 Chemistry",
-            "A Grade 11 Biology"
+            "SCH3U (Chemistry)",
+            "SBI3U (Biology)"
           ],
           "related_courses": [
             "Language Arts",
@@ -3152,11 +3152,11 @@
           "grade_12_requirements": [
             "ENG4U (English)",
             "MHF4U (Advanced Functions) or MCV4U (Calculus and Vectors)",
-            "SBI4U (Biology)"
+            "SBI4U (Biology), SCH4U (Chemistry), or SPH4U (Physics)"
           ],
           "grade_11_requirements": [
-            "A Grade 11 Chemistry",
-            "A Grade 11 Physics"
+            "SCH3U (Chemistry)",
+            "SPH3U (Physics)"
           ],
           "related_courses": [
             "Language Arts",
@@ -3174,8 +3174,8 @@
             "SBI4U (Biology)"
           ],
           "grade_11_requirements": [
-            "A Grade 11 Chemistry",
-            "A Grade 11 Biology (strongly recommended) or a Grade 11 Physics"
+            "SCH3U (Chemistry)",
+            "SBI3U (Biology) (strongly recommended) or SPH3U (Physics)"
           ],
           "related_courses": [
             "Language Arts",
@@ -3203,13 +3203,13 @@
         "Applied Biology": {
           "degree_name": "Applied Biology",
           "grade_12_requirements": [
-            "English 621A",
-            "Pre-Calculus 621B",
-            "Biology 621A, Chemistry 621A, or Physics 621A"
+            "ENG611 or ENG621",
+            "MAT611B or MAT621B",
+            "BIO611 or BIO621, CHM611 or CHM621, or PHY611 or PHY621"
           ],
           "grade_11_requirements": [
-            "Chemistry 521A",
-            "Physics 521A"
+            "CHM521",
+            "PHY521"
           ],
           "related_courses": [
             "Language Arts",
@@ -3223,14 +3223,14 @@
         "Applied Science (Engineering)": {
           "degree_name": "Applied Science (Engineering)",
           "grade_12_requirements": [
-            "English 621A",
-            "Pre-Calculus 621B",
-            "Chemistry 621A",
-            "Physics 621A"
+            "ENG611 or ENG621",
+            "MAT611B or MAT621B",
+            "CHM611 or CHM621",
+            "PHY611 or PHY621"
           ],
           "grade_11_requirements": [
-            "Chemistry 521A",
-            "Physics 521A"
+            "CHM521",
+            "PHY521"
           ],
           "related_courses": [
             "Language Arts",
@@ -3243,7 +3243,7 @@
         "Arts": {
           "degree_name": "Arts",
           "grade_12_requirements": [
-            "English 621A"
+            "ENG611 or ENG621"
           ],
           "grade_11_requirements": [],
           "related_courses": [
@@ -3272,8 +3272,8 @@
         "Commerce (UBC Sauder School of Business)": {
           "degree_name": "Commerce (UBC Sauder School of Business)",
           "grade_12_requirements": [
-            "English 621A",
-            "Pre-Calculus 621B"
+            "ENG611 or ENG621",
+            "MAT611B or MAT621B"
           ],
           "grade_11_requirements": [],
           "related_courses": [
@@ -3287,9 +3287,9 @@
         "Dental Hygiene": {
           "degree_name": "Dental Hygiene",
           "grade_12_requirements": [
-            "English 621A",
-            "Biology 621A",
-            "Chemistry 621A",
+            "ENG611 or ENG621",
+            "BIO611 or BIO621",
+            "CHM611 or CHM621",
             "Supplemental submission and interview process"
           ],
           "grade_11_requirements": [],
@@ -3303,7 +3303,7 @@
         "Design in Architecture, Landscape Architecture, and Urbanism": {
           "degree_name": "Design in Architecture, Landscape Architecture, and Urbanism",
           "grade_12_requirements": [
-            "English 621A",
+            "ENG611 or ENG621",
             "Supplemental submission (video interview, creative test, and resume)"
           ],
           "grade_11_requirements": [],
@@ -3318,7 +3318,7 @@
         "Fine Arts (direct-entry specializations only; excludes Creative Writing)": {
           "degree_name": "Fine Arts (direct-entry specializations only; excludes Creative Writing)",
           "grade_12_requirements": [
-            "English 621A",
+            "ENG611 or ENG621",
             "Audition or portfolio"
           ],
           "grade_11_requirements": [],
@@ -3351,13 +3351,13 @@
         "Food, Nutrition, and Health": {
           "degree_name": "Food, Nutrition, and Health",
           "grade_12_requirements": [
-            "English 621A",
-            "Pre-Calculus 621B",
-            "Biology 621A, Chemistry 621A, or Physics 621A"
+            "ENG611 or ENG621",
+            "MAT611B or MAT621B",
+            "BIO611 or BIO621, CHM611 or CHM621, or PHY611 or PHY621"
           ],
           "grade_11_requirements": [
-            "Chemistry 521A",
-            "Physics 521A"
+            "CHM521",
+            "PHY521"
           ],
           "related_courses": [
             "Language Arts",
@@ -3371,12 +3371,12 @@
         "Indigenous Land Stewardship": {
           "degree_name": "Indigenous Land Stewardship",
           "grade_12_requirements": [
-            "English 621A",
+            "ENG611 or ENG621",
             "Positionality statement"
           ],
           "grade_11_requirements": [
             "A Grade 11 Math (Pre-Calculus stream)",
-            "Biology 521A"
+            "BIO521 (strongly recommended) or another approved grade 11 science"
           ],
           "related_courses": [
             "Language Arts",
@@ -3390,7 +3390,7 @@
         "Indigenous Teacher Education Program (NITEP)": {
           "degree_name": "Indigenous Teacher Education Program (NITEP)",
           "grade_12_requirements": [
-            "English 621A"
+            "ENG611 or ENG621"
           ],
           "grade_11_requirements": [],
           "related_courses": [],
@@ -3400,8 +3400,8 @@
         "International Economics": {
           "degree_name": "International Economics",
           "grade_12_requirements": [
-            "English 621A",
-            "Pre-Calculus 621B"
+            "ENG611 or ENG621",
+            "MAT611B or MAT621B"
           ],
           "grade_11_requirements": [],
           "related_courses": [
@@ -3416,8 +3416,8 @@
         "Kinesiology": {
           "degree_name": "Kinesiology",
           "grade_12_requirements": [
-            "English 621A",
-            "Pre-Calculus 621B"
+            "ENG611 or ENG621",
+            "One of MAT611B or MAT621B, BIO611 or BIO621, CHM611 or CHM621, or PHY611 or PHY621"
           ],
           "grade_11_requirements": [],
           "related_courses": [
@@ -3432,9 +3432,9 @@
         "Media Studies": {
           "degree_name": "Media Studies",
           "grade_12_requirements": [
-            "English 621A",
+            "ENG611 or ENG621",
             "Portfolio submission",
-            "Pre-Calculus 621B"
+            "MAT611B or MAT621B"
           ],
           "grade_11_requirements": [],
           "related_courses": [
@@ -3449,7 +3449,7 @@
         "Music": {
           "degree_name": "Music",
           "grade_12_requirements": [
-            "English 621A",
+            "ENG611 or ENG621",
             "Audition, portfolio (students in composition), and letters of reference"
           ],
           "grade_11_requirements": [],
@@ -3464,14 +3464,14 @@
         "Natural Resources": {
           "degree_name": "Natural Resources",
           "grade_12_requirements": [
-            "English 621A",
-            "Pre-Calculus 621B",
-            "Biology 621A"
+            "ENG611 or ENG621",
+            "MAT611B or MAT621B",
+            "BIO611 or BIO621"
           ],
           "grade_11_requirements": [
-            "Chemistry 521A",
-            "Biology 521A",
-            "Physics 521A"
+            "CHM521",
+            "BIO521",
+            "PHY521"
           ],
           "related_courses": [
             "Language Arts",
@@ -3484,13 +3484,13 @@
         "Pharmaceutical Sciences": {
           "degree_name": "Pharmaceutical Sciences",
           "grade_12_requirements": [
-            "English 621A",
-            "Pre-Calculus 621B",
-            "Chemistry 621A"
+            "ENG611 or ENG621",
+            "MAT611B or MAT621B",
+            "CHM611 or CHM621"
           ],
           "grade_11_requirements": [
-            "Chemistry 521A",
-            "Biology 521A"
+            "CHM521",
+            "BIO521"
           ],
           "related_courses": [
             "Language Arts",
@@ -3503,13 +3503,13 @@
         "Science": {
           "degree_name": "Science",
           "grade_12_requirements": [
-            "English 621A",
-            "Pre-Calculus 621B",
-            "Biology 621A"
+            "ENG611 or ENG621",
+            "MAT611B or MAT621B",
+            "BIO611 or BIO621, CHM611 or CHM621, or PHY611 or PHY621"
           ],
           "grade_11_requirements": [
-            "Chemistry 521A",
-            "Physics 521A"
+            "CHM521",
+            "PHY521"
           ],
           "related_courses": [
             "Language Arts",
@@ -3522,13 +3522,13 @@
         "Urban Forestry": {
           "degree_name": "Urban Forestry",
           "grade_12_requirements": [
-            "English 621A",
-            "Pre-Calculus 621B",
-            "Biology 621A"
+            "ENG611 or ENG621",
+            "MAT611B or MAT621B",
+            "BIO611 or BIO621"
           ],
           "grade_11_requirements": [
-            "Chemistry 521A",
-            "Physics 521A"
+            "CHM521",
+            "BIO521 (strongly recommended) or PHY521"
           ],
           "related_courses": [
             "Language Arts",
@@ -3561,8 +3561,8 @@
             "Biology 101-NYA"
           ],
           "grade_11_requirements": [
-            "Chemistry 11",
-            "Physics 11 (may be waived with scores of 86% or higher in senior-level Mathandjunior-level or senior-level Chemistry, or scores of 5 or higher in IB Mathematics and IB Chemistry)"
+            "A Grade 11 Chemistry",
+            "A Grade 11 Physics"
           ],
           "related_courses": [
             "Language Arts",
@@ -3709,8 +3709,8 @@
             "Biology 101-NYA"
           ],
           "grade_11_requirements": [
-            "Chemistry 11",
-            "Physics 11 (may be waived with scores of 86% or higher in senior-level Mathandjunior-level or senior-level Chemistry, or scores of 5 or higher in IB Mathematics and IB Chemistry"
+            "A Grade 11 Chemistry",
+            "A Grade 11 Physics"
           ],
           "related_courses": [
             "Language Arts",
@@ -3770,7 +3770,7 @@
           "degree_name": "Kinesiology",
           "grade_12_requirements": [
             "English 603 or 604",
-            "Mathematics 201-NYA, 201-NYB, 201-NYC"
+            "One of Mathematics 201-NYA, 201-NYB, 201-NYC, Biology 101-NYA, Chemistry 202-NYA, 202-NYB, or Physics 203-NYA, 203-NYB"
           ],
           "grade_11_requirements": [],
           "related_courses": [
@@ -3823,8 +3823,8 @@
           ],
           "grade_11_requirements": [
             "A Grade 11 Chemistry",
-            "A Grade 11 Biology (see Related courses below)",
-            "If you intend to major in Wood Products or specialize inHarvest Planning and Engineering(Forest Operations), Physics 11 is strongly recommended."
+            "A Grade 11 Biology",
+            "A Grade 11 Physics"
           ],
           "related_courses": [
             "Language Arts",
@@ -3858,7 +3858,7 @@
           "grade_12_requirements": [
             "English 603 or 604",
             "Mathematics 201-NYA, 201-NYB, 201-NYC",
-            "Biology 101-NYA"
+            "Biology 101-NYA, Chemistry 202-NYA, 202-NYB, or Physics 203-NYA, 203-NYB"
           ],
           "grade_11_requirements": [
             "A Grade 11 Chemistry",
@@ -3909,13 +3909,14 @@
         "Applied Biology": {
           "degree_name": "Applied Biology",
           "grade_12_requirements": [
-            "English Language Arts A30 or English Language Arts B30",
+            "English Language Arts A30",
+            "English Language Arts B30",
             "Pre-Calculus 30",
             "Biology 30, Chemistry 30, or Physics 30"
           ],
           "grade_11_requirements": [
-            "Chemistry 11",
-            "Physics 11 (may be waived with scores of 86% or higher in senior-level Mathandjunior-level or senior-level Chemistry, or scores of 5 or higher in IB Mathematics and IB Chemistry)"
+            "Chemistry 20",
+            "Physics 20"
           ],
           "related_courses": [
             "Language Arts",
@@ -3929,14 +3930,15 @@
         "Applied Science (Engineering)": {
           "degree_name": "Applied Science (Engineering)",
           "grade_12_requirements": [
-            "English Language Arts A30 or English Language Arts B30",
+            "English Language Arts A30",
+            "English Language Arts B30",
             "Pre-Calculus 30",
             "Chemistry 30",
             "Physics 30"
           ],
           "grade_11_requirements": [
-            "A Grade 11 Chemistry",
-            "A Grade 11 Physics"
+            "Chemistry 20",
+            "Physics 20"
           ],
           "related_courses": [
             "Language Arts",
@@ -3949,7 +3951,8 @@
         "Arts": {
           "degree_name": "Arts",
           "grade_12_requirements": [
-            "English Language Arts A30 or English Language Arts B30"
+            "English Language Arts A30",
+            "English Language Arts B30"
           ],
           "grade_11_requirements": [],
           "related_courses": [
@@ -3978,7 +3981,8 @@
         "Commerce (UBC Sauder School of Business)": {
           "degree_name": "Commerce (UBC Sauder School of Business)",
           "grade_12_requirements": [
-            "English Language Arts A30 or English Language Arts B30",
+            "English Language Arts A30",
+            "English Language Arts B30",
             "Pre-Calculus 30"
           ],
           "grade_11_requirements": [],
@@ -3993,7 +3997,8 @@
         "Dental Hygiene": {
           "degree_name": "Dental Hygiene",
           "grade_12_requirements": [
-            "English Language Arts A30 or English Language Arts B30",
+            "English Language Arts A30",
+            "English Language Arts B30",
             "Biology 30",
             "Chemistry 30",
             "Supplemental submission and interview process"
@@ -4009,7 +4014,8 @@
         "Design in Architecture, Landscape Architecture, and Urbanism": {
           "degree_name": "Design in Architecture, Landscape Architecture, and Urbanism",
           "grade_12_requirements": [
-            "English Language Arts A30 or English Language Arts B30",
+            "English Language Arts A30",
+            "English Language Arts B30",
             "Supplemental submission (video interview, creative test, and resume)"
           ],
           "grade_11_requirements": [],
@@ -4024,7 +4030,8 @@
         "Fine Arts (direct-entry specializations only; excludes Creative Writing)": {
           "degree_name": "Fine Arts (direct-entry specializations only; excludes Creative Writing)",
           "grade_12_requirements": [
-            "English Language Arts A30 or English Language Arts B30",
+            "English Language Arts A30",
+            "English Language Arts B30",
             "Audition or portfolio"
           ],
           "grade_11_requirements": [],
@@ -4057,13 +4064,14 @@
         "Food, Nutrition, and Health": {
           "degree_name": "Food, Nutrition, and Health",
           "grade_12_requirements": [
-            "English Language Arts A30 or English Language Arts B30",
+            "English Language Arts A30",
+            "English Language Arts B30",
             "Pre-Calculus 30",
             "Biology 30, Chemistry 30, or Physics 30"
           ],
           "grade_11_requirements": [
-            "Chemistry 11",
-            "Physics 11 (may be waived with scores of 86% or higher in senior-level Mathandjunior-level or senior-level Chemistry, or scores of 5 or higher in IB Mathematics and IB Chemistry"
+            "Chemistry 20",
+            "Physics 20"
           ],
           "related_courses": [
             "Language Arts",
@@ -4077,12 +4085,13 @@
         "Indigenous Land Stewardship": {
           "degree_name": "Indigenous Land Stewardship",
           "grade_12_requirements": [
-            "English Language Arts A30 or English Language Arts B30",
+            "English Language Arts A30",
+            "English Language Arts B30",
             "Positionality statement"
           ],
           "grade_11_requirements": [
-            "A Grade 11 Math (Pre-Calculus stream)",
-            "A Grade 11 Biology (strongly recommended) or another approved grade 11 science"
+            "Pre-Calculus 20",
+            "Biology 20 (strongly recommended) or another approved grade 11 science"
           ],
           "related_courses": [
             "Language Arts",
@@ -4096,7 +4105,8 @@
         "Indigenous Teacher Education Program (NITEP)": {
           "degree_name": "Indigenous Teacher Education Program (NITEP)",
           "grade_12_requirements": [
-            "English Language Arts A30 or English Language Arts B30"
+            "English Language Arts A30",
+            "English Language Arts B30"
           ],
           "grade_11_requirements": [],
           "related_courses": [],
@@ -4106,7 +4116,8 @@
         "International Economics": {
           "degree_name": "International Economics",
           "grade_12_requirements": [
-            "English Language Arts A30 or English Language Arts B30",
+            "English Language Arts A30",
+            "English Language Arts B30",
             "Pre-Calculus 30"
           ],
           "grade_11_requirements": [],
@@ -4122,8 +4133,9 @@
         "Kinesiology": {
           "degree_name": "Kinesiology",
           "grade_12_requirements": [
-            "English Language Arts A30 or English Language Arts B30",
-            "Pre-Calculus 30"
+            "English Language Arts A30",
+            "English Language Arts B30",
+            "One of Pre-Calculus 30, Biology 30, Chemistry 30, or Physics 30"
           ],
           "grade_11_requirements": [],
           "related_courses": [
@@ -4138,7 +4150,8 @@
         "Media Studies": {
           "degree_name": "Media Studies",
           "grade_12_requirements": [
-            "English Language Arts A30 or English Language Arts B30",
+            "English Language Arts A30",
+            "English Language Arts B30",
             "Portfolio submission",
             "Pre-Calculus 30"
           ],
@@ -4155,7 +4168,8 @@
         "Music": {
           "degree_name": "Music",
           "grade_12_requirements": [
-            "English Language Arts A30 or English Language Arts B30",
+            "English Language Arts A30",
+            "English Language Arts B30",
             "Audition, portfolio (students in composition), and letters of reference"
           ],
           "grade_11_requirements": [],
@@ -4170,14 +4184,15 @@
         "Natural Resources": {
           "degree_name": "Natural Resources",
           "grade_12_requirements": [
-            "English Language Arts A30 or English Language Arts B30",
+            "English Language Arts A30",
+            "English Language Arts B30",
             "Pre-Calculus 30",
             "Biology 30"
           ],
           "grade_11_requirements": [
-            "A Grade 11 Chemistry",
-            "A Grade 11 Biology (see Related courses below)",
-            "If you intend to major in Wood Products or specialize inHarvest Planning and Engineering(Forest Operations), Physics 11 is strongly recommended."
+            "Chemistry 20",
+            "Biology 20",
+            "Physics 20"
           ],
           "related_courses": [
             "Language Arts",
@@ -4190,13 +4205,14 @@
         "Pharmaceutical Sciences": {
           "degree_name": "Pharmaceutical Sciences",
           "grade_12_requirements": [
-            "English Language Arts A30 or English Language Arts B30",
+            "English Language Arts A30",
+            "English Language Arts B30",
             "Pre-Calculus 30",
             "Chemistry 30"
           ],
           "grade_11_requirements": [
-            "A Grade 11 Chemistry",
-            "A Grade 11 Biology"
+            "Chemistry 20",
+            "Biology 20"
           ],
           "related_courses": [
             "Language Arts",
@@ -4209,13 +4225,14 @@
         "Science": {
           "degree_name": "Science",
           "grade_12_requirements": [
-            "English Language Arts A30 or English Language Arts B30",
+            "English Language Arts A30",
+            "English Language Arts B30",
             "Pre-Calculus 30",
-            "Biology 30"
+            "Biology 30, Chemistry 30, or Physics 30"
           ],
           "grade_11_requirements": [
-            "A Grade 11 Chemistry",
-            "A Grade 11 Physics"
+            "Chemistry 20",
+            "Physics 20"
           ],
           "related_courses": [
             "Language Arts",
@@ -4228,13 +4245,14 @@
         "Urban Forestry": {
           "degree_name": "Urban Forestry",
           "grade_12_requirements": [
-            "English Language Arts A30 or English Language Arts B30",
+            "English Language Arts A30",
+            "English Language Arts B30",
             "Pre-Calculus 30",
             "Biology 30"
           ],
           "grade_11_requirements": [
-            "A Grade 11 Chemistry",
-            "A Grade 11 Biology (strongly recommended) or a Grade 11 Physics"
+            "Chemistry 20",
+            "Biology 20 (strongly recommended) or Physics 20"
           ],
           "related_courses": [
             "Language Arts",
@@ -4435,7 +4453,7 @@
           ],
           "grade_11_requirements": [
             "A Grade 11 Math (Pre-Calculus stream)",
-            "Biology 11"
+            "Biology 11 (strongly recommended) or another approved grade 11 science"
           ],
           "related_courses": [
             "Language Arts",
@@ -4476,7 +4494,7 @@
           "degree_name": "Kinesiology",
           "grade_12_requirements": [
             "English 12 or English Language Arts 12",
-            "Pre-Calculus 12"
+            "One of Pre-Calculus 12, Biology 12, Chemistry 12, or Physics 12"
           ],
           "grade_11_requirements": [],
           "related_courses": [
@@ -4564,7 +4582,7 @@
           "grade_12_requirements": [
             "English 12 or English Language Arts 12",
             "Pre-Calculus 12",
-            "Biology 12"
+            "Biology 12, Chemistry 12, or Physics 12"
           ],
           "grade_11_requirements": [
             "Chemistry 11",
@@ -4587,7 +4605,7 @@
           ],
           "grade_11_requirements": [
             "Chemistry 11",
-            "Physics 11"
+            "Biology 11 (strongly recommended) or Physics 11"
           ],
           "related_courses": [
             "Language Arts",
