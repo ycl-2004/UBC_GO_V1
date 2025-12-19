@@ -9,22 +9,30 @@ const StepByStepRequirements = () => {
   const [requirements, setRequirements] = useState(null);
   const [loading, setLoading] = useState(true);
   const [expandedCourse, setExpandedCourse] = useState(null);
+  const [showOthersDropdown, setShowOthersDropdown] = useState(false);
 
-  const provinces = [
-    "Alberta",
+  // Popular provinces shown as main cards
+  const popularProvinces = [
     "British Columbia",
+    "Ontario",
+    "Quebec",
+  ];
+
+  // Other provinces shown in the "Others" card
+  const otherProvinces = [
+    "Alberta",
     "Manitoba",
     "New Brunswick",
     "Newfoundland & Labrador",
     "Northwest Territories",
     "Nova Scotia",
     "Nunavut",
-    "Ontario",
     "Prince Edward Island",
-    "Quebec",
     "Saskatchewan",
     "Yukon",
   ];
+
+  const allProvinces = [...popularProvinces, ...otherProvinces];
 
   const degrees = [
     "Applied Biology",
@@ -155,6 +163,7 @@ const StepByStepRequirements = () => {
     setSelectedProvince(province);
     setCurrentStep(2);
     setSelectedDegree(""); // Reset degree selection
+    setShowOthersDropdown(false); // Close dropdown when province is selected
   };
 
   const handleDegreeSelect = (degree) => {
@@ -292,8 +301,8 @@ const StepByStepRequirements = () => {
             Choose the Canadian province where you're completing high school
           </p>
           <div className="selection-grid provinces-grid">
-            {provinces.map((province) => {
-              // Get province abbreviation
+            {/* Popular Provinces */}
+            {popularProvinces.map((province) => {
               const getProvinceAbbr = (provinceName) => {
                 const abbreviations = {
                   "Alberta": "AB",
@@ -326,6 +335,68 @@ const StepByStepRequirements = () => {
                 </button>
               );
             })}
+            
+            {/* Others Card */}
+            <div 
+              className={`selection-card province-card others-card ${showOthersDropdown ? 'expanded' : ''}`}
+              tabIndex="0"
+              onMouseEnter={() => setShowOthersDropdown(true)}
+              onMouseLeave={() => setShowOthersDropdown(false)}
+              onClick={(e) => {
+                // Only toggle if clicking on the card itself, not on dropdown items
+                if (e.target.closest('.others-dropdown')) {
+                  return;
+                }
+                setShowOthersDropdown(!showOthersDropdown);
+              }}
+              onFocus={() => setShowOthersDropdown(true)}
+            >
+              <div className="province-abbr">+</div>
+              <span className="card-label">Others</span>
+              <div 
+                className={`others-dropdown ${showOthersDropdown ? 'show' : ''}`}
+                onClick={(e) => e.stopPropagation()}
+              >
+                <div className="others-list">
+                  {otherProvinces.map((province) => {
+                    const getProvinceAbbr = (provinceName) => {
+                      const abbreviations = {
+                        "Alberta": "AB",
+                        "British Columbia": "BC",
+                        "Manitoba": "MB",
+                        "New Brunswick": "NB",
+                        "Newfoundland & Labrador": "NL",
+                        "Northwest Territories": "NT",
+                        "Nova Scotia": "NS",
+                        "Nunavut": "NU",
+                        "Ontario": "ON",
+                        "Prince Edward Island": "PE",
+                        "Quebec": "QC",
+                        "Saskatchewan": "SK",
+                        "Yukon": "YT"
+                      };
+                      return abbreviations[provinceName] || provinceName.substring(0, 2).toUpperCase();
+                    };
+                    
+                    const isSelected = selectedProvince === province;
+                    
+                    return (
+                      <button
+                        key={province}
+                        className={`others-item ${isSelected ? 'selected' : ''}`}
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          handleProvinceSelect(province);
+                        }}
+                      >
+                        <span className="others-abbr">{getProvinceAbbr(province)}</span>
+                        <span className="others-label">{province}</span>
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       )}
