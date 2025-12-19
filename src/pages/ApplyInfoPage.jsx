@@ -150,7 +150,7 @@ const ApplyInfoPage = () => {
         const inProgressCount = scienceCourses.filter(c => courseStatus[c] === "inProgress").length;
         
         if (completedCount + inProgressCount < 2) {
-          missingCourses.push("至少兩門 12 年級理科");
+          missingCourses.push("At least 2 Grade 12 Science courses");
           totalPenalty += courseStatusPenalty.notTaken;
         } else if (completedCount < 2) {
           totalPenalty += courseStatusPenalty.inProgress * (2 - completedCount);
@@ -176,7 +176,7 @@ const ApplyInfoPage = () => {
       if (score && score < coreMinScore) {
         const deficit = coreMinScore - score;
         corePenalty += Math.min(deficit * 0.5, 15); // Max 15 penalty per subject
-        warnings.push(`${subject} 分數 (${score}%) 低於建議最低分數 (${coreMinScore}%)`);
+        warnings.push(`${subject} score (${score}%) is below recommended minimum (${coreMinScore}%)`);
       }
     }
     
@@ -187,7 +187,7 @@ const ApplyInfoPage = () => {
     
     if (supplementRequired) {
       supplementWarning = admissionData.supplementWarning || 
-        `⚠️ 此科系需要提交 ${supplementType || "補充材料"}。未提交將無法準確估算。`;
+        `⚠️ This program requires ${supplementType || "supplement material"} submission. Without it, accurate estimation is not possible.`;
     }
     
     return {
@@ -340,7 +340,7 @@ const ApplyInfoPage = () => {
       explanations.push({
         type: "gate",
         severity: "critical",
-        message: `🚫 課程不足：缺少 ${gateCheck.missingCourses.join(", ")}`,
+        message: `🚫 Missing Courses: ${gateCheck.missingCourses.join(", ")}`,
         advice: admissionData.gateWarning
       });
     }
@@ -351,7 +351,7 @@ const ApplyInfoPage = () => {
         type: "supplement",
         severity: "warning",
         message: gateCheck.supplementWarning,
-        advice: `此科系 ${admissionData.weights?.supplement > 0.3 ? "主要" : "部分"} 依賴補充材料評估。`
+        advice: `This program ${admissionData.weights?.supplement > 0.3 ? "primarily" : "partially"} relies on supplement material evaluation.`
       });
     }
     
@@ -361,7 +361,7 @@ const ApplyInfoPage = () => {
         type: "core",
         severity: "warning",
         message: `⚠️ ${warning}`,
-        advice: "提高核心科目分數可以顯著增加錄取機率。"
+        advice: "Improving core subject scores can significantly increase admission probability."
       });
     }
     
@@ -371,8 +371,8 @@ const ApplyInfoPage = () => {
       explanations.push({
         type: "score",
         severity: "info",
-        message: `📚 學術成績 (${scores.academicScore.toFixed(1)}) 還有提升空間`,
-        advice: "此科系學術權重較高，提高 GPA 是最直接的方式。"
+        message: `📚 Academic Score (${scores.academicScore.toFixed(1)}) has room for improvement`,
+        advice: "This program has high academic weight; improving GPA is the most direct approach."
       });
     }
     
@@ -380,24 +380,24 @@ const ApplyInfoPage = () => {
       explanations.push({
         type: "score",
         severity: "info",
-        message: `👤 個人簡介 (${scores.profileScore.toFixed(1)}) 可以加強`,
-        advice: admissionData.advice || "展示更多相關活動和領導經驗。"
+        message: `👤 Personal Profile (${scores.profileScore.toFixed(1)}) can be strengthened`,
+        advice: admissionData.advice || "Showcase more relevant activities and leadership experience."
       });
     }
     
     // Top 2 improvement actions
     const actions = [];
     if (gateCheck.missingCourses.length > 0) {
-      actions.push(`修讀缺少的課程：${gateCheck.missingCourses.slice(0, 2).join(", ")}`);
+      actions.push(`Take missing courses: ${gateCheck.missingCourses.slice(0, 2).join(", ")}`);
     }
     if (scores.academicScore < 90 && weights.academic > 0.5) {
-      actions.push("提高 GPA 到 90+ 以上");
+      actions.push("Improve GPA to 90+");
     }
     if (scores.profileScore < 85 && weights.profile > 0.3) {
-      actions.push("增加相關課外活動深度");
+      actions.push("Increase depth of relevant extracurricular activities");
     }
     if (gateCheck.supplementRequired && scores.supplementScore < 70) {
-      actions.push(`準備高質量的 ${gateCheck.supplementType || "補充材料"}`);
+      actions.push(`Prepare high-quality ${gateCheck.supplementType || "supplement material"}`);
     }
     
     return {
@@ -563,7 +563,7 @@ const ApplyInfoPage = () => {
       Chemistry12: "Chemistry 12",
       Biology12: "Biology 12",
       Geography12: "Geography 12",
-      Science12_2: "至少兩門 12 年級理科 (Bio/Chem/Phys)",
+      Science12_2: "At least 2 Grade 12 Science courses (Bio/Chem/Phys)",
     };
     
     return requiredCourses.map(course => ({
@@ -742,16 +742,16 @@ const ApplyInfoPage = () => {
     const recommendations = [];
     const highThreshold = admissionData.averageGPA.high || 95;
     const mediumThreshold = admissionData.averageGPA.medium || 85;
-    const core = admissionData.core || "學術表現";
-    const advice = admissionData.advice || "繼續保持學術表現並加強個人簡介。";
+    const core = admissionData.core || "Academic Performance";
+    const advice = admissionData.advice || "Continue maintaining academic performance and strengthen your personal profile.";
 
     // GPA-based recommendations
     if (gpa < mediumThreshold) {
       recommendations.push({
         type: "gpa",
-        title: "提升學業成績",
-        description: `你的 GPA (${gpa}%) 低於 ${majorName} 的平均要求。${admissionData.focus || "請專注於提升核心科目的成績。"}`,
-        action: admissionData.advice || "考慮參加補習或學習小組來提升表現。",
+        title: "Improve Academic Performance",
+        description: `Your GPA (${gpa}%) is below ${majorName}'s average requirement. ${admissionData.focus || "Please focus on improving core subject grades."}`,
+        action: admissionData.advice || "Consider tutoring or study groups to improve performance.",
       });
     }
 
@@ -762,16 +762,16 @@ const ApplyInfoPage = () => {
         // High profile weight majors (e.g., Sauder, Design, Music)
         recommendations.push({
           type: "profile",
-          title: "強化個人簡介",
-          description: `${majorName} 非常重視個人簡介 (權重 ${Math.round(profileWeight * 100)}%)。${admissionData.focus || "你的課外活動和領導經驗需要加強。"}`,
+          title: "Strengthen Personal Profile",
+          description: `${majorName} highly values personal profile (weight ${Math.round(profileWeight * 100)}%). ${admissionData.focus || "Your extracurricular activities and leadership experience need strengthening."}`,
           action: advice,
         });
       } else {
         recommendations.push({
           type: "profile",
-          title: "加強個人簡介",
-          description: "你的課外活動和領導經驗可以更強。",
-          action: "參與社團、志工工作或擔任領導職位。",
+          title: "Enhance Personal Profile",
+          description: "Your extracurricular activities and leadership experience can be stronger.",
+          action: "Join clubs, volunteer work, or take on leadership positions.",
         });
       }
     }
@@ -780,18 +780,18 @@ const ApplyInfoPage = () => {
     if (difficulty === "regular" && gpa >= 85) {
       recommendations.push({
         type: "courses",
-        title: "考慮進階課程",
-        description: "你在常規課程中表現良好。考慮修讀 AP 或 IB 課程來加強申請。",
-        action: "進階課程展現學術嚴謹性，可以提升錄取機會。",
+        title: "Consider Advanced Courses",
+        description: "You're performing well in regular courses. Consider taking AP or IB courses to strengthen your application.",
+        action: "Advanced courses demonstrate academic rigor and can improve admission chances.",
       });
     }
 
     // Core-specific recommendations
-    if (admissionData.core && admissionData.core !== "學術表現") {
+    if (admissionData.core && admissionData.core !== "Academic Performance") {
       recommendations.push({
         type: "core",
-        title: `${majorName} 的核心要求`,
-        description: `${majorName} 的核心是「${core}」。`,
+        title: `${majorName} Core Requirements`,
+        description: `${majorName}'s core is "${core}".`,
         action: advice,
       });
     }
@@ -800,9 +800,9 @@ const ApplyInfoPage = () => {
     if (finalScore >= highThreshold) {
       recommendations.push({
         type: "success",
-        title: "申請競爭力強",
-        description: `你的申請看起來很有競爭力！${majorName} 的核心是「${core}」，你已經展現了相關實力。`,
-        action: "繼續保持成績並持續建立你的個人簡介。",
+        title: "Strong Application Competitiveness",
+        description: `Your application looks very competitive! ${majorName}'s core is "${core}", and you've already demonstrated relevant strengths.`,
+        action: "Continue maintaining your grades and keep building your personal profile.",
       });
     }
 
@@ -930,7 +930,7 @@ const ApplyInfoPage = () => {
                 <div className="form-group">
                   <label htmlFor="gradeTrend">
                     <span className="input-icon">📈</span>
-                    Grade Trend (成績趨勢)
+                    Grade Trend
                   </label>
                   <select
                     id="gradeTrend"
@@ -938,17 +938,17 @@ const ApplyInfoPage = () => {
                     value={formData.gradeTrend}
                     onChange={handleInputChange}
                   >
-                    <option value="rising">Rising (上升)</option>
-                    <option value="stable">Stable (穩定)</option>
-                    <option value="declining">Declining (下降)</option>
+                    <option value="rising">Rising</option>
+                    <option value="stable">Stable</option>
+                    <option value="declining">Declining</option>
                   </select>
                 </div>
               </div>
 
               <div className="form-section">
-                <h3 className="section-title">Required Courses (必修課程)</h3>
+                <h3 className="section-title">Required Courses</h3>
                 <p className="section-description">
-                  選擇每門課程的狀態（已完成 ✓、修讀中 ⏳、未修 ✗）
+                  Select the status of each course (Completed ✓, In Progress ⏳, Not Taken ✗)
                 </p>
                 
                 {getRequiredCourses().length > 0 ? (
@@ -965,7 +965,7 @@ const ApplyInfoPage = () => {
                             <div className="course-status-header">
                               <span className="course-name">{course.label}</span>
                               <span className={`course-count ${completedCount >= 2 ? 'complete' : ''}`}>
-                                ({completedCount}/2 完成)
+                                ({completedCount}/2 completed)
                               </span>
                             </div>
                             <div className="sub-courses-status">
@@ -978,9 +978,9 @@ const ApplyInfoPage = () => {
                                     onChange={handleInputChange}
                                     className="course-status-select"
                                   >
-                                    <option value="completed">✓ 已完成</option>
-                                    <option value="inProgress">⏳ 修讀中</option>
-                                    <option value="notTaken">✗ 未修</option>
+                                    <option value="completed">✓ Completed</option>
+                                    <option value="inProgress">⏳ In Progress</option>
+                                    <option value="notTaken">✗ Not Taken</option>
                                   </select>
                                 </div>
                               ))}
@@ -992,7 +992,7 @@ const ApplyInfoPage = () => {
                           <div key={course.key} className="course-status-item">
                             <span className="course-label">
                               {course.label}
-                              {course.isCore && <span className="core-badge">核心</span>}
+                              {course.isCore && <span className="core-badge">Core</span>}
                             </span>
                             <select
                               name={`courseStatus_${course.key}`}
@@ -1000,9 +1000,9 @@ const ApplyInfoPage = () => {
                               onChange={handleInputChange}
                               className="course-status-select"
                             >
-                              <option value="completed">✓ 已完成</option>
-                              <option value="inProgress">⏳ 修讀中</option>
-                              <option value="notTaken">✗ 未修</option>
+                              <option value="completed">✓ Completed</option>
+                              <option value="inProgress">⏳ In Progress</option>
+                              <option value="notTaken">✗ Not Taken</option>
                             </select>
                           </div>
                         );
@@ -1011,7 +1011,7 @@ const ApplyInfoPage = () => {
                   </div>
                 ) : (
                   <p className="no-required-courses">
-                    此專業沒有特定的硬性課程要求
+                    This program has no specific required courses
                   </p>
                 )}
               </div>
@@ -1019,9 +1019,9 @@ const ApplyInfoPage = () => {
               {/* Core Subject Scores Section */}
               {getCoreSubjects().length > 0 && (
                 <div className="form-section">
-                  <h3 className="section-title">Core Subject Scores (核心科目分數)</h3>
+                  <h3 className="section-title">Core Subject Scores</h3>
                   <p className="section-description">
-                    此科系特別看重以下科目的分數（建議至少 {getCoreSubjects()[0]?.minScore}%）
+                    This program particularly values scores in the following subjects (recommended at least {getCoreSubjects()[0]?.minScore}%)
                   </p>
                   
                   <div className="core-scores-list">
@@ -1037,7 +1037,7 @@ const ApplyInfoPage = () => {
                             name={`coreScore_${subject.key}`}
                             value={formData.coreSubjectScores[subject.key] || ""}
                             onChange={handleInputChange}
-                            placeholder={`建議 ≥${subject.minScore}%`}
+                            placeholder={`Recommended ≥${subject.minScore}%`}
                             min="0"
                             max="100"
                             className="core-score-input"
@@ -1121,7 +1121,7 @@ const ApplyInfoPage = () => {
             <div className="form-group">
               <label htmlFor="activityRelevance">
                 <span className="input-icon">🎯</span>
-                Activity Relevance (活動相關性)
+                Activity Relevance
               </label>
               <select
                 id="activityRelevance"
@@ -1129,16 +1129,16 @@ const ApplyInfoPage = () => {
                 value={formData.activityRelevance}
                 onChange={handleInputChange}
               >
-                <option value="high">High - 與申請科系高度相關</option>
-                <option value="medium">Medium - 部分相關</option>
-                <option value="low">Low - 不太相關</option>
+                <option value="high">High - Highly relevant to the program</option>
+                <option value="medium">Medium - Partially relevant</option>
+                <option value="low">Low - Not very relevant</option>
               </select>
             </div>
             
             <div className="form-group">
               <label htmlFor="roleDepth">
                 <span className="input-icon">👑</span>
-                Role Depth (參與深度)
+                Role Depth
               </label>
               <select
                 id="roleDepth"
@@ -1146,9 +1146,9 @@ const ApplyInfoPage = () => {
                 value={formData.roleDepth}
                 onChange={handleInputChange}
               >
-                <option value="founder">Founder / President (創辦人/主席)</option>
-                <option value="executive">Executive / Leader (幹部/領導)</option>
-                <option value="member">Member / Participant (成員/參與者)</option>
+                <option value="founder">Founder / President</option>
+                <option value="executive">Executive / Leader</option>
+                <option value="member">Member / Participant</option>
               </select>
             </div>
 
@@ -1159,10 +1159,10 @@ const ApplyInfoPage = () => {
                 <div className="form-section supplement-section">
                   <h3 className="section-title">
                     <span className="supplement-icon">🎨</span>
-                    Supplement Material ({getSupplementInfo().type || "作品/面試"})
+                    Supplement Material ({getSupplementInfo().type || "Portfolio/Interview"})
                   </h3>
                   <p className="section-description supplement-warning">
-                    ⚠️ 此科系需要提交補充材料。權重：{Math.round((getSupplementInfo().weight || 0) * 100)}%
+                    ⚠️ This program requires supplement material submission. Weight: {Math.round((getSupplementInfo().weight || 0) * 100)}%
                   </p>
                   
                   <div className="form-group">
@@ -1181,8 +1181,8 @@ const ApplyInfoPage = () => {
                       step="5"
                     />
                     <div className="rating-labels">
-                      <span>未提交/低</span>
-                      <span>非常優秀</span>
+                      <span>Not Submitted/Low</span>
+                      <span>Excellent</span>
                     </div>
                   </div>
                 </div>
@@ -1261,26 +1261,26 @@ const ApplyInfoPage = () => {
                       <div className="gate-warning">
                         <span className="warning-icon">⚠️</span>
                         <div className="warning-content">
-                          <strong>缺少必要課程：</strong>
+                          <strong>Missing Required Courses:</strong>
                           {realTimeResult.gateCheck.missingCourses.join(", ")}
                           <br />
-                          <small>已應用 {Math.abs(realTimeResult.gateCheck.penalty)} 分懲罰</small>
+                          <small>Applied {Math.abs(realTimeResult.gateCheck.penalty)} point penalty</small>
                         </div>
                       </div>
                     )}
                     
                     {/* Component Scores */}
                     <div className="component-scores">
-                      <h4>評分細項</h4>
+                      <h4>Score Breakdown</h4>
                       <div className="score-item">
-                        <span className="score-label">學術成績 (Academic):</span>
+                        <span className="score-label">Academic Score:</span>
                         <span className="score-value">{realTimeResult.academicScore}/100</span>
                         <span className="score-weight">
                           ({Math.round((realTimeResult.admissionData.weights?.academic || 0.7) * 100)}%)
                         </span>
                       </div>
                       <div className="score-item">
-                        <span className="score-label">個人簡介 (Profile):</span>
+                        <span className="score-label">Personal Profile:</span>
                         <span className="score-value">{realTimeResult.profileScore}/100</span>
                         <span className="score-weight">
                           ({Math.round((realTimeResult.admissionData.weights?.profile || 0.3) * 100)}%)
@@ -1288,7 +1288,7 @@ const ApplyInfoPage = () => {
                       </div>
                       {realTimeResult.supplementScore !== null && (
                         <div className="score-item">
-                          <span className="score-label">補充材料 (Supplement):</span>
+                          <span className="score-label">Supplement Material:</span>
                           <span className="score-value">{realTimeResult.supplementScore}/100</span>
                           <span className="score-weight">
                             ({Math.round((realTimeResult.admissionData.weights?.supplement || 0) * 100)}%)
@@ -1321,12 +1321,12 @@ const ApplyInfoPage = () => {
                   {/* Explanation Section - Layer 4 Output */}
                   {realTimeResult.explanation && (
                     <div className="explanation-section">
-                      <h4>💡 分析與建議</h4>
+                      <h4>💡 Analysis & Recommendations</h4>
                       
                       {/* Top Actions */}
                       {realTimeResult.explanation.topActions && realTimeResult.explanation.topActions.length > 0 && (
                         <div className="top-actions">
-                          <div className="actions-title">提升機率最快的方式：</div>
+                          <div className="actions-title">Fastest Ways to Improve Chances:</div>
                           <ul className="actions-list">
                             {realTimeResult.explanation.topActions.map((action, idx) => (
                               <li key={idx}>{action}</li>
@@ -1355,7 +1355,7 @@ const ApplyInfoPage = () => {
                         <div className="insight-item">
                           <span className="insight-icon">🎯</span>
                           <div className="insight-content">
-                            <div className="insight-label">核心要求</div>
+                            <div className="insight-label">Core Requirements</div>
                             <div className="insight-text">{realTimeResult.admissionData.core}</div>
                           </div>
                         </div>
@@ -1364,7 +1364,7 @@ const ApplyInfoPage = () => {
                         <div className="insight-item">
                           <span className="insight-icon">📋</span>
                           <div className="insight-content">
-                            <div className="insight-label">重點關注</div>
+                            <div className="insight-label">Key Focus</div>
                             <div className="insight-text">{realTimeResult.admissionData.focus}</div>
                           </div>
                         </div>
@@ -1373,7 +1373,7 @@ const ApplyInfoPage = () => {
                         <div className="insight-item">
                           <span className="insight-icon">💡</span>
                           <div className="insight-content">
-                            <div className="insight-label">建議</div>
+                            <div className="insight-label">Recommendation</div>
                             <div className="insight-text">{realTimeResult.admissionData.advice}</div>
                           </div>
                         </div>
