@@ -18,13 +18,13 @@ const Navigation = () => {
             to="/ApplyInfo" 
             className="nav-link"
             onClick={(e) => {
-              // If already on ApplyInfo page, scroll to calculator section
+              // If already on ApplyInfo page, scroll to applyinfo section
               if (window.location.pathname === '/ApplyInfo' || window.location.pathname === '/UBC_GO_V1/ApplyInfo') {
                 e.preventDefault();
                 setTimeout(() => {
-                  const calculatorSection = document.getElementById('calculator-section');
-                  if (calculatorSection) {
-                    calculatorSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                  const applyinfoSection = document.getElementById('applyinfo-section');
+                  if (applyinfoSection) {
+                    applyinfoSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
                   }
                 }, 100);
               }
