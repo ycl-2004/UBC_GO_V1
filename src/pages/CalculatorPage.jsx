@@ -887,7 +887,37 @@ const CalculatorPage = () => {
                   <div className="empty-circle">
                     <span>?</span>
                   </div>
-                  <p>Enter your GPA to see your admission chance</p>
+                  <p className="no-data-instruction">Enter your GPA to see your admission chance</p>
+                  
+                  {/* Major Information Display */}
+                  {(() => {
+                    const admissionData = getAdmissionData(selectedMajor);
+                    // Try to get minimum grade: prefer academicThreshold.min, fallback to averageGPA.medium
+                    const minGrade = admissionData?.academicThreshold?.min || 
+                                    admissionData?.averageGPA?.medium || 
+                                    null;
+                    const acceptanceRate = admissionData?.acceptanceRateRange || null;
+                    
+                    return (
+                      <div className="major-info-display">
+                        <div className="info-section">
+                          <div className="info-label">Minimum Required Grade</div>
+                          <div className={`info-value ${!minGrade ? 'unknown' : ''}`}>
+                            {minGrade ? `${minGrade}%` : "Not known yet"}
+                          </div>
+                        </div>
+                        
+                        <div className="info-section">
+                          <div className="info-label">Past Year Acceptance Rate</div>
+                          <div className={`info-value ${!acceptanceRate ? 'unknown' : ''}`}>
+                            {acceptanceRate 
+                              ? `${acceptanceRate.low}% - ${acceptanceRate.high}%`
+                              : "Not known yet"}
+                          </div>
+                        </div>
+                      </div>
+                    );
+                  })()}
                 </div>
               )}
             </div>
