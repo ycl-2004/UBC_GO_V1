@@ -5,6 +5,10 @@ import HomePage from './pages/HomePage'
 import ApplyInfoPage from './pages/ApplyInfoPage'
 import PlannerPage from './pages/PlannerPage'
 import LoginPage from './pages/LoginPage'
+import AboutPage from './pages/AboutPage'
+import ContactPage from './pages/ContactPage'
+import PrivacyPage from './pages/PrivacyPage'
+import TermsPage from './pages/TermsPage'
 import './App.css'
 
 function App() {
@@ -16,6 +20,10 @@ function App() {
           <Route path="/ApplyInfo" element={<ApplyInfoPage />} />
           <Route path="/planner" element={<PlannerPage />} />
           <Route path="/login" element={<LoginPage />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/contact" element={<ContactPage />} />
+          <Route path="/privacy" element={<PrivacyPage />} />
+          <Route path="/terms" element={<TermsPage />} />
         </Routes>
       </Router>
     </AuthProvider>

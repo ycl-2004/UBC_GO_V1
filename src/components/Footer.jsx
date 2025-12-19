@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import './Footer.css'
 
 const Footer = () => {
@@ -6,10 +7,10 @@ const Footer = () => {
     <footer className="footer">
       <div className="footer-container">
         <div className="footer-links">
-          <a href="/about" className="footer-link">About</a>
-          <a href="/contact" className="footer-link">Contact</a>
-          <a href="/privacy" className="footer-link">Privacy Policy</a>
-          <a href="/terms" className="footer-link">Terms of Service</a>
+          <Link to="/about" className="footer-link">About</Link>
+          <Link to="/contact" className="footer-link">Contact</Link>
+          <Link to="/privacy" className="footer-link">Privacy Policy</Link>
+          <Link to="/terms" className="footer-link">Terms of Service</Link>
         </div>
         <div className="footer-disclaimer">
           <p>
@@ -19,7 +20,7 @@ const Footer = () => {
           </p>
         </div>
         <div className="footer-copyright">
-          <p>&copy; 2024 UBC PathFinder. All rights reserved.</p>
+          <p>&copy; 2025 UBC PathFinder. All rights reserved.</p>
         </div>
       </div>
     </footer>
