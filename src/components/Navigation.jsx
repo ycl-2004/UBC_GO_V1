@@ -15,11 +15,11 @@ const Navigation = () => {
         <div className="nav-links">
           <Link to="/" className="nav-link">Home</Link>
           <Link 
-            to="/calculator" 
+            to="/ApplyInfo" 
             className="nav-link"
             onClick={(e) => {
-              // If already on calculator page, scroll to calculator section
-              if (window.location.pathname === '/calculator' || window.location.pathname === '/UBC_GO_V1/calculator') {
+              // If already on ApplyInfo page, scroll to calculator section
+              if (window.location.pathname === '/ApplyInfo' || window.location.pathname === '/UBC_GO_V1/ApplyInfo') {
                 e.preventDefault();
                 setTimeout(() => {
                   const calculatorSection = document.getElementById('calculator-section');
@@ -30,7 +30,7 @@ const Navigation = () => {
               }
             }}
           >
-            Calculator
+            Application Info
           </Link>
           <Link to="/planner" className="nav-link">Planner</Link>
           {isAuthenticated ? (

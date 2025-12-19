@@ -522,15 +522,15 @@ const CalculatorPage = () => {
         {/* Transition Layer */}
         <div className="transition-layer">
           <h2 className="transition-title">
-            Based on your target program, let's calculate your chances.
+            Find admission requirements and check your chances
           </h2>
         </div>
 
         {/* Calculator Section */}
         <div className="calculator-section" id="calculator-section">
           <div className="calculator-header">
-            <h1>Admission Chance Calculator</h1>
-            <p className="subtitle">Enter your information to see your admission probability</p>
+            <h1>Application Information</h1>
+            <p className="subtitle">Check admission requirements and calculate your chances</p>
 
             <div className="faculty-selector-calc">
               <label htmlFor="major-calc">Select Major:</label>

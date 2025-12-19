@@ -19,7 +19,7 @@ const ActionCards = () => {
           <p className="card-description">
             Calculate your admission chance now.
           </p>
-          <Link to="/calculator" className="card-button">
+          <Link to="/ApplyInfo" className="card-button">
             CHECK NOW
           </Link>
         </div>
