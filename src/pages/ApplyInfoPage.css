@@ -391,11 +391,17 @@
 }
 
 /* Circular Progress */
+.circular-progress-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
 .circular-progress-container {
   position: relative;
   width: 240px;
   height: 240px;
-  margin: 2rem auto;
   min-height: 240px;
 }
 
@@ -415,38 +421,47 @@
 
 .progress-content {
   position: absolute;
-  top: 55%;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.2rem;
+  gap: 0.15rem;
 }
 
 .progress-percentage {
   font-size: 3rem;
   font-weight: 700;
-  margin-bottom: 0.25rem;
+  margin-bottom: 0.15rem;
   line-height: 1.1;
 }
 
 .progress-label {
   font-size: 0.9rem;
   color: #666;
-  margin-bottom: 0.25rem;
-  line-height: 1.4;
+  margin-bottom: 0.1rem;
+  line-height: 1.3;
   letter-spacing: 0.3px;
 }
 
 .progress-range {
   font-size: 0.85rem;
-  margin-top: 0.25rem;
-  margin-bottom: 0.5rem;
+  margin-top: 0.1rem;
+  margin-bottom: 0;
   opacity: 0.8;
   font-weight: 500;
   line-height: 1.3;
+}
+
+/* Badges wrapper - outside the circle */
+.progress-badges-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.25rem;
 }
 
 .progress-badge {
@@ -457,7 +472,6 @@
   font-weight: 700;
   font-size: 1rem;
   text-transform: uppercase;
-  margin-top: 0.5rem;
   letter-spacing: 0.5px;
 }
 
@@ -794,27 +808,50 @@
     font-size: 1.5rem;
   }
   
+  /* Circular Progress - Compact layout for mobile */
+  .circular-progress-wrapper {
+    gap: 0.75rem;
+  }
+  
   .circular-progress-container {
-    width: 200px;
-    height: 200px;
-    min-height: 200px;
+    width: 160px;
+    height: 160px;
+    min-height: 160px;
+  }
+  
+  .progress-content {
+    gap: 0.1rem;
   }
   
   .progress-percentage {
-    font-size: 2.5rem;
+    font-size: 2rem;
+    margin-bottom: 0.1rem;
   }
   
   .progress-label {
-    font-size: 0.85rem;
+    font-size: 0.75rem;
+    margin-bottom: 0;
   }
   
   .progress-range {
-    font-size: 0.8rem;
+    font-size: 0.7rem;
+    margin-top: 0.1rem;
+  }
+  
+  /* Badges wrapper adjustments */
+  .progress-badges-wrapper {
+    gap: 0.4rem;
+    margin-top: 0;
   }
   
   .progress-badge {
-    padding: 0.5rem 1.2rem;
-    font-size: 0.9rem;
+    padding: 0.4rem 1rem;
+    font-size: 0.8rem;
+  }
+  
+  .category-badge {
+    padding: 0.35rem 0.7rem;
+    font-size: 0.7rem;
   }
   
   .major-info-display {
@@ -836,6 +873,419 @@
   
   .info-value.unknown {
     font-size: 0.95rem;
+  }
+}
+
+/* ==================== NEW 4-LAYER MODEL UI STYLES ==================== */
+
+/* Course Status Selector */
+.course-status-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.course-status-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  background: #f8f9fa;
+  border-radius: 8px;
+  border: 1px solid #e9ecef;
+}
+
+.course-status-item .course-label {
+  font-weight: 500;
+  color: #333;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.core-badge {
+  background: linear-gradient(135deg, #ff6b6b, #ee5a5a);
+  color: white;
+  font-size: 0.65rem;
+  padding: 0.15rem 0.4rem;
+  border-radius: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.course-status-select {
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+  font-size: 0.85rem;
+  cursor: pointer;
+  background: white;
+  min-width: 120px;
+}
+
+.course-status-select:focus {
+  outline: none;
+  border-color: #002145;
+  box-shadow: 0 0 0 2px rgba(0, 33, 69, 0.1);
+}
+
+.course-status-group {
+  background: #f8f9fa;
+  border-radius: 10px;
+  padding: 1rem;
+  border: 1px solid #e9ecef;
+}
+
+.course-status-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+
+.course-status-header .course-name {
+  font-weight: 600;
+  color: #333;
+}
+
+.course-count {
+  font-size: 0.85rem;
+  color: #666;
+  padding: 0.2rem 0.6rem;
+  background: #e9ecef;
+  border-radius: 12px;
+}
+
+.course-count.complete {
+  background: #d4edda;
+  color: #155724;
+}
+
+.sub-courses-status {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding-left: 0.5rem;
+}
+
+/* Core Subject Scores */
+.core-scores-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.core-score-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 0;
+}
+
+.core-score-item label {
+  font-weight: 500;
+  color: #333;
+}
+
+.score-input-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.core-score-input {
+  width: 100px;
+  padding: 0.4rem 0.6rem;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+  font-size: 0.9rem;
+  text-align: right;
+}
+
+.core-score-input:focus {
+  outline: none;
+  border-color: #002145;
+  box-shadow: 0 0 0 2px rgba(0, 33, 69, 0.1);
+}
+
+.score-unit {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+/* Supplement Section */
+.supplement-section {
+  background: linear-gradient(135deg, #fff8e1, #fff3cd);
+  border: 1px solid #ffcc02;
+  border-radius: 10px;
+  padding: 1rem;
+}
+
+.supplement-section .section-title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.supplement-icon {
+  font-size: 1.2rem;
+}
+
+.supplement-warning {
+  color: #856404;
+  font-weight: 500;
+}
+
+/* Category Badges */
+.category-badge {
+  padding: 0.4rem 0.8rem;
+  border-radius: 15px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.category-badge.safety {
+  background: linear-gradient(135deg, #28a745, #20c997);
+  color: white;
+}
+
+.category-badge.match {
+  background: linear-gradient(135deg, #ffc107, #fd7e14);
+  color: #333;
+}
+
+.category-badge.reach {
+  background: linear-gradient(135deg, #dc3545, #c82333);
+  color: white;
+}
+
+/* Gate Warnings Enhanced */
+.gate-warnings {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.warning-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  padding: 0.75rem;
+  border-radius: 8px;
+  font-size: 0.85rem;
+}
+
+.warning-item.core-warning {
+  background: #fff3cd;
+  border: 1px solid #ffcc02;
+  color: #856404;
+}
+
+.supplement-warning-box {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  padding: 0.75rem;
+  background: linear-gradient(135deg, #e8f4f8, #d1ecf1);
+  border: 1px solid #bee5eb;
+  border-radius: 8px;
+  margin-top: 0.75rem;
+  font-size: 0.85rem;
+  color: #0c5460;
+}
+
+/* Explanation Section */
+.explanation-section {
+  background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+  border-radius: 12px;
+  padding: 1.25rem;
+  margin-top: 1rem;
+}
+
+.explanation-section h4 {
+  color: #002145;
+  font-size: 1rem;
+  margin: 0 0 1rem 0;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #dee2e6;
+}
+
+.top-actions {
+  margin-bottom: 1rem;
+}
+
+.actions-title {
+  font-weight: 600;
+  color: #28a745;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+
+.actions-list {
+  margin: 0;
+  padding-left: 1.25rem;
+}
+
+.actions-list li {
+  color: #333;
+  font-size: 0.85rem;
+  margin-bottom: 0.35rem;
+  line-height: 1.4;
+}
+
+.detailed-explanations {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.explanation-item {
+  padding: 0.75rem;
+  border-radius: 8px;
+  font-size: 0.85rem;
+}
+
+.explanation-item.critical {
+  background: #f8d7da;
+  border-left: 3px solid #dc3545;
+}
+
+.explanation-item.warning {
+  background: #fff3cd;
+  border-left: 3px solid #ffc107;
+}
+
+.explanation-item.info {
+  background: #d1ecf1;
+  border-left: 3px solid #17a2b8;
+}
+
+.exp-message {
+  font-weight: 500;
+  margin-bottom: 0.25rem;
+}
+
+.exp-advice {
+  color: #666;
+  font-size: 0.8rem;
+  font-style: italic;
+}
+
+/* Responsive Adjustments for New Components */
+@media (max-width: 768px) {
+  .course-status-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  
+  /* Keep circle size same as 480px for consistency */
+  .circular-progress-container {
+    width: 200px;
+    height: 200px;
+    min-height: 200px;
+  }
+  
+  .course-status-select {
+    width: 100%;
+  }
+  
+  .core-score-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  
+  .score-input-wrapper {
+    width: 100%;
+  }
+  
+  .core-score-input {
+    width: 100%;
+    text-align: left;
+  }
+  
+  .explanation-section {
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .circular-progress-container {
+    width: 180px;
+    height: 180px;
+    min-height: 180px;
+  }
+  
+  /* Keep text sizes same as 768px breakpoint */
+  .progress-percentage {
+    font-size: 2rem;
+  }
+  
+  .progress-label {
+    font-size: 0.75rem;
+  }
+  
+  .progress-range {
+    font-size: 0.7rem;
+  }
+  
+  .progress-badge {
+    padding: 0.4rem 1rem;
+    font-size: 0.8rem;
+  }
+  
+  .category-badge {
+    padding: 0.35rem 0.7rem;
+    font-size: 0.7rem;
+  }
+}
+
+@media (max-width: 375px) {
+  .course-status-item .course-label {
+    font-size: 0.85rem;
+  }
+  
+  .course-status-select {
+    font-size: 0.8rem;
+    padding: 0.35rem 0.6rem;
+  }
+  
+  .core-badge {
+    font-size: 0.6rem;
+    padding: 0.1rem 0.3rem;
+  }
+  
+  /* Keep circle size same as 480px for consistency */
+  .circular-progress-container {
+    width: 170px;
+    height: 170px;
+    min-height: 170px;
+  }
+  
+  /* Keep text sizes same */
+  .progress-percentage {
+    font-size: 2rem;
+  }
+  
+  .progress-label {
+    font-size: 0.75rem;
+  }
+  
+  .progress-range {
+    font-size: 0.7rem;
+  }
+  
+  .progress-badge {
+    padding: 0.4rem 0.9rem;
+    font-size: 0.75rem;
+  }
+  
+  .category-badge {
+    font-size: 0.65rem;
+    padding: 0.3rem 0.6rem;
   }
 }
 

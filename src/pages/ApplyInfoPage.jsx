@@ -79,7 +79,39 @@ const ApplyInfoPage = () => {
     leadership: 3,
     volunteering: 3,
     supplementScore: 50, // For programs requiring portfolio/audition (0-100)
-    // Course completion tracking (simplified - in real app, user would select courses)
+    
+    // New: Applicant Type
+    applicantType: "domestic", // "domestic" or "international"
+    
+    // New: Grade Trend
+    gradeTrend: "stable", // "rising", "stable", "declining"
+    
+    // New: Activity Relevance
+    activityRelevance: "medium", // "high", "medium", "low"
+    
+    // New: Role Depth
+    roleDepth: "member", // "founder", "executive", "member"
+    
+    // Course completion tracking with status
+    courseStatus: {
+      Math12: "completed",     // "completed", "inProgress", "notTaken"
+      English12: "completed",
+      Physics12: "notTaken",
+      Chemistry12: "notTaken",
+      Biology12: "notTaken",
+      Geography12: "notTaken",
+    },
+    
+    // Core subject scores (for programs that care about specific subjects)
+    coreSubjectScores: {
+      Math12: "",
+      English12: "",
+      Physics12: "",
+      Chemistry12: "",
+      Biology12: "",
+    },
+    
+    // Legacy - keep for backward compatibility
     completedCourses: {
       Math12: true,
       English12: true,
@@ -97,40 +129,282 @@ const ApplyInfoPage = () => {
     return 1 / (1 + Math.exp(-(x - target) / scale));
   };
 
-  // Helper function: Check Gate requirements (hard threshold)
-  const checkGateRequirements = (admissionData, completedCourses) => {
-    if (!admissionData.requiredCourses || !admissionData.requiredCourses.gate) {
-      return { passed: true, penalty: 0, missingCourses: [] };
-    }
-
-    const requiredCourses = admissionData.requiredCourses.gate;
-    const missingCourses = [];
+  // ==================== 4-LAYER MODEL ====================
+  
+  // LAYER 1: Gate Check (Hard Threshold) - Enhanced
+  const checkGateRequirements = (admissionData, courseStatus, coreSubjectScores) => {
+    const gates = admissionData.gates || {};
+    const requiredCourses = gates.requiredCourses || admissionData.requiredCourses?.gate || [];
+    const courseStatusPenalty = gates.courseStatus || { completed: 0, inProgress: -5, notTaken: -30 };
     
-    // Handle special cases like "Science12_2" (need 2 science courses)
+    let totalPenalty = 0;
+    const missingCourses = [];
+    const warnings = [];
+    
+    // Check required courses and their status
     for (const course of requiredCourses) {
       if (course === "Science12_2") {
-        const scienceCount = (completedCourses.Physics12 ? 1 : 0) + 
-                            (completedCourses.Chemistry12 ? 1 : 0) + 
-                            (completedCourses.Biology12 ? 1 : 0);
-        if (scienceCount < 2) {
+        // Special case: need 2 science courses
+        const scienceCourses = ["Physics12", "Chemistry12", "Biology12"];
+        const completedCount = scienceCourses.filter(c => courseStatus[c] === "completed").length;
+        const inProgressCount = scienceCourses.filter(c => courseStatus[c] === "inProgress").length;
+        
+        if (completedCount + inProgressCount < 2) {
           missingCourses.push("至少兩門 12 年級理科");
+          totalPenalty += courseStatusPenalty.notTaken;
+        } else if (completedCount < 2) {
+          totalPenalty += courseStatusPenalty.inProgress * (2 - completedCount);
         }
       } else {
-        // Direct course key match (e.g., "Math12", "English12")
-        if (!completedCourses[course]) {
+        const status = courseStatus[course] || "notTaken";
+        if (status === "notTaken") {
           missingCourses.push(course);
+          totalPenalty += courseStatusPenalty.notTaken;
+        } else if (status === "inProgress") {
+          totalPenalty += courseStatusPenalty.inProgress;
         }
       }
     }
-
-    const penalty = missingCourses.length > 0 
-      ? (admissionData.requiredCourses.penalty || -30) * missingCourses.length
-      : 0;
-
+    
+    // Check core subject minimum scores
+    const coreSubjects = gates.coreSubjects || [];
+    const coreMinScore = gates.coreMinScore || 75;
+    let corePenalty = 0;
+    
+    for (const subject of coreSubjects) {
+      const score = parseFloat(coreSubjectScores[subject]);
+      if (score && score < coreMinScore) {
+        const deficit = coreMinScore - score;
+        corePenalty += Math.min(deficit * 0.5, 15); // Max 15 penalty per subject
+        warnings.push(`${subject} 分數 (${score}%) 低於建議最低分數 (${coreMinScore}%)`);
+      }
+    }
+    
+    // Check supplement requirement
+    const supplementRequired = gates.supplementRequired || false;
+    const supplementType = gates.supplementType || null;
+    let supplementWarning = null;
+    
+    if (supplementRequired) {
+      supplementWarning = admissionData.supplementWarning || 
+        `⚠️ 此科系需要提交 ${supplementType || "補充材料"}。未提交將無法準確估算。`;
+    }
+    
     return {
-      passed: missingCourses.length === 0,
-      penalty,
-      missingCourses
+      passed: missingCourses.length === 0 && corePenalty === 0,
+      penalty: totalPenalty + corePenalty,
+      missingCourses,
+      warnings,
+      supplementRequired,
+      supplementType,
+      supplementWarning,
+      gateWarning: admissionData.gateWarning || null
+    };
+  };
+  
+  // LAYER 2: Score Calculation - Enhanced with small factors
+  const calculateScores = (formData, admissionData) => {
+    const gates = admissionData.gates || {};
+    const smallFactors = admissionData.smallFactors || {};
+    
+    // Academic Score (0-100)
+    let academicScore = parseFloat(formData.gpa) || 0;
+    
+    // Course rigor bonus
+    const rigorBonus = { regular: 0, ap: 3, ib: 5 };
+    academicScore += rigorBonus[formData.courseDifficulty] || 0;
+    
+    // Core subject boost/penalty
+    const coreSubjects = gates.coreSubjects || [];
+    let coreBoost = 0;
+    for (const subject of coreSubjects) {
+      const score = parseFloat(formData.coreSubjectScores[subject]);
+      if (score) {
+        const coreMin = gates.coreMinScore || 80;
+        if (score >= coreMin + 5) {
+          coreBoost += 2; // Boost for high core scores
+        } else if (score < coreMin) {
+          coreBoost -= 3; // Penalty for low core scores
+        }
+      }
+    }
+    academicScore = Math.min(100, Math.max(0, academicScore + coreBoost));
+    
+    // Profile Score (0-100)
+    const ec = parseInt(formData.extracurriculars) || 3;
+    const leadership = parseInt(formData.leadership) || 3;
+    const volunteering = parseInt(formData.volunteering) || 3;
+    let profileScore = ((ec + leadership + volunteering) / 3 / 5) * 100;
+    
+    // Small factors adjustments
+    // Grade trend
+    const trendBonus = smallFactors.gradeTrend || { rising: 3, stable: 0, declining: -4 };
+    profileScore += trendBonus[formData.gradeTrend] || 0;
+    
+    // Activity relevance
+    const relevanceBonus = smallFactors.activityRelevance || { high: 3, medium: 1, low: -1 };
+    profileScore += relevanceBonus[formData.activityRelevance] || 0;
+    
+    // Role depth multiplier
+    const depthMultiplier = smallFactors.depthMultiplier || { founder: 1.2, executive: 1.1, member: 1.0 };
+    profileScore *= depthMultiplier[formData.roleDepth] || 1.0;
+    
+    profileScore = Math.min(100, Math.max(0, profileScore));
+    
+    // Supplement Score (0-100) - only for programs that require it
+    const supplementScore = parseFloat(formData.supplementScore) || 50;
+    
+    return {
+      academicScore: Math.round(academicScore * 100) / 100,
+      profileScore: Math.round(profileScore * 100) / 100,
+      supplementScore: Math.round(supplementScore * 100) / 100
+    };
+  };
+  
+  // LAYER 3: Probability Calculation - Enhanced with cap and range
+  const calculateProbability = (scores, gateCheck, admissionData, applicantType) => {
+    const weights = admissionData.weights || {
+      academic: admissionData.gpaWeight || 0.7,
+      profile: admissionData.personalProfileWeight || 0.3,
+      supplement: admissionData.supplementWeight || 0.0
+    };
+    
+    // Calculate weighted final score
+    let finalScore = 
+      scores.academicScore * weights.academic +
+      scores.profileScore * weights.profile +
+      scores.supplementScore * weights.supplement +
+      gateCheck.penalty;
+    
+    // Adjust for international applicants
+    const intlAdjust = admissionData.internationalAdjustment || { targetBonus: 1, capReduction: 2 };
+    let target = admissionData.targetScore || 80;
+    let scale = admissionData.scale || 8;
+    let capMaxProb = admissionData.capMaxProb || 90;
+    
+    if (applicantType === "international") {
+      target += intlAdjust.targetBonus;
+      capMaxProb -= intlAdjust.capReduction;
+    }
+    
+    // Calculate raw probability using sigmoid
+    const rawProbability = sigmoid(finalScore, target, scale) * 100;
+    
+    // Apply cap
+    const cappedProbability = Math.min(rawProbability, capMaxProb);
+    
+    // Calculate confidence interval based on data completeness
+    let confidenceWidth = 8;
+    if (gateCheck.warnings.length > 0) confidenceWidth += 3;
+    if (gateCheck.supplementRequired && weights.supplement > 0.2) confidenceWidth += 5;
+    
+    const percentageLow = Math.max(5, Math.round(cappedProbability - confidenceWidth));
+    const percentageHigh = Math.min(capMaxProb, Math.round(cappedProbability + confidenceWidth));
+    const percentageMid = Math.round(cappedProbability);
+    
+    // Determine chance level and Safety/Match/Reach
+    let chance, color, category;
+    
+    if (percentageMid >= 70) {
+      chance = "High";
+      color = "#28a745";
+      category = "Safety";
+    } else if (percentageMid >= 45) {
+      chance = "Medium";
+      color = "#ffc107";
+      category = "Match";
+    } else {
+      chance = "Low";
+      color = "#dc3545";
+      category = "Reach";
+    }
+    
+    return {
+      finalScore: Math.round(finalScore * 100) / 100,
+      rawProbability: Math.round(rawProbability * 100) / 100,
+      percentage: percentageMid,
+      percentageRange: { low: percentageLow, high: percentageHigh },
+      chance,
+      color,
+      category, // Safety/Match/Reach
+      confidenceWidth
+    };
+  };
+  
+  // LAYER 4: Explanation Generation
+  const generateExplanation = (gateCheck, scores, probability, admissionData) => {
+    const explanations = [];
+    
+    // Gate issues (most critical)
+    if (gateCheck.gateWarning && gateCheck.missingCourses.length > 0) {
+      explanations.push({
+        type: "gate",
+        severity: "critical",
+        message: `🚫 課程不足：缺少 ${gateCheck.missingCourses.join(", ")}`,
+        advice: admissionData.gateWarning
+      });
+    }
+    
+    // Supplement warning
+    if (gateCheck.supplementWarning) {
+      explanations.push({
+        type: "supplement",
+        severity: "warning",
+        message: gateCheck.supplementWarning,
+        advice: `此科系 ${admissionData.weights?.supplement > 0.3 ? "主要" : "部分"} 依賴補充材料評估。`
+      });
+    }
+    
+    // Core subject warnings
+    for (const warning of gateCheck.warnings) {
+      explanations.push({
+        type: "core",
+        severity: "warning",
+        message: `⚠️ ${warning}`,
+        advice: "提高核心科目分數可以顯著增加錄取機率。"
+      });
+    }
+    
+    // Score-based insights
+    const weights = admissionData.weights || {};
+    if (weights.academic > 0.5 && scores.academicScore < 85) {
+      explanations.push({
+        type: "score",
+        severity: "info",
+        message: `📚 學術成績 (${scores.academicScore.toFixed(1)}) 還有提升空間`,
+        advice: "此科系學術權重較高，提高 GPA 是最直接的方式。"
+      });
+    }
+    
+    if (weights.profile > 0.35 && scores.profileScore < 80) {
+      explanations.push({
+        type: "score",
+        severity: "info",
+        message: `👤 個人簡介 (${scores.profileScore.toFixed(1)}) 可以加強`,
+        advice: admissionData.advice || "展示更多相關活動和領導經驗。"
+      });
+    }
+    
+    // Top 2 improvement actions
+    const actions = [];
+    if (gateCheck.missingCourses.length > 0) {
+      actions.push(`修讀缺少的課程：${gateCheck.missingCourses.slice(0, 2).join(", ")}`);
+    }
+    if (scores.academicScore < 90 && weights.academic > 0.5) {
+      actions.push("提高 GPA 到 90+ 以上");
+    }
+    if (scores.profileScore < 85 && weights.profile > 0.3) {
+      actions.push("增加相關課外活動深度");
+    }
+    if (gateCheck.supplementRequired && scores.supplementScore < 70) {
+      actions.push(`準備高質量的 ${gateCheck.supplementType || "補充材料"}`);
+    }
+    
+    return {
+      explanations,
+      topActions: actions.slice(0, 2),
+      overallAdvice: admissionData.advice,
+      evidenceRubric: admissionData.evidenceRubric
     };
   };
 
@@ -159,6 +433,7 @@ const ApplyInfoPage = () => {
   };
 
   // Real-time calculation using three-stage model
+  // ==================== REAL-TIME CALCULATION (4-Layer Model) ====================
   const realTimeResult = useMemo(() => {
     if (!formData.gpa || formData.gpa === "") return null;
     
@@ -167,90 +442,93 @@ const ApplyInfoPage = () => {
     
     const admissionData = getAdmissionData(selectedMajor);
     
-    // Stage 1: Gate Check (Hard Threshold)
-    const gateCheck = checkGateRequirements(admissionData, formData.completedCourses);
-    
-    // Stage 2: Calculate component scores (0-100 each)
-    const academicScore = calculateAcademicScore(
-      formData.gpa, 
-      formData.courseDifficulty, 
-      admissionData
+    // LAYER 1: Gate Check
+    const gateCheck = checkGateRequirements(
+      admissionData, 
+      formData.courseStatus, 
+      formData.coreSubjectScores
     );
     
-    const profileScore = calculateProfileScore(
-      formData.extracurriculars,
-      formData.leadership,
-      formData.volunteering
+    // LAYER 2: Score Calculation
+    const scores = calculateScores(formData, admissionData);
+    
+    // LAYER 3: Probability Calculation
+    const probability = calculateProbability(
+      scores, 
+      gateCheck, 
+      admissionData, 
+      formData.applicantType
     );
     
-    // Supplement score (for portfolio/audition programs)
-    const supplementScore = admissionData.weights?.supplement > 0 
-      ? parseFloat(formData.supplementScore) || 50
-      : 0;
+    // LAYER 4: Explanation Generation
+    const explanation = generateExplanation(gateCheck, scores, probability, admissionData);
     
-    // Stage 3: Weighted final score
+    // Get weights for display
     const weights = admissionData.weights || {
       academic: admissionData.gpaWeight || 0.7,
       profile: admissionData.personalProfileWeight || 0.3,
       supplement: admissionData.supplementWeight || 0.0
     };
     
-    const finalScore = 
-      academicScore * weights.academic +
-      profileScore * weights.profile +
-      supplementScore * weights.supplement +
-      gateCheck.penalty; // Apply gate penalty
-    
-    // Stage 4: Convert to probability using sigmoid/logistic function
-    const target = admissionData.targetScore || 80;
-    const scale = admissionData.scale || 10;
-    const rawProbability = sigmoid(finalScore, target, scale);
-    
-    // Convert to percentage (0-100%)
-    const basePercentage = rawProbability * 100;
-    
-    // Add confidence interval (±5-10% depending on competitiveness)
-    const competitivenessLevel = admissionData.competitivenessLevel || 3;
-    const confidenceInterval = competitivenessLevel >= 4 ? 8 : 10;
-    
-    const percentageLow = Math.max(5, Math.min(95, Math.round(basePercentage - confidenceInterval)));
-    const percentageHigh = Math.max(5, Math.min(95, Math.round(basePercentage + confidenceInterval)));
-    const percentageMid = Math.round(basePercentage);
-    
-    // Determine chance level
-    let chance = "Low";
-    let color = "#dc3545";
-    
-    if (percentageMid >= 70) {
-      chance = "High";
-      color = "#28a745";
-    } else if (percentageMid >= 40) {
-      chance = "Medium";
-      color = "#ffc107";
-    } else {
-      chance = "Low";
-      color = "#dc3545";
-    }
-    
     return { 
-      chance, 
-      percentage: percentageMid,
-      percentageRange: { low: percentageLow, high: percentageHigh },
-      color, 
-      finalScore: Math.round(finalScore * 100) / 100,
-      academicScore: Math.round(academicScore * 100) / 100,
-      profileScore: Math.round(profileScore * 100) / 100,
-      supplementScore: weights.supplement > 0 ? Math.round(supplementScore * 100) / 100 : null,
+      // Probability result
+      chance: probability.chance,
+      percentage: probability.percentage,
+      percentageRange: probability.percentageRange,
+      color: probability.color,
+      category: probability.category, // Safety/Match/Reach
+      confidenceWidth: probability.confidenceWidth,
+      
+      // Scores
+      finalScore: probability.finalScore,
+      academicScore: scores.academicScore,
+      profileScore: scores.profileScore,
+      supplementScore: weights.supplement > 0 ? scores.supplementScore : null,
+      
+      // Gate check results
       gateCheck,
-      admissionData
+      
+      // Explanation
+      explanation,
+      
+      // Admission data for display
+      admissionData,
+      weights
     };
   }, [formData, selectedMajor]);
 
   const handleInputChange = (e) => {
     const { name, value, type, checked } = e.target;
     
-    if (type === 'checkbox') {
-      // Handle course completion checkboxes
+    // Handle course status changes (e.g., "courseStatus_Math12")
+    if (name.startsWith("courseStatus_")) {
+      const course = name.replace("courseStatus_", "");
+      setFormData((prev) => ({
+        ...prev,
+        courseStatus: {
+          ...prev.courseStatus,
+          [course]: value,
+        },
+        // Also update legacy completedCourses for backward compatibility
+        completedCourses: {
+          ...prev.completedCourses,
+          [course]: value === "completed",
+        },
+      }));
+    }
+    // Handle core subject score changes (e.g., "coreScore_Math12")
+    else if (name.startsWith("coreScore_")) {
+      const course = name.replace("coreScore_", "");
+      setFormData((prev) => ({
+        ...prev,
+        coreSubjectScores: {
+          ...prev.coreSubjectScores,
+          [course]: value,
+        },
+      }));
+    }
+    // Handle checkbox (legacy)
+    else if (type === 'checkbox') {
       setFormData((prev) => ({
         ...prev,
         completedCourses: {
@@ -258,7 +536,9 @@ const ApplyInfoPage = () => {
           [name]: checked,
         },
       }));
-    } else {
+    } 
+    // Handle all other inputs
+    else {
       setFormData((prev) => ({
         ...prev,
         [name]: value,
@@ -266,14 +546,16 @@ const ApplyInfoPage = () => {
     }
   };
 
-  // Get required courses for selected major
+  // Get required courses for selected major (enhanced)
   const getRequiredCourses = () => {
     const admissionData = getAdmissionData(selectedMajor);
-    if (!admissionData.requiredCourses || !admissionData.requiredCourses.gate || admissionData.requiredCourses.gate.length === 0) {
+    const gates = admissionData.gates || {};
+    const requiredCourses = gates.requiredCourses || admissionData.requiredCourses?.gate || [];
+    
+    if (requiredCourses.length === 0) {
       return [];
     }
     
-    const courses = admissionData.requiredCourses.gate;
     const courseLabels = {
       Math12: "Math 12 / Pre-Calculus 12",
       English12: "English 12",
@@ -284,11 +566,47 @@ const ApplyInfoPage = () => {
       Science12_2: "至少兩門 12 年級理科 (Bio/Chem/Phys)",
     };
     
-    return courses.map(course => ({
+    return requiredCourses.map(course => ({
       key: course,
       label: courseLabels[course] || course,
-      isMultiple: course === "Science12_2"
+      isMultiple: course === "Science12_2",
+      isCore: (gates.coreSubjects || []).includes(course),
+      coreMinScore: gates.coreMinScore || 75
     }));
+  };
+  
+  // Get core subjects that need score input
+  const getCoreSubjects = () => {
+    const admissionData = getAdmissionData(selectedMajor);
+    const gates = admissionData.gates || {};
+    const coreSubjects = gates.coreSubjects || [];
+    
+    const courseLabels = {
+      Math12: "Math 12",
+      English12: "English 12",
+      Physics12: "Physics 12",
+      Chemistry12: "Chemistry 12",
+      Biology12: "Biology 12",
+    };
+    
+    return coreSubjects.map(course => ({
+      key: course,
+      label: courseLabels[course] || course,
+      minScore: gates.coreMinScore || 75
+    }));
+  };
+  
+  // Check if program requires supplement
+  const getSupplementInfo = () => {
+    const admissionData = getAdmissionData(selectedMajor);
+    const gates = admissionData.gates || {};
+    
+    return {
+      required: gates.supplementRequired || false,
+      type: gates.supplementType || null,
+      weight: admissionData.weights?.supplement || 0,
+      warning: admissionData.supplementWarning || null
+    };
   };
 
   const calculateAdmissionChance = () => {
@@ -592,86 +910,101 @@ const ApplyInfoPage = () => {
                     <option value="ib">IB (International Baccalaureate)</option>
                   </select>
                 </div>
+                
+                <div className="form-group">
+                  <label htmlFor="applicantType">
+                    <span className="input-icon">🌍</span>
+                    Applicant Type
+                  </label>
+                  <select
+                    id="applicantType"
+                    name="applicantType"
+                    value={formData.applicantType}
+                    onChange={handleInputChange}
+                  >
+                    <option value="domestic">Domestic (Canadian)</option>
+                    <option value="international">International</option>
+                  </select>
+                </div>
+                
+                <div className="form-group">
+                  <label htmlFor="gradeTrend">
+                    <span className="input-icon">📈</span>
+                    Grade Trend (成績趨勢)
+                  </label>
+                  <select
+                    id="gradeTrend"
+                    name="gradeTrend"
+                    value={formData.gradeTrend}
+                    onChange={handleInputChange}
+                  >
+                    <option value="rising">Rising (上升)</option>
+                    <option value="stable">Stable (穩定)</option>
+                    <option value="declining">Declining (下降)</option>
+                  </select>
+                </div>
               </div>
 
               <div className="form-section">
-                <h3 className="section-title">Required Courses</h3>
+                <h3 className="section-title">Required Courses (必修課程)</h3>
                 <p className="section-description">
-                  請選擇你已完成的必要課程（缺少必要課程會影響錄取機率）
+                  選擇每門課程的狀態（已完成 ✓、修讀中 ⏳、未修 ✗）
                 </p>
                 
                 {getRequiredCourses().length > 0 ? (
-                  <div className="course-checkboxes">
+                  <div className="course-status-list">
                     {getRequiredCourses().map((course) => {
                       if (course.isMultiple) {
                         // Handle "Science12_2" - need at least 2 science courses
-                        const scienceCount = 
-                          (formData.completedCourses.Physics12 ? 1 : 0) +
-                          (formData.completedCourses.Chemistry12 ? 1 : 0) +
-                          (formData.completedCourses.Biology12 ? 1 : 0);
-                        const isComplete = scienceCount >= 2;
+                        const scienceCourses = ["Physics12", "Chemistry12", "Biology12"];
+                        const completedCount = scienceCourses.filter(c => formData.courseStatus[c] === "completed").length;
+                        const inProgressCount = scienceCourses.filter(c => formData.courseStatus[c] === "inProgress").length;
                         
                         return (
-                          <div key={course.key} className="course-checkbox-group">
-                            <label className="course-checkbox-label">
-                              <input
-                                type="checkbox"
-                                checked={isComplete}
-                                disabled
-                                className="course-checkbox"
-                              />
-                              <span className="checkbox-text">
-                                {course.label}
-                                {scienceCount > 0 && (
-                                  <span className="course-count">
-                                    ({scienceCount}/2)
-                                  </span>
-                                )}
+                          <div key={course.key} className="course-status-group">
+                            <div className="course-status-header">
+                              <span className="course-name">{course.label}</span>
+                              <span className={`course-count ${completedCount >= 2 ? 'complete' : ''}`}>
+                                ({completedCount}/2 完成)
                               </span>
-                            </label>
-                            <div className="sub-courses">
-                              <label className="sub-course-checkbox">
-                                <input
-                                  type="checkbox"
-                                  name="Physics12"
-                                  checked={formData.completedCourses.Physics12}
-                                  onChange={handleInputChange}
-                                />
-                                <span>Physics 12</span>
-                              </label>
-                              <label className="sub-course-checkbox">
-                                <input
-                                  type="checkbox"
-                                  name="Chemistry12"
-                                  checked={formData.completedCourses.Chemistry12}
-                                  onChange={handleInputChange}
-                                />
-                                <span>Chemistry 12</span>
-                              </label>
-                              <label className="sub-course-checkbox">
-                                <input
-                                  type="checkbox"
-                                  name="Biology12"
-                                  checked={formData.completedCourses.Biology12}
-                                  onChange={handleInputChange}
-                                />
-                                <span>Biology 12</span>
-                              </label>
+                            </div>
+                            <div className="sub-courses-status">
+                              {scienceCourses.map(sc => (
+                                <div key={sc} className="course-status-item">
+                                  <span className="course-label">{sc.replace("12", " 12")}</span>
+                                  <select
+                                    name={`courseStatus_${sc}`}
+                                    value={formData.courseStatus[sc] || "notTaken"}
+                                    onChange={handleInputChange}
+                                    className="course-status-select"
+                                  >
+                                    <option value="completed">✓ 已完成</option>
+                                    <option value="inProgress">⏳ 修讀中</option>
+                                    <option value="notTaken">✗ 未修</option>
+                                  </select>
+                                </div>
+                              ))}
                             </div>
                           </div>
                         );
                       } else {
                         return (
-                          <label key={course.key} className="course-checkbox-label">
-                            <input
-                              type="checkbox"
-                              name={course.key}
-                              checked={formData.completedCourses[course.key] || false}
+                          <div key={course.key} className="course-status-item">
+                            <span className="course-label">
+                              {course.label}
+                              {course.isCore && <span className="core-badge">核心</span>}
+                            </span>
+                            <select
+                              name={`courseStatus_${course.key}`}
+                              value={formData.courseStatus[course.key] || "notTaken"}
                               onChange={handleInputChange}
-                              className="course-checkbox"
-                            />
-                            <span className="checkbox-text">{course.label}</span>
-                          </label>
+                              className="course-status-select"
+                            >
+                              <option value="completed">✓ 已完成</option>
+                              <option value="inProgress">⏳ 修讀中</option>
+                              <option value="notTaken">✗ 未修</option>
+                            </select>
+                          </div>
                         );
                       }
                     })}
@@ -682,6 +1015,40 @@ const ApplyInfoPage = () => {
                   </p>
                 )}
               </div>
+              
+              {/* Core Subject Scores Section */}
+              {getCoreSubjects().length > 0 && (
+                <div className="form-section">
+                  <h3 className="section-title">Core Subject Scores (核心科目分數)</h3>
+                  <p className="section-description">
+                    此科系特別看重以下科目的分數（建議至少 {getCoreSubjects()[0]?.minScore}%）
+                  </p>
+                  
+                  <div className="core-scores-list">
+                    {getCoreSubjects().map(subject => (
+                      <div key={subject.key} className="core-score-item">
+                        <label htmlFor={`coreScore_${subject.key}`}>
+                          {subject.label}
+                        </label>
+                        <div className="score-input-wrapper">
+                          <input
+                            type="number"
+                            id={`coreScore_${subject.key}`}
+                            name={`coreScore_${subject.key}`}
+                            value={formData.coreSubjectScores[subject.key] || ""}
+                            onChange={handleInputChange}
+                            placeholder={`建議 ≥${subject.minScore}%`}
+                            min="0"
+                            max="100"
+                            className="core-score-input"
+                          />
+                          <span className="score-unit">%</span>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
 
               <div className="form-section">
                 <h3 className="section-title">Personal Profile</h3>
@@ -750,8 +1117,76 @@ const ApplyInfoPage = () => {
                 <span>Excellent</span>
               </div>
             </div>
+            
+            <div className="form-group">
+              <label htmlFor="activityRelevance">
+                <span className="input-icon">🎯</span>
+                Activity Relevance (活動相關性)
+              </label>
+              <select
+                id="activityRelevance"
+                name="activityRelevance"
+                value={formData.activityRelevance}
+                onChange={handleInputChange}
+              >
+                <option value="high">High - 與申請科系高度相關</option>
+                <option value="medium">Medium - 部分相關</option>
+                <option value="low">Low - 不太相關</option>
+              </select>
+            </div>
+            
+            <div className="form-group">
+              <label htmlFor="roleDepth">
+                <span className="input-icon">👑</span>
+                Role Depth (參與深度)
+              </label>
+              <select
+                id="roleDepth"
+                name="roleDepth"
+                value={formData.roleDepth}
+                onChange={handleInputChange}
+              >
+                <option value="founder">Founder / President (創辦人/主席)</option>
+                <option value="executive">Executive / Leader (幹部/領導)</option>
+                <option value="member">Member / Participant (成員/參與者)</option>
+              </select>
+            </div>
 
               </div>
+              
+              {/* Supplement Section - only for programs that require it */}
+              {getSupplementInfo().required && (
+                <div className="form-section supplement-section">
+                  <h3 className="section-title">
+                    <span className="supplement-icon">🎨</span>
+                    Supplement Material ({getSupplementInfo().type || "作品/面試"})
+                  </h3>
+                  <p className="section-description supplement-warning">
+                    ⚠️ 此科系需要提交補充材料。權重：{Math.round((getSupplementInfo().weight || 0) * 100)}%
+                  </p>
+                  
+                  <div className="form-group">
+                    <label htmlFor="supplementScore">
+                      Supplement Score (0-100)
+                      <span className="rating-value">{formData.supplementScore}</span>
+                    </label>
+                    <input
+                      type="range"
+                      id="supplementScore"
+                      name="supplementScore"
+                      value={formData.supplementScore}
+                      onChange={handleInputChange}
+                      min="0"
+                      max="100"
+                      step="5"
+                    />
+                    <div className="rating-labels">
+                      <span>未提交/低</span>
+                      <span>非常優秀</span>
+                    </div>
+                  </div>
+                </div>
+              )}
             </div>
 
             {/* Right Side - Result Card */}
@@ -760,45 +1195,58 @@ const ApplyInfoPage = () => {
               
               {realTimeResult ? (
                 <>
-                  <div className="circular-progress-container">
-                    <svg className="circular-progress" viewBox="0 0 200 200">
-                      <circle
-                        className="progress-background"
-                        cx="100"
-                        cy="100"
-                        r="90"
-                        fill="none"
-                        stroke="#e0e0e0"
-                        strokeWidth="12"
-                      />
-                      <circle
-                        className="progress-bar"
-                        cx="100"
-                        cy="100"
-                        r="90"
-                        fill="none"
-                        stroke={realTimeResult.color}
-                        strokeWidth="12"
-                        strokeLinecap="round"
-                        strokeDasharray={`${2 * Math.PI * 85}`}
-                        strokeDashoffset={`${2 * Math.PI * 85 * (1 - realTimeResult.percentage / 100)}`}
-                        transform="rotate(-90 100 100)"
-                        style={{ transition: 'stroke-dashoffset 0.5s ease' }}
-                      />
-                    </svg>
-                    <div className="progress-content">
-                      <div className="progress-percentage" style={{ color: realTimeResult.color }}>
-                        {realTimeResult.percentage}%
-                      </div>
-                      <div className="progress-label">Admission Probability</div>
-                      {realTimeResult.percentageRange && (
-                        <div className="progress-range" style={{ color: realTimeResult.color }}>
-                          {realTimeResult.percentageRange.low}% - {realTimeResult.percentageRange.high}%
+                  <div className="circular-progress-wrapper">
+                    <div className="circular-progress-container">
+                      <svg className="circular-progress" viewBox="0 0 200 200">
+                        <circle
+                          className="progress-background"
+                          cx="100"
+                          cy="100"
+                          r="90"
+                          fill="none"
+                          stroke="#e0e0e0"
+                          strokeWidth="12"
+                        />
+                        <circle
+                          className="progress-bar"
+                          cx="100"
+                          cy="100"
+                          r="90"
+                          fill="none"
+                          stroke={realTimeResult.color}
+                          strokeWidth="12"
+                          strokeLinecap="round"
+                          strokeDasharray={`${2 * Math.PI * 85}`}
+                          strokeDashoffset={`${2 * Math.PI * 85 * (1 - realTimeResult.percentage / 100)}`}
+                          transform="rotate(-90 100 100)"
+                          style={{ transition: 'stroke-dashoffset 0.5s ease' }}
+                        />
+                      </svg>
+                      <div className="progress-content">
+                        <div className="progress-percentage" style={{ color: realTimeResult.color }}>
+                          {realTimeResult.percentage}%
                         </div>
-                      )}
+                        <div className="progress-label">Admission Probability</div>
+                        {realTimeResult.percentageRange && (
+                          <div className="progress-range" style={{ color: realTimeResult.color }}>
+                            {realTimeResult.percentageRange.low}% - {realTimeResult.percentageRange.high}%
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                    {/* Badges moved outside circle for better mobile layout */}
+                    <div className="progress-badges-wrapper">
                       <div className="progress-badge" style={{ backgroundColor: realTimeResult.color }}>
                         {realTimeResult.chance}
                       </div>
+                      {realTimeResult.category && (
+                        <div className={`category-badge ${realTimeResult.category.toLowerCase()}`}>
+                          {realTimeResult.category === "Safety" && "🛡️ "}
+                          {realTimeResult.category === "Match" && "🎯 "}
+                          {realTimeResult.category === "Reach" && "🚀 "}
+                          {realTimeResult.category}
+                        </div>
+                      )}
                     </div>
                   </div>
                   
@@ -848,7 +1296,58 @@ const ApplyInfoPage = () => {
                         </div>
                       )}
                     </div>
+                    
+                    {/* Gate Check Warning - Enhanced */}
+                    {realTimeResult.gateCheck && realTimeResult.gateCheck.warnings && realTimeResult.gateCheck.warnings.length > 0 && (
+                      <div className="gate-warnings">
+                        {realTimeResult.gateCheck.warnings.map((warning, idx) => (
+                          <div key={idx} className="warning-item core-warning">
+                            <span className="warning-icon">⚠️</span>
+                            <span>{warning}</span>
+                          </div>
+                        ))}
+                      </div>
+                    )}
+                    
+                    {/* Supplement Warning */}
+                    {realTimeResult.gateCheck && realTimeResult.gateCheck.supplementWarning && (
+                      <div className="supplement-warning-box">
+                        <span className="warning-icon">🎨</span>
+                        <span>{realTimeResult.gateCheck.supplementWarning}</span>
+                      </div>
+                    )}
                   </div>
+                  
+                  {/* Explanation Section - Layer 4 Output */}
+                  {realTimeResult.explanation && (
+                    <div className="explanation-section">
+                      <h4>💡 分析與建議</h4>
+                      
+                      {/* Top Actions */}
+                      {realTimeResult.explanation.topActions && realTimeResult.explanation.topActions.length > 0 && (
+                        <div className="top-actions">
+                          <div className="actions-title">提升機率最快的方式：</div>
+                          <ul className="actions-list">
+                            {realTimeResult.explanation.topActions.map((action, idx) => (
+                              <li key={idx}>{action}</li>
+                            ))}
+                          </ul>
+                        </div>
+                      )}
+                      
+                      {/* Detailed Explanations */}
+                      {realTimeResult.explanation.explanations && realTimeResult.explanation.explanations.length > 0 && (
+                        <div className="detailed-explanations">
+                          {realTimeResult.explanation.explanations.slice(0, 3).map((exp, idx) => (
+                            <div key={idx} className={`explanation-item ${exp.severity}`}>
+                              <div className="exp-message">{exp.message}</div>
+                              {exp.advice && <div className="exp-advice">{exp.advice}</div>}
+                            </div>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  )}
                   
                   {realTimeResult.admissionData && (
                     <div className="major-insights">
@@ -897,6 +1396,19 @@ const ApplyInfoPage = () => {
                                     admissionData?.averageGPA?.medium || 
                                     null;
                     const acceptanceRate = admissionData?.acceptanceRateRange || null;
+                    const competitivenessLevel = admissionData?.competitivenessLevel || 3;
+                    
+                    // Adjust displayed acceptance rate to be more conservative for competitive programs
+                    let displayedAcceptanceRate = acceptanceRate;
+                    if (acceptanceRate && competitivenessLevel >= 4) {
+                      // For highly competitive programs, show slightly lower acceptance rate
+                      // to reflect the difficulty more accurately
+                      const adjustment = competitivenessLevel >= 5 ? 3 : 2; // Reduce by 2-3%
+                      displayedAcceptanceRate = {
+                        low: Math.max(5, acceptanceRate.low - adjustment),
+                        high: Math.max(10, acceptanceRate.high - adjustment)
+                      };
+                    }
                     
                     return (
                       <div className="major-info-display">
@@ -909,9 +1421,9 @@ const ApplyInfoPage = () => {
                         
                         <div className="info-section">
                           <div className="info-label">Past Year Acceptance Rate</div>
-                          <div className={`info-value ${!acceptanceRate ? 'unknown' : ''}`}>
-                            {acceptanceRate 
-                              ? `${acceptanceRate.low}% - ${acceptanceRate.high}%`
+                          <div className={`info-value ${!displayedAcceptanceRate ? 'unknown' : ''}`}>
+                            {displayedAcceptanceRate 
+                              ? `${displayedAcceptanceRate.low}% - ${displayedAcceptanceRate.high}%`
                               : "Not known yet"}
                           </div>
                         </div>
