@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useCallback, useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
 import Navigation from '../components/Navigation'
 import { useAuth } from '../context/AuthContext'
@@ -12,33 +12,32 @@ const PlannerPage = () => {
   const navigate = useNavigate()
   
   const [selectedFaculty, setSelectedFaculty] = useState('arts')
+  const [selectedMajor, setSelectedMajor] = useState('')
   const [currentPlanId, setCurrentPlanId] = useState('default')
   const [planName, setPlanName] = useState('My Degree Plan')
   const [completedCourses, setCompletedCourses] = useState([])
+  const [courseStatus, setCourseStatus] = useState({})
+  const [curriculumData, setCurriculumData] = useState(null)
+  const [selectedYearTab, setSelectedYearTab] = useState(1)
   const [selectedYear, setSelectedYear] = useState('Year 1')
   const [selectedTerm, setSelectedTerm] = useState('Term 1')
   const [savedPlans, setSavedPlans] = useState([])
   const [showPlanManager, setShowPlanManager] = useState(false)
+  const isInitialLoad = useRef(true)
+  const isSavingRef = useRef(false)
 
-  // Load plans on mount
-  useEffect(() => {
-    if (isAuthenticated && user) {
-      loadUserPlans()
-    } else {
-      // Load from localStorage for guest users
-      loadGuestPlan()
-    }
-  }, [isAuthenticated, user])
+  const majorOptions = {
+    appliedScience: [
+      { value: 'electricalEngineering', label: 'Electrical Engineering' },
+    ],
+  }
 
-  // Save plan when courses change
-  useEffect(() => {
-    if (completedCourses.length > 0) {
-      savePlan()
-    }
-  }, [completedCourses, selectedFaculty, planName])
-
-  const loadUserPlans = () => {
+  // Define helper functions before useEffect hooks
+  const loadUserPlans = useCallback(() => {
     if (!user) return
+    
+    // Set flag to prevent savePlan from running during load
+    isSavingRef.current = true
     
     const plans = storage.getUserPlans(user.id)
     setSavedPlans(plans)
@@ -50,7 +49,12 @@ const PlannerPage = () => {
       setSelectedFaculty(firstPlan.faculty || 'arts')
       setCompletedCourses(firstPlan.courses || [])
     }
-  }
+    
+    // Reset flag after state updates
+    setTimeout(() => {
+      isSavingRef.current = false
+    }, 200)
+  }, [user])
 
   const loadGuestPlan = () => {
     const saved = localStorage.getItem('guest_plan')
@@ -58,28 +62,96 @@ const PlannerPage = () => {
       const plan = JSON.parse(saved)
       setCompletedCourses(plan.courses || [])
       setSelectedFaculty(plan.faculty || 'arts')
+      setSelectedMajor(plan.major || '')
     }
   }
 
-  const savePlan = () => {
+  // Define savePlan before useEffect that uses it
+  const savePlan = useCallback(() => {
+    // Prevent saving during initial load
+    if (isInitialLoad.current) return
+    
+    isSavingRef.current = true
+    
     const planData = {
       id: currentPlanId,
       name: planName,
       faculty: selectedFaculty,
+      major: selectedMajor,
       courses: completedCourses,
       updatedAt: new Date().toISOString()
     }
 
     if (isAuthenticated && user) {
       storage.savePlan(user.id, currentPlanId, planData)
-      loadUserPlans()
+      // Don't reload plans immediately to avoid loop
+      // Instead, update savedPlans state directly
+      const plans = storage.getUserPlans(user.id)
+      setSavedPlans(plans)
     } else {
       // Save to localStorage for guest
       localStorage.setItem('guest_plan', JSON.stringify(planData))
     }
-  }
+    
+    // Reset saving flag after a short delay
+    setTimeout(() => {
+      isSavingRef.current = false
+    }, 100)
+  }, [currentPlanId, planName, selectedFaculty, selectedMajor, completedCourses, isAuthenticated, user])
 
-  const createNewPlan = () => {
+  // Load curriculum data based on faculty + major
+  useEffect(() => {
+    const loadCurriculum = async () => {
+      if (selectedFaculty === 'appliedScience' && selectedMajor === 'electricalEngineering') {
+        try {
+          const module = await import('../data/curriculum/applied-science/electrical-engineering.json')
+          const data = module.default || module
+          setCurriculumData(data)
+          const statusKey = `course_status_${selectedFaculty}_${selectedMajor}`
+          const storedStatus = localStorage.getItem(statusKey)
+          setCourseStatus(storedStatus ? JSON.parse(storedStatus) : {})
+          setSelectedYearTab(1)
+        } catch (error) {
+          console.error('Failed to load curriculum data', error)
+          setCurriculumData(null)
+        }
+      } else {
+        setCurriculumData(null)
+        setCourseStatus({})
+      }
+      setCompletedCourses([])
+    }
+    loadCurriculum()
+  }, [selectedFaculty, selectedMajor])
+
+  // Save plan when courses change (with debounce to prevent infinite loops)
+  useEffect(() => {
+    // Skip during initial load
+    if (isInitialLoad.current) return
+    
+    // Skip if we're already saving
+    if (isSavingRef.current) return
+    
+    // Only save if there are courses or if plan name/faculty changed
+    const timeoutId = setTimeout(() => {
+      savePlan()
+    }, 500) // Debounce by 500ms
+    
+    return () => clearTimeout(timeoutId)
+  }, [completedCourses, selectedFaculty, planName, savePlan])
+
+  // Load plans on mount
+  useEffect(() => {
+    if (isAuthenticated && user) {
+      loadUserPlans()
+    } else {
+      // Load from localStorage for guest users
+      loadGuestPlan()
+    }
+    isInitialLoad.current = false
+  }, [isAuthenticated, user, loadUserPlans])
+
+  const createNewPlan = useCallback(() => {
     const newPlanId = `plan_${Date.now()}`
     const newPlan = {
       id: newPlanId,
@@ -94,20 +166,31 @@ const PlannerPage = () => {
       setCurrentPlanId(newPlanId)
       setPlanName(newPlan.name)
       setCompletedCourses([])
-      loadUserPlans()
+      // Update savedPlans directly instead of calling loadUserPlans to avoid loop
+      const plans = storage.getUserPlans(user.id)
+      setSavedPlans(plans)
     }
-  }
+  }, [isAuthenticated, user, savedPlans.length])
 
   const loadPlan = (planId) => {
     if (!user) return
     
     const plan = storage.getPlan(user.id, planId)
     if (plan) {
+      // Set flag to prevent savePlan from running during load
+      isSavingRef.current = true
+      
       setCurrentPlanId(plan.id)
       setPlanName(plan.name)
       setSelectedFaculty(plan.faculty || 'arts')
+      setSelectedMajor(plan.major || '')
       setCompletedCourses(plan.courses || [])
       setShowPlanManager(false)
+      
+      // Reset flag after state updates
+      setTimeout(() => {
+        isSavingRef.current = false
+      }, 200)
     }
   }
 
@@ -115,15 +198,14 @@ const PlannerPage = () => {
     if (!user || !window.confirm('Are you sure you want to delete this plan?')) return
     
     storage.deletePlan(user.id, planId)
-    loadUserPlans()
+    // Update savedPlans directly instead of calling loadUserPlans to avoid loop
+    const plans = storage.getUserPlans(user.id)
+    setSavedPlans(plans)
     
-    if (currentPlanId === planId && savedPlans.length > 1) {
-      const remainingPlans = savedPlans.filter(p => p.id !== planId)
-      if (remainingPlans.length > 0) {
-        loadPlan(remainingPlans[0].id)
-      } else {
-        createNewPlan()
-      }
+    if (currentPlanId === planId && plans.length > 0) {
+      loadPlan(plans[0].id)
+    } else if (currentPlanId === planId && plans.length === 0) {
+      createNewPlan()
     }
   }
 
@@ -137,6 +219,58 @@ const PlannerPage = () => {
       }]
       setCompletedCourses(updated)
     }
+  }
+
+  const getStatusKey = () => `course_status_${selectedFaculty}_${selectedMajor || 'none'}`
+
+  const persistCourseStatus = (statusMap) => {
+    try {
+      localStorage.setItem(getStatusKey(), JSON.stringify(statusMap))
+    } catch (e) {
+      console.warn('Unable to persist course status', e)
+    }
+  }
+
+  const toggleCourseStatus = (course) => {
+    const statusOrder = {
+      'not-started': 'in-progress',
+      'in-progress': 'completed',
+      'completed': 'not-started'
+    }
+
+    setCourseStatus((prev) => {
+      const currentStatus = prev[course.code] || 'not-started'
+      const nextStatus = statusOrder[currentStatus]
+      const next = { ...prev }
+
+      if (nextStatus === 'not-started') {
+        delete next[course.code]
+        setCompletedCourses(prevCourses => prevCourses.filter(c => c.code !== course.code))
+      } else if (nextStatus === 'completed') {
+        next[course.code] = nextStatus
+        setCompletedCourses(prevCourses => {
+          if (prevCourses.find(c => c.code === course.code)) return prevCourses
+          return [
+            ...prevCourses,
+            {
+              code: course.code,
+              name: course.title || course.name || course.code,
+              credits: course.credits || 0,
+              year: `Year ${course.year || selectedYear.replace('Year ', '')}`,
+              term: `Term ${course.term || selectedTerm.replace('Term ', '')}`,
+              category: course.category || 'elective'
+            }
+          ]
+        })
+      } else {
+        // in-progress should not count toward completed credits
+        next[course.code] = nextStatus
+        setCompletedCourses(prevCourses => prevCourses.filter(c => c.code !== course.code))
+      }
+
+      persistCourseStatus(next)
+      return next
+    })
   }
 
   const removeCourse = (courseCode) => {
@@ -156,7 +290,8 @@ const PlannerPage = () => {
   const calculateProgress = () => {
     const requirements = getCurrentRequirements()
     const totalCredits = completedCourses.reduce((sum, course) => sum + course.credits, 0)
-    const progress = (totalCredits / requirements.totalCredits) * 100
+    const totalCreditsDenominator = curriculumData?.totalCredits || requirements.totalCredits
+    const progress = (totalCredits / totalCreditsDenominator) * 100
 
     const communicationCredits = completedCourses
       .filter(c => c.category === 'communication')
@@ -201,7 +336,19 @@ const PlannerPage = () => {
   const progress = calculateProgress()
   const recommendedCourses = getRecommendedCourses()
   const currentCourses = getCurrentCourses()
-  const requirements = getCurrentRequirements()
+  const requirements = curriculumData
+    ? {
+        ...getCurrentRequirements(),
+        faculty: `${curriculumData.faculty} - ${curriculumData.major}`,
+        totalCredits: curriculumData.totalCredits
+      }
+    : getCurrentRequirements()
+
+  const statusLabels = {
+    'completed': 'Completed',
+    'in-progress': 'In Progress',
+    'not-started': 'Not Started'
+  }
 
   return (
     <div className="planner-page">
@@ -274,7 +421,9 @@ const PlannerPage = () => {
               value={selectedFaculty} 
               onChange={(e) => {
                 setSelectedFaculty(e.target.value)
+                setSelectedMajor('')
                 setCompletedCourses([]) // Reset courses when changing faculty
+                setCourseStatus({})
               }}
             >
               {getAllFaculties().map(facultyKey => (
@@ -284,6 +433,28 @@ const PlannerPage = () => {
               ))}
             </select>
           </div>
+
+          {majorOptions[selectedFaculty] && (
+            <div className="faculty-selector">
+              <label htmlFor="major">Select Major:</label>
+              <select
+                id="major"
+                value={selectedMajor}
+                onChange={(e) => {
+                  setSelectedMajor(e.target.value)
+                  setCompletedCourses([])
+                  setCourseStatus({})
+                }}
+              >
+                <option value="">Select a major</option>
+                {majorOptions[selectedFaculty].map((major) => (
+                  <option key={major.value} value={major.value}>
+                    {major.label}
+                  </option>
+                ))}
+              </select>
+            </div>
+          )}
 
           {/* Plan Name Editor */}
           {isAuthenticated && (
@@ -398,110 +569,172 @@ const PlannerPage = () => {
           <div className="courses-section">
             <div className="section-header">
               <h2>My Courses</h2>
-              <div className="term-selector">
-                <select value={selectedYear} onChange={(e) => setSelectedYear(e.target.value)}>
-                  <option>Year 1</option>
-                  <option>Year 2</option>
-                  <option>Year 3</option>
-                  <option>Year 4</option>
-                </select>
-                <select value={selectedTerm} onChange={(e) => setSelectedTerm(e.target.value)}>
-                  <option>Term 1</option>
-                  <option>Term 2</option>
-                </select>
-              </div>
-            </div>
-
-            {/* Completed Courses */}
-            <div className="completed-courses">
-              {completedCourses.length === 0 ? (
-                <div className="empty-state">
-                  <p>No courses added yet. Start by adding courses from the course list below.</p>
-                </div>
-              ) : (
-                <div className="course-list">
-                  {completedCourses.map((course, index) => (
-                    <div key={index} className="course-item">
-                      <div className="course-info">
-                        <span className="course-code">{course.code}</span>
-                        <span className="course-name">{course.name}</span>
-                        <span className="course-credits">{course.credits} credits</span>
-                        <span className="course-term">{course.year} - {course.term}</span>
-                      </div>
-                      <button 
-                        className="remove-course"
-                        onClick={() => removeCourse(course.code)}
-                      >
-                        ×
-                      </button>
-                    </div>
-                  ))}
+              {!curriculumData && (
+                <div className="term-selector">
+                  <select value={selectedYear} onChange={(e) => setSelectedYear(e.target.value)}>
+                    <option>Year 1</option>
+                    <option>Year 2</option>
+                    <option>Year 3</option>
+                    <option>Year 4</option>
+                  </select>
+                  <select value={selectedTerm} onChange={(e) => setSelectedTerm(e.target.value)}>
+                    <option>Term 1</option>
+                    <option>Term 2</option>
+                  </select>
                 </div>
               )}
             </div>
 
-            {/* Available Courses */}
-            <div className="available-courses">
-              <h3>Available Courses</h3>
-              <div className="course-grid">
-                {currentCourses.map((course, index) => {
-                  const isCompleted = completedCourses.find(c => c.code === course.code)
-                  return (
-                    <div 
-                      key={index} 
-                      className={`course-card ${isCompleted ? 'completed' : ''}`}
-                    >
-                      <div className="course-card-header">
-                        <span className="course-card-code">{course.code}</span>
-                        <span className="course-card-credits">{course.credits} credits</span>
-                      </div>
-                      <h4 className="course-card-name">{course.name}</h4>
-                      <p className="course-card-description">{course.description}</p>
-                      {course.prerequisites && course.prerequisites.length > 0 && (
-                        <div className="course-prerequisites">
-                          <strong>Prerequisites:</strong> {course.prerequisites.join(', ')}
-                        </div>
-                      )}
-                      {!isCompleted && (
-                        <button 
-                          className="add-course-btn"
-                          onClick={() => addCourse(course)}
-                        >
-                          Add Course
-                        </button>
-                      )}
-                      {isCompleted && (
-                        <span className="course-added-badge">Added</span>
-                      )}
-                    </div>
-                  )
-                })}
+            {majorOptions[selectedFaculty] && !selectedMajor && (
+              <div className="empty-state">
+                <p>Please select a major to view requirements.</p>
               </div>
-            </div>
+            )}
 
-            {/* Recommended Courses */}
-            {recommendedCourses.length > 0 && (
-              <div className="recommended-courses">
-                <h3>Recommended for Next Term</h3>
-                <div className="course-grid">
-                  {recommendedCourses.map((course, index) => (
-                    <div key={index} className="course-card recommended">
-                      <div className="course-card-header">
-                        <span className="course-card-code">{course.code}</span>
-                        <span className="course-card-credits">{course.credits} credits</span>
-                      </div>
-                      <h4 className="course-card-name">{course.name}</h4>
-                      <p className="course-card-description">{course.description}</p>
-                      <button 
-                        className="add-course-btn"
-                        onClick={() => addCourse(course)}
-                      >
-                        Add Course
-                      </button>
-                    </div>
+            {curriculumData && selectedMajor ? (
+              <div className="curriculum-view">
+                <div className="year-tabs">
+                  {curriculumData.years.map((year) => (
+                    <button
+                      key={year.year}
+                      className={`year-tab ${selectedYearTab === year.year ? 'active' : ''}`}
+                      onClick={() => setSelectedYearTab(year.year)}
+                    >
+                      {year.label}
+                    </button>
                   ))}
                 </div>
+
+                {curriculumData.years.filter(y => y.year === selectedYearTab).map((year) => (
+                  <div key={year.year} className="available-courses">
+                    <h3>{year.label}</h3>
+                    {year.terms.map((term) => (
+                      <div key={term.term}>
+                        <h4>Term {term.term}</h4>
+                        <div className="course-grid">
+                          {term.courses.map((course) => {
+                            const status = courseStatus[course.code] || 'not-started'
+                            return (
+                              <div
+                                key={course.code}
+                                className={`course-card status-${status}`}
+                                onClick={() => toggleCourseStatus(course)}
+                              >
+                                <div className="course-card-header">
+                                  <span className="course-card-code">{course.code}</span>
+                                  <span className="course-card-credits">{course.credits} credits</span>
+                                </div>
+                                <h4 className="course-card-name">{course.title || course.name}</h4>
+                                <div className="course-status">
+                                  <span className={`status-badge status-${status}`}>
+                                    {statusLabels[status]}
+                                  </span>
+                                </div>
+                                <p className="course-card-description">{course.description || ''}</p>
+                                <small>Click to toggle status</small>
+                              </div>
+                            )
+                          })}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                ))}
               </div>
+            ) : (
+              <>
+                {/* Completed Courses */}
+                <div className="completed-courses">
+                  {completedCourses.length === 0 ? (
+                    <div className="empty-state">
+                      <p>No courses added yet. Start by adding courses from the course list below.</p>
+                    </div>
+                  ) : (
+                    <div className="course-list">
+                      {completedCourses.map((course, index) => (
+                        <div key={index} className="course-item">
+                          <div className="course-info">
+                            <span className="course-code">{course.code}</span>
+                            <span className="course-name">{course.name}</span>
+                            <span className="course-credits">{course.credits} credits</span>
+                            <span className="course-term">{course.year} - {course.term}</span>
+                          </div>
+                          <button 
+                            className="remove-course"
+                            onClick={() => removeCourse(course.code)}
+                          >
+                            ×
+                          </button>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                </div>
+
+                {/* Available Courses */}
+                <div className="available-courses">
+                  <h3>Available Courses</h3>
+                  <div className="course-grid">
+                    {currentCourses.map((course, index) => {
+                      const isCompleted = completedCourses.find(c => c.code === course.code)
+                      return (
+                        <div 
+                          key={index} 
+                          className={`course-card ${isCompleted ? 'completed' : ''}`}
+                        >
+                          <div className="course-card-header">
+                            <span className="course-card-code">{course.code}</span>
+                            <span className="course-card-credits">{course.credits} credits</span>
+                          </div>
+                          <h4 className="course-card-name">{course.name}</h4>
+                          <p className="course-card-description">{course.description}</p>
+                          {course.prerequisites && course.prerequisites.length > 0 && (
+                            <div className="course-prerequisites">
+                              <strong>Prerequisites:</strong> {course.prerequisites.join(', ')}
+                            </div>
+                          )}
+                          {!isCompleted && (
+                            <button 
+                              className="add-course-btn"
+                              onClick={() => addCourse(course)}
+                            >
+                              Add Course
+                            </button>
+                          )}
+                          {isCompleted && (
+                            <span className="course-added-badge">Added</span>
+                          )}
+                        </div>
+                      )
+                    })}
+                  </div>
+                </div>
+
+                {/* Recommended Courses */}
+                {recommendedCourses.length > 0 && (
+                  <div className="recommended-courses">
+                    <h3>Recommended for Next Term</h3>
+                    <div className="course-grid">
+                      {recommendedCourses.map((course, index) => (
+                        <div key={index} className="course-card recommended">
+                          <div className="course-card-header">
+                            <span className="course-card-code">{course.code}</span>
+                            <span className="course-card-credits">{course.credits} credits</span>
+                          </div>
+                          <h4 className="course-card-name">{course.name}</h4>
+                          <p className="course-card-description">{course.description}</p>
+                          <button 
+                            className="add-course-btn"
+                            onClick={() => addCourse(course)}
+                          >
+                            Add Course
+                          </button>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </>
             )}
           </div>
         </div>

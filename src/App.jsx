@@ -5,6 +5,7 @@ import HomePage from './pages/HomePage'
 import ApplyInfoPage from './pages/ApplyInfoPage'
 import PlannerPage from './pages/PlannerPage'
 import LoginPage from './pages/LoginPage'
+import ProfilePage from './pages/ProfilePage'
 import AboutPage from './pages/AboutPage'
 import ContactPage from './pages/ContactPage'
 import PrivacyPage from './pages/PrivacyPage'
@@ -20,6 +21,7 @@ function App() {
           <Route path="/ApplyInfo" element={<ApplyInfoPage />} />
           <Route path="/planner" element={<PlannerPage />} />
           <Route path="/login" element={<LoginPage />} />
+          <Route path="/profile" element={<ProfilePage />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/privacy" element={<PrivacyPage />} />

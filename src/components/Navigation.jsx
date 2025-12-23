@@ -1,10 +1,37 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React, { useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
 import { useAuth } from '../context/AuthContext'
 import './Navigation.css'
 
 const Navigation = () => {
-  const { user, logout, isAuthenticated } = useAuth()
+  const { user, profile, logout, isAuthenticated } = useAuth()
+  const navigate = useNavigate()
+  const [isLoggingOut, setIsLoggingOut] = useState(false)
+
+  const handleLogout = async (e) => {
+    e.preventDefault()
+    
+    // Prevent multiple clicks
+    if (isLoggingOut) return
+    
+    setIsLoggingOut(true)
+    
+    try {
+      const result = await logout()
+      if (result.success) {
+        // Navigate to home page after logout
+        navigate('/')
+      } else {
+        console.error('Logout failed:', result.error)
+      }
+    } catch (error) {
+      console.error('Logout failed:', error)
+    } finally {
+      setIsLoggingOut(false)
+    }
+  }
+
+  const displayName = profile?.full_name || user?.email?.split('@')[0] || 'User'
 
   return (
     <nav className="navigation">
@@ -35,8 +62,9 @@ const Navigation = () => {
           <Link to="/planner" className="nav-link">Planner</Link>
           {isAuthenticated ? (
             <>
-              <span className="nav-user">Hello, {user?.name}</span>
-              <button onClick={logout} className="nav-link logout-link">
+              <Link to="/profile" className="nav-link">Profile</Link>
+              <span className="nav-user">Hello, {displayName}</span>
+              <button onClick={handleLogout} className="nav-link logout-link">
                 Logout
               </button>
             </>

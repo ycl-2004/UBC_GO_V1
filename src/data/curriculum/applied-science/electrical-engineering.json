@@ -1,0 +1,96 @@
+{
+  "faculty": "Applied Science",
+  "major": "Electrical Engineering",
+  "totalCredits": 148,
+  "notes": "UBC Applied Science (Engineering) - Electrical Engineering curriculum outline with common first-year core followed by ELEC specialization. Credit weights are approximate and can be refined with official data.",
+  "years": [
+    {
+      "year": 1,
+      "label": "Year 1 - Common Core",
+      "terms": [
+        {
+          "term": 1,
+          "courses": [
+            { "code": "APSC 100", "title": "Introduction to Engineering", "credits": 3, "year": 1, "term": 1 },
+            { "code": "MATH 100", "title": "Differential Calculus", "credits": 3, "year": 1, "term": 1 },
+            { "code": "PHYS 157", "title": "Introductory Physics for Engineers I", "credits": 3, "year": 1, "term": 1 },
+            { "code": "CHEM 154", "title": "Chemistry for Engineering", "credits": 3, "year": 1, "term": 1 },
+            { "code": "WRDS 150", "title": "Research and Writing in the Disciplines", "credits": 3, "year": 1, "term": 1 }
+          ]
+        },
+        {
+          "term": 2,
+          "courses": [
+            { "code": "APSC 101", "title": "Introduction to Engineering II", "credits": 3, "year": 1, "term": 2 },
+            { "code": "MATH 101", "title": "Integral Calculus", "credits": 3, "year": 1, "term": 2 },
+            { "code": "PHYS 158", "title": "Introductory Physics for Engineers II", "credits": 3, "year": 1, "term": 2 }
+          ]
+        }
+      ]
+    },
+    {
+      "year": 2,
+      "label": "Year 2 - Electrical Engineering Core",
+      "terms": [
+        {
+          "term": 1,
+          "courses": [
+            { "code": "ELEC 201", "title": "Circuit Analysis I", "credits": 3, "year": 2, "term": 1 },
+            { "code": "ELEC 202", "title": "Electric and Magnetic Fields", "credits": 3, "year": 2, "term": 1 },
+            { "code": "MATH 253", "title": "Multivariable Calculus", "credits": 3, "year": 2, "term": 1 }
+          ]
+        },
+        {
+          "term": 2,
+          "courses": [
+            { "code": "ELEC 221", "title": "Signals and Systems", "credits": 3, "year": 2, "term": 2 },
+            { "code": "CPEN 211", "title": "Microcomputers and Embedded Systems", "credits": 3, "year": 2, "term": 2 }
+          ]
+        }
+      ]
+    },
+    {
+      "year": 3,
+      "label": "Year 3 - Upper-Level Core & Electives",
+      "terms": [
+        {
+          "term": 1,
+          "courses": [
+            { "code": "ELEC 3xx Core", "title": "Upper-Level ELEC Core Course", "credits": 3, "year": 3, "term": 1 },
+            { "code": "ELEC 3xx Elective A", "title": "Electrical Engineering Technical Elective", "credits": 3, "year": 3, "term": 1 },
+            { "code": "ELEC 3xx Lab/Design", "title": "ELEC Laboratory or Design Component", "credits": 3, "year": 3, "term": 1 }
+          ]
+        },
+        {
+          "term": 2,
+          "courses": [
+            { "code": "ELEC 3xx Core II", "title": "Upper-Level ELEC Core Course", "credits": 3, "year": 3, "term": 2 },
+            { "code": "ELEC 3xx Elective B", "title": "Electrical Engineering Technical Elective", "credits": 3, "year": 3, "term": 2 },
+            { "code": "ELEC 3xx Elective C", "title": "Technical or Complementary Elective", "credits": 3, "year": 3, "term": 2 }
+          ]
+        }
+      ]
+    },
+    {
+      "year": 4,
+      "label": "Year 4 - Specialization & Capstone",
+      "terms": [
+        {
+          "term": 1,
+          "courses": [
+            { "code": "ELEC 4xx Technical Elective A", "title": "Advanced Technical Elective", "credits": 3, "year": 4, "term": 1 },
+            { "code": "ELEC 4xx Design Project I", "title": "Design Project / Capstone Preparation", "credits": 3, "year": 4, "term": 1 }
+          ]
+        },
+        {
+          "term": 2,
+          "courses": [
+            { "code": "ELEC 4xx Technical Elective B", "title": "Advanced Technical Elective", "credits": 3, "year": 4, "term": 2 },
+            { "code": "ELEC 4xx Capstone Project", "title": "Capstone Design Project", "credits": 6, "year": 4, "term": 2 }
+          ]
+        }
+      ]
+    }
+  ]
+}
+

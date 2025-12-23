@@ -90,6 +90,25 @@ export const facultyRequirements = {
       },
     },
   },
+  appliedScience: {
+    faculty: "Faculty of Applied Science",
+    totalCredits: 148,
+    requirements: {
+      major: {
+        credits: 90,
+        description: "Complete engineering major requirements",
+      },
+      communication: {
+        credits: 6,
+        description: "Communication courses",
+      },
+      electives: {
+        credits: 52,
+        description: "Technical and complementary electives",
+      },
+      breadth: {}
+    },
+  },
 }
 
 /**

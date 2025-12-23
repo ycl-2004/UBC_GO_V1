@@ -13,27 +13,31 @@ const LoginPage = () => {
   const { login, register } = useAuth()
   const navigate = useNavigate()
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
     setError('')
 
     if (isLogin) {
-      const result = login(email, password)
+      const result = await login(email, password)
       if (result.success) {
         navigate('/planner')
       } else {
-        setError('Login failed. Please try again.')
+        // Display Supabase error message
+        const errorMessage = result.error || 'Login failed. Please try again.'
+        setError(errorMessage)
       }
     } else {
       if (!name.trim()) {
         setError('Please enter your name')
         return
       }
-      const result = register(email, password, name)
+      const result = await register(email, password, name)
       if (result.success) {
         navigate('/planner')
       } else {
-        setError('Registration failed. Please try again.')
+        // Display Supabase error message
+        const errorMessage = result.error || 'Registration failed. Please try again.'
+        setError(errorMessage)
       }
     }
   }
@@ -117,7 +121,7 @@ const LoginPage = () => {
           <div className="login-note">
             <p>
               <small>
-                Note: This is a demo application. In production, authentication would be handled securely through a backend API.
+                Your data is securely stored in Supabase. Sign up to start planning your UBC journey!
               </small>
             </p>
           </div>

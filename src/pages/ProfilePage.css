@@ -1,0 +1,331 @@
+.profile-page {
+  min-height: 100vh;
+  background: #f8f9fa;
+}
+
+.profile-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.profile-header {
+  margin-bottom: 3rem;
+  padding-top: 2rem;
+}
+
+.profile-header h1 {
+  font-size: 2.5rem;
+  color: #002145;
+  margin-bottom: 0.5rem;
+  text-align: left;
+}
+
+.profile-header .subtitle {
+  font-size: 1.2rem;
+  color: #666;
+  text-align: left;
+}
+
+/* Responsive Grid Layout */
+.profile-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .profile-grid {
+    grid-template-columns: 1fr 2fr;
+  }
+}
+
+/* Left Column - Profile Card */
+.profile-card {
+  background: #fff;
+  padding: 2.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  height: fit-content;
+}
+
+.avatar-container {
+  margin-bottom: 1.5rem;
+}
+
+.avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #fff;
+  background: #C5A069; /* UBC Gold */
+  box-shadow: 0 4px 12px rgba(197, 160, 105, 0.3);
+}
+
+.profile-info {
+  margin-bottom: 2rem;
+}
+
+.profile-name {
+  font-size: 1.5rem;
+  color: #002145;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.profile-email {
+  color: #666;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+.profile-badge {
+  display: inline-block;
+}
+
+.badge {
+  background: #e7f3ff;
+  color: #002145;
+  padding: 0.4rem 1rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+/* Degree Progress Section */
+.degree-progress {
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 2px solid #e0e0e0;
+}
+
+.progress-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+
+.progress-label {
+  font-size: 0.9rem;
+  color: #666;
+  font-weight: 500;
+}
+
+.progress-percentage {
+  font-size: 1.2rem;
+  color: #002145;
+  font-weight: 700;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 10px;
+  background: #e0e0e0;
+  border-radius: 5px;
+  overflow: hidden;
+  margin-bottom: 0.75rem;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #002145 0%, #003d7a 100%);
+  border-radius: 5px;
+  transition: width 0.5s ease;
+}
+
+.progress-hint {
+  font-size: 0.85rem;
+  color: #666;
+  margin: 0;
+}
+
+.progress-hint a {
+  color: #002145;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.progress-hint a:hover {
+  text-decoration: underline;
+}
+
+/* Right Column - Form Container */
+.profile-form-container {
+  width: 100%;
+}
+
+.form-card {
+  background: #fff;
+  padding: 2.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.form-title {
+  font-size: 1.8rem;
+  color: #002145;
+  margin-bottom: 2rem;
+  font-weight: 600;
+}
+
+.profile-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-group label {
+  font-weight: 600;
+  color: #333;
+  font-size: 0.95rem;
+}
+
+.form-group input,
+.form-group select {
+  padding: 0.75rem 1rem;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 1rem;
+  background: #fff;
+  color: #333;
+  transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: #002145;
+}
+
+.form-group input:disabled,
+.form-group select:disabled {
+  background: #f5f5f5;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.form-error {
+  font-size: 0.85rem;
+  color: #dc3545;
+  margin-top: 0.25rem;
+}
+
+.form-hint {
+  font-size: 0.85rem;
+  color: #666;
+  font-style: italic;
+  margin-top: 0.25rem;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 1rem;
+  padding-top: 1.5rem;
+  border-top: 2px solid #e0e0e0;
+}
+
+.btn-save {
+  background: #002145;
+  color: #fff;
+  padding: 0.75rem 2rem;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.btn-save:hover {
+  background: #003d7a;
+}
+
+.btn-save:active {
+  transform: translateY(1px);
+}
+
+/* Toast Notification */
+.toast {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  padding: 1rem 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  font-weight: 500;
+  z-index: 1000;
+  animation: slideIn 0.3s ease;
+}
+
+.toast-success {
+  background: #28a745;
+  color: #fff;
+}
+
+.toast-error {
+  background: #dc3545;
+  color: #fff;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .profile-container {
+    padding: 1rem;
+  }
+  
+  .profile-header h1 {
+    font-size: 2rem;
+  }
+  
+  .profile-card {
+    padding: 2rem;
+  }
+  
+  .avatar {
+    width: 100px;
+    height: 100px;
+    font-size: 2rem;
+  }
+  
+  .form-card {
+    padding: 1.5rem;
+  }
+  
+  .form-title {
+    font-size: 1.5rem;
+  }
+  
+  .toast {
+    bottom: 1rem;
+    right: 1rem;
+    left: 1rem;
+    width: auto;
+  }
+}
+
