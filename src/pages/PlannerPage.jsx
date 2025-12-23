@@ -2,7 +2,7 @@ import React, { useState, useEffect, useCallback, useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
 import Navigation from '../components/Navigation'
 import { useAuth } from '../context/AuthContext'
-import { storage } from '../utils/storage'
+import { useDegreePlan } from '../hooks/useDegreePlan'
 import { facultyRequirements, getCoursesByFaculty, getAllFaculties } from '../data/facultiesData'
 import { artsCourses } from '../data/artsData'
 import './PlannerPage.css'
@@ -11,9 +11,20 @@ const PlannerPage = () => {
   const { user, isAuthenticated } = useAuth()
   const navigate = useNavigate()
   
+  // Use the degree plan hook for authenticated users
+  const {
+    plans: savedPlans,
+    activePlan,
+    loading: plansLoading,
+    createPlan: createPlanHook,
+    savePlan: savePlanHook,
+    switchPlan: switchPlanHook,
+    deletePlan: deletePlanHook,
+    updatePlanMetadata
+  } = useDegreePlan()
+  
   const [selectedFaculty, setSelectedFaculty] = useState('arts')
   const [selectedMajor, setSelectedMajor] = useState('')
-  const [currentPlanId, setCurrentPlanId] = useState('default')
   const [planName, setPlanName] = useState('My Degree Plan')
   const [completedCourses, setCompletedCourses] = useState([])
   const [courseStatus, setCourseStatus] = useState({})
@@ -21,7 +32,6 @@ const PlannerPage = () => {
   const [selectedYearTab, setSelectedYearTab] = useState(1)
   const [selectedYear, setSelectedYear] = useState('Year 1')
   const [selectedTerm, setSelectedTerm] = useState('Term 1')
-  const [savedPlans, setSavedPlans] = useState([])
   const [showPlanManager, setShowPlanManager] = useState(false)
   const isInitialLoad = useRef(true)
   const isSavingRef = useRef(false)
@@ -32,29 +42,23 @@ const PlannerPage = () => {
     ],
   }
 
-  // Define helper functions before useEffect hooks
-  const loadUserPlans = useCallback(() => {
-    if (!user) return
-    
-    // Set flag to prevent savePlan from running during load
-    isSavingRef.current = true
-    
-    const plans = storage.getUserPlans(user.id)
-    setSavedPlans(plans)
-    
-    if (plans.length > 0) {
-      const firstPlan = plans[0]
-      setCurrentPlanId(firstPlan.id)
-      setPlanName(firstPlan.name || 'My Degree Plan')
-      setSelectedFaculty(firstPlan.faculty || 'arts')
-      setCompletedCourses(firstPlan.courses || [])
+  // Sync active plan data to local state when it changes
+  useEffect(() => {
+    if (isAuthenticated && activePlan) {
+      // Set flag to prevent savePlan from running during load
+      isSavingRef.current = true
+      
+      setPlanName(activePlan.plan_name || 'My Degree Plan')
+      setSelectedFaculty(activePlan.faculty || 'arts')
+      setSelectedMajor(activePlan.major || '')
+      setCompletedCourses(activePlan.course_data || [])
+      
+      // Reset flag after state updates
+      setTimeout(() => {
+        isSavingRef.current = false
+      }, 200)
     }
-    
-    // Reset flag after state updates
-    setTimeout(() => {
-      isSavingRef.current = false
-    }, 200)
-  }, [user])
+  }, [activePlan, isAuthenticated])
 
   const loadGuestPlan = () => {
     const saved = localStorage.getItem('guest_plan')
@@ -66,41 +70,63 @@ const PlannerPage = () => {
     }
   }
 
-  // Define savePlan before useEffect that uses it
-  const savePlan = useCallback(() => {
+  // Auto-save plan when courses or metadata change
+  const savePlan = useCallback(async () => {
     // Prevent saving during initial load
     if (isInitialLoad.current) return
     
-    isSavingRef.current = true
+    // Skip if we're already saving
+    if (isSavingRef.current) return
     
-    const planData = {
-      id: currentPlanId,
-      name: planName,
-      faculty: selectedFaculty,
-      major: selectedMajor,
-      courses: completedCourses,
-      updatedAt: new Date().toISOString()
+    if (!isAuthenticated || !user || !activePlan) {
+      // Save to localStorage for guest
+      const planData = {
+        name: planName,
+        faculty: selectedFaculty,
+        major: selectedMajor,
+        courses: completedCourses,
+        updatedAt: new Date().toISOString()
+      }
+      localStorage.setItem('guest_plan', JSON.stringify(planData))
+      return
     }
 
-    if (isAuthenticated && user) {
-      storage.savePlan(user.id, currentPlanId, planData)
-      // Don't reload plans immediately to avoid loop
-      // Instead, update savedPlans state directly
-      const plans = storage.getUserPlans(user.id)
-      setSavedPlans(plans)
-    } else {
-      // Save to localStorage for guest
-      localStorage.setItem('guest_plan', JSON.stringify(planData))
+    isSavingRef.current = true
+
+    try {
+      // Save course data (silent mode for auto-save - no toast)
+      await savePlanHook(activePlan.id, completedCourses, true)
+      
+      // Update plan metadata if changed (silent mode for auto-save - no toast)
+      const metadataUpdates = {}
+      if (activePlan.plan_name !== planName) {
+        metadataUpdates.plan_name = planName
+      }
+      if (activePlan.faculty !== selectedFaculty) {
+        metadataUpdates.faculty = selectedFaculty
+      }
+      if (activePlan.major !== selectedMajor) {
+        metadataUpdates.major = selectedMajor
+      }
+      
+      if (Object.keys(metadataUpdates).length > 0) {
+        await updatePlanMetadata(activePlan.id, metadataUpdates, true)
+      }
+    } catch (error) {
+      console.error('Error saving plan:', error)
+    } finally {
+      // Reset saving flag after a short delay
+      setTimeout(() => {
+        isSavingRef.current = false
+      }, 100)
     }
-    
-    // Reset saving flag after a short delay
-    setTimeout(() => {
-      isSavingRef.current = false
-    }, 100)
-  }, [currentPlanId, planName, selectedFaculty, selectedMajor, completedCourses, isAuthenticated, user])
+  }, [activePlan, planName, selectedFaculty, selectedMajor, completedCourses, isAuthenticated, user, savePlanHook, updatePlanMetadata])
 
   // Load curriculum data based on faculty + major
   useEffect(() => {
+    // Don't reset courses if we're loading a plan (isSavingRef indicates plan loading)
+    if (isSavingRef.current) return
+    
     const loadCurriculum = async () => {
       if (selectedFaculty === 'appliedScience' && selectedMajor === 'electricalEngineering') {
         try {
@@ -119,7 +145,10 @@ const PlannerPage = () => {
         setCurriculumData(null)
         setCourseStatus({})
       }
-      setCompletedCourses([])
+      // Only reset courses if this is a manual faculty/major change, not a plan load
+      if (!isSavingRef.current) {
+        setCompletedCourses([])
+      }
     }
     loadCurriculum()
   }, [selectedFaculty, selectedMajor])
@@ -140,72 +169,73 @@ const PlannerPage = () => {
     return () => clearTimeout(timeoutId)
   }, [completedCourses, selectedFaculty, planName, savePlan])
 
-  // Load plans on mount
+  // Load guest plan on mount if not authenticated
   useEffect(() => {
-    if (isAuthenticated && user) {
-      loadUserPlans()
-    } else {
-      // Load from localStorage for guest users
+    if (!isAuthenticated || !user) {
       loadGuestPlan()
     }
     isInitialLoad.current = false
-  }, [isAuthenticated, user, loadUserPlans])
+  }, [isAuthenticated, user])
 
-  const createNewPlan = useCallback(() => {
-    const newPlanId = `plan_${Date.now()}`
-    const newPlan = {
-      id: newPlanId,
-      name: `Plan ${savedPlans.length + 1}`,
-      faculty: 'arts',
-      courses: [],
-      createdAt: new Date().toISOString()
-    }
-    
-    if (isAuthenticated && user) {
-      storage.savePlan(user.id, newPlanId, newPlan)
-      setCurrentPlanId(newPlanId)
-      setPlanName(newPlan.name)
+  const createNewPlan = useCallback(async () => {
+    if (!isAuthenticated || !user) {
+      // For guest users, just reset the current plan
+      setPlanName('My Degree Plan')
       setCompletedCourses([])
-      // Update savedPlans directly instead of calling loadUserPlans to avoid loop
-      const plans = storage.getUserPlans(user.id)
-      setSavedPlans(plans)
+      setSelectedFaculty('arts')
+      setSelectedMajor('')
+      return
     }
-  }, [isAuthenticated, user, savedPlans.length])
+
+    try {
+      const planName = `Plan ${savedPlans.length + 1}`
+      await createPlanHook(planName)
+      // The hook will automatically set the new plan as activePlan
+      // and the useEffect will sync the state
+    } catch (error) {
+      // Error toast is already shown by the hook
+      console.error('Failed to create plan:', error)
+    }
+  }, [isAuthenticated, user, savedPlans.length, createPlanHook])
 
   const loadPlan = (planId) => {
-    if (!user) return
+    if (!isAuthenticated || !user) return
     
-    const plan = storage.getPlan(user.id, planId)
-    if (plan) {
+    try {
       // Set flag to prevent savePlan from running during load
       isSavingRef.current = true
       
-      setCurrentPlanId(plan.id)
-      setPlanName(plan.name)
-      setSelectedFaculty(plan.faculty || 'arts')
-      setSelectedMajor(plan.major || '')
-      setCompletedCourses(plan.courses || [])
+      // Switch plan - this updates activePlan in the hook
+      // The useEffect will automatically sync activePlan to local state
+      switchPlanHook(planId)
+      
       setShowPlanManager(false)
       
       // Reset flag after state updates
       setTimeout(() => {
         isSavingRef.current = false
       }, 200)
+    } catch (error) {
+      console.error('Failed to load plan:', error)
     }
   }
 
-  const deletePlan = (planId) => {
-    if (!user || !window.confirm('Are you sure you want to delete this plan?')) return
+  const deletePlan = async (planId) => {
+    if (!isAuthenticated || !user || !window.confirm('Are you sure you want to delete this plan?')) return
     
-    storage.deletePlan(user.id, planId)
-    // Update savedPlans directly instead of calling loadUserPlans to avoid loop
-    const plans = storage.getUserPlans(user.id)
-    setSavedPlans(plans)
-    
-    if (currentPlanId === planId && plans.length > 0) {
-      loadPlan(plans[0].id)
-    } else if (currentPlanId === planId && plans.length === 0) {
-      createNewPlan()
+    try {
+      await deletePlanHook(planId)
+      // The hook will automatically handle switching to another plan if needed
+      // If no plans remain, activePlan will be null
+      if (savedPlans.length === 1) {
+        // Last plan was deleted, reset to default state
+        setCompletedCourses([])
+        setSelectedFaculty('arts')
+        setSelectedMajor('')
+        setPlanName('My Degree Plan')
+      }
+    } catch (error) {
+      console.error('Failed to delete plan:', error)
     }
   }
 
@@ -391,12 +421,12 @@ const PlannerPage = () => {
                 {savedPlans.map(plan => (
                   <div 
                     key={plan.id} 
-                    className={`plan-item ${plan.id === currentPlanId ? 'active' : ''}`}
+                    className={`plan-item ${plan.id === activePlan?.id ? 'active' : ''}`}
                   >
                     <div onClick={() => loadPlan(plan.id)}>
-                      <h4>{plan.name}</h4>
+                      <h4>{plan.plan_name || 'My Degree Plan'}</h4>
                       <p>{facultyRequirements[plan.faculty]?.faculty || 'Unknown Faculty'}</p>
-                      <small>{plan.courses?.length || 0} courses</small>
+                      <small>{(plan.course_data?.length || 0)} courses</small>
                     </div>
                     <button 
                       className="delete-plan-btn"
@@ -406,8 +436,13 @@ const PlannerPage = () => {
                     </button>
                   </div>
                 ))}
-                <button className="btn-new-plan" onClick={createNewPlan}>
-                  + New Plan
+                <button 
+                  className="btn-new-plan" 
+                  onClick={createNewPlan}
+                  disabled={savedPlans.length >= 3}
+                  title={savedPlans.length >= 3 ? 'Maximum 3 plans allowed. Delete a plan to create a new one.' : ''}
+                >
+                  + New Plan {savedPlans.length >= 3 && '(Limit Reached)'}
                 </button>
               </div>
             </div>
@@ -457,7 +492,7 @@ const PlannerPage = () => {
           )}
 
           {/* Plan Name Editor */}
-          {isAuthenticated && (
+          {isAuthenticated && activePlan && (
             <div className="plan-name-editor">
               <input
                 type="text"

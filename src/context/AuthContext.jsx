@@ -18,20 +18,89 @@ export const AuthProvider = ({ children }) => {
 
   // Initialize: Listen for auth state changes
   useEffect(() => {
-    // Get initial session
-    supabase.auth.getSession().then(({ data: { session } }) => {
+    const initAuth = async () => {
+      // Always clear all Supabase storage on page load to prevent ghost sessions
+      // This ensures users start with a clean state unless they explicitly log in
+      if (typeof window !== 'undefined') {
+        console.log('Clearing all Supabase storage on initialization...')
+        Object.keys(localStorage).forEach(key => {
+          if (key.startsWith('sb-') || key.includes('supabase') || key.includes('auth-token')) {
+            console.log('Removing:', key)
+            localStorage.removeItem(key)
+          }
+        })
+        localStorage.removeItem('supabase.auth.token')
+        
+        // Also clear sessionStorage
+        try {
+          Object.keys(sessionStorage).forEach(key => {
+            if (key.startsWith('sb-') || key.includes('supabase')) {
+              console.log('Removing sessionStorage:', key)
+              sessionStorage.removeItem(key)
+            }
+          })
+        } catch (e) {
+          console.warn('Error clearing sessionStorage:', e)
+        }
+      }
+      
+      // Force Supabase to sign out to clear internal state
+      try {
+        await supabase.auth.signOut()
+        console.log('Supabase signOut completed')
+      } catch (e) {
+        console.warn('signOut during cleanup failed:', e)
+      }
+      
+      // After clearing, check if there's a valid session
+      // If user just logged in, the session will be re-established by onAuthStateChange
+      const { data: { session } } = await supabase.auth.getSession()
+      console.log('Session check after cleanup:', { sessionUser: session?.user?.email })
+      
       if (session?.user) {
+        // Session exists - user is logged in (this should be rare after cleanup)
+        console.log('Valid session found for:', session.user.email)
         setUser(session.user)
         loadUserProfile(session.user.id)
+      } else {
+        // No session - user is not logged in (default state)
+        setUser(null)
+        setProfile(null)
       }
       setLoading(false)
-    })
+    }
+    
+    initAuth()
 
     // Listen for auth state changes
     const {
       data: { subscription },
     } = supabase.auth.onAuthStateChange(async (event, session) => {
       console.log('Auth state changed:', event, session?.user?.email)
+      
+      // Ignore SIGNED_IN events if localStorage was cleared (ghost sessions)
+      if (event === 'SIGNED_IN' && session?.user) {
+        const hasStorage = typeof window !== 'undefined' && 
+          Object.keys(localStorage).some(key => 
+            key.startsWith('sb-') || 
+            key === 'supabase.auth.token' || 
+            key.includes('supabase') || 
+            key.includes('auth-token')
+          )
+        
+        if (!hasStorage) {
+          console.log('Ghost session detected, ignoring SIGNED_IN event and forcing signOut')
+          try {
+            await supabase.auth.signOut()
+          } catch (e) {
+            console.warn('signOut during ghost cleanup failed:', e)
+          }
+          setUser(null)
+          setProfile(null)
+          setLoading(false)
+          return
+        }
+      }
       
       if (session?.user) {
         setUser(session.user)
@@ -139,44 +208,70 @@ export const AuthProvider = ({ children }) => {
   }
 
   const logout = async () => {
+    console.log('Logging out user - initiating nuclear logout')
+    
+    // Step 1: Reset state immediately to prevent UI updates
+    setUser(null)
+    setProfile(null)
+    
+    // Step 2: Sign out from Supabase
     try {
-      console.log('Logging out user')
-      
-      // Clear local state first
-      setUser(null)
-      setProfile(null)
-      
-      // Sign out from Supabase (this clears the session)
       const { error } = await supabase.auth.signOut()
-      
       if (error) {
-        console.error('Logout error:', error)
-        return { success: false, error: error.message }
+        console.error('Supabase signOut error:', error)
+      } else {
+        console.log('Supabase signOut successful')
       }
-
-      // Verify session is cleared
-      const { data: { session } } = await supabase.auth.getSession()
-      if (session) {
-        console.warn('Session still exists after logout, forcing clear')
-        // Force clear by removing from storage
-        if (typeof window !== 'undefined') {
-          localStorage.removeItem('supabase.auth.token')
+    } catch (error) {
+      console.error('Supabase signOut exception:', error)
+    }
+    
+    // Step 3: Nuclear Option - Force clear ALL Supabase traces from localStorage
+    if (typeof window !== 'undefined') {
+      // First, explicitly remove our configured storage key
+      localStorage.removeItem('supabase.auth.token')
+      console.log('Removed configured storage key: supabase.auth.token')
+      
+      const keysToRemove = []
+      // Collect all keys to remove
+      for (let i = 0; i < localStorage.length; i++) {
+        const key = localStorage.key(i)
+        if (key && (key.startsWith('sb-') || key.includes('supabase') || key.includes('auth-token'))) {
+          keysToRemove.push(key)
         }
       }
       
-      console.log('Logout successful')
-      return { success: true }
-    } catch (error) {
-      console.error('Logout exception:', error)
-      // Clear state even on exception
-      setUser(null)
-      setProfile(null)
-      // Try to clear storage anyway
-      if (typeof window !== 'undefined') {
-        localStorage.removeItem('supabase.auth.token')
+      // Remove all collected keys
+      keysToRemove.forEach((key) => {
+        localStorage.removeItem(key)
+        console.log('Removed storage key:', key)
+      })
+      
+      // Also try to clear sessionStorage just in case
+      try {
+        for (let i = 0; i < sessionStorage.length; i++) {
+          const key = sessionStorage.key(i)
+          if (key && (key.startsWith('sb-') || key.includes('supabase'))) {
+            sessionStorage.removeItem(key)
+            console.log('Removed sessionStorage key:', key)
+          }
+        }
+      } catch (e) {
+        console.warn('Error clearing sessionStorage:', e)
       }
-      return { success: false, error: error.message || 'An unexpected error occurred' }
     }
+    
+    console.log('Logout complete, storage cleared')
+    
+    // Step 4: Force a hard redirect to home page with a small delay to ensure cleanup completes
+    if (typeof window !== 'undefined') {
+      // Use setTimeout to ensure all cleanup completes before redirect
+      setTimeout(() => {
+        window.location.replace('/UBC_GO_V1/')
+      }, 100)
+    }
+    
+    return { success: true }
   }
 
   const updateProfile = async (updatedUserData) => {

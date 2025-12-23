@@ -5,7 +5,7 @@ import Navigation from '../components/Navigation'
 import './LoginPage.css'
 
 const LoginPage = () => {
-  const [isLogin, setIsLogin] = useState(true)
+  const [isLogin, setIsLogin] = useState(true) // Default to Login
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [name, setName] = useState('')
