@@ -33,7 +33,15 @@ const LoginPage = () => {
       }
       const result = await register(email, password, name)
       if (result.success) {
-        navigate('/planner')
+        if (result.requiresConfirmation) {
+          // Show success message about email confirmation
+          setError('')
+          alert('Registration successful! Please check your email to confirm your account, then you can log in.')
+          setIsLogin(true) // Switch to login form
+          setEmail(email) // Pre-fill email
+        } else {
+          navigate('/planner')
+        }
       } else {
         // Display Supabase error message
         const errorMessage = result.error || 'Registration failed. Please try again.'
@@ -56,6 +64,14 @@ const LoginPage = () => {
           </p>
 
           {error && <div className="error-message">{error}</div>}
+          
+          {isLogin && (
+            <div className="login-info">
+              <p><small>
+                Having trouble logging in? Make sure you've confirmed your email address after registration.
+              </small></p>
+            </div>
+          )}
 
           <form onSubmit={handleSubmit} className="login-form">
             {!isLogin && (

@@ -104,6 +104,7 @@ export const AuthProvider = ({ children }) => {
           data: {
             full_name: name || email.split('@')[0],
           },
+          emailRedirectTo: typeof window !== 'undefined' ? `${window.location.origin}/UBC_GO_V1/login` : undefined,
         },
       })
 
@@ -114,6 +115,18 @@ export const AuthProvider = ({ children }) => {
 
       if (data.user) {
         console.log('Registration successful:', data.user.email)
+        
+        // Check if email confirmation is required
+        if (data.session === null && data.user) {
+          // Email confirmation required
+          return { 
+            success: true, 
+            user: data.user,
+            requiresConfirmation: true,
+            message: 'Please check your email to confirm your account before logging in.'
+          }
+        }
+        
         // Profile will be auto-created by trigger, and loaded by onAuthStateChange
         return { success: true, user: data.user }
       }
