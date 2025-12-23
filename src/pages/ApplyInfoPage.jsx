@@ -319,6 +319,25 @@ const ApplyInfoPage = () => {
       category = "Reach";
     }
     
+    // If gate is not passed, visually downgrade results
+    if (!gateCheck.passed) {
+      // Cap displayed percentages to reflect the gate failure
+      const gateCap = Math.min(40, percentageMid);
+      return {
+        finalScore: Math.round(finalScore * 100) / 100,
+        rawProbability: Math.round(rawProbability * 100) / 100,
+        percentage: gateCap,
+        percentageRange: {
+          low: Math.max(5, Math.min(gateCap - 10, percentageLow)),
+          high: Math.max(gateCap, Math.min(50, percentageHigh))
+        },
+        chance: "Low",
+        color: "#dc3545",
+        category: "Reach",
+        confidenceWidth
+      };
+    }
+    
     return {
       finalScore: Math.round(finalScore * 100) / 100,
       rawProbability: Math.round(rawProbability * 100) / 100,
