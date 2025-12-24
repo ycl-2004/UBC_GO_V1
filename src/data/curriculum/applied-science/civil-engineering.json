@@ -1,8 +1,8 @@
 {
   "faculty": "Applied Science",
-  "major": "Electrical Engineering",
-  "totalCredits": 145,
-  "notes": "UBC Applied Science (Engineering) - Electrical Engineering curriculum outline. First year is common to most engineering programs.",
+  "major": "Civil Engineering",
+  "totalCredits": 158,
+  "notes": "UBC Applied Science (Engineering) - Civil Engineering curriculum outline. First year is common to most engineering programs.",
   "years": [
     {
       "year": 1,
@@ -119,42 +119,49 @@
           "term": 1,
           "courses": [
             {
-              "code": "CPEN 211",
+              "code": "APSC 278",
               "title": "",
-              "credits": 5,
+              "credits": 3,
               "year": 2,
               "term": 1
             },
             {
-              "code": "CPSC 259",
+              "code": "APSC 279",
+              "title": "",
+              "credits": 1,
+              "year": 2,
+              "term": 1
+            },
+            {
+              "code": "CIVL 201",
+              "title": "",
+              "credits": 3,
+              "year": 2,
+              "term": 1
+            },
+            {
+              "code": "CIVL 203",
+              "title": "",
+              "credits": 3,
+              "year": 2,
+              "term": 1
+            },
+            {
+              "code": "CIVL 204",
+              "title": "",
+              "credits": 3,
+              "year": 2,
+              "term": 1
+            },
+            {
+              "code": "CIVL 210",
               "title": "",
               "credits": 4,
               "year": 2,
               "term": 1
             },
             {
-              "code": "ELEC 201",
-              "title": "",
-              "credits": 4,
-              "year": 2,
-              "term": 1
-            },
-            {
-              "code": "ELEC 202",
-              "title": "",
-              "credits": 4,
-              "year": 2,
-              "term": 1
-            },
-            {
-              "code": "ELEC 211",
-              "title": "",
-              "credits": 2,
-              "year": 2,
-              "term": 1
-            },
-            {
-              "code": "ELEC 221",
+              "code": "CIVL 215",
               "title": "",
               "credits": 4,
               "year": 2,
@@ -166,16 +173,30 @@
           "term": 2,
           "courses": [
             {
-              "code": "ELEC 281",
-              "title": "or",
-              "credits": 3,
+              "code": "CIVL 230",
+              "title": "",
+              "credits": 4,
               "year": 2,
               "term": 2
             },
             {
-              "code": "ELEC 291",
+              "code": "CIVL 231",
               "title": "",
-              "credits": 6,
+              "credits": 4,
+              "year": 2,
+              "term": 2
+            },
+            {
+              "code": "CIVL 235",
+              "title": "",
+              "credits": 4,
+              "year": 2,
+              "term": 2
+            },
+            {
+              "code": "EOSC 210",
+              "title": "",
+              "credits": 3,
               "year": 2,
               "term": 2
             },
@@ -194,15 +215,15 @@
               "term": 2
             },
             {
-              "code": "MATH 264",
+              "code": "STAT 251",
               "title": "",
-              "credits": 1,
+              "credits": 3,
               "year": 2,
               "term": 2
             },
             {
-              "code": "ELEC 271",
-              "title": "Students in the Biomedical Engineering Option will take  and  instead of .",
+              "code": "ELECTIVE",
+              "title": "2This course satisfies the impact of technology on society requirement within the Complementary Studies Courses.",
               "credits": 3,
               "year": 2,
               "term": 2
@@ -219,28 +240,42 @@
           "term": 1,
           "courses": [
             {
-              "code": "ELEC 301",
+              "code": "CIVL 300",
               "title": "",
-              "credits": 4,
+              "credits": 3,
               "year": 3,
               "term": 1
             },
             {
-              "code": "ELEC 311",
+              "code": "CIVL 301",
               "title": "",
-              "credits": 4,
+              "credits": 3,
               "year": 3,
               "term": 1
             },
             {
-              "code": "ELEC 315",
+              "code": "CIVL 302",
               "title": "",
-              "credits": 4,
+              "credits": 3,
               "year": 3,
               "term": 1
             },
             {
-              "code": "ELEC 341",
+              "code": "CIVL 303",
+              "title": "",
+              "credits": 3,
+              "year": 3,
+              "term": 1
+            },
+            {
+              "code": "CIVL 305",
+              "title": "",
+              "credits": 3,
+              "year": 3,
+              "term": 1
+            },
+            {
+              "code": "CIVL 311",
               "title": "",
               "credits": 4,
               "year": 3,
@@ -252,30 +287,44 @@
           "term": 2,
           "courses": [
             {
-              "code": "ELEC 342",
+              "code": "CIVL 315",
               "title": "",
               "credits": 4,
               "year": 3,
               "term": 2
             },
             {
-              "code": "ELEC 391",
+              "code": "CIVL 316",
               "title": "",
-              "credits": 6,
+              "credits": 4,
               "year": 3,
               "term": 2
             },
             {
-              "code": "MATH 318",
-              "title": "One of: , ,",
+              "code": "CIVL 320",
+              "title": "",
               "credits": 3,
               "year": 3,
               "term": 2
             },
             {
-              "code": "ELECTIVE",
-              "title": "Electives",
+              "code": "CIVL 331",
+              "title": "",
               "credits": 4,
+              "year": 3,
+              "term": 2
+            },
+            {
+              "code": "CIVL 332",
+              "title": "",
+              "credits": 3,
+              "year": 3,
+              "term": 2
+            },
+            {
+              "code": "CIVL 340",
+              "title": "",
+              "credits": 3,
               "year": 3,
               "term": 2
             }
@@ -291,15 +340,22 @@
           "term": 1,
           "courses": [
             {
-              "code": "APSC 450",
+              "code": "CIVL 402",
               "title": "",
-              "credits": 2,
+              "credits": 3,
               "year": 4,
               "term": 1
             },
             {
-              "code": "ELEC 481",
-              "title": "or",
+              "code": "CIVL 403",
+              "title": "",
+              "credits": 3,
+              "year": 4,
+              "term": 1
+            },
+            {
+              "code": "CIVL 409",
+              "title": "",
               "credits": 3,
               "year": 4,
               "term": 1
@@ -310,16 +366,30 @@
           "term": 2,
           "courses": [
             {
-              "code": "ELEC 491",
+              "code": "CIVL 430",
               "title": "",
-              "credits": 10,
+              "credits": 4,
+              "year": 4,
+              "term": 2
+            },
+            {
+              "code": "CIVL 445",
+              "title": "",
+              "credits": 3,
+              "year": 4,
+              "term": 2
+            },
+            {
+              "code": "CIVL 446",
+              "title": "",
+              "credits": 2,
               "year": 4,
               "term": 2
             },
             {
               "code": "ELECTIVE",
-              "title": "Electives",
-              "credits": 18,
+              "title": "Technical electives",
+              "credits": 15,
               "year": 4,
               "term": 2
             }

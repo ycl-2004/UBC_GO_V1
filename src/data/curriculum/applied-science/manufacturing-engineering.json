@@ -1,8 +1,8 @@
 {
   "faculty": "Applied Science",
-  "major": "Electrical Engineering",
-  "totalCredits": 145,
-  "notes": "UBC Applied Science (Engineering) - Electrical Engineering curriculum outline. First year is common to most engineering programs.",
+  "major": "Manufacturing Engineering",
+  "totalCredits": 154,
+  "notes": "UBC Applied Science (Engineering) - Manufacturing Engineering curriculum outline. First year is common to most engineering programs.",
   "years": [
     {
       "year": 1,
@@ -119,42 +119,42 @@
           "term": 1,
           "courses": [
             {
-              "code": "CPEN 211",
+              "code": "APSC 278",
               "title": "",
-              "credits": 5,
+              "credits": 3,
               "year": 2,
               "term": 1
             },
             {
-              "code": "CPSC 259",
+              "code": "APSC 279",
               "title": "",
-              "credits": 4,
+              "credits": 1,
               "year": 2,
               "term": 1
             },
             {
-              "code": "ELEC 201",
-              "title": "",
-              "credits": 4,
-              "year": 2,
-              "term": 1
-            },
-            {
-              "code": "ELEC 202",
+              "code": "CPEN 223",
               "title": "",
               "credits": 4,
               "year": 2,
               "term": 1
             },
             {
-              "code": "ELEC 211",
+              "code": "ELEC 203",
               "title": "",
-              "credits": 2,
+              "credits": 3,
               "year": 2,
               "term": 1
             },
             {
-              "code": "ELEC 221",
+              "code": "MANU 201",
+              "title": "",
+              "credits": 3,
+              "year": 2,
+              "term": 1
+            },
+            {
+              "code": "MANU 230",
               "title": "",
               "credits": 4,
               "year": 2,
@@ -166,16 +166,16 @@
           "term": 2,
           "courses": [
             {
-              "code": "ELEC 281",
-              "title": "or",
+              "code": "MANU 261",
+              "title": "",
               "credits": 3,
               "year": 2,
               "term": 2
             },
             {
-              "code": "ELEC 291",
+              "code": "MANU 265",
               "title": "",
-              "credits": 6,
+              "credits": 3,
               "year": 2,
               "term": 2
             },
@@ -187,22 +187,29 @@
               "term": 2
             },
             {
-              "code": "MATH 256",
+              "code": "MATH 255",
               "title": "",
               "credits": 3,
               "year": 2,
               "term": 2
             },
             {
-              "code": "MATH 264",
+              "code": "MECH 260",
               "title": "",
-              "credits": 1,
+              "credits": 3,
               "year": 2,
               "term": 2
             },
             {
-              "code": "ELEC 271",
-              "title": "Students in the Biomedical Engineering Option will take  and  instead of .",
+              "code": "MTRL 263",
+              "title": "",
+              "credits": 3,
+              "year": 2,
+              "term": 2
+            },
+            {
+              "code": "MTRL 264",
+              "title": "",
               "credits": 3,
               "year": 2,
               "term": 2
@@ -219,30 +226,44 @@
           "term": 1,
           "courses": [
             {
-              "code": "ELEC 301",
+              "code": "CPEN 333",
               "title": "",
-              "credits": 4,
+              "credits": 3,
               "year": 3,
               "term": 1
             },
             {
-              "code": "ELEC 311",
+              "code": "MANU 270",
               "title": "",
-              "credits": 4,
+              "credits": 3,
               "year": 3,
               "term": 1
             },
             {
-              "code": "ELEC 315",
+              "code": "MANU 330",
               "title": "",
-              "credits": 4,
+              "credits": 6,
               "year": 3,
               "term": 1
             },
             {
-              "code": "ELEC 341",
+              "code": "MANU 378",
               "title": "",
-              "credits": 4,
+              "credits": 3,
+              "year": 3,
+              "term": 1
+            },
+            {
+              "code": "MANU 380",
+              "title": "",
+              "credits": 3,
+              "year": 3,
+              "term": 1
+            },
+            {
+              "code": "MANU 386",
+              "title": "",
+              "credits": 3,
               "year": 3,
               "term": 1
             }
@@ -252,30 +273,44 @@
           "term": 2,
           "courses": [
             {
-              "code": "ELEC 342",
+              "code": "MECH 360",
+              "title": "",
+              "credits": 3,
+              "year": 3,
+              "term": 2
+            },
+            {
+              "code": "MECH 368",
               "title": "",
               "credits": 4,
               "year": 3,
               "term": 2
             },
             {
-              "code": "ELEC 391",
+              "code": "MECH 463",
               "title": "",
-              "credits": 6,
+              "credits": 4,
               "year": 3,
               "term": 2
             },
             {
-              "code": "MATH 318",
-              "title": "One of: , ,",
+              "code": "MTRL 455",
+              "title": "",
+              "credits": 3,
+              "year": 3,
+              "term": 2
+            },
+            {
+              "code": "STAT 251",
+              "title": "",
               "credits": 3,
               "year": 3,
               "term": 2
             },
             {
               "code": "ELECTIVE",
-              "title": "Electives",
-              "credits": 4,
+              "title": "Complementary Studies electives",
+              "credits": 3,
               "year": 3,
               "term": 2
             }
@@ -291,15 +326,29 @@
           "term": 1,
           "courses": [
             {
-              "code": "APSC 450",
+              "code": "MANU 370",
               "title": "",
-              "credits": 2,
+              "credits": 3,
               "year": 4,
               "term": 1
             },
             {
-              "code": "ELEC 481",
-              "title": "or",
+              "code": "MANU 430",
+              "title": "",
+              "credits": 6,
+              "year": 4,
+              "term": 1
+            },
+            {
+              "code": "MANU 480",
+              "title": "",
+              "credits": 3,
+              "year": 4,
+              "term": 1
+            },
+            {
+              "code": "MANU 481",
+              "title": "",
               "credits": 3,
               "year": 4,
               "term": 1
@@ -310,16 +359,37 @@
           "term": 2,
           "courses": [
             {
-              "code": "ELEC 491",
+              "code": "MANU 485",
               "title": "",
-              "credits": 10,
+              "credits": 3,
+              "year": 4,
+              "term": 2
+            },
+            {
+              "code": "MECH 400",
+              "title": "",
+              "credits": 3,
+              "year": 4,
+              "term": 2
+            },
+            {
+              "code": "MECH 467",
+              "title": "",
+              "credits": 4,
+              "year": 4,
+              "term": 2
+            },
+            {
+              "code": "MECH 491",
+              "title": "",
+              "credits": 3,
               "year": 4,
               "term": 2
             },
             {
               "code": "ELECTIVE",
-              "title": "Electives",
-              "credits": 18,
+              "title": "Technical Electives",
+              "credits": 9,
               "year": 4,
               "term": 2
             }

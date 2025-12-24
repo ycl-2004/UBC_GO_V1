@@ -1,8 +1,8 @@
 {
   "faculty": "Applied Science",
-  "major": "Electrical Engineering",
-  "totalCredits": 145,
-  "notes": "UBC Applied Science (Engineering) - Electrical Engineering curriculum outline. First year is common to most engineering programs.",
+  "major": "Materials Engineering",
+  "totalCredits": 147,
+  "notes": "UBC Applied Science (Engineering) - Materials Engineering curriculum outline. First year is common to most engineering programs.",
   "years": [
     {
       "year": 1,
@@ -119,44 +119,44 @@
           "term": 1,
           "courses": [
             {
-              "code": "CPEN 211",
+              "code": "APSC 278",
               "title": "",
-              "credits": 5,
+              "credits": 3,
               "year": 2,
               "term": 1
             },
             {
-              "code": "CPSC 259",
+              "code": "APSC 279",
               "title": "",
-              "credits": 4,
+              "credits": 1,
               "year": 2,
               "term": 1
             },
             {
-              "code": "ELEC 201",
+              "code": "MATH 253",
               "title": "",
-              "credits": 4,
+              "credits": 3,
               "year": 2,
               "term": 1
             },
             {
-              "code": "ELEC 202",
+              "code": "MATH 255",
               "title": "",
-              "credits": 4,
+              "credits": 3,
               "year": 2,
               "term": 1
             },
             {
-              "code": "ELEC 211",
+              "code": "MECH 260",
               "title": "",
-              "credits": 2,
+              "credits": 3,
               "year": 2,
               "term": 1
             },
             {
-              "code": "ELEC 221",
+              "code": "MTRL 201",
               "title": "",
-              "credits": 4,
+              "credits": 3,
               "year": 2,
               "term": 1
             }
@@ -166,44 +166,44 @@
           "term": 2,
           "courses": [
             {
-              "code": "ELEC 281",
-              "title": "or",
+              "code": "MTRL 250",
+              "title": "",
+              "credits": 4,
+              "year": 2,
+              "term": 2
+            },
+            {
+              "code": "MTRL 251",
+              "title": "",
+              "credits": 4,
+              "year": 2,
+              "term": 2
+            },
+            {
+              "code": "MTRL 263",
+              "title": "",
               "credits": 3,
               "year": 2,
               "term": 2
             },
             {
-              "code": "ELEC 291",
+              "code": "MTRL 264",
               "title": "",
+              "credits": 3,
+              "year": 2,
+              "term": 2
+            },
+            {
+              "code": "MTRL 280",
+              "title": "",
+              "credits": 3,
+              "year": 2,
+              "term": 2
+            },
+            {
+              "code": "ELECTIVE",
+              "title": "Complementary Studies electives",
               "credits": 6,
-              "year": 2,
-              "term": 2
-            },
-            {
-              "code": "MATH 253",
-              "title": "",
-              "credits": 3,
-              "year": 2,
-              "term": 2
-            },
-            {
-              "code": "MATH 256",
-              "title": "",
-              "credits": 3,
-              "year": 2,
-              "term": 2
-            },
-            {
-              "code": "MATH 264",
-              "title": "",
-              "credits": 1,
-              "year": 2,
-              "term": 2
-            },
-            {
-              "code": "ELEC 271",
-              "title": "Students in the Biomedical Engineering Option will take  and  instead of .",
-              "credits": 3,
               "year": 2,
               "term": 2
             }
@@ -219,30 +219,44 @@
           "term": 1,
           "courses": [
             {
-              "code": "ELEC 301",
+              "code": "MTRL 320",
+              "title": "",
+              "credits": 2,
+              "year": 3,
+              "term": 1
+            },
+            {
+              "code": "MTRL 340",
+              "title": "",
+              "credits": 3,
+              "year": 3,
+              "term": 1
+            },
+            {
+              "code": "MTRL 358",
+              "title": "",
+              "credits": 3,
+              "year": 3,
+              "term": 1
+            },
+            {
+              "code": "MTRL 359",
+              "title": "",
+              "credits": 1,
+              "year": 3,
+              "term": 1
+            },
+            {
+              "code": "MTRL 361",
               "title": "",
               "credits": 4,
               "year": 3,
               "term": 1
             },
             {
-              "code": "ELEC 311",
+              "code": "MTRL 363",
               "title": "",
-              "credits": 4,
-              "year": 3,
-              "term": 1
-            },
-            {
-              "code": "ELEC 315",
-              "title": "",
-              "credits": 4,
-              "year": 3,
-              "term": 1
-            },
-            {
-              "code": "ELEC 341",
-              "title": "",
-              "credits": 4,
+              "credits": 3,
               "year": 3,
               "term": 1
             }
@@ -252,30 +266,44 @@
           "term": 2,
           "courses": [
             {
-              "code": "ELEC 342",
+              "code": "MTRL 365",
+              "title": "",
+              "credits": 3,
+              "year": 3,
+              "term": 2
+            },
+            {
+              "code": "MTRL 378",
+              "title": "",
+              "credits": 3,
+              "year": 3,
+              "term": 2
+            },
+            {
+              "code": "MTRL 381",
+              "title": "",
+              "credits": 1,
+              "year": 3,
+              "term": 2
+            },
+            {
+              "code": "MTRL 394",
               "title": "",
               "credits": 4,
               "year": 3,
               "term": 2
             },
             {
-              "code": "ELEC 391",
+              "code": "STAT 251",
               "title": "",
-              "credits": 6,
-              "year": 3,
-              "term": 2
-            },
-            {
-              "code": "MATH 318",
-              "title": "One of: , ,",
               "credits": 3,
               "year": 3,
               "term": 2
             },
             {
               "code": "ELECTIVE",
-              "title": "Electives",
-              "credits": 4,
+              "title": "Technical electives",
+              "credits": 3,
               "year": 3,
               "term": 2
             }
@@ -298,8 +326,15 @@
               "term": 1
             },
             {
-              "code": "ELEC 481",
-              "title": "or",
+              "code": "MTRL 455",
+              "title": "",
+              "credits": 3,
+              "year": 4,
+              "term": 1
+            },
+            {
+              "code": "MTRL 456",
+              "title": "",
               "credits": 3,
               "year": 4,
               "term": 1
@@ -310,16 +345,30 @@
           "term": 2,
           "courses": [
             {
-              "code": "ELEC 491",
+              "code": "MTRL 460",
               "title": "",
-              "credits": 10,
+              "credits": 3,
+              "year": 4,
+              "term": 2
+            },
+            {
+              "code": "MTRL 466",
+              "title": "",
+              "credits": 3,
+              "year": 4,
+              "term": 2
+            },
+            {
+              "code": "MTRL 467",
+              "title": "",
+              "credits": 3,
               "year": 4,
               "term": 2
             },
             {
               "code": "ELECTIVE",
-              "title": "Electives",
-              "credits": 18,
+              "title": "Technical electives",
+              "credits": 21,
               "year": 4,
               "term": 2
             }

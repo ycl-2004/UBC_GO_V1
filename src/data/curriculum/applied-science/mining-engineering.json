@@ -1,8 +1,8 @@
 {
   "faculty": "Applied Science",
-  "major": "Electrical Engineering",
-  "totalCredits": 145,
-  "notes": "UBC Applied Science (Engineering) - Electrical Engineering curriculum outline. First year is common to most engineering programs.",
+  "major": "Mining Engineering",
+  "totalCredits": 151,
+  "notes": "UBC Applied Science (Engineering) - Mining Engineering curriculum outline. First year is common to most engineering programs.",
   "years": [
     {
       "year": 1,
@@ -119,44 +119,44 @@
           "term": 1,
           "courses": [
             {
-              "code": "CPEN 211",
+              "code": "APSC 201",
               "title": "",
-              "credits": 5,
+              "credits": 3,
               "year": 2,
               "term": 1
             },
             {
-              "code": "CPSC 259",
+              "code": "CIVL 210",
               "title": "",
               "credits": 4,
               "year": 2,
               "term": 1
             },
             {
-              "code": "ELEC 201",
+              "code": "EOSC 210",
               "title": "",
-              "credits": 4,
+              "credits": 3,
               "year": 2,
               "term": 1
             },
             {
-              "code": "ELEC 202",
+              "code": "MATH 253",
               "title": "",
-              "credits": 4,
+              "credits": 3,
               "year": 2,
               "term": 1
             },
             {
-              "code": "ELEC 211",
-              "title": "",
-              "credits": 2,
+              "code": "MATH 255",
+              "title": "or",
+              "credits": 3,
               "year": 2,
               "term": 1
             },
             {
-              "code": "ELEC 221",
+              "code": "MECH 260",
               "title": "",
-              "credits": 4,
+              "credits": 3,
               "year": 2,
               "term": 1
             }
@@ -166,43 +166,50 @@
           "term": 2,
           "courses": [
             {
-              "code": "ELEC 281",
-              "title": "or",
+              "code": "MECH 280",
+              "title": ", , or",
               "credits": 3,
               "year": 2,
               "term": 2
             },
             {
-              "code": "ELEC 291",
-              "title": "",
-              "credits": 6,
-              "year": 2,
-              "term": 2
-            },
-            {
-              "code": "MATH 253",
+              "code": "MINE 200",
               "title": "",
               "credits": 3,
               "year": 2,
               "term": 2
             },
             {
-              "code": "MATH 256",
+              "code": "MINE 201",
               "title": "",
               "credits": 3,
               "year": 2,
               "term": 2
             },
             {
-              "code": "MATH 264",
+              "code": "MINE 202",
+              "title": "",
+              "credits": 4,
+              "year": 2,
+              "term": 2
+            },
+            {
+              "code": "MINE 293",
               "title": "",
               "credits": 1,
               "year": 2,
               "term": 2
             },
             {
-              "code": "ELEC 271",
-              "title": "Students in the Biomedical Engineering Option will take  and  instead of .",
+              "code": "STAT 251",
+              "title": "",
+              "credits": 3,
+              "year": 2,
+              "term": 2
+            },
+            {
+              "code": "ELECTIVE",
+              "title": "Complementary Studies electives",
               "credits": 3,
               "year": 2,
               "term": 2
@@ -219,28 +226,42 @@
           "term": 1,
           "courses": [
             {
-              "code": "ELEC 301",
+              "code": "APSC 278",
+              "title": "",
+              "credits": 3,
+              "year": 3,
+              "term": 1
+            },
+            {
+              "code": "APSC 279",
+              "title": "",
+              "credits": 1,
+              "year": 3,
+              "term": 1
+            },
+            {
+              "code": "ELEC 203",
+              "title": "",
+              "credits": 3,
+              "year": 3,
+              "term": 1
+            },
+            {
+              "code": "MINE 302",
               "title": "",
               "credits": 4,
               "year": 3,
               "term": 1
             },
             {
-              "code": "ELEC 311",
+              "code": "MINE 303",
               "title": "",
               "credits": 4,
               "year": 3,
               "term": 1
             },
             {
-              "code": "ELEC 315",
-              "title": "",
-              "credits": 4,
-              "year": 3,
-              "term": 1
-            },
-            {
-              "code": "ELEC 341",
+              "code": "MINE 310",
               "title": "",
               "credits": 4,
               "year": 3,
@@ -252,30 +273,44 @@
           "term": 2,
           "courses": [
             {
-              "code": "ELEC 342",
+              "code": "MINE 331",
               "title": "",
-              "credits": 4,
+              "credits": 3,
               "year": 3,
               "term": 2
             },
             {
-              "code": "ELEC 391",
+              "code": "MINE 333",
               "title": "",
-              "credits": 6,
+              "credits": 3,
               "year": 3,
               "term": 2
             },
             {
-              "code": "MATH 318",
-              "title": "One of: , ,",
+              "code": "MINE 350",
+              "title": "",
+              "credits": 3,
+              "year": 3,
+              "term": 2
+            },
+            {
+              "code": "MINE 380",
+              "title": "",
+              "credits": 3,
+              "year": 3,
+              "term": 2
+            },
+            {
+              "code": "MINE 396",
+              "title": "",
               "credits": 3,
               "year": 3,
               "term": 2
             },
             {
               "code": "ELECTIVE",
-              "title": "Electives",
-              "credits": 4,
+              "title": "Complementary Studies Electives",
+              "credits": 3,
               "year": 3,
               "term": 2
             }
@@ -298,8 +333,29 @@
               "term": 1
             },
             {
-              "code": "ELEC 481",
-              "title": "or",
+              "code": "MINE 402",
+              "title": "",
+              "credits": 3,
+              "year": 4,
+              "term": 1
+            },
+            {
+              "code": "MINE 403",
+              "title": "",
+              "credits": 3,
+              "year": 4,
+              "term": 1
+            },
+            {
+              "code": "MINE 432",
+              "title": "",
+              "credits": 3,
+              "year": 4,
+              "term": 1
+            },
+            {
+              "code": "MINE 465",
+              "title": "",
               "credits": 3,
               "year": 4,
               "term": 1
@@ -310,16 +366,37 @@
           "term": 2,
           "courses": [
             {
-              "code": "ELEC 491",
+              "code": "MINE 486",
               "title": "",
-              "credits": 10,
+              "credits": 3,
+              "year": 4,
+              "term": 2
+            },
+            {
+              "code": "MINE 491",
+              "title": "",
+              "credits": 6,
+              "year": 4,
+              "term": 2
+            },
+            {
+              "code": "MINE 444",
+              "title": "",
+              "credits": 3,
+              "year": 4,
+              "term": 2
+            },
+            {
+              "code": "MINE 447",
+              "title": "",
+              "credits": 3,
               "year": 4,
               "term": 2
             },
             {
               "code": "ELECTIVE",
-              "title": "Electives",
-              "credits": 18,
+              "title": "Technical Electives",
+              "credits": 9,
               "year": 4,
               "term": 2
             }

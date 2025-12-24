@@ -1,8 +1,8 @@
 {
   "faculty": "Applied Science",
-  "major": "Electrical Engineering",
-  "totalCredits": 145,
-  "notes": "UBC Applied Science (Engineering) - Electrical Engineering curriculum outline. First year is common to most engineering programs.",
+  "major": "Chemical and Biological Engineering",
+  "totalCredits": 161,
+  "notes": "UBC Applied Science (Engineering) - Chemical and Biological Engineering curriculum outline. First year is common to most engineering programs.",
   "years": [
     {
       "year": 1,
@@ -119,44 +119,44 @@
           "term": 1,
           "courses": [
             {
-              "code": "CPEN 211",
+              "code": "CHBE 201",
               "title": "",
-              "credits": 5,
+              "credits": 3,
               "year": 2,
               "term": 1
             },
             {
-              "code": "CPSC 259",
+              "code": "CHBE 220",
               "title": "",
               "credits": 4,
               "year": 2,
               "term": 1
             },
             {
-              "code": "ELEC 201",
+              "code": "CHBE 221",
               "title": "",
               "credits": 4,
               "year": 2,
               "term": 1
             },
             {
-              "code": "ELEC 202",
+              "code": "CHBE 230",
               "title": "",
-              "credits": 4,
+              "credits": 3,
               "year": 2,
               "term": 1
             },
             {
-              "code": "ELEC 211",
+              "code": "CHBE 241",
               "title": "",
-              "credits": 2,
+              "credits": 3,
               "year": 2,
               "term": 1
             },
             {
-              "code": "ELEC 221",
+              "code": "CHBE 244",
               "title": "",
-              "credits": 4,
+              "credits": 3,
               "year": 2,
               "term": 1
             }
@@ -166,16 +166,37 @@
           "term": 2,
           "courses": [
             {
-              "code": "ELEC 281",
-              "title": "or",
+              "code": "CHBE 251",
+              "title": "",
               "credits": 3,
               "year": 2,
               "term": 2
             },
             {
-              "code": "ELEC 291",
+              "code": "CHBE 263",
               "title": "",
-              "credits": 6,
+              "credits": 1,
+              "year": 2,
+              "term": 2
+            },
+            {
+              "code": "CHBE 264",
+              "title": "",
+              "credits": 3,
+              "year": 2,
+              "term": 2
+            },
+            {
+              "code": "CHEM 250",
+              "title": "",
+              "credits": 3,
+              "year": 2,
+              "term": 2
+            },
+            {
+              "code": "CHEM 260",
+              "title": "",
+              "credits": 3,
               "year": 2,
               "term": 2
             },
@@ -192,20 +213,6 @@
               "credits": 3,
               "year": 2,
               "term": 2
-            },
-            {
-              "code": "MATH 264",
-              "title": "",
-              "credits": 1,
-              "year": 2,
-              "term": 2
-            },
-            {
-              "code": "ELEC 271",
-              "title": "Students in the Biomedical Engineering Option will take  and  instead of .",
-              "credits": 3,
-              "year": 2,
-              "term": 2
             }
           ]
         }
@@ -219,30 +226,51 @@
           "term": 1,
           "courses": [
             {
-              "code": "ELEC 301",
+              "code": "CHBE 345",
               "title": "",
               "credits": 4,
               "year": 3,
               "term": 1
             },
             {
-              "code": "ELEC 311",
+              "code": "CHBE 346",
+              "title": "",
+              "credits": 3,
+              "year": 3,
+              "term": 1
+            },
+            {
+              "code": "CHBE 352",
               "title": "",
               "credits": 4,
               "year": 3,
               "term": 1
             },
             {
-              "code": "ELEC 315",
+              "code": "CHBE 355",
+              "title": "",
+              "credits": 3,
+              "year": 3,
+              "term": 1
+            },
+            {
+              "code": "CHBE 356",
               "title": "",
               "credits": 4,
               "year": 3,
               "term": 1
             },
             {
-              "code": "ELEC 341",
+              "code": "CHBE 362",
               "title": "",
-              "credits": 4,
+              "credits": 3,
+              "year": 3,
+              "term": 1
+            },
+            {
+              "code": "CHBE 370",
+              "title": "",
+              "credits": 3,
               "year": 3,
               "term": 1
             }
@@ -252,30 +280,51 @@
           "term": 2,
           "courses": [
             {
-              "code": "ELEC 342",
+              "code": "CHBE 376",
               "title": "",
               "credits": 4,
               "year": 3,
               "term": 2
             },
             {
-              "code": "ELEC 391",
+              "code": "STAT 251",
               "title": "",
-              "credits": 6,
-              "year": 3,
-              "term": 2
-            },
-            {
-              "code": "MATH 318",
-              "title": "One of: , ,",
               "credits": 3,
               "year": 3,
               "term": 2
             },
             {
               "code": "ELECTIVE",
-              "title": "Electives",
-              "credits": 4,
+              "title": "Complementary Studies electives",
+              "credits": 3,
+              "year": 3,
+              "term": 2
+            },
+            {
+              "code": "APSC 278",
+              "title": "",
+              "credits": 3,
+              "year": 3,
+              "term": 2
+            },
+            {
+              "code": "CHBE 366",
+              "title": "",
+              "credits": 3,
+              "year": 3,
+              "term": 2
+            },
+            {
+              "code": "CHBE 365",
+              "title": "",
+              "credits": 3,
+              "year": 3,
+              "term": 2
+            },
+            {
+              "code": "CHBE 381",
+              "title": "",
+              "credits": 3,
               "year": 3,
               "term": 2
             }
@@ -298,9 +347,23 @@
               "term": 1
             },
             {
-              "code": "ELEC 481",
-              "title": "or",
+              "code": "CHBE 456",
+              "title": "",
               "credits": 3,
+              "year": 4,
+              "term": 1
+            },
+            {
+              "code": "CHBE 459",
+              "title": "",
+              "credits": 3,
+              "year": 4,
+              "term": 1
+            },
+            {
+              "code": "CHBE 464",
+              "title": "",
+              "credits": 4,
               "year": 4,
               "term": 1
             }
@@ -310,16 +373,37 @@
           "term": 2,
           "courses": [
             {
-              "code": "ELEC 491",
-              "title": "",
-              "credits": 10,
+              "code": "ELECTIVE",
+              "title": "Complementary Studies electives",
+              "credits": 3,
               "year": 4,
               "term": 2
             },
             {
-              "code": "ELECTIVE",
-              "title": "Electives",
-              "credits": 18,
+              "code": "CHBE 454",
+              "title": "",
+              "credits": 8,
+              "year": 4,
+              "term": 2
+            },
+            {
+              "code": "CHBE 471",
+              "title": "",
+              "credits": 4,
+              "year": 4,
+              "term": 2
+            },
+            {
+              "code": "CHBE 453",
+              "title": "",
+              "credits": 8,
+              "year": 4,
+              "term": 2
+            },
+            {
+              "code": "CHBE 481",
+              "title": "",
+              "credits": 4,
               "year": 4,
               "term": 2
             }

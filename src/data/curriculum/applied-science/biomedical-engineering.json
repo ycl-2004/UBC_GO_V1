@@ -1,8 +1,8 @@
 {
   "faculty": "Applied Science",
-  "major": "Electrical Engineering",
-  "totalCredits": 145,
-  "notes": "UBC Applied Science (Engineering) - Electrical Engineering curriculum outline. First year is common to most engineering programs.",
+  "major": "Biomedical Engineering",
+  "totalCredits": 147,
+  "notes": "UBC Applied Science (Engineering) - Biomedical Engineering curriculum outline. First year is common to most engineering programs.",
   "years": [
     {
       "year": 1,
@@ -173,13 +173,6 @@
               "term": 2
             },
             {
-              "code": "ELEC 291",
-              "title": "",
-              "credits": 6,
-              "year": 2,
-              "term": 2
-            },
-            {
               "code": "MATH 253",
               "title": "",
               "credits": 3,
@@ -206,6 +199,13 @@
               "credits": 3,
               "year": 2,
               "term": 2
+            },
+            {
+              "code": "ELEC 292",
+              "title": "",
+              "credits": 3,
+              "year": 2,
+              "term": 2
             }
           ]
         }
@@ -219,6 +219,20 @@
           "term": 1,
           "courses": [
             {
+              "code": "BMEG 410",
+              "title": "",
+              "credits": 3,
+              "year": 3,
+              "term": 1
+            },
+            {
+              "code": "BMEG 456",
+              "title": "",
+              "credits": 3,
+              "year": 3,
+              "term": 1
+            },
+            {
               "code": "ELEC 301",
               "title": "",
               "credits": 4,
@@ -231,20 +245,6 @@
               "credits": 4,
               "year": 3,
               "term": 1
-            },
-            {
-              "code": "ELEC 315",
-              "title": "",
-              "credits": 4,
-              "year": 3,
-              "term": 1
-            },
-            {
-              "code": "ELEC 341",
-              "title": "",
-              "credits": 4,
-              "year": 3,
-              "term": 1
             }
           ]
         },
@@ -252,9 +252,16 @@
           "term": 2,
           "courses": [
             {
-              "code": "ELEC 342",
+              "code": "ELEC 341",
               "title": "",
               "credits": 4,
+              "year": 3,
+              "term": 2
+            },
+            {
+              "code": "ELEC 371",
+              "title": "",
+              "credits": 3,
               "year": 3,
               "term": 2
             },
@@ -266,16 +273,16 @@
               "term": 2
             },
             {
-              "code": "MATH 318",
-              "title": "One of: , ,",
-              "credits": 3,
+              "code": "ELECTIVE",
+              "title": "Breadth Electives",
+              "credits": 8,
               "year": 3,
               "term": 2
             },
             {
-              "code": "ELECTIVE",
-              "title": "Electives",
-              "credits": 4,
+              "code": "STAT 251",
+              "title": "One of , , ,",
+              "credits": 3,
               "year": 3,
               "term": 2
             }
@@ -298,8 +305,15 @@
               "term": 1
             },
             {
-              "code": "ELEC 481",
-              "title": "or",
+              "code": "ELEC 422",
+              "title": "",
+              "credits": 3,
+              "year": 4,
+              "term": 1
+            },
+            {
+              "code": "ELEC 471",
+              "title": "",
               "credits": 3,
               "year": 4,
               "term": 1
@@ -310,7 +324,21 @@
           "term": 2,
           "courses": [
             {
-              "code": "ELEC 491",
+              "code": "ELEC 473",
+              "title": "",
+              "credits": 3,
+              "year": 4,
+              "term": 2
+            },
+            {
+              "code": "ELEC 481",
+              "title": "or",
+              "credits": 3,
+              "year": 4,
+              "term": 2
+            },
+            {
+              "code": "ELEC 494",
               "title": "",
               "credits": 10,
               "year": 4,
@@ -319,7 +347,7 @@
             {
               "code": "ELECTIVE",
               "title": "Electives",
-              "credits": 18,
+              "credits": 9,
               "year": 4,
               "term": 2
             }

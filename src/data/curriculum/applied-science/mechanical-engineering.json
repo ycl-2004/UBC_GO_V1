@@ -1,0 +1,653 @@
+{
+  "faculty": "Applied Science",
+  "major": "Mechanical Engineering",
+  "totalCredits": 293,
+  "notes": "UBC Applied Science (Engineering) - Mechanical Engineering curriculum outline. First year is common to most engineering programs.",
+  "years": [
+    {
+      "year": 1,
+      "label": "Year 1",
+      "terms": [
+        {
+          "term": 1,
+          "courses": [
+            {
+              "code": "APSC 100",
+              "title": "",
+              "credits": 3,
+              "year": 1,
+              "term": 1
+            },
+            {
+              "code": "APSC 101",
+              "title": "",
+              "credits": 3,
+              "year": 1,
+              "term": 1
+            },
+            {
+              "code": "APSC 160",
+              "title": "",
+              "credits": 3,
+              "year": 1,
+              "term": 1
+            },
+            {
+              "code": "CHEM 154",
+              "title": "",
+              "credits": 3,
+              "year": 1,
+              "term": 1
+            },
+            {
+              "code": "WRDS 150",
+              "title": "",
+              "credits": 3,
+              "year": 1,
+              "term": 1
+            },
+            {
+              "code": "MATH 100",
+              "title": "",
+              "credits": 3,
+              "year": 1,
+              "term": 1
+            }
+          ]
+        },
+        {
+          "term": 2,
+          "courses": [
+            {
+              "code": "MATH 101",
+              "title": "",
+              "credits": 3,
+              "year": 1,
+              "term": 2
+            },
+            {
+              "code": "MATH 152",
+              "title": "",
+              "credits": 3,
+              "year": 1,
+              "term": 2
+            },
+            {
+              "code": "PHYS 157",
+              "title": "",
+              "credits": 3,
+              "year": 1,
+              "term": 2
+            },
+            {
+              "code": "PHYS 158",
+              "title": "",
+              "credits": 3,
+              "year": 1,
+              "term": 2
+            },
+            {
+              "code": "PHYS 159",
+              "title": "",
+              "credits": 1,
+              "year": 1,
+              "term": 2
+            },
+            {
+              "code": "PHYS 170",
+              "title": "",
+              "credits": 3,
+              "year": 1,
+              "term": 2
+            },
+            {
+              "code": "ELECTIVE",
+              "title": "Complementary Studies electives",
+              "credits": 3,
+              "year": 1,
+              "term": 2
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "year": 2,
+      "label": "Year 2",
+      "terms": [
+        {
+          "term": 1,
+          "courses": [
+            {
+              "code": "MATH 254",
+              "title": "",
+              "credits": 3,
+              "year": 2,
+              "term": 1
+            },
+            {
+              "code": "MATH 258",
+              "title": "",
+              "credits": 3,
+              "year": 2,
+              "term": 1
+            },
+            {
+              "code": "MECH 220",
+              "title": "",
+              "credits": 4,
+              "year": 2,
+              "term": 1
+            },
+            {
+              "code": "MECH 221",
+              "title": "",
+              "credits": 12,
+              "year": 2,
+              "term": 1
+            }
+          ]
+        },
+        {
+          "term": 2,
+          "courses": [
+            {
+              "code": "MECH 222",
+              "title": "",
+              "credits": 6,
+              "year": 2,
+              "term": 2
+            },
+            {
+              "code": "MECH 223",
+              "title": "",
+              "credits": 7,
+              "year": 2,
+              "term": 2
+            },
+            {
+              "code": "MECH 224",
+              "title": "",
+              "credits": 1,
+              "year": 2,
+              "term": 2
+            },
+            {
+              "code": "MECH 225",
+              "title": "",
+              "credits": 1,
+              "year": 2,
+              "term": 2
+            },
+            {
+              "code": "MECH 226",
+              "title": "or",
+              "credits": 3,
+              "year": 2,
+              "term": 2
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "year": 3,
+      "label": "Year 3",
+      "terms": [
+        {
+          "term": 1,
+          "courses": [
+            {
+              "code": "ELEC 344",
+              "title": "",
+              "credits": 3,
+              "year": 3,
+              "term": 1
+            },
+            {
+              "code": "MECH 305",
+              "title": "",
+              "credits": 6,
+              "year": 3,
+              "term": 1
+            },
+            {
+              "code": "MECH 327",
+              "title": "",
+              "credits": 3,
+              "year": 3,
+              "term": 1
+            },
+            {
+              "code": "MECH 328",
+              "title": "",
+              "credits": 3,
+              "year": 3,
+              "term": 1
+            },
+            {
+              "code": "MECH 358",
+              "title": "",
+              "credits": 3,
+              "year": 3,
+              "term": 1
+            },
+            {
+              "code": "MECH 360",
+              "title": "",
+              "credits": 3,
+              "year": 3,
+              "term": 1
+            },
+            {
+              "code": "MECH 375",
+              "title": "",
+              "credits": 3,
+              "year": 3,
+              "term": 1
+            },
+            {
+              "code": "MECH 380",
+              "title": "",
+              "credits": 3,
+              "year": 3,
+              "term": 1
+            },
+            {
+              "code": "MECH 426",
+              "title": "",
+              "credits": 3,
+              "year": 3,
+              "term": 1
+            },
+            {
+              "code": "MECH 466",
+              "title": "",
+              "credits": 4,
+              "year": 3,
+              "term": 1
+            },
+            {
+              "code": "MECH 481",
+              "title": "",
+              "credits": 3,
+              "year": 3,
+              "term": 1
+            },
+            {
+              "code": "ELECTIVE",
+              "title": "Complementary Studies electives",
+              "credits": 3,
+              "year": 3,
+              "term": 1
+            },
+            {
+              "code": "MECH 368",
+              "title": "",
+              "credits": 3,
+              "year": 3,
+              "term": 1
+            }
+          ]
+        },
+        {
+          "term": 2,
+          "courses": [
+            {
+              "code": "MECH 463",
+              "title": "",
+              "credits": 4,
+              "year": 3,
+              "term": 2
+            },
+            {
+              "code": "BMEG 410",
+              "title": "",
+              "credits": 3,
+              "year": 3,
+              "term": 2
+            },
+            {
+              "code": "MECH 325",
+              "title": "",
+              "credits": 4,
+              "year": 3,
+              "term": 2
+            },
+            {
+              "code": "MECH 329",
+              "title": "",
+              "credits": 3,
+              "year": 3,
+              "term": 2
+            },
+            {
+              "code": "MECH 392",
+              "title": "",
+              "credits": 2,
+              "year": 3,
+              "term": 2
+            },
+            {
+              "code": "CPEN 312",
+              "title": "",
+              "credits": 3,
+              "year": 3,
+              "term": 2
+            },
+            {
+              "code": "CPSC 259",
+              "title": "",
+              "credits": 4,
+              "year": 3,
+              "term": 2
+            },
+            {
+              "code": "ELEC 302",
+              "title": "",
+              "credits": 3,
+              "year": 3,
+              "term": 2
+            },
+            {
+              "code": "ELEC 343",
+              "title": "",
+              "credits": 3,
+              "year": 3,
+              "term": 2
+            },
+            {
+              "code": "MECH 306",
+              "title": "",
+              "credits": 4,
+              "year": 3,
+              "term": 2
+            },
+            {
+              "code": "MECH 366",
+              "title": "",
+              "credits": 3,
+              "year": 3,
+              "term": 2
+            },
+            {
+              "code": "MECH 359",
+              "title": "",
+              "credits": 4,
+              "year": 3,
+              "term": 2
+            },
+            {
+              "code": "MECH 386",
+              "title": "",
+              "credits": 3,
+              "year": 3,
+              "term": 2
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "year": 4,
+      "label": "Year 4",
+      "terms": [
+        {
+          "term": 1,
+          "courses": [
+            {
+              "code": "APSC 450",
+              "title": "",
+              "credits": 2,
+              "year": 4,
+              "term": 1
+            },
+            {
+              "code": "MECH 431",
+              "title": "",
+              "credits": 3,
+              "year": 4,
+              "term": 1
+            },
+            {
+              "code": "MECH 453",
+              "title": "",
+              "credits": 6,
+              "year": 4,
+              "term": 1
+            },
+            {
+              "code": "MECH 462",
+              "title": "",
+              "credits": 3,
+              "year": 4,
+              "term": 1
+            },
+            {
+              "code": "MECH 463",
+              "title": "",
+              "credits": 4,
+              "year": 4,
+              "term": 1
+            },
+            {
+              "code": "MECH 477",
+              "title": "",
+              "credits": 3,
+              "year": 4,
+              "term": 1
+            },
+            {
+              "code": "MECH 479",
+              "title": "",
+              "credits": 3,
+              "year": 4,
+              "term": 1
+            },
+            {
+              "code": "MECH 484",
+              "title": "",
+              "credits": 3,
+              "year": 4,
+              "term": 1
+            },
+            {
+              "code": "MECH 485",
+              "title": "",
+              "credits": 3,
+              "year": 4,
+              "term": 1
+            },
+            {
+              "code": "MECH 489",
+              "title": "",
+              "credits": 4,
+              "year": 4,
+              "term": 1
+            },
+            {
+              "code": "MTRL 494",
+              "title": "",
+              "credits": 3,
+              "year": 4,
+              "term": 1
+            },
+            {
+              "code": "ELECTIVE",
+              "title": "Complementary Studies electives",
+              "credits": 3,
+              "year": 4,
+              "term": 1
+            },
+            {
+              "code": "MECH 400",
+              "title": "",
+              "credits": 3,
+              "year": 4,
+              "term": 1
+            },
+            {
+              "code": "MECH 466",
+              "title": "",
+              "credits": 4,
+              "year": 4,
+              "term": 1
+            },
+            {
+              "code": "MTRL 484",
+              "title": "",
+              "credits": 3,
+              "year": 4,
+              "term": 1
+            },
+            {
+              "code": "BMEG 456",
+              "title": "",
+              "credits": 3,
+              "year": 4,
+              "term": 1
+            },
+            {
+              "code": "ELEC 344",
+              "title": "",
+              "credits": 3,
+              "year": 4,
+              "term": 1
+            }
+          ]
+        },
+        {
+          "term": 2,
+          "courses": [
+            {
+              "code": "MECH 426",
+              "title": "",
+              "credits": 3,
+              "year": 4,
+              "term": 2
+            },
+            {
+              "code": "MECH 439",
+              "title": "",
+              "credits": 1,
+              "year": 4,
+              "term": 2
+            },
+            {
+              "code": "MECH 459",
+              "title": "",
+              "credits": 6,
+              "year": 4,
+              "term": 2
+            },
+            {
+              "code": "MTRL 495",
+              "title": "",
+              "credits": 3,
+              "year": 4,
+              "term": 2
+            },
+            {
+              "code": "MECH 456",
+              "title": "",
+              "credits": 6,
+              "year": 4,
+              "term": 2
+            },
+            {
+              "code": "MECH 457",
+              "title": "",
+              "credits": 6,
+              "year": 4,
+              "term": 2
+            },
+            {
+              "code": "CPEN 333",
+              "title": "",
+              "credits": 3,
+              "year": 4,
+              "term": 2
+            },
+            {
+              "code": "MECH 420",
+              "title": "",
+              "credits": 3,
+              "year": 4,
+              "term": 2
+            },
+            {
+              "code": "MECH 421",
+              "title": "",
+              "credits": 4,
+              "year": 4,
+              "term": 2
+            },
+            {
+              "code": "MECH 423",
+              "title": "",
+              "credits": 4,
+              "year": 4,
+              "term": 2
+            },
+            {
+              "code": "MECH 458",
+              "title": "",
+              "credits": 6,
+              "year": 4,
+              "term": 2
+            },
+            {
+              "code": "MECH 467",
+              "title": "",
+              "credits": 4,
+              "year": 4,
+              "term": 2
+            },
+            {
+              "code": "MECH 455",
+              "title": "",
+              "credits": 6,
+              "year": 4,
+              "term": 2
+            },
+            {
+              "code": "MECH 486",
+              "title": "",
+              "credits": 3,
+              "year": 4,
+              "term": 2
+            },
+            {
+              "code": "MECH 488",
+              "title": "",
+              "credits": 3,
+              "year": 4,
+              "term": 2
+            },
+            {
+              "code": "CIVL 435",
+              "title": "",
+              "credits": 3,
+              "year": 4,
+              "term": 2
+            },
+            {
+              "code": "MECH 368",
+              "title": "",
+              "credits": 4,
+              "year": 4,
+              "term": 2
+            },
+            {
+              "code": "MECH 454",
+              "title": "",
+              "credits": 6,
+              "year": 4,
+              "term": 2
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

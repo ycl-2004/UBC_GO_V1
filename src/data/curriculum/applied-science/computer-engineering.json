@@ -1,8 +1,8 @@
 {
   "faculty": "Applied Science",
-  "major": "Electrical Engineering",
-  "totalCredits": 145,
-  "notes": "UBC Applied Science (Engineering) - Electrical Engineering curriculum outline. First year is common to most engineering programs.",
+  "major": "Computer Engineering",
+  "totalCredits": 142,
+  "notes": "UBC Applied Science (Engineering) - Computer Engineering curriculum outline. First year is common to most engineering programs.",
   "years": [
     {
       "year": 1,
@@ -126,35 +126,28 @@
               "term": 1
             },
             {
-              "code": "CPSC 259",
+              "code": "CPEN 221",
+              "title": "",
+              "credits": 5,
+              "year": 2,
+              "term": 1
+            },
+            {
+              "code": "CPEN 281",
+              "title": "or",
+              "credits": 3,
+              "year": 2,
+              "term": 1
+            },
+            {
+              "code": "CPSC 221",
               "title": "",
               "credits": 4,
               "year": 2,
               "term": 1
             },
             {
-              "code": "ELEC 201",
-              "title": "",
-              "credits": 4,
-              "year": 2,
-              "term": 1
-            },
-            {
-              "code": "ELEC 202",
-              "title": "",
-              "credits": 4,
-              "year": 2,
-              "term": 1
-            },
-            {
-              "code": "ELEC 211",
-              "title": "",
-              "credits": 2,
-              "year": 2,
-              "term": 1
-            },
-            {
-              "code": "ELEC 221",
+              "code": "CPEN 212",
               "title": "",
               "credits": 4,
               "year": 2,
@@ -166,16 +159,16 @@
           "term": 2,
           "courses": [
             {
-              "code": "ELEC 281",
-              "title": "or",
-              "credits": 3,
+              "code": "ELEC 201",
+              "title": "",
+              "credits": 4,
               "year": 2,
               "term": 2
             },
             {
-              "code": "ELEC 291",
+              "code": "MATH 220",
               "title": "",
-              "credits": 6,
+              "credits": 3,
               "year": 2,
               "term": 2
             },
@@ -194,16 +187,9 @@
               "term": 2
             },
             {
-              "code": "MATH 264",
-              "title": "",
-              "credits": 1,
-              "year": 2,
-              "term": 2
-            },
-            {
-              "code": "ELEC 271",
-              "title": "Students in the Biomedical Engineering Option will take  and  instead of .",
-              "credits": 3,
+              "code": "ELECTIVE",
+              "title": "Electives",
+              "credits": 4,
               "year": 2,
               "term": 2
             }
@@ -219,30 +205,16 @@
           "term": 1,
           "courses": [
             {
-              "code": "ELEC 301",
+              "code": "CPEN 331",
               "title": "",
               "credits": 4,
               "year": 3,
               "term": 1
             },
             {
-              "code": "ELEC 311",
+              "code": "CPEN 391",
               "title": "",
-              "credits": 4,
-              "year": 3,
-              "term": 1
-            },
-            {
-              "code": "ELEC 315",
-              "title": "",
-              "credits": 4,
-              "year": 3,
-              "term": 1
-            },
-            {
-              "code": "ELEC 341",
-              "title": "",
-              "credits": 4,
+              "credits": 6,
               "year": 3,
               "term": 1
             }
@@ -252,22 +224,15 @@
           "term": 2,
           "courses": [
             {
-              "code": "ELEC 342",
+              "code": "CPSC 320",
               "title": "",
-              "credits": 4,
-              "year": 3,
-              "term": 2
-            },
-            {
-              "code": "ELEC 391",
-              "title": "",
-              "credits": 6,
+              "credits": 3,
               "year": 3,
               "term": 2
             },
             {
               "code": "MATH 318",
-              "title": "One of: , ,",
+              "title": "One of , , ,",
               "credits": 3,
               "year": 3,
               "term": 2
@@ -275,7 +240,7 @@
             {
               "code": "ELECTIVE",
               "title": "Electives",
-              "credits": 4,
+              "credits": 16,
               "year": 3,
               "term": 2
             }
@@ -298,7 +263,7 @@
               "term": 1
             },
             {
-              "code": "ELEC 481",
+              "code": "CPEN 481",
               "title": "or",
               "credits": 3,
               "year": 4,
@@ -310,7 +275,7 @@
           "term": 2,
           "courses": [
             {
-              "code": "ELEC 491",
+              "code": "CPEN 491",
               "title": "",
               "credits": 10,
               "year": 4,
@@ -319,7 +284,7 @@
             {
               "code": "ELECTIVE",
               "title": "Electives",
-              "credits": 18,
+              "credits": 20,
               "year": 4,
               "term": 2
             }

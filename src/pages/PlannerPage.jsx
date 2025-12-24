@@ -38,7 +38,19 @@ const PlannerPage = () => {
 
   const majorOptions = {
     appliedScience: [
-      { value: 'electricalEngineering', label: 'Electrical Engineering' },
+      { value: 'biomedical-engineering', label: 'Biomedical Engineering' },
+      { value: 'chemical-and-biological-engineering', label: 'Chemical and Biological Engineering' },
+      { value: 'civil-engineering', label: 'Civil Engineering' },
+      { value: 'computer-engineering', label: 'Computer Engineering' },
+      { value: 'electrical-engineering', label: 'Electrical Engineering' },
+      { value: 'engineering-physics', label: 'Engineering Physics' },
+      { value: 'environmental-engineering', label: 'Environmental Engineering' },
+      { value: 'geological-engineering', label: 'Geological Engineering' },
+      { value: 'integrated-engineering', label: 'Integrated Engineering' },
+      { value: 'manufacturing-engineering', label: 'Manufacturing Engineering' },
+      { value: 'materials-engineering', label: 'Materials Engineering' },
+      { value: 'mechanical-engineering', label: 'Mechanical Engineering' },
+      { value: 'mining-engineering', label: 'Mining Engineering' },
     ],
   }
 
@@ -128,9 +140,11 @@ const PlannerPage = () => {
     if (isSavingRef.current) return
     
     const loadCurriculum = async () => {
-      if (selectedFaculty === 'appliedScience' && selectedMajor === 'electricalEngineering') {
+      // Handle Applied Science majors with dynamic import
+      if (selectedFaculty === 'appliedScience' && selectedMajor) {
         try {
-          const module = await import('../data/curriculum/applied-science/electrical-engineering.json')
+          // Dynamic import based on major slug (e.g., 'civil-engineering' -> civil-engineering.json)
+          const module = await import(`../data/curriculum/applied-science/${selectedMajor}.json`)
           const data = module.default || module
           setCurriculumData(data)
           const statusKey = `course_status_${selectedFaculty}_${selectedMajor}`
@@ -138,7 +152,7 @@ const PlannerPage = () => {
           setCourseStatus(storedStatus ? JSON.parse(storedStatus) : {})
           setSelectedYearTab(1)
         } catch (error) {
-          console.error('Failed to load curriculum data', error)
+          console.error(`Failed to load curriculum data for ${selectedMajor}:`, error)
           setCurriculumData(null)
         }
       } else {

@@ -1,8 +1,8 @@
 {
   "faculty": "Applied Science",
-  "major": "Electrical Engineering",
+  "major": "Geological Engineering",
   "totalCredits": 145,
-  "notes": "UBC Applied Science (Engineering) - Electrical Engineering curriculum outline. First year is common to most engineering programs.",
+  "notes": "UBC Applied Science (Engineering) - Geological Engineering curriculum outline. First year is common to most engineering programs.",
   "years": [
     {
       "year": 1,
@@ -119,44 +119,44 @@
           "term": 1,
           "courses": [
             {
-              "code": "CPEN 211",
+              "code": "APSC 201",
               "title": "",
-              "credits": 5,
+              "credits": 3,
               "year": 2,
               "term": 1
             },
             {
-              "code": "CPSC 259",
+              "code": "CIVL 210",
               "title": "",
               "credits": 4,
               "year": 2,
               "term": 1
             },
             {
-              "code": "ELEC 201",
+              "code": "CIVL 215",
               "title": "",
               "credits": 4,
               "year": 2,
               "term": 1
             },
             {
-              "code": "ELEC 202",
+              "code": "CIVL 230",
               "title": "",
               "credits": 4,
               "year": 2,
               "term": 1
             },
             {
-              "code": "ELEC 211",
+              "code": "EOSC 210",
               "title": "",
-              "credits": 2,
+              "credits": 3,
               "year": 2,
               "term": 1
             },
             {
-              "code": "ELEC 221",
+              "code": "EOSC 213",
               "title": "",
-              "credits": 4,
+              "credits": 3,
               "year": 2,
               "term": 1
             }
@@ -166,16 +166,30 @@
           "term": 2,
           "courses": [
             {
-              "code": "ELEC 281",
-              "title": "or",
+              "code": "EOSC 220",
+              "title": "",
               "credits": 3,
               "year": 2,
               "term": 2
             },
             {
-              "code": "ELEC 291",
+              "code": "EOSC 221",
               "title": "",
-              "credits": 6,
+              "credits": 3,
+              "year": 2,
+              "term": 2
+            },
+            {
+              "code": "EOSC 223",
+              "title": "",
+              "credits": 3,
+              "year": 2,
+              "term": 2
+            },
+            {
+              "code": "EOSC 240",
+              "title": "",
+              "credits": 3,
               "year": 2,
               "term": 2
             },
@@ -187,22 +201,8 @@
               "term": 2
             },
             {
-              "code": "MATH 256",
+              "code": "STAT 251",
               "title": "",
-              "credits": 3,
-              "year": 2,
-              "term": 2
-            },
-            {
-              "code": "MATH 264",
-              "title": "",
-              "credits": 1,
-              "year": 2,
-              "term": 2
-            },
-            {
-              "code": "ELEC 271",
-              "title": "Students in the Biomedical Engineering Option will take  and  instead of .",
               "credits": 3,
               "year": 2,
               "term": 2
@@ -219,30 +219,37 @@
           "term": 1,
           "courses": [
             {
-              "code": "ELEC 301",
+              "code": "CIVL 311",
               "title": "",
               "credits": 4,
               "year": 3,
               "term": 1
             },
             {
-              "code": "ELEC 311",
+              "code": "CIVL 316",
               "title": "",
               "credits": 4,
               "year": 3,
               "term": 1
             },
             {
-              "code": "ELEC 315",
+              "code": "EOSC 323",
               "title": "",
-              "credits": 4,
+              "credits": 3,
               "year": 3,
               "term": 1
             },
             {
-              "code": "ELEC 341",
+              "code": "EOSC 328",
+              "title": "or 428",
+              "credits": 3,
+              "year": 3,
+              "term": 1
+            },
+            {
+              "code": "EOSC 329",
               "title": "",
-              "credits": 4,
+              "credits": 3,
               "year": 3,
               "term": 1
             }
@@ -252,30 +259,37 @@
           "term": 2,
           "courses": [
             {
-              "code": "ELEC 342",
+              "code": "EOSC 330",
+              "title": "",
+              "credits": 3,
+              "year": 3,
+              "term": 2
+            },
+            {
+              "code": "EOSC 350",
+              "title": "",
+              "credits": 3,
+              "year": 3,
+              "term": 2
+            },
+            {
+              "code": "MINE 303",
               "title": "",
               "credits": 4,
               "year": 3,
               "term": 2
             },
             {
-              "code": "ELEC 391",
-              "title": "",
-              "credits": 6,
-              "year": 3,
-              "term": 2
-            },
-            {
-              "code": "MATH 318",
-              "title": "One of: , ,",
+              "code": "EOSC 320",
+              "title": "One of , , , ,",
               "credits": 3,
               "year": 3,
               "term": 2
             },
             {
               "code": "ELECTIVE",
-              "title": "Electives",
-              "credits": 4,
+              "title": "Technical electives",
+              "credits": 3,
               "year": 3,
               "term": 2
             }
@@ -291,15 +305,29 @@
           "term": 1,
           "courses": [
             {
-              "code": "APSC 450",
+              "code": "CIVL 402",
               "title": "",
-              "credits": 2,
+              "credits": 3,
               "year": 4,
               "term": 1
             },
             {
-              "code": "ELEC 481",
-              "title": "or",
+              "code": "CIVL 410",
+              "title": "",
+              "credits": 3,
+              "year": 4,
+              "term": 1
+            },
+            {
+              "code": "CIVL 411",
+              "title": "",
+              "credits": 3,
+              "year": 4,
+              "term": 1
+            },
+            {
+              "code": "EOSC 429",
+              "title": "",
               "credits": 3,
               "year": 4,
               "term": 1
@@ -310,16 +338,37 @@
           "term": 2,
           "courses": [
             {
-              "code": "ELEC 491",
+              "code": "EOSC 433",
               "title": "",
-              "credits": 10,
+              "credits": 3,
+              "year": 4,
+              "term": 2
+            },
+            {
+              "code": "EOSC 434",
+              "title": "",
+              "credits": 3,
+              "year": 4,
+              "term": 2
+            },
+            {
+              "code": "EOSC 445",
+              "title": "",
+              "credits": 6,
+              "year": 4,
+              "term": 2
+            },
+            {
+              "code": "CHBE 459",
+              "title": "One of , , , , , ,",
+              "credits": 3,
               "year": 4,
               "term": 2
             },
             {
               "code": "ELECTIVE",
-              "title": "Electives",
-              "credits": 18,
+              "title": "Technical electives",
+              "credits": 9,
               "year": 4,
               "term": 2
             }

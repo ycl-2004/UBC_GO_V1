@@ -1,8 +1,8 @@
 {
   "faculty": "Applied Science",
-  "major": "Electrical Engineering",
-  "totalCredits": 145,
-  "notes": "UBC Applied Science (Engineering) - Electrical Engineering curriculum outline. First year is common to most engineering programs.",
+  "major": "Engineering Physics",
+  "totalCredits": 136,
+  "notes": "UBC Applied Science (Engineering) - Engineering Physics curriculum outline. First year is common to most engineering programs.",
   "years": [
     {
       "year": 1,
@@ -119,42 +119,42 @@
           "term": 1,
           "courses": [
             {
-              "code": "CPEN 211",
+              "code": "CPEN 221",
+              "title": "",
+              "credits": 4,
+              "year": 2,
+              "term": 1
+            },
+            {
+              "code": "ELEC 204",
+              "title": "",
+              "credits": 4,
+              "year": 2,
+              "term": 1
+            },
+            {
+              "code": "ENPH 253",
               "title": "",
               "credits": 5,
               "year": 2,
               "term": 1
             },
             {
-              "code": "CPSC 259",
+              "code": "ENPH 259",
               "title": "",
-              "credits": 4,
+              "credits": 3,
               "year": 2,
               "term": 1
             },
             {
-              "code": "ELEC 201",
-              "title": "",
-              "credits": 4,
-              "year": 2,
-              "term": 1
-            },
-            {
-              "code": "ELEC 202",
-              "title": "",
-              "credits": 4,
-              "year": 2,
-              "term": 1
-            },
-            {
-              "code": "ELEC 211",
+              "code": "ENPH 270",
               "title": "",
               "credits": 2,
               "year": 2,
               "term": 1
             },
             {
-              "code": "ELEC 221",
+              "code": "MATH 217",
               "title": "",
               "credits": 4,
               "year": 2,
@@ -166,43 +166,43 @@
           "term": 2,
           "courses": [
             {
-              "code": "ELEC 281",
-              "title": "or",
-              "credits": 3,
-              "year": 2,
-              "term": 2
-            },
-            {
-              "code": "ELEC 291",
-              "title": "",
-              "credits": 6,
-              "year": 2,
-              "term": 2
-            },
-            {
-              "code": "MATH 253",
+              "code": "MATH 255",
               "title": "",
               "credits": 3,
               "year": 2,
               "term": 2
             },
             {
-              "code": "MATH 256",
+              "code": "MATH 257",
               "title": "",
               "credits": 3,
               "year": 2,
               "term": 2
             },
             {
-              "code": "MATH 264",
+              "code": "ENPH 257",
               "title": "",
-              "credits": 1,
+              "credits": 2,
               "year": 2,
               "term": 2
             },
             {
-              "code": "ELEC 271",
-              "title": "Students in the Biomedical Engineering Option will take  and  instead of .",
+              "code": "PHYS 250",
+              "title": "",
+              "credits": 3,
+              "year": 2,
+              "term": 2
+            },
+            {
+              "code": "APSC 202",
+              "title": "",
+              "credits": 3,
+              "year": 2,
+              "term": 2
+            },
+            {
+              "code": "ELECTIVE",
+              "title": "Complementary Studies electives",
               "credits": 3,
               "year": 2,
               "term": 2
@@ -219,30 +219,44 @@
           "term": 1,
           "courses": [
             {
-              "code": "ELEC 301",
+              "code": "APSC 278",
+              "title": "",
+              "credits": 3,
+              "year": 3,
+              "term": 1
+            },
+            {
+              "code": "APSC 279",
+              "title": "",
+              "credits": 1,
+              "year": 3,
+              "term": 1
+            },
+            {
+              "code": "CPEN 312",
+              "title": "",
+              "credits": 3,
+              "year": 3,
+              "term": 1
+            },
+            {
+              "code": "ELEC 221",
               "title": "",
               "credits": 4,
               "year": 3,
               "term": 1
             },
             {
-              "code": "ELEC 311",
+              "code": "ENPH 353",
               "title": "",
-              "credits": 4,
+              "credits": 3,
               "year": 3,
               "term": 1
             },
             {
-              "code": "ELEC 315",
+              "code": "MATH 307",
               "title": "",
-              "credits": 4,
-              "year": 3,
-              "term": 1
-            },
-            {
-              "code": "ELEC 341",
-              "title": "",
-              "credits": 4,
+              "credits": 3,
               "year": 3,
               "term": 1
             }
@@ -252,30 +266,51 @@
           "term": 2,
           "courses": [
             {
-              "code": "ELEC 342",
+              "code": "MATH 305",
+              "title": "",
+              "credits": 3,
+              "year": 3,
+              "term": 2
+            },
+            {
+              "code": "MECH 280",
+              "title": "",
+              "credits": 3,
+              "year": 3,
+              "term": 2
+            },
+            {
+              "code": "MECH 325",
               "title": "",
               "credits": 4,
               "year": 3,
               "term": 2
             },
             {
-              "code": "ELEC 391",
+              "code": "PHYS 301",
               "title": "",
-              "credits": 6,
+              "credits": 3,
               "year": 3,
               "term": 2
             },
             {
-              "code": "MATH 318",
-              "title": "One of: , ,",
+              "code": "PHYS 304",
+              "title": "",
+              "credits": 3,
+              "year": 3,
+              "term": 2
+            },
+            {
+              "code": "PHYS 350",
+              "title": "",
               "credits": 3,
               "year": 3,
               "term": 2
             },
             {
               "code": "ELECTIVE",
-              "title": "Electives",
-              "credits": 4,
+              "title": "Technical Elective",
+              "credits": 3,
               "year": 3,
               "term": 2
             }
@@ -291,15 +326,22 @@
           "term": 1,
           "courses": [
             {
-              "code": "APSC 450",
+              "code": "ENPH 459",
               "title": "",
-              "credits": 2,
+              "credits": 5,
               "year": 4,
               "term": 1
             },
             {
-              "code": "ELEC 481",
-              "title": "or",
+              "code": "MATH 318",
+              "title": "",
+              "credits": 3,
+              "year": 4,
+              "term": 1
+            },
+            {
+              "code": "MATH 400",
+              "title": "",
               "credits": 3,
               "year": 4,
               "term": 1
@@ -310,16 +352,23 @@
           "term": 2,
           "courses": [
             {
-              "code": "ELEC 491",
+              "code": "PHYS 401",
               "title": "",
-              "credits": 10,
+              "credits": 3,
+              "year": 4,
+              "term": 2
+            },
+            {
+              "code": "ELEC 341",
+              "title": "One of ,",
+              "credits": 4,
               "year": 4,
               "term": 2
             },
             {
               "code": "ELECTIVE",
-              "title": "Electives",
-              "credits": 18,
+              "title": "Technical elective",
+              "credits": 3,
               "year": 4,
               "term": 2
             }

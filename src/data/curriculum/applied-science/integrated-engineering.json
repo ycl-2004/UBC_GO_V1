@@ -1,8 +1,8 @@
 {
   "faculty": "Applied Science",
-  "major": "Electrical Engineering",
-  "totalCredits": 145,
-  "notes": "UBC Applied Science (Engineering) - Electrical Engineering curriculum outline. First year is common to most engineering programs.",
+  "major": "Integrated Engineering",
+  "totalCredits": 149,
+  "notes": "UBC Applied Science (Engineering) - Integrated Engineering curriculum outline. First year is common to most engineering programs.",
   "years": [
     {
       "year": 1,
@@ -119,44 +119,44 @@
           "term": 1,
           "courses": [
             {
-              "code": "CPEN 211",
+              "code": "APSC 278",
               "title": "",
-              "credits": 5,
+              "credits": 3,
               "year": 2,
               "term": 1
             },
             {
-              "code": "CPSC 259",
+              "code": "APSC 279",
+              "title": "",
+              "credits": 1,
+              "year": 2,
+              "term": 1
+            },
+            {
+              "code": "CHBE 241",
+              "title": "",
+              "credits": 3,
+              "year": 2,
+              "term": 1
+            },
+            {
+              "code": "CHBE 244",
+              "title": "",
+              "credits": 3,
+              "year": 2,
+              "term": 1
+            },
+            {
+              "code": "CIVL 215",
               "title": "",
               "credits": 4,
               "year": 2,
               "term": 1
             },
             {
-              "code": "ELEC 201",
+              "code": "CPEN 312",
               "title": "",
-              "credits": 4,
-              "year": 2,
-              "term": 1
-            },
-            {
-              "code": "ELEC 202",
-              "title": "",
-              "credits": 4,
-              "year": 2,
-              "term": 1
-            },
-            {
-              "code": "ELEC 211",
-              "title": "",
-              "credits": 2,
-              "year": 2,
-              "term": 1
-            },
-            {
-              "code": "ELEC 221",
-              "title": "",
-              "credits": 4,
+              "credits": 3,
               "year": 2,
               "term": 1
             }
@@ -166,14 +166,28 @@
           "term": 2,
           "courses": [
             {
-              "code": "ELEC 281",
-              "title": "or",
+              "code": "ELEC 204",
+              "title": "",
+              "credits": 4,
+              "year": 2,
+              "term": 2
+            },
+            {
+              "code": "ELEC 205",
+              "title": "",
+              "credits": 1,
+              "year": 2,
+              "term": 2
+            },
+            {
+              "code": "IGEN 201",
+              "title": "",
               "credits": 3,
               "year": 2,
               "term": 2
             },
             {
-              "code": "ELEC 291",
+              "code": "IGEN 230",
               "title": "",
               "credits": 6,
               "year": 2,
@@ -187,22 +201,15 @@
               "term": 2
             },
             {
-              "code": "MATH 256",
+              "code": "MATH 255",
               "title": "",
               "credits": 3,
               "year": 2,
               "term": 2
             },
             {
-              "code": "MATH 264",
+              "code": "MECH 260",
               "title": "",
-              "credits": 1,
-              "year": 2,
-              "term": 2
-            },
-            {
-              "code": "ELEC 271",
-              "title": "Students in the Biomedical Engineering Option will take  and  instead of .",
               "credits": 3,
               "year": 2,
               "term": 2
@@ -219,30 +226,37 @@
           "term": 1,
           "courses": [
             {
-              "code": "ELEC 301",
+              "code": "CHBE 344",
               "title": "",
-              "credits": 4,
+              "credits": 3,
               "year": 3,
               "term": 1
             },
             {
-              "code": "ELEC 311",
+              "code": "COMR 280",
               "title": "",
-              "credits": 4,
+              "credits": 3,
               "year": 3,
               "term": 1
             },
             {
-              "code": "ELEC 315",
+              "code": "ELEC 344",
               "title": "",
-              "credits": 4,
+              "credits": 3,
               "year": 3,
               "term": 1
             },
             {
-              "code": "ELEC 341",
+              "code": "IGEN 330",
               "title": "",
-              "credits": 4,
+              "credits": 6,
+              "year": 3,
+              "term": 1
+            },
+            {
+              "code": "MECH 360",
+              "title": "",
+              "credits": 3,
               "year": 3,
               "term": 1
             }
@@ -252,30 +266,37 @@
           "term": 2,
           "courses": [
             {
-              "code": "ELEC 342",
+              "code": "MECH 375",
               "title": "",
-              "credits": 4,
-              "year": 3,
-              "term": 2
-            },
-            {
-              "code": "ELEC 391",
-              "title": "",
-              "credits": 6,
-              "year": 3,
-              "term": 2
-            },
-            {
-              "code": "MATH 318",
-              "title": "One of: , ,",
               "credits": 3,
               "year": 3,
               "term": 2
             },
             {
-              "code": "ELECTIVE",
-              "title": "Electives",
+              "code": "MTRL 280",
+              "title": "",
+              "credits": 3,
+              "year": 3,
+              "term": 2
+            },
+            {
+              "code": "STAT 251",
+              "title": "",
+              "credits": 3,
+              "year": 3,
+              "term": 2
+            },
+            {
+              "code": "CHBE 356",
+              "title": "One of ,",
               "credits": 4,
+              "year": 3,
+              "term": 2
+            },
+            {
+              "code": "ELECTIVE",
+              "title": "Technical electives",
+              "credits": 6,
               "year": 3,
               "term": 2
             }
@@ -298,8 +319,22 @@
               "term": 1
             },
             {
-              "code": "ELEC 481",
-              "title": "or",
+              "code": "CIVL 305",
+              "title": "",
+              "credits": 3,
+              "year": 4,
+              "term": 1
+            },
+            {
+              "code": "IGEN 430",
+              "title": "",
+              "credits": 6,
+              "year": 4,
+              "term": 1
+            },
+            {
+              "code": "MTRL 340",
+              "title": "",
               "credits": 3,
               "year": 4,
               "term": 1
@@ -310,16 +345,30 @@
           "term": 2,
           "courses": [
             {
-              "code": "ELEC 491",
-              "title": "",
-              "credits": 10,
+              "code": "MINE 350",
+              "title": "One of , , , ,  or",
+              "credits": 3,
+              "year": 4,
+              "term": 2
+            },
+            {
+              "code": "CHBE 459",
+              "title": "One of , , , , ,",
+              "credits": 3,
               "year": 4,
               "term": 2
             },
             {
               "code": "ELECTIVE",
-              "title": "Electives",
-              "credits": 18,
+              "title": "Technical electives",
+              "credits": 12,
+              "year": 4,
+              "term": 2
+            },
+            {
+              "code": "IGEN 201",
+              "title": "Students failing  will be required to pass  subsequently.",
+              "credits": 3,
               "year": 4,
               "term": 2
             }
