@@ -1,8 +1,8 @@
 {
   "faculty": "Applied Science",
   "major": "Biomedical Engineering",
-  "totalCredits": 147,
-  "notes": "UBC Applied Science (Engineering) - Biomedical Engineering curriculum outline. First year is common to most engineering programs.",
+  "totalCredits": 146,
+  "notes": "UBC Applied Science (Engineering) - Biomedical Engineering curriculum outline. First year uses Pre-Biomedical Engineering Standardized Timetable (PBME STT) which differs from standard engineering first year.",
   "years": [
     {
       "year": 1,
@@ -19,13 +19,6 @@
               "term": 1
             },
             {
-              "code": "APSC 101",
-              "title": "",
-              "credits": 3,
-              "year": 1,
-              "term": 1
-            },
-            {
               "code": "APSC 160",
               "title": "",
               "credits": 3,
@@ -33,23 +26,30 @@
               "term": 1
             },
             {
-              "code": "CHEM 154",
+              "code": "BMEG 101",
               "title": "",
               "credits": 3,
               "year": 1,
               "term": 1
             },
             {
-              "code": "WRDS 150",
+              "code": "BMEG 102",
               "title": "",
-              "credits": 3,
+              "credits": 2,
               "year": 1,
               "term": 1
             },
             {
-              "code": "MATH 100",
+              "code": "CHEM 121",
               "title": "",
-              "credits": 3,
+              "credits": 4,
+              "year": 1,
+              "term": 1
+            },
+            {
+              "code": "CHEM 123",
+              "title": "",
+              "credits": 4,
               "year": 1,
               "term": 1
             }
@@ -58,6 +58,13 @@
         {
           "term": 2,
           "courses": [
+            {
+              "code": "MATH 100",
+              "title": "",
+              "credits": 3,
+              "year": 1,
+              "term": 2
+            },
             {
               "code": "MATH 101",
               "title": "",
@@ -87,13 +94,6 @@
               "term": 2
             },
             {
-              "code": "PHYS 159",
-              "title": "",
-              "credits": 1,
-              "year": 1,
-              "term": 2
-            },
-            {
               "code": "PHYS 170",
               "title": "",
               "credits": 3,
@@ -101,8 +101,8 @@
               "term": 2
             },
             {
-              "code": "ELECTIVE",
-              "title": "Complementary Studies electives",
+              "code": "WRDS 150",
+              "title": "",
               "credits": 3,
               "year": 1,
               "term": 2
@@ -119,42 +119,42 @@
           "term": 1,
           "courses": [
             {
-              "code": "CPEN 211",
+              "code": "BMEG 201",
               "title": "",
-              "credits": 5,
+              "credits": 3,
               "year": 2,
               "term": 1
             },
             {
-              "code": "CPSC 259",
+              "code": "BMEG 210",
               "title": "",
-              "credits": 4,
+              "credits": 3,
               "year": 2,
               "term": 1
             },
             {
-              "code": "ELEC 201",
-              "title": "",
-              "credits": 4,
-              "year": 2,
-              "term": 1
-            },
-            {
-              "code": "ELEC 202",
+              "code": "BMEG 220",
               "title": "",
               "credits": 4,
               "year": 2,
               "term": 1
             },
             {
-              "code": "ELEC 211",
+              "code": "BMEG 230",
               "title": "",
-              "credits": 2,
+              "credits": 4,
               "year": 2,
               "term": 1
             },
             {
-              "code": "ELEC 221",
+              "code": "BMEG 245",
+              "title": "",
+              "credits": 4,
+              "year": 2,
+              "term": 1
+            },
+            {
+              "code": "BMEG 250",
               "title": "",
               "credits": 4,
               "year": 2,
@@ -166,15 +166,22 @@
           "term": 2,
           "courses": [
             {
-              "code": "ELEC 281",
-              "title": "or",
-              "credits": 3,
+              "code": "BMEG 257",
+              "title": "",
+              "credits": 4,
+              "year": 2,
+              "term": 2
+            },
+            {
+              "code": "CPEN 221",
+              "title": "or 223",
+              "credits": 4,
               "year": 2,
               "term": 2
             },
             {
               "code": "MATH 253",
-              "title": "",
+              "title": "or 226",
               "credits": 3,
               "year": 2,
               "term": 2
@@ -194,14 +201,7 @@
               "term": 2
             },
             {
-              "code": "ELEC 271",
-              "title": "Students in the Biomedical Engineering Option will take  and  instead of .",
-              "credits": 3,
-              "year": 2,
-              "term": 2
-            },
-            {
-              "code": "ELEC 292",
+              "code": "CHBE 251",
               "title": "",
               "credits": 3,
               "year": 2,
@@ -219,30 +219,37 @@
           "term": 1,
           "courses": [
             {
-              "code": "BMEG 410",
+              "code": "BIOC 202",
               "title": "",
               "credits": 3,
               "year": 3,
               "term": 1
             },
             {
-              "code": "BMEG 456",
+              "code": "BMEG 310",
+              "title": "",
+              "credits": 4,
+              "year": 3,
+              "term": 1
+            },
+            {
+              "code": "BMEG 321",
               "title": "",
               "credits": 3,
               "year": 3,
               "term": 1
             },
             {
-              "code": "ELEC 301",
+              "code": "BMEG 350",
               "title": "",
               "credits": 4,
               "year": 3,
               "term": 1
             },
             {
-              "code": "ELEC 311",
+              "code": "BMEG 357",
               "title": "",
-              "credits": 4,
+              "credits": 3,
               "year": 3,
               "term": 1
             }
@@ -252,37 +259,37 @@
           "term": 2,
           "courses": [
             {
-              "code": "ELEC 341",
-              "title": "",
-              "credits": 4,
-              "year": 3,
-              "term": 2
-            },
-            {
-              "code": "ELEC 371",
+              "code": "BMEG 371",
               "title": "",
               "credits": 3,
               "year": 3,
               "term": 2
             },
             {
-              "code": "ELEC 391",
+              "code": "CHEM 233",
               "title": "",
-              "credits": 6,
+              "credits": 3,
               "year": 3,
               "term": 2
             },
             {
-              "code": "ELECTIVE",
-              "title": "Breadth Electives",
-              "credits": 8,
+              "code": "CHEM 235",
+              "title": "",
+              "credits": 1,
               "year": 3,
               "term": 2
             },
             {
               "code": "STAT 251",
-              "title": "One of , , ,",
+              "title": "",
               "credits": 3,
+              "year": 3,
+              "term": 2
+            },
+            {
+              "code": "ELECTIVE",
+              "title": "Technical Electives",
+              "credits": 6,
               "year": 3,
               "term": 2
             }
@@ -298,23 +305,23 @@
           "term": 1,
           "courses": [
             {
-              "code": "APSC 450",
-              "title": "",
-              "credits": 2,
-              "year": 4,
-              "term": 1
-            },
-            {
-              "code": "ELEC 422",
+              "code": "BMEG 401",
               "title": "",
               "credits": 3,
               "year": 4,
               "term": 1
             },
             {
-              "code": "ELEC 471",
+              "code": "BMEG 455",
               "title": "",
               "credits": 3,
+              "year": 4,
+              "term": 1
+            },
+            {
+              "code": "BMEG 457",
+              "title": "",
+              "credits": 6,
               "year": 4,
               "term": 1
             }
@@ -324,30 +331,23 @@
           "term": 2,
           "courses": [
             {
-              "code": "ELEC 473",
+              "code": "STAT 300",
               "title": "",
               "credits": 3,
-              "year": 4,
-              "term": 2
-            },
-            {
-              "code": "ELEC 481",
-              "title": "or",
-              "credits": 3,
-              "year": 4,
-              "term": 2
-            },
-            {
-              "code": "ELEC 494",
-              "title": "",
-              "credits": 10,
               "year": 4,
               "term": 2
             },
             {
               "code": "ELECTIVE",
-              "title": "Electives",
-              "credits": 9,
+              "title": "Technical Electives",
+              "credits": 15,
+              "year": 4,
+              "term": 2
+            },
+            {
+              "code": "CPEN 221",
+              "title": "Students planning to complete the Bioinformatics option should take .",
+              "credits": 3,
               "year": 4,
               "term": 2
             }

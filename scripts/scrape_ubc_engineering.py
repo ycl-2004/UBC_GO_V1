@@ -221,6 +221,205 @@ class UBCEngineeringScraper:
             ("Mining Engineering", f"{base}/mining-engineering"),
         ]
     
+    def scrape_biomedical_engineering(self) -> Optional[Dict]:
+        """
+        Special scraper for Biomedical Engineering which has:
+        1. Unique first year (Pre-Biomedical Engineering STT)
+        2. Years 2-4 from the Biomedical Engineering page
+        """
+        url = f"{self.base_url}/faculties-colleges-and-schools/faculty-applied-science/bachelor-applied-science/biomedical-engineering"
+        
+        print(f"\n[Special] Scraping Biomedical Engineering...")
+        print(f"  URL: {url}")
+        
+        try:
+            response = self.session.get(url, timeout=15)
+            response.raise_for_status()
+            soup = BeautifulSoup(response.content, 'html.parser')
+            
+            # ========================================
+            # 1. FIRST YEAR - Pre-Biomedical Engineering STT
+            # ========================================
+            print("\n  Processing First Year (Pre-Biomedical Engineering STT)...")
+            bmeg_year1 = []
+            
+            # Find the "First Year - Pre-Biomedical Engineering Standardized Timetable" table
+            # Check both direct tables and tables within figure elements
+            tables_to_check = soup.find_all('table')
+            # Also check tables within figure elements
+            for figure in soup.find_all('figure'):
+                table = figure.find('table')
+                if table and table not in tables_to_check:
+                    tables_to_check.append(table)
+            
+            for table in tables_to_check:
+                table_text = table.get_text()
+                if 'Pre-Biomedical Engineering' in table_text or 'BMEG_V 101' in table_text or 'BMEG 101' in table_text:
+                    print(f"    Found Pre-BME STT table")
+                    _, courses = self.parse_table_for_courses(table, "Year 1")
+                    bmeg_year1 = courses
+                    print(f"    Found {len(bmeg_year1)} first year courses")
+                    for c in bmeg_year1:
+                        print(f"      - {c.get('code')} ({c.get('credits')} credits)")
+                    break
+            
+            # If not found, use default BME first year based on calendar
+            if not bmeg_year1:
+                print("    Using default Pre-BME STT courses...")
+                bmeg_year1 = [
+                    {"code": "APSC 100", "title": "", "credits": 3, "year": "Year 1"},
+                    {"code": "APSC 160", "title": "", "credits": 3, "year": "Year 1"},
+                    {"code": "BMEG 101", "title": "", "credits": 3, "year": "Year 1"},
+                    {"code": "BMEG 102", "title": "", "credits": 2, "year": "Year 1"},
+                    {"code": "CHEM 121", "title": "", "credits": 4, "year": "Year 1"},
+                    {"code": "CHEM 123", "title": "", "credits": 4, "year": "Year 1"},
+                    {"code": "MATH 100", "title": "", "credits": 3, "year": "Year 1"},
+                    {"code": "MATH 101", "title": "", "credits": 3, "year": "Year 1"},
+                    {"code": "MATH 152", "title": "", "credits": 3, "year": "Year 1"},
+                    {"code": "PHYS 157", "title": "", "credits": 3, "year": "Year 1"},
+                    {"code": "PHYS 158", "title": "", "credits": 3, "year": "Year 1"},
+                    {"code": "PHYS 170", "title": "", "credits": 3, "year": "Year 1"},
+                    {"code": "WRDS 150", "title": "", "credits": 3, "year": "Year 1"},
+                ]
+            
+            # ========================================
+            # 2. YEARS 2-4 - 2022W Second Year Entry or Later
+            # ========================================
+            print("\n  Processing Years 2-4 (2022W Second Year Entry or Later)...")
+            bmeg_year2 = []
+            bmeg_year3 = []
+            bmeg_year4 = []
+            
+            # Find the "2022W Second Year Entry or Later" section
+            section_header = None
+            for h in soup.find_all(['h2', 'h3', 'h4']):
+                text = h.get_text()
+                if '2022W' in text and ('Second Year' in text or 'Entry' in text):
+                    section_header = h
+                    print(f"    Found 2022W section header")
+                    break
+            
+            if section_header:
+                # Find all tables after this header (including those in figure elements)
+                current = section_header.find_next_sibling()
+                while current:
+                    # Check for direct tables
+                    if current.name == 'table':
+                        _, courses = self.parse_table_for_courses(current)
+                        for c in courses:
+                            year = c.get("year")
+                            if year == "Year 2":
+                                bmeg_year2.append(c)
+                            elif year == "Year 3":
+                                bmeg_year3.append(c)
+                            elif year == "Year 4":
+                                bmeg_year4.append(c)
+                    # Check for tables within figure elements
+                    elif current.name == 'figure':
+                        table = current.find('table')
+                        if table:
+                            _, courses = self.parse_table_for_courses(table)
+                            for c in courses:
+                                year = c.get("year")
+                                if year == "Year 2":
+                                    bmeg_year2.append(c)
+                                elif year == "Year 3":
+                                    bmeg_year3.append(c)
+                                elif year == "Year 4":
+                                    bmeg_year4.append(c)
+                    elif current.name in ['h2', 'h3', 'h4']:
+                        # Stop if we hit another major section
+                        header_text = current.get_text()
+                        if 'Program Requirements' not in header_text and '2022W' not in header_text and 'Biomedical' not in header_text:
+                            # Check if this is a different program section
+                            if any(word in header_text for word in ['Chemical', 'Civil', 'Computer', 'Electrical', 'Engineering Physics']):
+                                break
+                    current = current.find_next_sibling()
+            
+            # Also try finding tables by looking for "Second Year", "Third Year", "Fourth Year" headers
+            for header in soup.find_all(['h3', 'h4', 'h5']):
+                header_text = header.get_text(strip=True).lower()
+                year_key = None
+                
+                if 'second year' in header_text and '2022W' in header.get_text():
+                    year_key = "Year 2"
+                elif 'third year' in header_text:
+                    year_key = "Year 3"
+                elif 'fourth year' in header_text:
+                    year_key = "Year 4"
+                
+                if year_key:
+                    # Look for table after this header (check both direct tables and figure elements)
+                    next_elem = header.find_next_sibling()
+                    while next_elem:
+                        if next_elem.name == 'table':
+                            _, courses = self.parse_table_for_courses(next_elem, year_key)
+                            for c in courses:
+                                if c.get("year") == year_key:
+                                    if year_key == "Year 2":
+                                        bmeg_year2.append(c)
+                                    elif year_key == "Year 3":
+                                        bmeg_year3.append(c)
+                                    elif year_key == "Year 4":
+                                        bmeg_year4.append(c)
+                            break
+                        elif next_elem.name == 'figure':
+                            table = next_elem.find('table')
+                            if table:
+                                _, courses = self.parse_table_for_courses(table, year_key)
+                                for c in courses:
+                                    if c.get("year") == year_key:
+                                        if year_key == "Year 2":
+                                            bmeg_year2.append(c)
+                                        elif year_key == "Year 3":
+                                            bmeg_year3.append(c)
+                                        elif year_key == "Year 4":
+                                            bmeg_year4.append(c)
+                                break
+                        elif next_elem.name in ['h2', 'h3', 'h4', 'h5']:
+                            # Hit another header, stop looking
+                            break
+                        next_elem = next_elem.find_next_sibling()
+            
+            # Remove duplicates
+            def deduplicate_courses(course_list):
+                seen = set()
+                unique = []
+                for c in course_list:
+                    code = c.get("code", "")
+                    if code and code not in seen:
+                        seen.add(code)
+                        unique.append(c)
+                return unique
+            
+            bmeg_year2 = deduplicate_courses(bmeg_year2)
+            bmeg_year3 = deduplicate_courses(bmeg_year3)
+            bmeg_year4 = deduplicate_courses(bmeg_year4)
+            
+            print(f"    Year 2: {len(bmeg_year2)} courses")
+            print(f"    Year 3: {len(bmeg_year3)} courses")
+            print(f"    Year 4: {len(bmeg_year4)} courses")
+            
+            # Build Biomedical Engineering curriculum
+            bmeg_curriculum = self.build_curriculum_json(
+                "Biomedical Engineering",
+                bmeg_year1,
+                bmeg_year2,
+                bmeg_year3,
+                bmeg_year4
+            )
+            
+            # Update notes to reflect unique first year
+            bmeg_curriculum["notes"] = "UBC Applied Science (Engineering) - Biomedical Engineering curriculum outline. First year uses Pre-Biomedical Engineering Standardized Timetable (PBME STT) which differs from standard engineering first year."
+            
+            return bmeg_curriculum
+            
+        except Exception as e:
+            print(f"  Error scraping Biomedical Engineering: {e}")
+            import traceback
+            traceback.print_exc()
+            return None
+    
     def scrape_ece_page(self) -> List[Dict]:
         """
         Special scraper for ECE page which contains 3 programs:
@@ -371,63 +570,6 @@ class UBCEngineeringScraper:
                 cpen_year4
             )
             results.append(("computer-engineering", cpen_curriculum))
-            
-            # ========================================
-            # 3. BIOMEDICAL ENGINEERING OPTION
-            # ========================================
-            print("\n  Processing Biomedical Engineering Option...")
-            bmeg_year2 = []
-            bmeg_year3 = []
-            bmeg_year4 = []
-            
-            # Year 2: Start with Electrical Engineering Year 2, then modify
-            # "Students in the Biomedical Engineering Option will take ELEC_V 271 and ELEC_V 292 instead of ELEC_V 291."
-            # Note: Based on page structure, we need to remove ELEC 291 and add ELEC 271, ELEC 292
-            bmeg_year2 = [c.copy() for c in elec_year2]
-            
-            # Remove ELEC 291 if present
-            bmeg_year2 = [c for c in bmeg_year2 if c.get("code") != "ELEC 291"]
-            
-            # Add ELEC 271 and ELEC 292
-            bmeg_year2.append({"code": "ELEC 271", "title": "", "credits": 3, "year": "Year 2"})
-            bmeg_year2.append({"code": "ELEC 292", "title": "", "credits": 3, "year": "Year 2"})
-            
-            print(f"    Year 2 (modified from ELEC): {len(bmeg_year2)} courses")
-            
-            # Find "Biomedical Engineering Option" h4 header for Year 3 & 4
-            bmeg_header = None
-            for h in soup.find_all('h4'):
-                if 'Biomedical Engineering Option' in h.get_text():
-                    bmeg_header = h
-                    break
-            
-            if bmeg_header:
-                current = bmeg_header.find_next_sibling()
-                while current and current.name != 'h3':
-                    if current.name == 'figure':
-                        table = current.find('table')
-                        if table:
-                            _, courses = self.parse_table_for_courses(table)
-                            for c in courses:
-                                year = c.get("year")
-                                if year == "Year 3":
-                                    bmeg_year3.append(c)
-                                elif year == "Year 4":
-                                    bmeg_year4.append(c)
-                    current = current.find_next_sibling()
-            
-            print(f"    Year 3: {len(bmeg_year3)} courses")
-            print(f"    Year 4: {len(bmeg_year4)} courses")
-            
-            # Build Biomedical Engineering curriculum
-            bmeg_curriculum = self.build_curriculum_json(
-                "Biomedical Engineering",
-                self.common_year_1.copy(),
-                bmeg_year2,
-                bmeg_year3,
-                bmeg_year4
-            )
-            results.append(("biomedical-engineering", bmeg_curriculum))
             
             return results
             
@@ -725,12 +867,24 @@ class UBCEngineeringScraper:
         for name, _ in majors:
             print(f"    - {name}")
         
-        # Step 3: Scrape ECE page first (special handling for 3 programs)
-        print("\n[Step 3] Scraping ECE page (3 programs)...")
-        ece_results = self.scrape_ece_page()
+        # Step 3: Scrape Biomedical Engineering (special handling - unique first year)
+        print("\n[Step 3] Scraping Biomedical Engineering (special program)...")
+        bmeg_curriculum = self.scrape_biomedical_engineering()
         
         successful = 0
         failed = 0
+        
+        if bmeg_curriculum:
+            self.save_json(bmeg_curriculum, "biomedical-engineering.json")
+            successful += 1
+        else:
+            failed += 1
+        
+        time.sleep(2)
+        
+        # Step 4: Scrape ECE page (special handling for 2 programs - Computer and Electrical)
+        print("\n[Step 4] Scraping ECE page (2 programs)...")
+        ece_results = self.scrape_ece_page()
         
         for slug, curriculum in ece_results:
             if curriculum:
@@ -742,8 +896,8 @@ class UBCEngineeringScraper:
         
         time.sleep(2)
         
-        # Step 4: Scrape each remaining major
-        print("\n[Step 4] Scraping other major curricula...")
+        # Step 5: Scrape each remaining major
+        print("\n[Step 5] Scraping other major curricula...")
         
         for program_name, url in majors:
             time.sleep(2)  # Be polite to the server
