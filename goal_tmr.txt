@@ -1,0 +1,64 @@
+1. UI/UX 體驗優化 (讓用戶覺得「好用」)
+A. 課程詳情彈窗 (Course Details Modal)
+問題： 目前的 "Available Courses" 卡片資訊量太少（只有代碼、名稱、學分）。學生選課時最在意的是：「這門課在講什麼？」、「Prerequisite (先修課) 是什麼？」。 改進： 點擊課程卡片時，彈出一個 Modal。
+
+顯示內容： 課程描述 (Description)、先修課要求、UBCGrades 連結 (這對學生超重要，看平均分甜不甜)。
+
+Cursor 指令思路：
+
+"Add a clickable behavior to the CourseCard. When clicked, open a Dialog showing the full course description and prerequisites. Add a link button 'Check Grades on UBCGrades' that opens https://ubcgrades.com/statistics/by-course/{subject}/{course}."
+
+B. 空狀態插圖 (Empty State Illustrations)
+問題： 在 [Screenshot 2025-12-25 at 4.49.14] 中，當沒有選課時，畫面只有一行小字 "No courses added yet"。這看起來有點冷清，甚至像 Bug。 改進： 加入一個 SVG 插圖（例如一個空的書包或一張空白的地圖），並加上一個顯眼的按鈕 "Browse Year 1 Courses"。
+
+Cursor 指令思路：
+
+"Enhance the 'Empty State' for the course list. Use a placeholder SVG (from undraw.co style or Lucid Icon) and a friendly message like 'Start building your future. Add your first course.' centered in the empty box."
+
+C. 手機版導航優化 (Mobile Navigation)
+問題： 手機版 [Screenshot 2025-12-25 at 6.08.51] 雖然修好了 Header，但選單 (Menu) 還是擠在上面。 改進： 考慮在手機版改用 底部導航欄 (Bottom Tab Bar)，就像 Instagram 或小紅書那樣。
+
+按鈕： Home, Planner, Profile。這樣單手操作更方便。
+
+2. 核心功能增強 (建立護城河)
+這是別人很難抄襲你的地方，也是你從「玩具專案」變成「必備工具」的關鍵。
+
+A. 先修課檢查器 (Prerequisite Checker) - 殺手級功能
+痛點： 學生最怕選了 ELEC 391 才發現 ELEC 291 沒過。 功能：
+
+當用戶把 ELEC 391 加入計畫時，系統自動檢查他的 "Completed Courses" 裡有沒有 ELEC 291。
+
+如果沒有，卡片上顯示一個紅色驚嘆號 ⚠️ 提示 "Missing Prereq: ELEC 291"。
+
+實作難度： 中等。你的爬蟲需要多抓一個 "prerequisite" 欄位。
+
+B. GPA 計算器 (Mock GPA)
+痛點： 大家都想知道「如果我這門課拿 85 分，總平均會變多少？」 功能：
+
+在 "My Courses" 的每一門課旁邊加一個小輸入框（預設隱藏，點擊 "Calculate GPA" 展開）。
+
+用戶輸入預期分數，右上角的 "Your Progress" 圓圈旁邊動態顯示 "Projected GPA: 82.5%"。
+
+3. 獲利與擴展佈局 (準備賺錢)
+A. 「求救」按鈕 (The "SOS" Button)
+概念： 這是最直接的變現路徑。 位置： 在每一門「硬課」（如 MATH 253, ELEC 201）的卡片角落放一個小小的救生圈圖示 🛟。 功能：
+
+點擊後跳出：「Struggling with MATH 253?」
+
+選項 1：Find a Tutor (連結到你的家教媒合表單/合作夥伴)。
+
+選項 2：Buy Study Notes (連結到筆記販售頁面)。
+
+B. 用戶反饋 (Feedback Loop)
+概念： 你現在需要真實用戶的聲音。 功能： 在右下角加一個懸浮按鈕 (Floating Action Button) 或在 Footer 加一個連結 "Report Bug / Request Feature"。
+
+連接到一個簡單的 Google Form 或 Tally.so 表單。這能讓你抓到很多你自己沒發現的 Bug。
+
+🚀 總結：你的下一步推薦順序
+數據增強： 讓爬蟲多抓取 Description 和 Prerequisites (這會讓你的網站內容豐富度大增)。
+
+交互優化： 實作 Course Details Modal (彈窗顯示詳情)。
+
+防呆機制： 實作簡單的 Prerequisite Warning (先修課警告)。
+
+你想先從哪一個開始？如果是「爬蟲增強」或是「課程詳情彈窗」，我可以給你對應的 Cursor 指令。
