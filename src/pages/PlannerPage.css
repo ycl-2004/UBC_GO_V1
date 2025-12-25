@@ -533,6 +533,7 @@
   display: grid;
   grid-template-columns: 400px 1fr;
   gap: 2rem;
+  width: 100%;
 }
 
 /* Progress Section */
@@ -672,6 +673,7 @@
   display: flex;
   flex-direction: column;
   gap: 2rem;
+  width: 100%;
 }
 
 .section-header {
@@ -800,8 +802,27 @@
 
 .course-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  grid-template-columns: 1fr;
   gap: 1.5rem;
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .course-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .course-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (min-width: 1280px) {
+  .course-grid {
+    grid-template-columns: repeat(5, 1fr);
+  }
 }
 
 .course-card {
@@ -899,6 +920,183 @@
   font-weight: 600;
 }
 
+/* Progress Dashboard */
+.progress-dashboard {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
+}
+
+.progress-dashboard h2 {
+  font-size: 1.8rem;
+  color: #002145;
+  margin-bottom: 1.5rem;
+}
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.dashboard-card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.5rem;
+  border-radius: 8px;
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.dashboard-card.completed-card {
+  background: #f0fdf4;
+  border-color: #22c55e;
+}
+
+.dashboard-card.in-progress-card {
+  background: #eff6ff;
+  border-color: #3b82f6;
+}
+
+.dashboard-card.remaining-card {
+  background: #f9fafb;
+  border-color: #9ca3af;
+}
+
+.dashboard-icon {
+  font-size: 2.5rem;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-weight: bold;
+}
+
+.dashboard-icon.completed-icon {
+  background: #22c55e;
+  color: #fff;
+}
+
+.dashboard-icon.in-progress-icon {
+  background: #3b82f6;
+  color: #fff;
+}
+
+.dashboard-icon.remaining-icon {
+  background: #9ca3af;
+  color: #fff;
+}
+
+.dashboard-content {
+  flex: 1;
+}
+
+.dashboard-content h3 {
+  font-size: 1rem;
+  color: #666;
+  margin: 0 0 0.5rem 0;
+  font-weight: 500;
+}
+
+.dashboard-count {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #002145;
+  margin: 0;
+  line-height: 1;
+}
+
+.dashboard-label {
+  font-size: 0.85rem;
+  color: #666;
+  margin: 0.25rem 0 0 0;
+}
+
+/* Unified Course Card Styling */
+.course-card-unified {
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: 8px;
+  border: 2px solid;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  position: relative;
+  min-height: 180px;
+  display: flex;
+  flex-direction: column;
+}
+
+.course-card-unified:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Not Yet Started State */
+.course-card-unified.status-not-yet {
+  border-color: #9ca3af;
+  background: #fff;
+  opacity: 0.6;
+}
+
+.course-card-unified.status-not-yet .course-card-code,
+.course-card-unified.status-not-yet .course-card-name {
+  color: #6b7280;
+}
+
+.course-card-unified.status-not-yet .course-card-credits {
+  color: #9ca3af;
+}
+
+/* Planned State */
+.course-card-unified.status-planned {
+  border-color: #3b82f6;
+  background: #fff;
+}
+
+.course-card-unified.status-planned .course-card-code {
+  color: #002145;
+}
+
+/* Completed State */
+.course-card-unified.status-completed {
+  border-color: #22c55e;
+  background: #f0fdf4;
+}
+
+.course-card-unified.status-completed .course-card-code {
+  color: #15803d;
+}
+
+.course-card-icon {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.course-card-unified.status-not-yet .course-card-icon .icon-plus {
+  color: #6b7280;
+}
+
+.course-card-unified.status-planned .course-card-icon .icon-clock {
+  color: #3b82f6;
+}
+
+.course-card-unified.status-completed .course-card-icon .icon-check {
+  color: #22c55e;
+}
+
+.course-status-badge {
+  margin-top: auto;
+  padding-top: 0.75rem;
+}
+
 /* Course Status Styling */
 .course-card.status-completed {
   background: #d4edda;
@@ -928,7 +1126,17 @@
 }
 
 .status-badge.status-completed {
-  background: #28a745;
+  background: #22c55e;
+  color: #fff;
+}
+
+.status-badge.status-planned {
+  background: #3b82f6;
+  color: #fff;
+}
+
+.status-badge.status-not-yet {
+  background: #9ca3af;
   color: #fff;
 }
 
@@ -984,6 +1192,28 @@
 
 .curriculum-view {
   width: 100%;
+  max-width: 100%;
+}
+
+.curriculum-year {
+  margin-bottom: 2rem;
+}
+
+.curriculum-year h3 {
+  font-size: 1.5rem;
+  color: #002145;
+  margin-bottom: 1rem;
+}
+
+.curriculum-term {
+  margin-bottom: 2rem;
+}
+
+.curriculum-term h4 {
+  font-size: 1.2rem;
+  color: #333;
+  margin-bottom: 1rem;
+  font-weight: 600;
 }
 
 @media (max-width: 1200px) {
@@ -994,6 +1224,10 @@
   .progress-section {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+  
+  .dashboard-grid {
+    grid-template-columns: 1fr;
   }
 }
 

@@ -152,24 +152,32 @@ const PlannerPage = () => {
   }
 
   // Load curriculum data based on faculty + major
+  // Prioritize activePlan.major and activePlan.faculty if they exist
   useEffect(() => {
-    // Don't reset courses if we're loading a plan (isSavingRef indicates plan loading)
-    if (isSavingRef.current) return
-    
     const loadCurriculum = async () => {
+      // Wait a bit if we're currently loading a plan to avoid race conditions
+      if (isSavingRef.current) {
+        // Wait for plan sync to complete (give it 350ms, slightly more than the sync timeout)
+        await new Promise(resolve => setTimeout(resolve, 350))
+      }
+      
+      // Determine effective faculty and major - prioritize activePlan if it exists
+      const effectiveFaculty = (activePlan?.faculty) || selectedFaculty
+      const effectiveMajor = (activePlan?.major) || selectedMajor
+      
       // Handle Applied Science majors with dynamic import
-      if (selectedFaculty === 'appliedScience' && selectedMajor) {
+      if (effectiveFaculty === 'appliedScience' && effectiveMajor) {
         try {
           // Dynamic import based on major slug (e.g., 'civil-engineering' -> civil-engineering.json)
-          const module = await import(`../data/curriculum/applied-science/${selectedMajor}.json`)
+          const module = await import(`../data/curriculum/applied-science/${effectiveMajor}.json`)
           const data = module.default || module
           setCurriculumData(data)
-          const statusKey = `course_status_${selectedFaculty}_${selectedMajor}`
+          const statusKey = `course_status_${effectiveFaculty}_${effectiveMajor}`
           const storedStatus = localStorage.getItem(statusKey)
           setCourseStatus(storedStatus ? JSON.parse(storedStatus) : {})
           setSelectedYearTab(1)
         } catch (error) {
-          console.error(`Failed to load curriculum data for ${selectedMajor}:`, error)
+          console.error(`Failed to load curriculum data for ${effectiveMajor}:`, error)
           setCurriculumData(null)
         }
       } else {
@@ -182,7 +190,7 @@ const PlannerPage = () => {
       }
     }
     loadCurriculum()
-  }, [selectedFaculty, selectedMajor])
+  }, [selectedFaculty, selectedMajor, activePlan?.faculty, activePlan?.major, activePlan?.id])
 
   // Track unsaved changes
   useEffect(() => {
@@ -309,46 +317,69 @@ const PlannerPage = () => {
     }
   }
 
+  // Get course status: checks if course exists in completedCourses and courseStatus
+  const getCourseStatus = (courseCode) => {
+    const isInPlan = completedCourses.find(c => c.code === courseCode)
+    if (!isInPlan) return 'not-yet'
+    
+    // Check if there's a specific status set (planned or completed)
+    const status = courseStatus[courseCode]
+    if (status === 'completed') return 'completed'
+    if (status === 'planned') return 'planned'
+    
+    // Default to 'planned' if in plan but no specific status
+    return 'planned'
+  }
+
+  // Toggle course status: not-yet -> planned -> completed -> not-yet
   const toggleCourseStatus = (course) => {
-    const statusOrder = {
-      'not-started': 'in-progress',
-      'in-progress': 'completed',
-      'completed': 'not-started'
+    const currentStatus = getCourseStatus(course.code)
+    let nextStatus
+    let shouldAddToPlan = false
+    let shouldRemoveFromPlan = false
+
+    if (currentStatus === 'not-yet') {
+      nextStatus = 'planned'
+      shouldAddToPlan = true
+    } else if (currentStatus === 'planned') {
+      nextStatus = 'completed'
+      // Keep in plan, just change status
+    } else if (currentStatus === 'completed') {
+      nextStatus = 'not-yet'
+      shouldRemoveFromPlan = true
     }
 
+    // Update course status
     setCourseStatus((prev) => {
-      const currentStatus = prev[course.code] || 'not-started'
-      const nextStatus = statusOrder[currentStatus]
       const next = { ...prev }
-
-      if (nextStatus === 'not-started') {
+      if (nextStatus === 'not-yet') {
         delete next[course.code]
-        setCompletedCourses(prevCourses => prevCourses.filter(c => c.code !== course.code))
-      } else if (nextStatus === 'completed') {
-        next[course.code] = nextStatus
-        setCompletedCourses(prevCourses => {
-          if (prevCourses.find(c => c.code === course.code)) return prevCourses
-          return [
-            ...prevCourses,
-            {
-              code: course.code,
-              name: course.title || course.name || course.code,
-              credits: course.credits || 0,
-              year: `Year ${course.year || selectedYear.replace('Year ', '')}`,
-              term: `Term ${course.term || selectedTerm.replace('Term ', '')}`,
-              category: course.category || 'elective'
-            }
-          ]
-        })
       } else {
-        // in-progress should not count toward completed credits
         next[course.code] = nextStatus
-        setCompletedCourses(prevCourses => prevCourses.filter(c => c.code !== course.code))
       }
-
       persistCourseStatus(next)
       return next
     })
+
+    // Update completedCourses (plan)
+    if (shouldAddToPlan) {
+      setCompletedCourses(prevCourses => {
+        if (prevCourses.find(c => c.code === course.code)) return prevCourses
+        return [
+          ...prevCourses,
+          {
+            code: course.code,
+            name: course.title || course.name || course.code,
+            credits: course.credits || 0,
+            year: `Year ${course.year || selectedYearTab}`,
+            term: `Term ${course.term || 1}`,
+            category: course.category || 'elective'
+          }
+        ]
+      })
+    } else if (shouldRemoveFromPlan) {
+      setCompletedCourses(prevCourses => prevCourses.filter(c => c.code !== course.code))
+    }
   }
 
   const removeCourse = (courseCode) => {
@@ -374,9 +405,41 @@ const PlannerPage = () => {
 
   const calculateProgress = () => {
     const requirements = getCurrentRequirements()
+    
+    // Count courses by status
+    const completedCount = completedCourses.filter(c => {
+      const status = courseStatus[c.code] || 'planned'
+      return status === 'completed'
+    }).length
+    
+    const inProgressCount = completedCourses.filter(c => {
+      const status = courseStatus[c.code] || 'planned'
+      return status === 'planned'
+    }).length
+    
+    // Calculate total courses in curriculum
+    let totalCoursesInCurriculum = 0
+    if (curriculumData && curriculumData.years) {
+      curriculumData.years.forEach(year => {
+        year.terms.forEach(term => {
+          totalCoursesInCurriculum += term.courses.length
+        })
+      })
+    }
+    
+    const remainingCount = Math.max(0, totalCoursesInCurriculum - completedCourses.length)
+    
+    // Credit calculations
+    const completedCredits = completedCourses
+      .filter(c => {
+        const status = courseStatus[c.code] || 'planned'
+        return status === 'completed'
+      })
+      .reduce((sum, course) => sum + (course.credits || 0), 0)
+    
     const totalCredits = completedCourses.reduce((sum, course) => sum + (course.credits || 0), 0)
     const totalCreditsDenominator = curriculumData?.totalCredits || requirements.totalCredits
-    const progress = (totalCredits / totalCreditsDenominator) * 100
+    const progress = (completedCredits / totalCreditsDenominator) * 100
 
     const communicationCredits = completedCourses
       .filter(c => c.category === 'communication')
@@ -392,12 +455,17 @@ const PlannerPage = () => {
 
     return {
       totalCredits,
+      completedCredits,
       progress: Math.min(progress, 100),
       communicationCredits,
       scienceCredits,
       literatureCredits,
-      remainingCredits: Math.max(0, (curriculumData?.totalCredits || requirements.totalCredits) - totalCredits),
-      requirements
+      remainingCredits: Math.max(0, (curriculumData?.totalCredits || requirements.totalCredits) - completedCredits),
+      requirements,
+      completedCount,
+      inProgressCount,
+      remainingCount,
+      totalCoursesInCurriculum
     }
   }
 
@@ -431,8 +499,8 @@ const PlannerPage = () => {
 
   const statusLabels = {
     'completed': 'Completed',
-    'in-progress': 'In Progress',
-    'not-started': 'Not Started'
+    'planned': 'Planned',
+    'not-yet': 'Not Yet Started'
   }
 
   // Check if we should show empty state
@@ -746,7 +814,7 @@ const PlannerPage = () => {
                       cx="100"
                       cy="100"
                       strokeDasharray={`${2 * Math.PI * 90}`}
-                      strokeDashoffset={`${2 * Math.PI * 90 * (1 - progress.progress / 100)}`}
+                      strokeDashoffset={`${2 * Math.PI * 90 * (1 - Math.min(progress.progress / 100, 1))}`}
                       transform="rotate(-90 100 100)"
                     />
                   </svg>
@@ -757,8 +825,8 @@ const PlannerPage = () => {
                 </div>
                 <div className="progress-details">
                   <div className="progress-item">
-                    <span className="progress-item-label">Total Credits:</span>
-                    <span className="progress-item-value">{progress.totalCredits} / {requirements.totalCredits}</span>
+                    <span className="progress-item-label">Completed Credits:</span>
+                    <span className="progress-item-value">{progress.completedCredits} / {requirements.totalCredits}</span>
                   </div>
                   <div className="progress-item">
                     <span className="progress-item-label">Remaining:</span>
@@ -816,33 +884,60 @@ const PlannerPage = () => {
               </div>
             </div>
 
-            {/* Course Management */}
+            {/* Progress Dashboard */}
+            <div className="progress-dashboard">
+              <h2>Progress Dashboard</h2>
+              <div className="dashboard-grid">
+                <div className="dashboard-card completed-card">
+                  <div className="dashboard-icon completed-icon">✓</div>
+                  <div className="dashboard-content">
+                    <h3>Completed</h3>
+                    <p className="dashboard-count">{progress.completedCount}</p>
+                    <p className="dashboard-label">courses</p>
+                  </div>
+                </div>
+                <div className="dashboard-card in-progress-card">
+                  <div className="dashboard-icon in-progress-icon">⏱</div>
+                  <div className="dashboard-content">
+                    <h3>In Progress</h3>
+                    <p className="dashboard-count">{progress.inProgressCount}</p>
+                    <p className="dashboard-label">courses</p>
+                  </div>
+                </div>
+                <div className="dashboard-card remaining-card">
+                  <div className="dashboard-icon remaining-icon">📚</div>
+                  <div className="dashboard-content">
+                    <h3>Remaining</h3>
+                    <p className="dashboard-count">{progress.remainingCount}</p>
+                    <p className="dashboard-label">courses</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Unified Curriculum Grid */}
             <div className="courses-section">
               <div className="section-header">
-                <h2>My Courses</h2>
-                {!curriculumData && (
-                  <div className="term-selector">
-                    <select value={selectedYear} onChange={(e) => setSelectedYear(e.target.value)}>
-                      <option>Year 1</option>
-                      <option>Year 2</option>
-                      <option>Year 3</option>
-                      <option>Year 4</option>
-                    </select>
-                    <select value={selectedTerm} onChange={(e) => setSelectedTerm(e.target.value)}>
-                      <option>Term 1</option>
-                      <option>Term 2</option>
-                    </select>
-                  </div>
-                )}
+                <h2>Curriculum Grid</h2>
               </div>
 
-              {majorOptions[selectedFaculty] && !selectedMajor && (
-                <div className="empty-state">
-                  <p>Please select a major to view requirements.</p>
-                </div>
-              )}
-
-              {curriculumData && selectedMajor ? (
+              {(() => {
+                // Determine effective major - prioritize activePlan.major if it exists
+                const effectiveMajor = (activePlan?.major) || selectedMajor
+                const effectiveFaculty = (activePlan?.faculty) || selectedFaculty
+                
+                // Check if we should show empty state
+                if (majorOptions[effectiveFaculty] && !effectiveMajor) {
+                  return (
+                    <div className="empty-state">
+                      <p>Please select a major to view the curriculum.</p>
+                    </div>
+                  )
+                }
+                
+                // Check if we should show curriculum grid
+                if (curriculumData && effectiveMajor) {
+                  return (
                 <div className="curriculum-view">
                   <div className="year-tabs">
                     {curriculumData.years.map((year) => (
@@ -857,32 +952,38 @@ const PlannerPage = () => {
                   </div>
 
                   {curriculumData.years.filter(y => y.year === selectedYearTab).map((year) => (
-                    <div key={year.year} className="available-courses">
+                    <div key={year.year} className="curriculum-year">
                       <h3>{year.label}</h3>
                       {year.terms.map((term) => (
-                        <div key={term.term}>
+                        <div key={term.term} className="curriculum-term">
                           <h4>Term {term.term}</h4>
                           <div className="course-grid">
                             {term.courses.map((course) => {
-                              const status = courseStatus[course.code] || 'not-started'
+                              const status = getCourseStatus(course.code)
                               return (
                                 <div
                                   key={course.code}
-                                  className={`course-card status-${status}`}
+                                  className={`course-card-unified status-${status}`}
                                   onClick={() => toggleCourseStatus(course)}
                                 >
                                   <div className="course-card-header">
                                     <span className="course-card-code">{course.code}</span>
                                     <span className="course-card-credits">{course.credits} credits</span>
                                   </div>
-                                  <h4 className="course-card-name">{course.title || course.name}</h4>
-                                  <div className="course-status">
+                                  <h4 className="course-card-name">{course.title || course.name || course.code}</h4>
+                                  <div className="course-card-icon">
+                                    {status === 'not-yet' && <span className="icon-plus">+</span>}
+                                    {status === 'planned' && <span className="icon-clock">⏱</span>}
+                                    {status === 'completed' && <span className="icon-check">✓</span>}
+                                  </div>
+                                  <div className="course-status-badge">
                                     <span className={`status-badge status-${status}`}>
                                       {statusLabels[status]}
                                     </span>
                                   </div>
-                                  <p className="course-card-description">{course.description || ''}</p>
-                                  <small>Click to toggle status</small>
+                                  {course.description && (
+                                    <p className="course-card-description">{course.description}</p>
+                                  )}
                                 </div>
                               )
                             })}
@@ -892,102 +993,16 @@ const PlannerPage = () => {
                     </div>
                   ))}
                 </div>
-              ) : (
-                <>
-                  {/* Completed Courses */}
-                  <div className="completed-courses">
-                    {completedCourses.length === 0 ? (
-                      <div className="empty-state">
-                        <p>No courses added yet. Start by adding courses from the course list below.</p>
-                      </div>
-                    ) : (
-                      <div className="course-list">
-                        {completedCourses.map((course, index) => (
-                          <div key={index} className="course-item">
-                            <div className="course-info">
-                              <span className="course-code">{course.code}</span>
-                              <span className="course-name">{course.name}</span>
-                              <span className="course-credits">{course.credits} credits</span>
-                              <span className="course-term">{course.year} - {course.term}</span>
-                            </div>
-                            <button 
-                              className="remove-course"
-                              onClick={() => removeCourse(course.code)}
-                              title="Remove course"
-                            >
-                              ×
-                            </button>
-                          </div>
-                        ))}
-                      </div>
-                    )}
+                  )
+                }
+                
+                // Default empty state
+                return (
+                  <div className="empty-state">
+                    <p>Select a major to view the curriculum grid.</p>
                   </div>
-
-                  {/* Available Courses */}
-                  <div className="available-courses">
-                    <h3>Available Courses</h3>
-                    <div className="course-grid">
-                      {currentCourses.map((course, index) => {
-                        const isCompleted = completedCourses.find(c => c.code === course.code)
-                        return (
-                          <div 
-                            key={index} 
-                            className={`course-card ${isCompleted ? 'completed' : ''}`}
-                          >
-                            <div className="course-card-header">
-                              <span className="course-card-code">{course.code}</span>
-                              <span className="course-card-credits">{course.credits} credits</span>
-                            </div>
-                            <h4 className="course-card-name">{course.name}</h4>
-                            <p className="course-card-description">{course.description}</p>
-                            {course.prerequisites && course.prerequisites.length > 0 && (
-                              <div className="course-prerequisites">
-                                <strong>Prerequisites:</strong> {course.prerequisites.join(', ')}
-                              </div>
-                            )}
-                            {!isCompleted && (
-                              <button 
-                                className="add-course-btn"
-                                onClick={() => addCourse(course)}
-                              >
-                                Add Course
-                              </button>
-                            )}
-                            {isCompleted && (
-                              <span className="course-added-badge">Added</span>
-                            )}
-                          </div>
-                        )
-                      })}
-                    </div>
-                  </div>
-
-                  {/* Recommended Courses */}
-                  {recommendedCourses.length > 0 && (
-                    <div className="recommended-courses">
-                      <h3>Recommended for Next Term</h3>
-                      <div className="course-grid">
-                        {recommendedCourses.map((course, index) => (
-                          <div key={index} className="course-card recommended">
-                            <div className="course-card-header">
-                              <span className="course-card-code">{course.code}</span>
-                              <span className="course-card-credits">{course.credits} credits</span>
-                            </div>
-                            <h4 className="course-card-name">{course.name}</h4>
-                            <p className="course-card-description">{course.description}</p>
-                            <button 
-                              className="add-course-btn"
-                              onClick={() => addCourse(course)}
-                            >
-                              Add Course
-                            </button>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  )}
-                </>
-              )}
+                )
+              })()}
             </div>
           </div>
         )}
