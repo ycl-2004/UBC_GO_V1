@@ -230,6 +230,305 @@
   background: #218838;
 }
 
+.btn-new-plan:disabled {
+  background: #6c757d;
+  cursor: not-allowed;
+}
+
+/* Save Changes Button */
+.btn-save-changes {
+  background: #28a745;
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  animation: pulse 2s infinite;
+}
+
+.btn-save-changes:hover {
+  background: #218838;
+}
+
+.btn-save-changes:disabled {
+  background: #6c757d;
+  cursor: not-allowed;
+  animation: none;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(40, 167, 69, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 0 8px rgba(40, 167, 69, 0);
+  }
+}
+
+/* Modal Overlay */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+}
+
+/* Create Plan Modal */
+.create-plan-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  padding: 0;
+  border-radius: 16px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+  max-width: 480px;
+  width: 90%;
+  overflow: hidden;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 2rem;
+  background: #002145;
+  color: #fff;
+}
+
+.modal-header h3 {
+  margin: 0;
+  font-size: 1.25rem;
+}
+
+.modal-header .close-btn {
+  color: #fff;
+  font-size: 1.5rem;
+}
+
+.modal-header .close-btn:hover {
+  color: #ccc;
+}
+
+.modal-body {
+  padding: 2rem;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group:last-child {
+  margin-bottom: 0;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.form-input,
+.form-select {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+  box-sizing: border-box;
+}
+
+.form-input:focus,
+.form-select:focus {
+  outline: none;
+  border-color: #002145;
+}
+
+.form-input::placeholder {
+  color: #999;
+}
+
+.modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  padding: 1.5rem 2rem;
+  background: #f8f9fa;
+  border-top: 1px solid #e0e0e0;
+}
+
+.btn-cancel {
+  background: #fff;
+  color: #666;
+  padding: 0.75rem 1.5rem;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-cancel:hover {
+  background: #f8f9fa;
+  border-color: #ccc;
+}
+
+.btn-create {
+  background: #002145;
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.btn-create:hover {
+  background: #003d7a;
+}
+
+/* No Plans Message */
+.no-plans-message {
+  text-align: center;
+  padding: 2rem;
+  color: #666;
+}
+
+.no-plans-message p {
+  margin: 0.5rem 0;
+}
+
+/* Empty State Container */
+.empty-state-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 60vh;
+  padding: 2rem;
+}
+
+.empty-state-content {
+  text-align: center;
+  max-width: 400px;
+  padding: 3rem;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+}
+
+.empty-state-icon {
+  font-size: 4rem;
+  margin-bottom: 1.5rem;
+}
+
+.empty-state-content h2 {
+  color: #002145;
+  margin-bottom: 1rem;
+  font-size: 1.75rem;
+}
+
+.empty-state-content p {
+  color: #666;
+  margin-bottom: 0.5rem;
+  line-height: 1.6;
+}
+
+.btn-create-first-plan {
+  background: #002145;
+  color: #fff;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  margin-top: 1.5rem;
+}
+
+.btn-create-first-plan:hover {
+  background: #003d7a;
+}
+
+/* Plan Name Editor Improvements */
+.plan-name-editor {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1rem;
+  padding: 1rem;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.plan-name-editor label {
+  font-weight: 600;
+  color: #333;
+  white-space: nowrap;
+}
+
+.plan-name-hint {
+  font-size: 0.75rem;
+  color: #999;
+  font-style: italic;
+}
+
+/* Locked Faculty/Major Selector */
+.faculty-selector.locked {
+  position: relative;
+}
+
+.faculty-selector.locked label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.lock-icon {
+  font-size: 0.85rem;
+  opacity: 0.7;
+}
+
+.disabled-select {
+  background: #f0f0f0 !important;
+  color: #666 !important;
+  cursor: not-allowed !important;
+  opacity: 0.8;
+}
+
+.disabled-select:hover {
+  border-color: #e0e0e0 !important;
+}
+
+/* Tooltip for locked fields */
+.faculty-selector.locked::after {
+  content: 'Locked to this plan. Create a new plan to change.';
+  position: absolute;
+  bottom: -1.5rem;
+  left: 0;
+  font-size: 0.7rem;
+  color: #888;
+  font-style: italic;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.faculty-selector.locked:hover::after {
+  opacity: 1;
+}
+
 .planner-content {
   display: grid;
   grid-template-columns: 400px 1fr;
@@ -598,6 +897,49 @@
   color: #fff;
   border-radius: 6px;
   font-weight: 600;
+}
+
+/* Course Status Styling */
+.course-card.status-completed {
+  background: #d4edda;
+  border-color: #28a745;
+}
+
+.course-card.status-in-progress {
+  background: #fff3cd;
+  border-color: #ffc107;
+}
+
+.course-card.status-not-started {
+  background: #f8f9fa;
+  border-color: transparent;
+}
+
+.course-status {
+  margin: 0.75rem 0;
+}
+
+.status-badge {
+  display: inline-block;
+  padding: 0.35rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.status-badge.status-completed {
+  background: #28a745;
+  color: #fff;
+}
+
+.status-badge.status-in-progress {
+  background: #ffc107;
+  color: #333;
+}
+
+.status-badge.status-not-started {
+  background: #e0e0e0;
+  color: #666;
 }
 
 /* Year Tabs - Modern Tab Switcher Style */

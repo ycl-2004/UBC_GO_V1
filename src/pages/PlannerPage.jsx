@@ -33,8 +33,17 @@ const PlannerPage = () => {
   const [selectedYear, setSelectedYear] = useState('Year 1')
   const [selectedTerm, setSelectedTerm] = useState('Term 1')
   const [showPlanManager, setShowPlanManager] = useState(false)
+  const [showCreateModal, setShowCreateModal] = useState(false)
+  const [hasUnsavedChanges, setHasUnsavedChanges] = useState(false)
+  const [isSaving, setIsSaving] = useState(false)
   const isInitialLoad = useRef(true)
   const isSavingRef = useRef(false)
+  
+  // Create Plan Modal State
+  const [newPlanName, setNewPlanName] = useState('')
+  const [newPlanFaculty, setNewPlanFaculty] = useState('arts')
+  const [newPlanMajor, setNewPlanMajor] = useState('')
+  const [isCreatingPlan, setIsCreatingPlan] = useState(false)
 
   const majorOptions = {
     appliedScience: [
@@ -56,21 +65,35 @@ const PlannerPage = () => {
 
   // Sync active plan data to local state when it changes
   useEffect(() => {
-    if (isAuthenticated && activePlan) {
-      // Set flag to prevent savePlan from running during load
-      isSavingRef.current = true
-      
-      setPlanName(activePlan.plan_name || 'My Degree Plan')
-      setSelectedFaculty(activePlan.faculty || 'arts')
-      setSelectedMajor(activePlan.major || '')
-      setCompletedCourses(activePlan.course_data || [])
-      
-      // Reset flag after state updates
-      setTimeout(() => {
-        isSavingRef.current = false
-      }, 200)
+    if (!isAuthenticated || !activePlan) {
+      return
     }
-  }, [activePlan, isAuthenticated])
+    
+    // Set flag to prevent savePlan from running during load
+    isSavingRef.current = true
+    
+    console.log('Syncing plan data:', {
+      id: activePlan.id,
+      plan_name: activePlan.plan_name,
+      faculty: activePlan.faculty,
+      major: activePlan.major,
+      course_count: activePlan.course_data?.length
+    })
+    
+    // Update all local state from the active plan
+    setPlanName(activePlan.plan_name || 'My Degree Plan')
+    setSelectedFaculty(activePlan.faculty || 'arts')
+    setSelectedMajor(activePlan.major || '')
+    setCompletedCourses(activePlan.course_data || [])
+    setHasUnsavedChanges(false)
+    
+    // Reset flag after state updates (give React time to batch)
+    const timer = setTimeout(() => {
+      isSavingRef.current = false
+    }, 300)
+    
+    return () => clearTimeout(timer)
+  }, [activePlan?.id, activePlan?.faculty, activePlan?.major, activePlan?.plan_name, isAuthenticated])
 
   const loadGuestPlan = () => {
     const saved = localStorage.getItem('guest_plan')
@@ -82,14 +105,8 @@ const PlannerPage = () => {
     }
   }
 
-  // Auto-save plan when courses or metadata change
-  const savePlan = useCallback(async () => {
-    // Prevent saving during initial load
-    if (isInitialLoad.current) return
-    
-    // Skip if we're already saving
-    if (isSavingRef.current) return
-    
+  // Manual save function
+  const handleSaveChanges = async () => {
     if (!isAuthenticated || !user || !activePlan) {
       // Save to localStorage for guest
       const planData = {
@@ -100,16 +117,17 @@ const PlannerPage = () => {
         updatedAt: new Date().toISOString()
       }
       localStorage.setItem('guest_plan', JSON.stringify(planData))
+      setHasUnsavedChanges(false)
       return
     }
 
-    isSavingRef.current = true
+    setIsSaving(true)
 
     try {
-      // Save course data (silent mode for auto-save - no toast)
-      await savePlanHook(activePlan.id, completedCourses, true)
+      // Save course data
+      await savePlanHook(activePlan.id, completedCourses, false)
       
-      // Update plan metadata if changed (silent mode for auto-save - no toast)
+      // Update plan metadata if changed
       const metadataUpdates = {}
       if (activePlan.plan_name !== planName) {
         metadataUpdates.plan_name = planName
@@ -124,15 +142,14 @@ const PlannerPage = () => {
       if (Object.keys(metadataUpdates).length > 0) {
         await updatePlanMetadata(activePlan.id, metadataUpdates, true)
       }
+      
+      setHasUnsavedChanges(false)
     } catch (error) {
       console.error('Error saving plan:', error)
     } finally {
-      // Reset saving flag after a short delay
-      setTimeout(() => {
-        isSavingRef.current = false
-      }, 100)
+      setIsSaving(false)
     }
-  }, [activePlan, planName, selectedFaculty, selectedMajor, completedCourses, isAuthenticated, user, savePlanHook, updatePlanMetadata])
+  }
 
   // Load curriculum data based on faculty + major
   useEffect(() => {
@@ -167,21 +184,11 @@ const PlannerPage = () => {
     loadCurriculum()
   }, [selectedFaculty, selectedMajor])
 
-  // Save plan when courses change (with debounce to prevent infinite loops)
+  // Track unsaved changes
   useEffect(() => {
-    // Skip during initial load
-    if (isInitialLoad.current) return
-    
-    // Skip if we're already saving
-    if (isSavingRef.current) return
-    
-    // Only save if there are courses or if plan name/faculty changed
-    const timeoutId = setTimeout(() => {
-      savePlan()
-    }, 500) // Debounce by 500ms
-    
-    return () => clearTimeout(timeoutId)
-  }, [completedCourses, selectedFaculty, planName, savePlan])
+    if (isInitialLoad.current || isSavingRef.current) return
+    setHasUnsavedChanges(true)
+  }, [completedCourses, planName])
 
   // Load guest plan on mount if not authenticated
   useEffect(() => {
@@ -191,26 +198,53 @@ const PlannerPage = () => {
     isInitialLoad.current = false
   }, [isAuthenticated, user])
 
-  const createNewPlan = useCallback(async () => {
-    if (!isAuthenticated || !user) {
-      // For guest users, just reset the current plan
-      setPlanName('My Degree Plan')
-      setCompletedCourses([])
-      setSelectedFaculty('arts')
-      setSelectedMajor('')
+  // Open create plan modal
+  const openCreateModal = () => {
+    setNewPlanName('')
+    setNewPlanFaculty('arts')
+    setNewPlanMajor('')
+    setShowCreateModal(true)
+    setShowPlanManager(false)
+  }
+
+  // Create new plan with modal data
+  const handleCreatePlan = async () => {
+    if (!newPlanName.trim()) {
+      alert('Please enter a plan name')
       return
     }
 
-    try {
-      const planName = `Plan ${savedPlans.length + 1}`
-      await createPlanHook(planName)
-      // The hook will automatically set the new plan as activePlan
-      // and the useEffect will sync the state
-    } catch (error) {
-      // Error toast is already shown by the hook
-      console.error('Failed to create plan:', error)
+    if (!isAuthenticated || !user) {
+      // For guest users, create a local plan
+      setPlanName(newPlanName)
+      setSelectedFaculty(newPlanFaculty)
+      setSelectedMajor(newPlanMajor)
+      setCompletedCourses([])
+      setShowCreateModal(false)
+      return
     }
-  }, [isAuthenticated, user, savedPlans.length, createPlanHook])
+
+    setIsCreatingPlan(true)
+
+    try {
+      console.log('Creating plan with:', { name: newPlanName, faculty: newPlanFaculty, major: newPlanMajor })
+      
+      // Create plan with name, faculty, and major directly
+      const newPlan = await createPlanHook(newPlanName, newPlanFaculty, newPlanMajor || null)
+      
+      console.log('Plan created:', newPlan)
+      
+      // The hook will set this as the active plan, and the sync effect will update local state
+      // No need to manually set faculty/major since the plan already has correct values
+      
+      setShowCreateModal(false)
+    } catch (error) {
+      console.error('Failed to create plan:', error)
+      alert(`Failed to create plan: ${error.message || 'Unknown error'}`)
+    } finally {
+      setIsCreatingPlan(false)
+    }
+  }
 
   const loadPlan = (planId) => {
     if (!isAuthenticated || !user) return
@@ -319,6 +353,13 @@ const PlannerPage = () => {
 
   const removeCourse = (courseCode) => {
     setCompletedCourses(completedCourses.filter(c => c.code !== courseCode))
+    // Also update course status
+    setCourseStatus(prev => {
+      const next = { ...prev }
+      delete next[courseCode]
+      persistCourseStatus(next)
+      return next
+    })
   }
 
   const getCurrentRequirements = () => {
@@ -333,7 +374,7 @@ const PlannerPage = () => {
 
   const calculateProgress = () => {
     const requirements = getCurrentRequirements()
-    const totalCredits = completedCourses.reduce((sum, course) => sum + course.credits, 0)
+    const totalCredits = completedCourses.reduce((sum, course) => sum + (course.credits || 0), 0)
     const totalCreditsDenominator = curriculumData?.totalCredits || requirements.totalCredits
     const progress = (totalCredits / totalCreditsDenominator) * 100
 
@@ -355,7 +396,7 @@ const PlannerPage = () => {
       communicationCredits,
       scienceCredits,
       literatureCredits,
-      remainingCredits: requirements.totalCredits - totalCredits,
+      remainingCredits: Math.max(0, (curriculumData?.totalCredits || requirements.totalCredits) - totalCredits),
       requirements
     }
   }
@@ -394,6 +435,18 @@ const PlannerPage = () => {
     'not-started': 'Not Started'
   }
 
+  // Check if we should show empty state
+  const showEmptyState = isAuthenticated && !activePlan && !plansLoading
+
+  // Debug: only log when there's a mismatch
+  if (activePlan && selectedFaculty !== activePlan.faculty) {
+    console.warn('Faculty mismatch detected:', {
+      selectedFaculty,
+      activePlanFaculty: activePlan.faculty,
+      activePlanId: activePlan.id
+    })
+  }
+
   return (
     <div className="planner-page">
       <Navigation />
@@ -402,9 +455,20 @@ const PlannerPage = () => {
           <div className="header-top">
             <div>
               <h1>Degree Planner</h1>
-              <p className="subtitle">{requirements.faculty} - Track your progress and plan your courses</p>
+              {activePlan && (
+                <p className="subtitle">{requirements.faculty} - Track your progress and plan your courses</p>
+              )}
             </div>
             <div className="header-actions">
+              {hasUnsavedChanges && isAuthenticated && activePlan && (
+                <button 
+                  className="btn-save-changes"
+                  onClick={handleSaveChanges}
+                  disabled={isSaving}
+                >
+                  {isSaving ? 'Saving...' : 'Save Changes'}
+                </button>
+              )}
               {isAuthenticated && (
                 <button 
                   className="btn-manage-plans"
@@ -424,369 +488,509 @@ const PlannerPage = () => {
             </div>
           </div>
 
-          {/* Plan Manager Modal */}
-          {showPlanManager && isAuthenticated && (
-            <div className="plan-manager">
-              <div className="plan-manager-header">
-                <h3>My Plans</h3>
-                <button className="close-btn" onClick={() => setShowPlanManager(false)}>×</button>
-              </div>
-              <div className="plan-list">
-                {savedPlans.map(plan => (
-                  <div 
-                    key={plan.id} 
-                    className={`plan-item ${plan.id === activePlan?.id ? 'active' : ''}`}
-                  >
-                    <div onClick={() => loadPlan(plan.id)}>
-                      <h4>{plan.plan_name || 'My Degree Plan'}</h4>
-                      <p>{facultyRequirements[plan.faculty]?.faculty || 'Unknown Faculty'}</p>
-                      <small>{(plan.course_data?.length || 0)} courses</small>
-                    </div>
-                    <button 
-                      className="delete-plan-btn"
-                      onClick={() => deletePlan(plan.id)}
+          {/* Create Plan Modal */}
+          {showCreateModal && (
+            <>
+              <div className="modal-overlay" onClick={() => setShowCreateModal(false)} />
+              <div className="create-plan-modal">
+                <div className="modal-header">
+                  <h3>Create New Plan</h3>
+                  <button className="close-btn" onClick={() => setShowCreateModal(false)}>×</button>
+                </div>
+                <div className="modal-body">
+                  <div className="form-group">
+                    <label htmlFor="newPlanName">Plan Name</label>
+                    <input
+                      type="text"
+                      id="newPlanName"
+                      value={newPlanName}
+                      onChange={(e) => setNewPlanName(e.target.value)}
+                      placeholder="e.g., My Engineering Path"
+                      className="form-input"
+                    />
+                  </div>
+                  <div className="form-group">
+                    <label htmlFor="newPlanFaculty">Select Faculty</label>
+                    <select
+                      id="newPlanFaculty"
+                      value={newPlanFaculty}
+                      onChange={(e) => {
+                        setNewPlanFaculty(e.target.value)
+                        setNewPlanMajor('')
+                      }}
+                      className="form-select"
                     >
-                      Delete
-                    </button>
-                  </div>
-                ))}
-                <button 
-                  className="btn-new-plan" 
-                  onClick={createNewPlan}
-                  disabled={savedPlans.length >= 3}
-                  title={savedPlans.length >= 3 ? 'Maximum 3 plans allowed. Delete a plan to create a new one.' : ''}
-                >
-                  + New Plan {savedPlans.length >= 3 && '(Limit Reached)'}
-                </button>
-              </div>
-            </div>
-          )}
-
-          {/* Faculty Selector */}
-          <div className="faculty-selector">
-            <label htmlFor="faculty">Select Faculty:</label>
-            <select 
-              id="faculty"
-              value={selectedFaculty} 
-              onChange={(e) => {
-                setSelectedFaculty(e.target.value)
-                setSelectedMajor('')
-                setCompletedCourses([]) // Reset courses when changing faculty
-                setCourseStatus({})
-              }}
-            >
-              {getAllFaculties().map(facultyKey => (
-                <option key={facultyKey} value={facultyKey}>
-                  {facultyRequirements[facultyKey].faculty}
-                </option>
-              ))}
-            </select>
-          </div>
-
-          {majorOptions[selectedFaculty] && (
-            <div className="faculty-selector">
-              <label htmlFor="major">Select Major:</label>
-              <select
-                id="major"
-                value={selectedMajor}
-                onChange={(e) => {
-                  setSelectedMajor(e.target.value)
-                  setCompletedCourses([])
-                  setCourseStatus({})
-                }}
-              >
-                <option value="">Select a major</option>
-                {majorOptions[selectedFaculty].map((major) => (
-                  <option key={major.value} value={major.value}>
-                    {major.label}
-                  </option>
-                ))}
-              </select>
-            </div>
-          )}
-
-          {/* Plan Name Editor */}
-          {isAuthenticated && activePlan && (
-            <div className="plan-name-editor">
-              <input
-                type="text"
-                value={planName}
-                onChange={(e) => setPlanName(e.target.value)}
-                placeholder="Plan name"
-                className="plan-name-input"
-              />
-            </div>
-          )}
-        </div>
-
-        <div className="planner-content">
-          {/* Progress Overview */}
-          <div className="progress-section">
-            <h2>Your Progress</h2>
-            <div className="progress-card">
-              <div className="progress-circle">
-                <svg className="progress-ring" width="200" height="200">
-                  <circle
-                    className="progress-ring-circle"
-                    stroke="#e0e0e0"
-                    strokeWidth="12"
-                    fill="transparent"
-                    r="90"
-                    cx="100"
-                    cy="100"
-                  />
-                  <circle
-                    className="progress-ring-circle progress-ring-fill"
-                    stroke="#002145"
-                    strokeWidth="12"
-                    fill="transparent"
-                    r="90"
-                    cx="100"
-                    cy="100"
-                    strokeDasharray={`${2 * Math.PI * 90}`}
-                    strokeDashoffset={`${2 * Math.PI * 90 * (1 - progress.progress / 100)}`}
-                    transform="rotate(-90 100 100)"
-                  />
-                </svg>
-                <div className="progress-text">
-                  <span className="progress-percentage">{Math.round(progress.progress)}%</span>
-                  <span className="progress-label">Complete</span>
-                </div>
-              </div>
-              <div className="progress-details">
-                <div className="progress-item">
-                  <span className="progress-item-label">Total Credits:</span>
-                  <span className="progress-item-value">{progress.totalCredits} / {requirements.totalCredits}</span>
-                </div>
-                <div className="progress-item">
-                  <span className="progress-item-label">Remaining:</span>
-                  <span className="progress-item-value">{progress.remainingCredits} credits</span>
-                </div>
-              </div>
-            </div>
-
-            {/* Requirements Progress */}
-            <div className="requirements-grid">
-              {requirements.requirements.communication && (
-                <div className="requirement-card">
-                  <h3>Communication</h3>
-                  <div className="requirement-progress">
-                    <div className="requirement-bar">
-                      <div 
-                        className="requirement-bar-fill"
-                        style={{ width: `${Math.min((progress.communicationCredits / requirements.requirements.communication.credits) * 100, 100)}%` }}
-                      ></div>
-                    </div>
-                    <span>{progress.communicationCredits} / {requirements.requirements.communication.credits} credits</span>
-                  </div>
-                </div>
-              )}
-
-              {requirements.requirements.breadth?.science && (
-                <div className="requirement-card">
-                  <h3>Science</h3>
-                  <div className="requirement-progress">
-                    <div className="requirement-bar">
-                      <div 
-                        className="requirement-bar-fill"
-                        style={{ width: `${Math.min((progress.scienceCredits / requirements.requirements.breadth.science.credits) * 100, 100)}%` }}
-                      ></div>
-                    </div>
-                    <span>{progress.scienceCredits} / {requirements.requirements.breadth.science.credits} credits</span>
-                  </div>
-                </div>
-              )}
-
-              {requirements.requirements.breadth?.literature && (
-                <div className="requirement-card">
-                  <h3>Literature</h3>
-                  <div className="requirement-progress">
-                    <div className="requirement-bar">
-                      <div 
-                        className="requirement-bar-fill"
-                        style={{ width: `${Math.min((progress.literatureCredits / requirements.requirements.breadth.literature.credits) * 100, 100)}%` }}
-                      ></div>
-                    </div>
-                    <span>{progress.literatureCredits} / {requirements.requirements.breadth.literature.credits} credits</span>
-                  </div>
-                </div>
-              )}
-            </div>
-          </div>
-
-          {/* Course Management */}
-          <div className="courses-section">
-            <div className="section-header">
-              <h2>My Courses</h2>
-              {!curriculumData && (
-                <div className="term-selector">
-                  <select value={selectedYear} onChange={(e) => setSelectedYear(e.target.value)}>
-                    <option>Year 1</option>
-                    <option>Year 2</option>
-                    <option>Year 3</option>
-                    <option>Year 4</option>
-                  </select>
-                  <select value={selectedTerm} onChange={(e) => setSelectedTerm(e.target.value)}>
-                    <option>Term 1</option>
-                    <option>Term 2</option>
-                  </select>
-                </div>
-              )}
-            </div>
-
-            {majorOptions[selectedFaculty] && !selectedMajor && (
-              <div className="empty-state">
-                <p>Please select a major to view requirements.</p>
-              </div>
-            )}
-
-            {curriculumData && selectedMajor ? (
-              <div className="curriculum-view">
-                <div className="year-tabs">
-                  {curriculumData.years.map((year) => (
-                    <button
-                      key={year.year}
-                      className={`year-tab ${selectedYearTab === year.year ? 'active' : ''}`}
-                      onClick={() => setSelectedYearTab(year.year)}
-                    >
-                      {year.label}
-                    </button>
-                  ))}
-                </div>
-
-                {curriculumData.years.filter(y => y.year === selectedYearTab).map((year) => (
-                  <div key={year.year} className="available-courses">
-                    <h3>{year.label}</h3>
-                    {year.terms.map((term) => (
-                      <div key={term.term}>
-                        <h4>Term {term.term}</h4>
-                        <div className="course-grid">
-                          {term.courses.map((course) => {
-                            const status = courseStatus[course.code] || 'not-started'
-                            return (
-                              <div
-                                key={course.code}
-                                className={`course-card status-${status}`}
-                                onClick={() => toggleCourseStatus(course)}
-                              >
-                                <div className="course-card-header">
-                                  <span className="course-card-code">{course.code}</span>
-                                  <span className="course-card-credits">{course.credits} credits</span>
-                                </div>
-                                <h4 className="course-card-name">{course.title || course.name}</h4>
-                                <div className="course-status">
-                                  <span className={`status-badge status-${status}`}>
-                                    {statusLabels[status]}
-                                  </span>
-                                </div>
-                                <p className="course-card-description">{course.description || ''}</p>
-                                <small>Click to toggle status</small>
-                              </div>
-                            )
-                          })}
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                ))}
-              </div>
-            ) : (
-              <>
-                {/* Completed Courses */}
-                <div className="completed-courses">
-                  {completedCourses.length === 0 ? (
-                    <div className="empty-state">
-                      <p>No courses added yet. Start by adding courses from the course list below.</p>
-                    </div>
-                  ) : (
-                    <div className="course-list">
-                      {completedCourses.map((course, index) => (
-                        <div key={index} className="course-item">
-                          <div className="course-info">
-                            <span className="course-code">{course.code}</span>
-                            <span className="course-name">{course.name}</span>
-                            <span className="course-credits">{course.credits} credits</span>
-                            <span className="course-term">{course.year} - {course.term}</span>
-                          </div>
-                          <button 
-                            className="remove-course"
-                            onClick={() => removeCourse(course.code)}
-                          >
-                            ×
-                          </button>
-                        </div>
+                      {getAllFaculties().map(facultyKey => (
+                        <option key={facultyKey} value={facultyKey}>
+                          {facultyRequirements[facultyKey].faculty}
+                        </option>
                       ))}
+                    </select>
+                  </div>
+                  {majorOptions[newPlanFaculty] && (
+                    <div className="form-group">
+                      <label htmlFor="newPlanMajor">Select Major</label>
+                      <select
+                        id="newPlanMajor"
+                        value={newPlanMajor}
+                        onChange={(e) => setNewPlanMajor(e.target.value)}
+                        className="form-select"
+                      >
+                        <option value="">Select a major</option>
+                        {majorOptions[newPlanFaculty].map((major) => (
+                          <option key={major.value} value={major.value}>
+                            {major.label}
+                          </option>
+                        ))}
+                      </select>
                     </div>
                   )}
                 </div>
+                <div className="modal-footer">
+                  <button 
+                    className="btn-cancel" 
+                    onClick={() => setShowCreateModal(false)}
+                    disabled={isCreatingPlan}
+                  >
+                    Cancel
+                  </button>
+                  <button 
+                    className="btn-create" 
+                    onClick={handleCreatePlan}
+                    disabled={isCreatingPlan}
+                  >
+                    {isCreatingPlan ? 'Creating...' : 'Create Plan'}
+                  </button>
+                </div>
+              </div>
+            </>
+          )}
 
-                {/* Available Courses */}
-                <div className="available-courses">
-                  <h3>Available Courses</h3>
-                  <div className="course-grid">
-                    {currentCourses.map((course, index) => {
-                      const isCompleted = completedCourses.find(c => c.code === course.code)
-                      return (
-                        <div 
-                          key={index} 
-                          className={`course-card ${isCompleted ? 'completed' : ''}`}
+          {/* Plan Manager Modal */}
+          {showPlanManager && isAuthenticated && (
+            <>
+              <div className="modal-overlay" onClick={() => setShowPlanManager(false)} />
+              <div className="plan-manager">
+                <div className="plan-manager-header">
+                  <h3>My Plans</h3>
+                  <button className="close-btn" onClick={() => setShowPlanManager(false)}>×</button>
+                </div>
+                <div className="plan-list">
+                  {savedPlans.length === 0 ? (
+                    <div className="no-plans-message">
+                      <p>You don't have any plans yet.</p>
+                      <p>Click "New Plan" to create your first degree plan.</p>
+                    </div>
+                  ) : (
+                    savedPlans.map(plan => (
+                      <div 
+                        key={plan.id} 
+                        className={`plan-item ${plan.id === activePlan?.id ? 'active' : ''}`}
+                      >
+                        <div onClick={() => loadPlan(plan.id)}>
+                          <h4>{plan.plan_name || 'My Degree Plan'}</h4>
+                          <p>{facultyRequirements[plan.faculty]?.faculty || 'Unknown Faculty'}</p>
+                          <small>{(plan.course_data?.length || 0)} courses</small>
+                        </div>
+                        <button 
+                          className="delete-plan-btn"
+                          onClick={(e) => {
+                            e.stopPropagation()
+                            deletePlan(plan.id)
+                          }}
                         >
-                          <div className="course-card-header">
-                            <span className="course-card-code">{course.code}</span>
-                            <span className="course-card-credits">{course.credits} credits</span>
+                          Delete
+                        </button>
+                      </div>
+                    ))
+                  )}
+                  <button 
+                    className="btn-new-plan" 
+                    onClick={openCreateModal}
+                    disabled={savedPlans.length >= 3}
+                    title={savedPlans.length >= 3 ? 'Maximum 3 plans allowed. Delete a plan to create a new one.' : ''}
+                  >
+                    + New Plan {savedPlans.length >= 3 && '(Limit Reached)'}
+                  </button>
+                </div>
+              </div>
+            </>
+          )}
+
+          {/* Show plan controls only when there's an active plan */}
+          {(activePlan || !isAuthenticated) && (
+            <>
+              {/* Plan Name Editor - Editable, saves on blur */}
+              {isAuthenticated && activePlan && (
+                <div className="plan-name-editor">
+                  <label htmlFor="planNameInput">Plan Name:</label>
+                  <input
+                    id="planNameInput"
+                    type="text"
+                    value={planName}
+                    onChange={(e) => setPlanName(e.target.value)}
+                    onBlur={async () => {
+                      if (activePlan && planName !== activePlan.plan_name) {
+                        try {
+                          await updatePlanMetadata(activePlan.id, { plan_name: planName }, false)
+                        } catch (error) {
+                          console.error('Failed to update plan name:', error)
+                        }
+                      }
+                    }}
+                    placeholder="Plan name"
+                    className="plan-name-input"
+                  />
+                  <span className="plan-name-hint">Press Tab or click away to save</span>
+                </div>
+              )}
+
+              {/* Faculty Selector - Locked when a plan is active */}
+              <div className={`faculty-selector ${isAuthenticated && activePlan ? 'locked' : ''}`}>
+                <label htmlFor="faculty">
+                  Select Faculty:
+                  {isAuthenticated && activePlan && <span className="lock-icon" title="Locked to this plan">🔒</span>}
+                </label>
+                <select 
+                  id="faculty"
+                  value={selectedFaculty} 
+                  onChange={(e) => {
+                    setSelectedFaculty(e.target.value)
+                    setSelectedMajor('')
+                    setCompletedCourses([]) // Reset courses when changing faculty
+                    setCourseStatus({})
+                  }}
+                  disabled={isAuthenticated && !!activePlan}
+                  className={isAuthenticated && activePlan ? 'disabled-select' : ''}
+                >
+                  {getAllFaculties().map(facultyKey => (
+                    <option key={facultyKey} value={facultyKey}>
+                      {facultyRequirements[facultyKey].faculty}
+                    </option>
+                  ))}
+                </select>
+              </div>
+
+              {majorOptions[selectedFaculty] && (
+                <div className={`faculty-selector ${isAuthenticated && activePlan ? 'locked' : ''}`}>
+                  <label htmlFor="major">
+                    Select Major:
+                    {isAuthenticated && activePlan && <span className="lock-icon" title="Locked to this plan">🔒</span>}
+                  </label>
+                  <select
+                    id="major"
+                    value={selectedMajor}
+                    onChange={(e) => {
+                      setSelectedMajor(e.target.value)
+                      setCompletedCourses([])
+                      setCourseStatus({})
+                    }}
+                    disabled={isAuthenticated && !!activePlan}
+                    className={isAuthenticated && activePlan ? 'disabled-select' : ''}
+                  >
+                    <option value="">Select a major</option>
+                    {majorOptions[selectedFaculty].map((major) => (
+                      <option key={major.value} value={major.value}>
+                        {major.label}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+              )}
+            </>
+          )}
+        </div>
+
+        {/* Empty State - No Active Plan */}
+        {showEmptyState && (
+          <div className="empty-state-container">
+            <div className="empty-state-content">
+              <div className="empty-state-icon">📚</div>
+              <h2>No Plan Active</h2>
+              <p>You haven't created a degree plan yet.</p>
+              <p>Click "Manage Plans" to create your first plan and start tracking your courses.</p>
+              <button 
+                className="btn-create-first-plan"
+                onClick={openCreateModal}
+              >
+                Create Your First Plan
+              </button>
+            </div>
+          </div>
+        )}
+
+        {/* Show planner content only when there's an active plan or guest mode */}
+        {(activePlan || !isAuthenticated) && !showEmptyState && (
+          <div className="planner-content">
+            {/* Progress Overview */}
+            <div className="progress-section">
+              <h2>Your Progress</h2>
+              <div className="progress-card">
+                <div className="progress-circle">
+                  <svg className="progress-ring" width="200" height="200">
+                    <circle
+                      className="progress-ring-circle"
+                      stroke="#e0e0e0"
+                      strokeWidth="12"
+                      fill="transparent"
+                      r="90"
+                      cx="100"
+                      cy="100"
+                    />
+                    <circle
+                      className="progress-ring-circle progress-ring-fill"
+                      stroke="#002145"
+                      strokeWidth="12"
+                      fill="transparent"
+                      r="90"
+                      cx="100"
+                      cy="100"
+                      strokeDasharray={`${2 * Math.PI * 90}`}
+                      strokeDashoffset={`${2 * Math.PI * 90 * (1 - progress.progress / 100)}`}
+                      transform="rotate(-90 100 100)"
+                    />
+                  </svg>
+                  <div className="progress-text">
+                    <span className="progress-percentage">{Math.round(progress.progress)}%</span>
+                    <span className="progress-label">Complete</span>
+                  </div>
+                </div>
+                <div className="progress-details">
+                  <div className="progress-item">
+                    <span className="progress-item-label">Total Credits:</span>
+                    <span className="progress-item-value">{progress.totalCredits} / {requirements.totalCredits}</span>
+                  </div>
+                  <div className="progress-item">
+                    <span className="progress-item-label">Remaining:</span>
+                    <span className="progress-item-value">{progress.remainingCredits} credits</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Requirements Progress */}
+              <div className="requirements-grid">
+                {requirements.requirements?.communication && (
+                  <div className="requirement-card">
+                    <h3>Communication</h3>
+                    <div className="requirement-progress">
+                      <div className="requirement-bar">
+                        <div 
+                          className="requirement-bar-fill"
+                          style={{ width: `${Math.min((progress.communicationCredits / requirements.requirements.communication.credits) * 100, 100)}%` }}
+                        ></div>
+                      </div>
+                      <span>{progress.communicationCredits} / {requirements.requirements.communication.credits} credits</span>
+                    </div>
+                  </div>
+                )}
+
+                {requirements.requirements?.breadth?.science && (
+                  <div className="requirement-card">
+                    <h3>Science</h3>
+                    <div className="requirement-progress">
+                      <div className="requirement-bar">
+                        <div 
+                          className="requirement-bar-fill"
+                          style={{ width: `${Math.min((progress.scienceCredits / requirements.requirements.breadth.science.credits) * 100, 100)}%` }}
+                        ></div>
+                      </div>
+                      <span>{progress.scienceCredits} / {requirements.requirements.breadth.science.credits} credits</span>
+                    </div>
+                  </div>
+                )}
+
+                {requirements.requirements?.breadth?.literature && (
+                  <div className="requirement-card">
+                    <h3>Literature</h3>
+                    <div className="requirement-progress">
+                      <div className="requirement-bar">
+                        <div 
+                          className="requirement-bar-fill"
+                          style={{ width: `${Math.min((progress.literatureCredits / requirements.requirements.breadth.literature.credits) * 100, 100)}%` }}
+                        ></div>
+                      </div>
+                      <span>{progress.literatureCredits} / {requirements.requirements.breadth.literature.credits} credits</span>
+                    </div>
+                  </div>
+                )}
+              </div>
+            </div>
+
+            {/* Course Management */}
+            <div className="courses-section">
+              <div className="section-header">
+                <h2>My Courses</h2>
+                {!curriculumData && (
+                  <div className="term-selector">
+                    <select value={selectedYear} onChange={(e) => setSelectedYear(e.target.value)}>
+                      <option>Year 1</option>
+                      <option>Year 2</option>
+                      <option>Year 3</option>
+                      <option>Year 4</option>
+                    </select>
+                    <select value={selectedTerm} onChange={(e) => setSelectedTerm(e.target.value)}>
+                      <option>Term 1</option>
+                      <option>Term 2</option>
+                    </select>
+                  </div>
+                )}
+              </div>
+
+              {majorOptions[selectedFaculty] && !selectedMajor && (
+                <div className="empty-state">
+                  <p>Please select a major to view requirements.</p>
+                </div>
+              )}
+
+              {curriculumData && selectedMajor ? (
+                <div className="curriculum-view">
+                  <div className="year-tabs">
+                    {curriculumData.years.map((year) => (
+                      <button
+                        key={year.year}
+                        className={`year-tab ${selectedYearTab === year.year ? 'active' : ''}`}
+                        onClick={() => setSelectedYearTab(year.year)}
+                      >
+                        {year.label}
+                      </button>
+                    ))}
+                  </div>
+
+                  {curriculumData.years.filter(y => y.year === selectedYearTab).map((year) => (
+                    <div key={year.year} className="available-courses">
+                      <h3>{year.label}</h3>
+                      {year.terms.map((term) => (
+                        <div key={term.term}>
+                          <h4>Term {term.term}</h4>
+                          <div className="course-grid">
+                            {term.courses.map((course) => {
+                              const status = courseStatus[course.code] || 'not-started'
+                              return (
+                                <div
+                                  key={course.code}
+                                  className={`course-card status-${status}`}
+                                  onClick={() => toggleCourseStatus(course)}
+                                >
+                                  <div className="course-card-header">
+                                    <span className="course-card-code">{course.code}</span>
+                                    <span className="course-card-credits">{course.credits} credits</span>
+                                  </div>
+                                  <h4 className="course-card-name">{course.title || course.name}</h4>
+                                  <div className="course-status">
+                                    <span className={`status-badge status-${status}`}>
+                                      {statusLabels[status]}
+                                    </span>
+                                  </div>
+                                  <p className="course-card-description">{course.description || ''}</p>
+                                  <small>Click to toggle status</small>
+                                </div>
+                              )
+                            })}
                           </div>
-                          <h4 className="course-card-name">{course.name}</h4>
-                          <p className="course-card-description">{course.description}</p>
-                          {course.prerequisites && course.prerequisites.length > 0 && (
-                            <div className="course-prerequisites">
-                              <strong>Prerequisites:</strong> {course.prerequisites.join(', ')}
+                        </div>
+                      ))}
+                    </div>
+                  ))}
+                </div>
+              ) : (
+                <>
+                  {/* Completed Courses */}
+                  <div className="completed-courses">
+                    {completedCourses.length === 0 ? (
+                      <div className="empty-state">
+                        <p>No courses added yet. Start by adding courses from the course list below.</p>
+                      </div>
+                    ) : (
+                      <div className="course-list">
+                        {completedCourses.map((course, index) => (
+                          <div key={index} className="course-item">
+                            <div className="course-info">
+                              <span className="course-code">{course.code}</span>
+                              <span className="course-name">{course.name}</span>
+                              <span className="course-credits">{course.credits} credits</span>
+                              <span className="course-term">{course.year} - {course.term}</span>
                             </div>
-                          )}
-                          {!isCompleted && (
+                            <button 
+                              className="remove-course"
+                              onClick={() => removeCourse(course.code)}
+                              title="Remove course"
+                            >
+                              ×
+                            </button>
+                          </div>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+
+                  {/* Available Courses */}
+                  <div className="available-courses">
+                    <h3>Available Courses</h3>
+                    <div className="course-grid">
+                      {currentCourses.map((course, index) => {
+                        const isCompleted = completedCourses.find(c => c.code === course.code)
+                        return (
+                          <div 
+                            key={index} 
+                            className={`course-card ${isCompleted ? 'completed' : ''}`}
+                          >
+                            <div className="course-card-header">
+                              <span className="course-card-code">{course.code}</span>
+                              <span className="course-card-credits">{course.credits} credits</span>
+                            </div>
+                            <h4 className="course-card-name">{course.name}</h4>
+                            <p className="course-card-description">{course.description}</p>
+                            {course.prerequisites && course.prerequisites.length > 0 && (
+                              <div className="course-prerequisites">
+                                <strong>Prerequisites:</strong> {course.prerequisites.join(', ')}
+                              </div>
+                            )}
+                            {!isCompleted && (
+                              <button 
+                                className="add-course-btn"
+                                onClick={() => addCourse(course)}
+                              >
+                                Add Course
+                              </button>
+                            )}
+                            {isCompleted && (
+                              <span className="course-added-badge">Added</span>
+                            )}
+                          </div>
+                        )
+                      })}
+                    </div>
+                  </div>
+
+                  {/* Recommended Courses */}
+                  {recommendedCourses.length > 0 && (
+                    <div className="recommended-courses">
+                      <h3>Recommended for Next Term</h3>
+                      <div className="course-grid">
+                        {recommendedCourses.map((course, index) => (
+                          <div key={index} className="course-card recommended">
+                            <div className="course-card-header">
+                              <span className="course-card-code">{course.code}</span>
+                              <span className="course-card-credits">{course.credits} credits</span>
+                            </div>
+                            <h4 className="course-card-name">{course.name}</h4>
+                            <p className="course-card-description">{course.description}</p>
                             <button 
                               className="add-course-btn"
                               onClick={() => addCourse(course)}
                             >
                               Add Course
                             </button>
-                          )}
-                          {isCompleted && (
-                            <span className="course-added-badge">Added</span>
-                          )}
-                        </div>
-                      )
-                    })}
-                  </div>
-                </div>
-
-                {/* Recommended Courses */}
-                {recommendedCourses.length > 0 && (
-                  <div className="recommended-courses">
-                    <h3>Recommended for Next Term</h3>
-                    <div className="course-grid">
-                      {recommendedCourses.map((course, index) => (
-                        <div key={index} className="course-card recommended">
-                          <div className="course-card-header">
-                            <span className="course-card-code">{course.code}</span>
-                            <span className="course-card-credits">{course.credits} credits</span>
                           </div>
-                          <h4 className="course-card-name">{course.name}</h4>
-                          <p className="course-card-description">{course.description}</p>
-                          <button 
-                            className="add-course-btn"
-                            onClick={() => addCourse(course)}
-                          >
-                            Add Course
-                          </button>
-                        </div>
-                      ))}
+                        ))}
+                      </div>
                     </div>
-                  </div>
-                )}
-              </>
-            )}
+                  )}
+                </>
+              )}
+            </div>
           </div>
-        </div>
+        )}
       </div>
     </div>
   )

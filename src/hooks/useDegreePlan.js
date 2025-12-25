@@ -88,10 +88,18 @@ export const useDegreePlan = () => {
       }
 
       const plansData = data || []
+      console.log('Loaded plans from Supabase:', plansData.map(p => ({
+        id: p.id,
+        plan_name: p.plan_name,
+        faculty: p.faculty,
+        major: p.major
+      })))
+      
       setPlans(plansData)
 
       // Set the first plan as active if no active plan is set
       if (plansData.length > 0 && !activePlan) {
+        console.log('Setting first plan as active:', plansData[0])
         setActivePlan(plansData[0])
       }
 
@@ -112,10 +120,12 @@ export const useDegreePlan = () => {
   /**
    * Create a new plan
    * @param {string} name - Plan name
+   * @param {string} faculty - Faculty key (e.g., 'arts', 'appliedScience')
+   * @param {string} major - Major slug (e.g., 'electrical-engineering')
    * @returns {Promise<Object>} Created plan object
    * @throws {Error} If quota limit (3 plans) is reached
    */
-  const createPlan = useCallback(async (name = 'My Degree Plan') => {
+  const createPlan = useCallback(async (name = 'My Degree Plan', faculty = 'arts', major = null) => {
     if (!isAuthenticated || !user) {
       throw new Error('You must be logged in to create a plan')
     }
@@ -130,14 +140,16 @@ export const useDegreePlan = () => {
 
     try {
       setError(null)
+      
+      console.log('Creating plan in DB with:', { name, faculty, major })
 
       const { data, error: insertError } = await supabase
         .from('degree_plans')
         .insert({
           user_id: user.id,
           plan_name: name,
-          faculty: 'arts',
-          major: null,
+          faculty: faculty,
+          major: major,
           course_data: []
         })
         .select()
@@ -235,6 +247,13 @@ export const useDegreePlan = () => {
       throw new Error(errorMsg)
     }
 
+    console.log('Switching to plan:', {
+      id: plan.id,
+      plan_name: plan.plan_name,
+      faculty: plan.faculty,
+      major: plan.major
+    })
+    
     setActivePlan(plan)
     
     // Return course_data so UI can update immediately
