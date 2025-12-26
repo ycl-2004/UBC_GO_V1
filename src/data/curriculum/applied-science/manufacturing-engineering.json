@@ -86,28 +86,36 @@
               "title": "",
               "credits": 3,
               "year": 1,
-              "term": 2
+              "term": 2,
+              "description": "Introductory Physics for Engineers I Heat, thermodynamics, oscillations, waves, and sound.",
+              "prerequisites": "One of PHYS 12,"
             },
             {
               "code": "PHYS 158",
               "title": "",
               "credits": 3,
               "year": 1,
-              "term": 2
+              "term": 2,
+              "description": "Introductory Physics for Engineers II Electricity and magnetism, DC and AC circuits, optics. Prerequisite:",
+              "prerequisites": ""
             },
             {
               "code": "PHYS 159",
               "title": "",
               "credits": 1,
               "year": 1,
-              "term": 2
+              "term": 2,
+              "description": "Introductory Physics Laboratory for Engineers A laboratory course with emphasis on experimental design, measurement and analysis techniques.",
+              "prerequisites": "One of PHYS 12,"
             },
             {
               "code": "PHYS 170",
               "title": "",
               "credits": 3,
               "year": 1,
-              "term": 2
+              "term": 2,
+              "description": "Mechanics I Statics of particles, equilibrium or rigid bodies, rigid body statics and internal forces, trusses; kinematics: rectilinear motion; dynamics: Newton's second law, friction, impulse, momentum, work and energy. Recommended pre-requisites: one of PHYS 12,",
+              "prerequisites": "Corequisites: One of MATH 200, MATH 217, MATH 226, MATH 253, MATH 254."
             },
             {
               "code": "ELECTIVE",

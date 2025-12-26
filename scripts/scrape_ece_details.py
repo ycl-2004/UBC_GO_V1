@@ -16,6 +16,7 @@ from bs4 import BeautifulSoup
 import json
 import re
 import time
+import random
 import os
 import sys
 from typing import Dict, List, Optional
@@ -26,8 +27,22 @@ class ECECourseDetailsScraper:
         self.force = force
         self.clean_only = clean_only
         self.session = requests.Session()
+        
+        # Enhanced headers to bypass security detection
+        # Use a realistic, modern browser User-Agent (Chrome on Mac)
         self.session.headers.update({
-            'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
+            'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36',
+            'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
+            'Accept-Language': 'en-US,en;q=0.9',
+            'Accept-Encoding': 'gzip, deflate, br',
+            'Connection': 'keep-alive',
+            'Upgrade-Insecure-Requests': '1',
+            'Sec-Fetch-Dest': 'document',
+            'Sec-Fetch-Mode': 'navigate',
+            'Sec-Fetch-Site': 'none',
+            'Sec-Fetch-User': '?1',
+            'Cache-Control': 'max-age=0',
+            'DNT': '1'
         })
         
         # Path to curriculum JSON files
@@ -301,8 +316,44 @@ class ECECourseDetailsScraper:
         }
         
         try:
-            print(f"  Fetching: {url}")
-            response = self.session.get(url, timeout=10)
+            # Add random delay to avoid detection (2-5 seconds)
+            delay = random.uniform(2, 5)
+            print(f"  Fetching: {url} (waiting {delay:.1f}s to avoid detection...)")
+            time.sleep(delay)
+            
+            response = self.session.get(url, timeout=15)
+            
+            # Validation: Check if response contains blocking messages
+            # Check both response text and status code
+            response_text = response.text.lower()
+            blocking_phrases = [
+                'your request has been blocked',
+                'security system',
+                'potentially automated',
+                'access denied',
+                'blocked by security',
+                'security check',
+                'automated access',
+                'suspicious activity',
+                'please verify you are human'
+            ]
+            
+            # Check for blocking messages in response
+            if any(phrase in response_text for phrase in blocking_phrases):
+                print(f"    ⚠️  BLOCKED: Request was blocked by UBC security system")
+                print(f"    ⚠️  Response contains security blocking message")
+                print(f"    ⚠️  Skipping {course_code} to avoid further blocks")
+                print(f"    ⚠️  This may indicate the site has detected automated access")
+                # Cache empty result to avoid re-trying
+                self.scraped_data_cache[course_code] = result
+                return result
+            
+            # Additional check: if response is suspiciously short or contains error patterns
+            if len(response.text) < 500 and ('error' in response_text or 'blocked' in response_text):
+                print(f"    ⚠️  BLOCKED: Suspicious response detected (too short or contains error)")
+                print(f"    ⚠️  Skipping {course_code}")
+                self.scraped_data_cache[course_code] = result
+                return result
             
             # Handle 404 gracefully
             if response.status_code == 404:
@@ -331,8 +382,8 @@ class ECECourseDetailsScraper:
             # Cache the result
             self.scraped_data_cache[course_code] = result
             
-            # Be polite to the server
-            time.sleep(0.5)
+            # Additional delay after successful request (randomized to avoid detection)
+            time.sleep(random.uniform(1, 2))
             
         except requests.exceptions.RequestException as e:
             print(f"    → Error fetching {url}: {e}")

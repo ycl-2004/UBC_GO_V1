@@ -86,28 +86,36 @@
               "title": "",
               "credits": 3,
               "year": 1,
-              "term": 2
+              "term": 2,
+              "description": "Introductory Physics for Engineers I Heat, thermodynamics, oscillations, waves, and sound.",
+              "prerequisites": "One of PHYS 12,"
             },
             {
               "code": "PHYS 158",
               "title": "",
               "credits": 3,
               "year": 1,
-              "term": 2
+              "term": 2,
+              "description": "Introductory Physics for Engineers II Electricity and magnetism, DC and AC circuits, optics. Prerequisite:",
+              "prerequisites": ""
             },
             {
               "code": "PHYS 159",
               "title": "",
               "credits": 1,
               "year": 1,
-              "term": 2
+              "term": 2,
+              "description": "Introductory Physics Laboratory for Engineers A laboratory course with emphasis on experimental design, measurement and analysis techniques.",
+              "prerequisites": "One of PHYS 12,"
             },
             {
               "code": "PHYS 170",
               "title": "",
               "credits": 3,
               "year": 1,
-              "term": 2
+              "term": 2,
+              "description": "Mechanics I Statics of particles, equilibrium or rigid bodies, rigid body statics and internal forces, trusses; kinematics: rectilinear motion; dynamics: Newton's second law, friction, impulse, momentum, work and energy. Recommended pre-requisites: one of PHYS 12,",
+              "prerequisites": "Corequisites: One of MATH 200, MATH 217, MATH 226, MATH 253, MATH 254."
             },
             {
               "code": "ELECTIVE",
@@ -210,7 +218,9 @@
               "title": "",
               "credits": 3,
               "year": 2,
-              "term": 2
+              "term": 2,
+              "description": "Introduction to Modern Physics Wave-particle duality of matter, special relativity, processes in atomic, nuclear and solid state, and introduction to quantum mechanical devices and techniques.",
+              "prerequisites": "One of"
             },
             {
               "code": "APSC 202",
@@ -323,21 +333,27 @@
               "title": "",
               "credits": 3,
               "year": 3,
-              "term": 2
+              "term": 2,
+              "description": "Electricity and Magnetism Maxwell's equations and their applications, electrical fields and potentials of static charge distributions, current, fields of moving charges, magnetic fields, electromagnetic induction.",
+              "prerequisites": "One of"
             },
             {
               "code": "PHYS 304",
               "title": "",
               "credits": 3,
               "year": 3,
-              "term": 2
+              "term": 2,
+              "description": "Introduction to Quantum Mechanics Principles and applications of quantum mechanics, wave mechanics, the Schroedinger equation, expectation values, Hermitian operators, commuting observables, one-dimensional systems, harmonic oscillators, angular momentum, three-dimensional systems.",
+              "prerequisites": "One of"
             },
             {
               "code": "PHYS 350",
               "title": "",
               "credits": 3,
               "year": 3,
-              "term": 2
+              "term": 2,
+              "description": "Applications of Classical Mechanics Review of principles. Particle mechanics: Euler's equations, tops and gyroscopes, motion of the Earth, Lagrangian and Hamiltonian methods. Variational principles in optics and mechanics, Liouville's theorem and statistical mechanics. The relationship between classical and quantum mechanics.",
+              "prerequisites": ""
             },
             {
               "code": "ELECTIVE",
@@ -392,7 +408,9 @@
               "title": "",
               "credits": 3,
               "year": 4,
-              "term": 2
+              "term": 2,
+              "description": "Electromagnetic Theory Applications of Maxwell's theory. Wave propagation in dielectrics, conductors and plasmas, wave guides, radiation, antennae, and special relativity.",
+              "prerequisites": "One of"
             },
             {
               "code": "ELEC 341",
