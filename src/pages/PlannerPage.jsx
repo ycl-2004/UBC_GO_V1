@@ -982,7 +982,8 @@ const PlannerPage = () => {
                           <div className="course-grid">
                             {term.courses.map((course) => {
                               const status = getCourseStatus(course.code)
-                              const courseTitle = course.title || course.name || course.code
+                              // Prefer title, fall back to name, then code only if both are missing
+                              const courseTitle = (course.title && course.title.trim()) || (course.name && course.name.trim()) || course.code
                               return (
                                 <div
                                   key={course.code}

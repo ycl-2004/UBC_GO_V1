@@ -26,7 +26,7 @@
               "credits": 3,
               "year": 1,
               "term": 1,
-              "description": "Introduction to Engineering II An introduction to the engineering profession including: the engineering design process, sustainability, prototype testing, introduction and application of the relevant foundational scientific principles, team functioning, engineering graphics, and technical communication.",
+              "description": "Introduction to Engineering II An introduction to the engineering profession including: the engineering design process, sustainability, prototype testing, introduction and application of the relevant foundational scientific principles, team functioning, engineering graphics, and technical communication. Prerequisite:",
               "prerequisites": "APSC 100."
             },
             {
@@ -35,21 +35,24 @@
               "credits": 3,
               "year": 1,
               "term": 1,
-              "description": "Introduction to Computation in Engineering Design Analysis and simulation, laboratory data acquisition and processing, measurement interfaces, engineering tools, computer systems organization, programming languages. Credit will only be given for one of: APSC 160, CPSC 301, or EOSC 211."
+              "description": "Introduction to Computation in Engineering Design Analysis and simulation, laboratory data acquisition and processing, measurement interfaces, engineering tools, computer systems organization, programming languages. Credit will only be given for one of:"
             },
             {
               "code": "CHEM 154",
               "title": "",
               "credits": 3,
               "year": 1,
-              "term": 1
+              "term": 1,
+              "description": "Chemistry for Engineering Chemical bonding, properties of matter. Chemical thermodynamics with applications to phase equilibria, aqueous equilibria and electrochemistry. Processes at surfaces. [3-3*-0]",
+              "prerequisites": "CHEM 12."
             },
             {
               "code": "WRDS 150",
               "title": "",
               "credits": 3,
               "year": 1,
-              "term": 1
+              "term": 1,
+              "description": "Writing and Research in the Disciplines Writing and reading in disciplines across the academy, focusing on practices that research disciplines share and those that differentiate them. Restricted to students not in the Faculty of Arts. Credit can be granted for only one of"
             },
             {
               "code": "MATH 100",
@@ -67,11 +70,12 @@
           "courses": [
             {
               "code": "MATH 101",
-              "title": "",
+              "title": ", 105",
               "credits": 3,
               "year": 1,
               "term": 2,
-              "description": "Integral Calculus with Applications The definite integral, integration techniques, applications, modelling, infinite series. Equivalency:"
+              "description": "Integral Calculus with Applications The definite integral, integration techniques, applications, modelling, infinite series. Equivalency:",
+              "prerequisites": "One of"
             },
             {
               "code": "MATH 152",
@@ -79,7 +83,8 @@
               "credits": 3,
               "year": 1,
               "term": 2,
-              "description": "Linear Systems 2D and 3D geometry, vectors and matrices, eigenvalues and vibration, physical applications. Laboratories demonstrate computer solutions of large systems. Please consult the Faculty of Science Credit Exclusion List: https://vancouver.calendar.ubc.ca/faculties-colleges-and-schools/facult… [3-1*-0] Corequisite: [MATH101]"
+              "description": "Linear Systems 2D and 3D geometry, vectors and matrices, eigenvalues and vibration, physical applications. Laboratories demonstrate computer solutions of large systems. Please consult the Faculty of Science Credit Exclusion List: https://vancouver.calendar.ubc.ca/faculties-colleges-and-schools/facult… [3-1*-0]",
+              "prerequisites": "Corequisites: [MATH101]"
             },
             {
               "code": "PHYS 157",
@@ -92,12 +97,12 @@
             },
             {
               "code": "PHYS 158",
-              "title": "",
+              "title": ", SCIE 001 and a score of 68% or higher in one of MATH 101, MATH 103, MATH 105, MATH 121, SCIE 001. Corequisite: One of MATH 152, MATH 221, MATH 223",
               "credits": 3,
               "year": 1,
               "term": 2,
               "description": "Introductory Physics for Engineers II Electricity and magnetism, DC and AC circuits, optics. Prerequisite:",
-              "prerequisites": ""
+              "prerequisites": "Either (a) a score of 64% or higher in one of MATH 101, MATH 103, MATH 105, SCIE 001 or (b) one of MATH 121, MATH 200, MATH 217, MATH 226, MATH 253, MATH 254. MATH_V 221 (3) Matrix Algebra Systems of linear equations, operations on matrices, determinants, eigenvalues and eigenvectors, diagonalization of symmetric matrices.\n\nEquivalency: MATH_V 111.\n\nCorequisites: One of MATH 152, MATH 221, MATH 223. MATH_V 227 (3) Advanced Calculus II Parametrization of curves and surfaces; line and surface integrals; theorems of Green, Gauss, Stokes; applications to physics and/or introduction to differential forms. Please consult the Faculty of Science Credit Exclusion List: https://vancouver.calendar.ubc.ca/faculties-colleges-and-schools/facult…"
             },
             {
               "code": "PHYS 159",
@@ -210,7 +215,7 @@
               "year": 2,
               "term": 2,
               "description": "Multivariable Calculus Partial and directional derivatives; maxima and minima; Lagrange multipliers and second derivative test; multiple integrals and applications. Please consult the Faculty of Science Credit Exclusion List: https://vancouver.calendar.ubc.ca/faculties-colleges-and-schools/facult…",
-              "prerequisites": "One of MATH 101, MATH 103, MATH 105, MATH 121, SCIE 001."
+              "prerequisites": "One of"
             },
             {
               "code": "MATH 255",
@@ -218,8 +223,8 @@
               "credits": 3,
               "year": 2,
               "term": 2,
-              "description": "Ordinary Differential Equations Review of linear systems; nonlinear equations and applications; phase plane analysis; Laplace transforms; numerical methods. Please consult the Faculty of Science Credit Exclusion List: https://vancouver.calendar.ubc.ca/faculties-colleges-and-schools/facult… Corequisite: One of MATH 200, MATH 217, MATH 226, MATH 253, MATH 254.",
-              "prerequisites": "One of MATH 101, MATH 103, MATH 105, MATH 121, SCIE 001 and one of MATH 152, MATH 221, MATH 223."
+              "description": "Ordinary Differential Equations Review of linear systems; nonlinear equations and applications; phase plane analysis; Laplace transforms; numerical methods. Please consult the Faculty of Science Credit Exclusion List: https://vancouver.calendar.ubc.ca/faculties-colleges-and-schools/facult…",
+              "prerequisites": "One of"
             },
             {
               "code": "MECH 260",

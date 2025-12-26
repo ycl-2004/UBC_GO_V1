@@ -26,7 +26,7 @@
               "credits": 3,
               "year": 1,
               "term": 1,
-              "description": "Introduction to Computation in Engineering Design Analysis and simulation, laboratory data acquisition and processing, measurement interfaces, engineering tools, computer systems organization, programming languages. Credit will only be given for one of: APSC 160, CPSC 301, or EOSC 211."
+              "description": "Introduction to Computation in Engineering Design Analysis and simulation, laboratory data acquisition and processing, measurement interfaces, engineering tools, computer systems organization, programming languages. Credit will only be given for one of:"
             },
             {
               "code": "BMEG 101",
@@ -47,14 +47,18 @@
               "title": "",
               "credits": 4,
               "year": 1,
-              "term": 1
+              "term": 1,
+              "description": "Structure and Bonding in Chemistry Fundamentals of bonding theories and structural chemistry, with applications relevant to modern society.",
+              "prerequisites": "One of CHEM_V 12,"
             },
             {
               "code": "CHEM 123",
               "title": "",
               "credits": 4,
               "year": 1,
-              "term": 1
+              "term": 1,
+              "description": "Thermodynamics, Kinetics and Organic Chemistry Fundamentals of chemical reactivity: thermodynamics; kinetics; organic chemistry, including stereochemistry; applications relevant to modern society.",
+              "prerequisites": "One of"
             }
           ]
         },
@@ -72,11 +76,12 @@
             },
             {
               "code": "MATH 101",
-              "title": "",
+              "title": ", 105",
               "credits": 3,
               "year": 1,
               "term": 2,
-              "description": "Integral Calculus with Applications The definite integral, integration techniques, applications, modelling, infinite series. Equivalency:"
+              "description": "Integral Calculus with Applications The definite integral, integration techniques, applications, modelling, infinite series. Equivalency:",
+              "prerequisites": "One of"
             },
             {
               "code": "MATH 152",
@@ -84,7 +89,8 @@
               "credits": 3,
               "year": 1,
               "term": 2,
-              "description": "Linear Systems 2D and 3D geometry, vectors and matrices, eigenvalues and vibration, physical applications. Laboratories demonstrate computer solutions of large systems. Please consult the Faculty of Science Credit Exclusion List: https://vancouver.calendar.ubc.ca/faculties-colleges-and-schools/facult… [3-1*-0] Corequisite: [MATH101]"
+              "description": "Linear Systems 2D and 3D geometry, vectors and matrices, eigenvalues and vibration, physical applications. Laboratories demonstrate computer solutions of large systems. Please consult the Faculty of Science Credit Exclusion List: https://vancouver.calendar.ubc.ca/faculties-colleges-and-schools/facult… [3-1*-0]",
+              "prerequisites": "Corequisites: [MATH101]"
             },
             {
               "code": "PHYS 157",
@@ -97,12 +103,12 @@
             },
             {
               "code": "PHYS 158",
-              "title": "",
+              "title": ", SCIE 001 and a score of 68% or higher in one of MATH 101, MATH 103, MATH 105, MATH 121, SCIE 001. Corequisite: One of MATH 152, MATH 221, MATH 223",
               "credits": 3,
               "year": 1,
               "term": 2,
               "description": "Introductory Physics for Engineers II Electricity and magnetism, DC and AC circuits, optics. Prerequisite:",
-              "prerequisites": ""
+              "prerequisites": "Either (a) a score of 64% or higher in one of MATH 101, MATH 103, MATH 105, SCIE 001 or (b) one of MATH 121, MATH 200, MATH 217, MATH 226, MATH 253, MATH 254. MATH_V 221 (3) Matrix Algebra Systems of linear equations, operations on matrices, determinants, eigenvalues and eigenvectors, diagonalization of symmetric matrices.\n\nEquivalency: MATH_V 111.\n\nCorequisites: One of MATH 152, MATH 221, MATH 223. MATH_V 227 (3) Advanced Calculus II Parametrization of curves and surfaces; line and surface integrals; theorems of Green, Gauss, Stokes; applications to physics and/or introduction to differential forms. Please consult the Faculty of Science Credit Exclusion List: https://vancouver.calendar.ubc.ca/faculties-colleges-and-schools/facult…"
             },
             {
               "code": "PHYS 170",
@@ -118,7 +124,8 @@
               "title": "",
               "credits": 3,
               "year": 1,
-              "term": 2
+              "term": 2,
+              "description": "Writing and Research in the Disciplines Writing and reading in disciplines across the academy, focusing on practices that research disciplines share and those that differentiate them. Restricted to students not in the Faculty of Arts. Credit can be granted for only one of"
             }
           ]
         }
@@ -201,7 +208,7 @@
               "year": 2,
               "term": 2,
               "description": "Multivariable Calculus Partial and directional derivatives; maxima and minima; Lagrange multipliers and second derivative test; multiple integrals and applications. Please consult the Faculty of Science Credit Exclusion List: https://vancouver.calendar.ubc.ca/faculties-colleges-and-schools/facult…",
-              "prerequisites": "One of MATH 101, MATH 103, MATH 105, MATH 121, SCIE 001."
+              "prerequisites": "One of"
             },
             {
               "code": "MATH 256",
@@ -214,12 +221,12 @@
             },
             {
               "code": "MATH 264",
-              "title": "Vector Calculus for Electrical Engineering\n\n\nDivergence, gradient, curl, theorems of Gauss and Stokes",
+              "title": "content is strongly coupled to BMEG 220 and ELEC 211 with topics and student evaluations weighted accordingly",
               "credits": 1,
               "year": 2,
               "term": 2,
               "description": "Vector Calculus for Electrical Engineering Divergence, gradient, curl, theorems of Gauss and Stokes. Applications to Electrostatics and Magnetostatics. MATH 264 content is strongly coupled to BMEG 220 and ELEC 211 with topics and student evaluations weighted accordingly. Corequisite: One of BMEG 220, ELEC 211.",
-              "prerequisites": "One of MATH 200, MATH 217, MATH 226, MATH 253, MATH 254."
+              "prerequisites": "One of"
             },
             {
               "code": "CHBE 251",
@@ -291,14 +298,16 @@
               "title": "",
               "credits": 3,
               "year": 3,
-              "term": 2
+              "term": 2,
+              "description": "Organic Chemistry for the Biological Sciences Reactions and properties of carbonyl compounds, carbohydrates, amino acids, nucleic acids. Credit will be granted for only one of"
             },
             {
               "code": "CHEM 235",
               "title": "",
               "credits": 1,
               "year": 3,
-              "term": 2
+              "term": 2,
+              "description": "Organic Chemistry Laboratory Techniques of organic chemistry. To be taken in conjunction with, or in the term following,"
             },
             {
               "code": "STAT 251",

@@ -146,6 +146,18 @@ class UBCCourseDetailsScraper:
             title = title[:-1]
         title = title.strip()
         
+        # CRITICAL: Ensure title never includes the course code
+        # Remove any occurrence of the course code pattern from the title
+        # This prevents "MATH 100 Differential Calculus" from becoming "MATH 100 Differential Calculus"
+        code_pattern = rf'{re.escape(self.code)}(?:_V)?\s+{re.escape(number)}'
+        title = re.sub(code_pattern, '', title, flags=re.IGNORECASE).strip()
+        
+        # Also remove any standalone course code patterns (e.g., "MATH 100" at the start)
+        title = re.sub(rf'^{re.escape(course_code)}\s*', '', title, flags=re.IGNORECASE).strip()
+        
+        # Clean up any extra whitespace that might have been created
+        title = re.sub(r'\s+', ' ', title).strip()
+        
         # Parse Body (Description, Prerequisites, Corequisites)
         full_text = body_text.strip()
         
@@ -347,10 +359,14 @@ class UBCCourseDetailsScraper:
         updated = False
         scraped = scraped_data[code]
         
-        # Update title if missing
-        if scraped.get('title') and not course.get('title'):
-            course['title'] = scraped['title']
-            updated = True
+        # Update title (prefer scraped title if it exists and is better)
+        if scraped.get('title') and scraped['title'].strip():
+            scraped_title = scraped['title'].strip()
+            # Only update if current title is missing, empty, or the scraped title is different and non-empty
+            current_title = (course.get('title') or '').strip()
+            if not current_title or (scraped_title != current_title and scraped_title != code):
+                course['title'] = scraped_title
+                updated = True
         
         # Update description
         if scraped.get('description'):
