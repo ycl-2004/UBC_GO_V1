@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useCallback, useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
 import Navigation from '../components/Navigation'
+import CourseDetailModal from '../components/CourseDetailModal'
 import { useAuth } from '../context/AuthContext'
 import { useDegreePlan } from '../hooks/useDegreePlan'
 import { facultyRequirements, getCoursesByFaculty, getAllFaculties } from '../data/facultiesData'
@@ -36,6 +37,8 @@ const PlannerPage = () => {
   const [showCreateModal, setShowCreateModal] = useState(false)
   const [hasUnsavedChanges, setHasUnsavedChanges] = useState(false)
   const [isSaving, setIsSaving] = useState(false)
+  const [selectedCourse, setSelectedCourse] = useState(null)
+  const [isModalOpen, setIsModalOpen] = useState(false)
   const isInitialLoad = useRef(true)
   const isSavingRef = useRef(false)
   
@@ -331,8 +334,25 @@ const PlannerPage = () => {
     return 'planned'
   }
 
+  // Open course detail modal
+  const openCourseModal = (course) => {
+    setSelectedCourse(course)
+    setIsModalOpen(true)
+  }
+
+  // Close course detail modal
+  const closeCourseModal = () => {
+    setIsModalOpen(false)
+    setSelectedCourse(null)
+  }
+
   // Toggle course status: not-yet -> planned -> completed -> not-yet
-  const toggleCourseStatus = (course) => {
+  const toggleCourseStatus = (course, e) => {
+    // Prevent modal from opening when clicking the status button
+    if (e) {
+      e.stopPropagation()
+    }
+    
     const currentStatus = getCourseStatus(course.code)
     let nextStatus
     let shouldAddToPlan = false
@@ -789,6 +809,7 @@ const PlannerPage = () => {
 
         {/* Show planner content only when there's an active plan or guest mode */}
         {(activePlan || !isAuthenticated) && !showEmptyState && (
+          <>
           <div className="planner-content">
             {/* Progress Overview */}
             <div className="progress-section">
@@ -914,9 +935,10 @@ const PlannerPage = () => {
                 </div>
               </div>
             </div>
+          </div>
 
-            {/* Unified Curriculum Grid */}
-            <div className="courses-section">
+          {/* Unified Curriculum Grid - Full Width */}
+          <div className="courses-section">
               <div className="section-header">
                 <h2>Curriculum Grid</h2>
               </div>
@@ -960,30 +982,44 @@ const PlannerPage = () => {
                           <div className="course-grid">
                             {term.courses.map((course) => {
                               const status = getCourseStatus(course.code)
+                              const courseTitle = course.title || course.name || course.code
                               return (
                                 <div
                                   key={course.code}
                                   className={`course-card-unified status-${status}`}
-                                  onClick={() => toggleCourseStatus(course)}
+                                  onClick={() => openCourseModal(course)}
                                 >
+                                  {/* Header: Code + Credits Badge */}
                                   <div className="course-card-header">
                                     <span className="course-card-code">{course.code}</span>
-                                    <span className="course-card-credits">{course.credits} credits</span>
+                                    <span className="course-card-credits-badge">{course.credits} cr</span>
                                   </div>
-                                  <h4 className="course-card-name">{course.title || course.name || course.code}</h4>
-                                  <div className="course-card-icon">
-                                    {status === 'not-yet' && <span className="icon-plus">+</span>}
-                                    {status === 'planned' && <span className="icon-clock">⏱</span>}
-                                    {status === 'completed' && <span className="icon-check">✓</span>}
+                                  
+                                  {/* Body: Title + Description */}
+                                  <div className="course-card-body">
+                                    <h4 className="course-card-name" title={courseTitle}>
+                                      {courseTitle}
+                                    </h4>
+                                    {course.description && (
+                                      <p className="course-card-description" title={course.description}>
+                                        {course.description}
+                                      </p>
+                                    )}
                                   </div>
-                                  <div className="course-status-badge">
-                                    <span className={`status-badge status-${status}`}>
-                                      {statusLabels[status]}
-                                    </span>
+                                  
+                                  {/* Footer: Status Badge + View Details */}
+                                  <div className="course-card-footer">
+                                    <button
+                                      className="course-status-badge-btn"
+                                      onClick={(e) => toggleCourseStatus(course, e)}
+                                      title={`Click to change status: ${statusLabels[status]}`}
+                                    >
+                                      <span className={`status-badge status-${status}`}>
+                                        {statusLabels[status]}
+                                      </span>
+                                    </button>
+                                    <span className="course-card-view-details">View Details →</span>
                                   </div>
-                                  {course.description && (
-                                    <p className="course-card-description">{course.description}</p>
-                                  )}
                                 </div>
                               )
                             })}
@@ -1004,9 +1040,16 @@ const PlannerPage = () => {
                 )
               })()}
             </div>
-          </div>
+          </>
         )}
       </div>
+
+      {/* Course Detail Modal */}
+      <CourseDetailModal
+        course={selectedCourse}
+        isOpen={isModalOpen}
+        onClose={closeCourseModal}
+      />
     </div>
   )
 }

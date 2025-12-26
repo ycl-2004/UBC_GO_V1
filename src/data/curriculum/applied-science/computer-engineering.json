@@ -123,21 +123,27 @@
               "title": "",
               "credits": 5,
               "year": 2,
-              "term": 1
+              "term": 1,
+              "description": "There will be 12 lab experiments to complete during the term, 6 on Digital Systems plus 6 on Microcomputers, plus possibly some homework assignments. These labs can be mostly done on your own computer using digital logic boards that you purchase and various (free) software packages — see below on Course Materials below regarding important details. Bring your completed work along to the scheduled Lab session and demonstrate it working and it will be graded by the TAs on the quality of your solution plus your confidence and competence in demonstrating your knowledge of the solution.",
+              "prerequisites": "Prerequisites: APSC 160 – Introduction to Computation in Engineering Design"
             },
             {
               "code": "CPEN 221",
               "title": "",
               "credits": 5,
               "year": 2,
-              "term": 1
+              "term": 1,
+              "description": "Design, implementation, reasoning about software systems: Abstraction and specification of software, testing, verification, abstract data types, object-oriented design, design patterns, type hierarchies, concurrent software design. [3-2-1*]",
+              "prerequisites": "Prerequisites: APSC 160 – Introduction to Computation in Engineering Design"
             },
             {
               "code": "CPEN 281",
               "title": "or",
               "credits": 3,
               "year": 2,
-              "term": 1
+              "term": 1,
+              "description": "Written and oral communication in engineering. Technical description, report preparation, business correspondence, and oral presentation of technical material. Restricted to students in second year of Electrical and Computer Engineering programs. Credit will be granted for only one of ELEC 281, CPEN 281, BMEG 201, or APSC 201.",
+              "prerequisites": "Prerequisites: ONE ofAPSC 176 – Engineering Communication ENGL 110 – Approaches to LiteratureENGL 111 – Approaches to Non-fictional ProseENGL 112 – Strategies for University WritingENGL 120 – Literature and CriticismENGL 121 – Introduction to Literary TheoryWRDS 150 – Writing and Research in the Disciplines"
             },
             {
               "code": "CPSC 221",
@@ -151,7 +157,9 @@
               "title": "",
               "credits": 4,
               "year": 2,
-              "term": 1
+              "term": 1,
+              "description": "Abstractions that support program execution on a modern computing system. Virtualization and indirection, dynamic dispatch, hardware and operating system abstractions, program structure, memory structure and management, concurrency, and interconnects.",
+              "prerequisites": "Prerequisites: CPEN 211; And one of CPEN 221, CPEN 223, or CPSC 259"
             }
           ]
         },
@@ -163,7 +171,9 @@
               "title": "",
               "credits": 4,
               "year": 2,
-              "term": 2
+              "term": 2,
+              "description": "Your request has been blocked and logged because it has been identified as potentially automated or malicious by an automated UBC Cybersecurity system.",
+              "prerequisites": "MATH 101 – Integral Calculus with Applications AND ONE of PHYS 108 – Enriched Physics II PHYS 118 – Electricity, Light and Radiation PHYS 158 – Introductory Physics for Engineers II Corequisites: ONE of MATH 255 – Ordinary Differential Equations MATH 256 – Differential Equations MATH 265 – Linear Differential Equations"
             },
             {
               "code": "MATH 220",
@@ -209,14 +219,18 @@
               "title": "",
               "credits": 4,
               "year": 3,
-              "term": 1
+              "term": 1,
+              "description": "Introduction to operating systems, their design and their implementation. Process concurrency, synchronization, communication and scheduling. Device drivers, memory management, virtual memory, file systems, networking and security. [3-3-0]",
+              "prerequisites": "Prerequisites: CPEN 212 – Computing Systems II AND CPEN 221 – Software Construction I"
             },
             {
               "code": "CPEN 391",
               "title": "",
               "credits": 6,
               "year": 3,
-              "term": 1
+              "term": 1,
+              "description": "Design and implementation of a hardware platform and software design and implementation at the operating system and application layers. Project management skills. Effective presentations. Going-forward, credit will be given for only one of CPEN291, CPEN391. [2-6-0]",
+              "prerequisites": "Prerequisites: ALL OF CPEN 212, CPSC 221, ELEC 201"
             }
           ]
         },
@@ -267,7 +281,8 @@
               "title": "or",
               "credits": 3,
               "year": 4,
-              "term": 1
+              "term": 1,
+              "description": "Time-money relationships; economic analysis of alternatives including the effects of interest rates, inflation, depreciation, taxation and uncertainty; cost estimation and budgeting; financial analysis of engineering operations."
             }
           ]
         },
@@ -279,7 +294,9 @@
               "title": "",
               "credits": 10,
               "year": 4,
-              "term": 2
+              "term": 2,
+              "description": "Design, analysis, and implementation of solutions in response to a real world computer engineering problem, provided by industry, research laboratories, or other suitable entities. Includes coverage of topics such as project management.",
+              "prerequisites": "Prerequisites: ALL OF CPEN 331 – Operating Systems CPSC 320 – Intermediate Algorithm Design and Analysis AND ONE OF CPEN 311 – Digital Systems Design CPEN 322 – Software Construction II AND ONE OF CPEN 291 – Computer Engineering Design Studio I CPEN 391 – Computer Engineering Design Studio II"
             },
             {
               "code": "ELECTIVE",

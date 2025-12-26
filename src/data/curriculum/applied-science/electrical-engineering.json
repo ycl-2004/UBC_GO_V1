@@ -123,7 +123,9 @@
               "title": "",
               "credits": 5,
               "year": 2,
-              "term": 1
+              "term": 1,
+              "description": "There will be 12 lab experiments to complete during the term, 6 on Digital Systems plus 6 on Microcomputers, plus possibly some homework assignments. These labs can be mostly done on your own computer using digital logic boards that you purchase and various (free) software packages — see below on Course Materials below regarding important details. Bring your completed work along to the scheduled Lab session and demonstrate it working and it will be graded by the TAs on the quality of your solution plus your confidence and competence in demonstrating your knowledge of the solution.",
+              "prerequisites": "Prerequisites: APSC 160 – Introduction to Computation in Engineering Design"
             },
             {
               "code": "CPSC 259",
@@ -137,28 +139,36 @@
               "title": "",
               "credits": 4,
               "year": 2,
-              "term": 1
+              "term": 1,
+              "description": "The fundamentals of analysis of lumped linear time-invariant circuits; network theorems; operational amplifiers; first order circuits; DC analysis of diodes, BJT and FET circuits. [4-2*-1*]",
+              "prerequisites": "Prerequisites: MATH 101 – Integral Calculus with Applications AND ONE of PHYS 108 – Enriched Physics II PHYS 118 – Electricity, Light and Radiation PHYS 158 – Introductory Physics for Engineers II\n\nCorequisites: ONE of MATH 255 – Ordinary Differential Equations MATH 256 – Differential Equations MATH 265 – Linear Differential Equations"
             },
             {
               "code": "ELEC 202",
               "title": "",
               "credits": 4,
               "year": 2,
-              "term": 1
+              "term": 1,
+              "description": "Phasor analysis and AC three phase power; transfer functions; Bode plots; filters and resonance; Laplace transforms; transformers; two-port networks.  First and second order circuits.",
+              "prerequisites": "Prerequisites: MATH 101 – Integral Calculus with Applications to Physical Sciences and Engineering AND ONE of PHYS 118 – Electricity, Light and Radiation PHYS 158 – Introductory Physics for Engineers II AND ONE of MATH 255 – Ordinary Differential Equations MATH 256 – Differential Equations AND ONE of ELEC 201 – Circuit Analysis I ELEC 203 – Basic Circuit Analysis"
             },
             {
               "code": "ELEC 211",
               "title": "",
               "credits": 2,
               "year": 2,
-              "term": 1
+              "term": 1,
+              "description": "Electrostatics, electric currents, dielectrics, capacitance, electrostatic potential, magnetostatics. [2-0-1]",
+              "prerequisites": "Prerequisites: ONE OF MATH 263 – Differential Equations MATH 253 – Ordinary Differential Equations AND ONE OF PHYS 108 – Enriched Physics II PHYS 118 – Electricity, Light and Radiation PHYS 158 – Introductory Physics for Engineers II *note APSC 178 also accepted\n\nCorequisites: MATH 264 – Vector Calculus for Electrical Engineering (MATH 264 will be taught with ELEC 211 in an integrated fashion; the two courses will share the 3 weekly hours allotted to them.)"
             },
             {
               "code": "ELEC 221",
               "title": "",
               "credits": 4,
               "year": 2,
-              "term": 1
+              "term": 1,
+              "description": "Complex numbers, LTI systems,  convolution sum, discrete-time Fourier series and transforms, z-transform, sampling, introduction to filtering and modulation, feedback systems, stability. [3-0-2]",
+              "prerequisites": "Prerequisites: ONE of MATH 255 – Ordinary Differential Equations MATH 256 – Differential equations"
             }
           ]
         },
@@ -170,14 +180,18 @@
               "title": "or",
               "credits": 3,
               "year": 2,
-              "term": 2
+              "term": 2,
+              "description": "Written and oral communication in engineering. Technical description, report preparation, business correspondence, and oral presentation of technical material. Restricted to students in second year of Electrical and Computer Engineering programs. Credit will be granted for only one of ELEC 281, CPEN 281, BMEG 201, or APSC 201.",
+              "prerequisites": "Prerequisites: ONE ofAPSC 176 – Engineering Communication ENGL 110 – Approaches to LiteratureENGL 111 – Approaches to Non-fictional ProseENGL 112 – Strategies for University WritingENGL 120 – Literature and CriticismENGL 121 – Introduction to Literary TheoryWRDS 150 – Writing and Research in the Disciplines"
             },
             {
               "code": "ELEC 291",
               "title": "",
               "credits": 6,
               "year": 2,
-              "term": 2
+              "term": 2,
+              "description": "Design projects involving electronic devices and circuits, electromagnetics, signals and systems, and microcomputers.  [2-6-0]",
+              "prerequisites": "Prerequisites: ALL of ELEC 201 and CPEN 211"
             },
             {
               "code": "MATH 253",
@@ -205,7 +219,9 @@
               "title": "Students in the Biomedical Engineering Option will take  and  instead of .",
               "credits": 3,
               "year": 2,
-              "term": 2
+              "term": 2,
+              "description": "Effective communication in a multidisciplinary environment, introduction to emerging areas of biomedical engineering and biotechnology, ethics, and responsibility. Restricted to students admitted to the Biomedical Engineering program in Electrical Engineering.",
+              "prerequisites": "Corequisites: ELEC 202"
             }
           ]
         }
@@ -223,28 +239,35 @@
               "title": "",
               "credits": 4,
               "year": 3,
-              "term": 1
+              "term": 1,
+              "description": "Analysis and design of electronic circuits; biasing of and small-signal models for transistors; frequency response of amplifiers; feedback and stability aspects of amplifier design; OP-AMPs; active filters; oscillators; IC specification and selection. Credit will only be given for one of EECE 356, ELEC 301 or EECE 374.",
+              "prerequisites": "Prerequisites: Either (a) one of ELEC 201, ELEC 203 and ELEC 202; or (b) ELEC 204."
             },
             {
               "code": "ELEC 311",
               "title": "",
               "credits": 4,
               "year": 3,
-              "term": 1
+              "term": 1,
+              "description": "Waves and propagation;Maxwell’s equations; applications including transmission lines; impedance matching and Smith charts; reflection and refraction; waveguidesandantennas. [4-0-0]",
+              "prerequisites": "Prerequisites: ELEC 211 – Engineering Electromagnetics AND EITHER: (A) ALL of or (B) ALL of or (C) ALL of MATH 101 – Integral Calculus with Applications to Physical Sciences and Engineering MATH 101- Integral Calculus with Applications to Physical Sciences and Engineering MATH 101- Integral Calculus with Applications to Physical Sciences and Engineering MATH 263 – Multivariable and Vector Calculus MATH 253 – Multivariable Calculus MATH 253 – Multivariable Calculus MATH 265 – Linear Differential Equations MATH 264 – Vector Calculus for Electrical Engineering MATH 256 – Differential equations MATH 267 – Mathematical Methods for Electrical and Computer Engineering MATH 265- Linear Differential Equations MATH 264 – Vector Calculus for Electrical Engineering MATH 267 – Mathematical Methods for Electrical and Computer Engineering"
             },
             {
               "code": "ELEC 315",
               "title": "",
               "credits": 4,
               "year": 3,
-              "term": 1
+              "term": 1,
+              "description": "Fundamental aspects of electronic materials such as: semiconductors, metals, dielectrics, piezoelectrics, magnetic materials,and their applications in devices such as diodes, transistors, and transducers."
             },
             {
               "code": "ELEC 341",
               "title": "",
               "credits": 4,
               "year": 3,
-              "term": 1
+              "term": 1,
+              "description": "Continuous time system analysis by Laplace transforms; system modeling by transfer function and state space methods; feedback, stability and sensitivity; control design; frequency domain analysis. Credit will be given for only one of EECE 360 or 369. [4-0-0]",
+              "prerequisites": "Prerequisites: ONE of ELEC 202 – Circuit Analysis II ELEC 204 – Linear Circuits"
             }
           ]
         },
@@ -256,14 +279,18 @@
               "title": "",
               "credits": 4,
               "year": 3,
-              "term": 2
+              "term": 2,
+              "description": "Three phase power; transformers and harmonics; magnetic materials and circuits, electromechanical energy conversion; DC machines; rotating magnetic field, AC induction and synchronous machines; variable frequency operation, brushless DC machines; stepper and single-phase motors. Credit will be granted for only one of ELEC 342, ELEC 343, ELEC 344. [3-3*-1]",
+              "prerequisites": "Prerequisites: ALL of PHYS 170 – Mechanics I ELEC 202 – Circuit Analysis II"
             },
             {
               "code": "ELEC 391",
               "title": "",
               "credits": 6,
               "year": 3,
-              "term": 2
+              "term": 2,
+              "description": "Introduction to project management. Problem definition. Design principles and practices. Implementation techniques.  Testing and evaluation. Effective presentations. The technical content includes aspects of electronics, communications, control systems, and motors and machines. [2-6-0]",
+              "prerequisites": "Prerequisites: ONE of CPEN 291, ELEC 291, or ELEC 292 AND TWO of ELEC 301, ELEC 311, ELEC 341, ELEC 342"
             },
             {
               "code": "MATH 318",
@@ -302,7 +329,8 @@
               "title": "or",
               "credits": 3,
               "year": 4,
-              "term": 1
+              "term": 1,
+              "description": "Time-money relationships; economic analysis of alternatives including the effects of interest rates, inflation, depreciation, taxation and uncertainty; cost estimation and budgeting; financial analysis of engineering operations."
             }
           ]
         },
@@ -314,7 +342,9 @@
               "title": "",
               "credits": 10,
               "year": 4,
-              "term": 2
+              "term": 2,
+              "description": "Design, analysis, and implementation of solutions in response to a real-world electrical engineering problem, provided by industry, research laboratories, or other suitable entities. Includes coverage of topics such as project management.",
+              "prerequisites": "Prerequisites: ELEC 391 Electrical Engineering Design Studio"
             },
             {
               "code": "ELECTIVE",
