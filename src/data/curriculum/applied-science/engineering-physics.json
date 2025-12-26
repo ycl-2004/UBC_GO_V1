@@ -163,21 +163,26 @@
               "title": "",
               "credits": 5,
               "year": 2,
-              "term": 1
+              "term": 1,
+              "description": "Introduction to Instrument Design Practice in engineering design and instrument development including mechanical and electrical design, and communications with sensors, actuators. Micro-controller implementation and system integration. Engineering design review process and presentations. Engineering communication in design and product release. Prerequisite:"
             },
             {
               "code": "ENPH 259",
               "title": "",
               "credits": 3,
               "year": 2,
-              "term": 1
+              "term": 1,
+              "description": "Experimental Techniques Basic experimental techniques in acquisition, analysis, and presentation and communication of data and technical results.",
+              "prerequisites": "One of APSC 176, ENGL 110, ENGL 111, ENGL 112, ENGL 120, ENGL 121, WRDS 150 and either (a) all of PHYS 108, PHYS 109 or (b) one of PHYS 102, PHYS 153 or (c) SCIE 001 or (d) all of PHYS 157, PHYS 158, PHYS 159 or (e) all of PHYS 118, PHYS 119 or (f) all of PHYS 108, PHYS 119."
             },
             {
               "code": "ENPH 270",
               "title": "",
               "credits": 2,
               "year": 2,
-              "term": 1
+              "term": 1,
+              "description": "Mechanics II Dynamics: systems of particles, kinematics and kinetics of rigid bodies (plane motion), energy and momentum, rotating coordinates.",
+              "prerequisites": "PHYS 170."
             },
             {
               "code": "MATH 217",
@@ -216,7 +221,9 @@
               "title": "",
               "credits": 2,
               "year": 2,
-              "term": 2
+              "term": 2,
+              "description": "Heat and Thermodynamics Thermometry, thermal properties of matter; heat transfer by conduction; convection and radiation; kinetic theory of gases and gas laws; heat engines; refrigeration; change of state; first and second laws of thermodynamics.",
+              "prerequisites": "Either (a) SCIE 001 or (b) one of MATH 200, MATH 217, MATH 226, MATH 254, MATH 255; and either (a) all of PHYS 108, PHYS 109 or (b) one of PHYS 102, PHYS 153 or (c) all of PHYS 157, PHYS 158, PHYS 159 or (d) all of PHYS 118, PHYS 119 or (e) all of PHYS 108, PHYS 119."
             },
             {
               "code": "PHYS 250",
@@ -294,7 +301,9 @@
               "title": "",
               "credits": 3,
               "year": 3,
-              "term": 1
+              "term": 1,
+              "description": "Engineering Physics Project I Engineering project planning, execution and reporting. The course involves carrying out an open-ended Engineering project to meet specific performance metrics on an industry relevant topic selected by instructors. Reporting on progress is both oral and written.",
+              "prerequisites": "All of"
             },
             {
               "code": "MATH 307",
@@ -324,14 +333,17 @@
               "title": "",
               "credits": 3,
               "year": 3,
-              "term": 2
+              "term": 2,
+              "description": "Introduction to Fluid Mechanics Fluid properties; statics; kinematics, dynamics, energy, and momentum principles for control volumes; dimensional analysis and similarity; laminar and turbulent flow; pipe flow; principles of centrifugal pumps.",
+              "prerequisites": "All of MATH 152, PHYS 170 and one of MATH 217, MATH 253; and either (a) PHYS 131 and one of PHYS 108, PHYS 118; or (b) PHYS 153 or (c) all of PHYS 157, PHYS 158, PHYS 159."
             },
             {
               "code": "MECH 325",
               "title": "",
               "credits": 4,
               "year": 3,
-              "term": 2
+              "term": 2,
+              "description": "Machine Design Selection of flexible drives, bearings, fluid power system components, and couplings. Design of shafts, bolted joints and power screws. Design and selection of gears, gear trains, and mechanisms. Recommended co-requisite:"
             },
             {
               "code": "PHYS 301",
@@ -383,7 +395,8 @@
               "title": "",
               "credits": 5,
               "year": 4,
-              "term": 1
+              "term": 1,
+              "description": "Engineering Physics Project II Project planning, management and reporting. This course involves writing a project proposal, carrying out an open-ended Engineering project, and reporting the results both orally and in writing. ; Prerequisite:"
             },
             {
               "code": "MATH 318",

@@ -180,14 +180,18 @@
               "title": "",
               "credits": 3,
               "year": 2,
-              "term": 1
+              "term": 1,
+              "description": "Introduction to Mechanics of Materials Statically determinate frames and trusses; normal and shear stresses and strains; shear force and bending moment diagrams; theory of beam bending, torsion of circular rods; transformation of stress and strain in two and three dimensions, Mohr's circle; yield and ultimate failure criteria.",
+              "prerequisites": "Either (a) all of MATH 101, PHYS 170 or (b) all of APSC 172, APSC 173, APSC 180."
             },
             {
               "code": "MTRL 201",
               "title": "",
               "credits": 3,
               "year": 2,
-              "term": 1
+              "term": 1,
+              "description": "Technical Communication Written and oral communication in business correspondence, engineering design methods, report preparation, and oral presentations of technical material. Restricted to students in second year of the Materials Engineering Program.",
+              "prerequisites": "One of APSC_V 176, ENGL_V 110, ENGL_V 111, ENGL_V 112, ENGL_V 120, ENGL_V 121, WRDS_V 150.\n\nEquivalency: APSC_V 201."
             }
           ]
         },
@@ -199,35 +203,40 @@
               "title": "",
               "credits": 4,
               "year": 2,
-              "term": 2
+              "term": 2,
+              "description": "Thermodynamics of Materials I Heat and mass balances applied to materials engineering; thermodynamic principles applied to materials processing: heat of reaction, free energy, activity, phase equilibrium, reactions involving gases, Ellingham diagrams."
             },
             {
               "code": "MTRL 251",
               "title": "",
               "credits": 4,
               "year": 2,
-              "term": 2
+              "term": 2,
+              "description": "Thermodynamics of Materials II Behaviour of solutions, phase diagrams, electrochemistry, chemical potential and free energy diagrams applied to materials processing and thermodynamic modelling. Prerequisite:"
             },
             {
               "code": "MTRL 263",
               "title": "",
               "credits": 3,
               "year": 2,
-              "term": 2
+              "term": 2,
+              "description": "Transport Phenomena I - Fluid Mechanics Fluid statics; fluid mechanics; laminar and turbulent flow; equations of continuity and motion; boundary layers; flow in conduits and packed and fluidized beds; flow measurements."
             },
             {
               "code": "MTRL 264",
               "title": "",
               "credits": 3,
               "year": 2,
-              "term": 2
+              "term": 2,
+              "description": "Transport Phenomena II - Heat Transport Conduction, forced and natural convection, and radiation. Heat transfer with fluid flow, applications of heat exchange, and solidification of castings."
             },
             {
               "code": "MTRL 280",
               "title": "",
               "credits": 3,
               "year": 2,
-              "term": 2
+              "term": 2,
+              "description": "Materials in Design The process of materials selection for different design criteria; the importance of shape and processing variables; the use of computer software in the selection process."
             },
             {
               "code": "ELECTIVE",
@@ -252,42 +261,48 @@
               "title": "",
               "credits": 2,
               "year": 3,
-              "term": 1
+              "term": 1,
+              "description": "Management of Engineering Design Fundamental communication and inter- personal skills, as well as operational processes, that engineers require to effectively work in design teams. Concepts and best practices around project management tools and techniques, team dynamics, planning, and organization. Prerequisite:"
             },
             {
               "code": "MTRL 340",
               "title": "",
               "credits": 3,
               "year": 3,
-              "term": 1
+              "term": 1,
+              "description": "Manufacturing in Materials Engineering Manufacturing processes from a materials perspective; metal casting, heat treating processes, forming processes, machining, and joining. Role of manufacturing in microstructure and material properties development and on component performance."
             },
             {
               "code": "MTRL 358",
               "title": "",
               "credits": 3,
               "year": 3,
-              "term": 1
+              "term": 1,
+              "description": "Hydrometallurgy I Aqueous extraction of metals from ores and concentrates."
             },
             {
               "code": "MTRL 359",
               "title": "",
               "credits": 1,
               "year": 3,
-              "term": 1
+              "term": 1,
+              "description": "Hydrometallurgy I Laboratory Laboratory exercises on aqueous extraction of metals from ores and concentrates. [0-3*-0] Corequisite:"
             },
             {
               "code": "MTRL 361",
               "title": "",
               "credits": 4,
               "year": 3,
-              "term": 1
+              "term": 1,
+              "description": "Modelling of Materials Processes Mathematical and physical modelling of processes employed in the production of materials. The application of models to analyze, design and improve materials production."
             },
             {
               "code": "MTRL 363",
               "title": "",
               "credits": 3,
               "year": 3,
-              "term": 1
+              "term": 1,
+              "description": "Transport Phenomena III - Mass Transport Mass transfer fundamentals, gas interdiffusivity, Sievert's law, Fick's laws, solid-state diffusion, steady and non-steady state diffusion, mass transfer in quiescence fluids. The application examples are related to metallurgical processes, green technologies, and the semiconductor industry."
             }
           ]
         },
@@ -299,28 +314,33 @@
               "title": "",
               "credits": 3,
               "year": 3,
-              "term": 2
+              "term": 2,
+              "description": "Mechanical Behaviour of Materials Polycrystalline and single crystal deformation; dislocation theory; strengthening mechanisms; fracture mechanics; fatigue; high temperature deformation mechanisms."
             },
             {
               "code": "MTRL 378",
               "title": "",
               "credits": 3,
               "year": 3,
-              "term": 2
+              "term": 2,
+              "description": "Phase Transformations Solidification and solid state transformations; nucleation and growth processes; segregation and structure in castings; phase changes in steel; transformation diagrams; diffusion equations. *]"
             },
             {
               "code": "MTRL 381",
               "title": "",
               "credits": 1,
               "year": 3,
-              "term": 2
+              "term": 2,
+              "description": "Structure and Properties Laboratory Structure and properties of ferrous and non-ferrous metals; heat treatment; hardenability; metallography; age hardening. [0-3*-0]",
+              "prerequisites": "Corequisites: All of"
             },
             {
               "code": "MTRL 394",
               "title": "",
               "credits": 4,
               "year": 3,
-              "term": 2
+              "term": 2,
+              "description": "Polymers The structure and properties of polymeric materials and reinforced polymers with emphasis on their engineering properties and applications."
             },
             {
               "code": "STAT 251",
@@ -360,14 +380,16 @@
               "title": "",
               "credits": 3,
               "year": 4,
-              "term": 1
+              "term": 1,
+              "description": "Economic Aspects of Materials Engineering Time value of money, cash flows, capital and operating cost estimation, financial decision making and relevant case studies."
             },
             {
               "code": "MTRL 456",
               "title": "",
               "credits": 3,
               "year": 4,
-              "term": 1
+              "term": 1,
+              "description": "Environmental Degradation of Materials Fundamental aspects of environmental degradation of metals (corrosion), ceramics, and polymers, with an emphasis on aqueous environments."
             }
           ]
         },
@@ -379,21 +401,24 @@
               "title": "",
               "credits": 3,
               "year": 4,
-              "term": 2
+              "term": 2,
+              "description": "Monitoring and Optimization of Materials Processing Measurement systems for materials processing and evaluation, methods of data collection and analysis in materials engineering, materials processing monitoring and control, design of experiments for materials processing and optimization."
             },
             {
               "code": "MTRL 466",
               "title": "",
               "credits": 3,
               "year": 4,
-              "term": 2
+              "term": 2,
+              "description": "Engineering Project I Design projects to illustrate the full spectrum of design encountered in Metals and Materials Engineering including the design of components, structures and processes used to manufacture materials."
             },
             {
               "code": "MTRL 467",
               "title": "",
               "credits": 3,
               "year": 4,
-              "term": 2
+              "term": 2,
+              "description": "Engineering Project II Design projects to illustrate the full spectrum of design encountered in Metals and Materials Engineering including the design of components, structures and processes used to manufacture materials."
             },
             {
               "code": "ELECTIVE",

@@ -180,14 +180,17 @@
               "title": "",
               "credits": 3,
               "year": 2,
-              "term": 1
+              "term": 1,
+              "description": "Technical Communication Written and oral communication in business correspondence, engineering design methods, report preparation and oral presentations of technical material. Restricted to students in second year of the Manufacturing Engineering Program.",
+              "prerequisites": "One of APSC 176, ENGL 110, ENGL 111, ENGL 112, ENGL 120, ENGL 121, WRDS 150.\n\nEquivalency: APSC 201"
             },
             {
               "code": "MANU 230",
               "title": "",
               "credits": 4,
               "year": 2,
-              "term": 1
+              "term": 1,
+              "description": "Manufacturing Engineering Laboratory Theory, operational constraints, and problem solving in traditional manufacturing processes. Casting, heat treatment, bulk deformation (i.e. rolling, extrusion, drawing), machining, joining, and shaping of composites. Experiments in process and product characterization. ;"
             }
           ]
         },
@@ -199,14 +202,18 @@
               "title": "",
               "credits": 3,
               "year": 2,
-              "term": 2
+              "term": 2,
+              "description": "Thermodynamics Thermodynamic system and properties, thermodynamic processes; work and heat interactions. Conservation of energy and First Law, internal energy and enthalpy, the Second Law and entropy, application to manufacturing processes.",
+              "prerequisites": "All of MATH_V 101, MATH_V 152, PHYS_V 157.\n\nCorequisites: MATH_V 255."
             },
             {
               "code": "MANU 265",
               "title": "",
               "credits": 3,
               "year": 2,
-              "term": 2
+              "term": 2,
+              "description": "Machine Dynamics Classifications of mechanisms, velocity, acceleration and force analysis, graphical and computer-oriented vector and matrix methods, balancing, flywheels, gears, gear trains, cams. *]",
+              "prerequisites": "All of MATH_V 101, MATH_V 152, PHYS_V 170.\n\nCorequisites: MATH_V 255."
             },
             {
               "code": "MATH 253",
@@ -231,21 +238,25 @@
               "title": "",
               "credits": 3,
               "year": 2,
-              "term": 2
+              "term": 2,
+              "description": "Introduction to Mechanics of Materials Statically determinate frames and trusses; normal and shear stresses and strains; shear force and bending moment diagrams; theory of beam bending, torsion of circular rods; transformation of stress and strain in two and three dimensions, Mohr's circle; yield and ultimate failure criteria.",
+              "prerequisites": "Either (a) all of MATH 101, PHYS 170 or (b) all of APSC 172, APSC 173, APSC 180."
             },
             {
               "code": "MTRL 263",
               "title": "",
               "credits": 3,
               "year": 2,
-              "term": 2
+              "term": 2,
+              "description": "Transport Phenomena I - Fluid Mechanics Fluid statics; fluid mechanics; laminar and turbulent flow; equations of continuity and motion; boundary layers; flow in conduits and packed and fluidized beds; flow measurements."
             },
             {
               "code": "MTRL 264",
               "title": "",
               "credits": 3,
               "year": 2,
-              "term": 2
+              "term": 2,
+              "description": "Transport Phenomena II - Heat Transport Conduction, forced and natural convection, and radiation. Heat transfer with fluid flow, applications of heat exchange, and solidification of castings."
             }
           ]
         }
@@ -272,35 +283,42 @@
               "title": "",
               "credits": 3,
               "year": 3,
-              "term": 1
+              "term": 1,
+              "description": "Production Systems Management I Impact of operations in increasing productivity and reducing waste."
             },
             {
               "code": "MANU 330",
               "title": "",
               "credits": 6,
               "year": 3,
-              "term": 1
+              "term": 1,
+              "description": "Manufacturing Engineering Project I Project-based, multi-step manufacturing engineering design and problem solving. ; Prerequisite:"
             },
             {
               "code": "MANU 378",
               "title": "",
               "credits": 3,
               "year": 3,
-              "term": 1
+              "term": 1,
+              "description": "Engineering Materials II Materials selection for different design criteria; importance of shape and processing variables; computer software in selection. Credit will be granted for only one of MTRL 280 or"
             },
             {
               "code": "MANU 380",
               "title": "",
               "credits": 3,
               "year": 3,
-              "term": 1
+              "term": 1,
+              "description": "Manufacturing Processes I Correlation between material properties and processibility for practical engineering manufacturing routes. Calculations and design. Application of heat/mass/fluid transport, mechanics and thermodynamics to manufacturing processes. Corequisite:",
+              "prerequisites": "All of APSC_V 278, APSC_V 279, MTRL_V 264, MECH_V 260 and one of MECH_V 280, MTRL_V 263."
             },
             {
               "code": "MANU 386",
               "title": "",
               "credits": 3,
               "year": 3,
-              "term": 1
+              "term": 1,
+              "description": "Industrial Automation Principle components of manufacturing automation, modelling of sensors-actuators and control systems, robotic programming, programmable logical control (PLC) systems and development of PLC ladder diagrams. [2-3*-1]",
+              "prerequisites": "All of"
             }
           ]
         },
@@ -312,28 +330,35 @@
               "title": "",
               "credits": 3,
               "year": 3,
-              "term": 2
+              "term": 2,
+              "description": "Mechanics of Materials Beam deflections, singularity functions; use of tabulated solutions; column buckling; Castigliano's theorem, statically indeterminate beams, bending of beams with asymmetric cross-sections, shear centre; principal stresses and stress invariants in three dimensions.",
+              "prerequisites": "One of"
             },
             {
               "code": "MECH 368",
               "title": "",
               "credits": 4,
               "year": 3,
-              "term": 2
+              "term": 2,
+              "description": "Engineering Measurements and Instrumentation Industrial measurement needs including: architecture of electronic instrumentation systems; electrical representation of physical quantities; sensors and actuators; analog signal processing using linear and non-linear circuits; computer-based readout including programming for user-interface and data acquisition.",
+              "prerequisites": "Either (a) two of"
             },
             {
               "code": "MECH 463",
               "title": "",
               "credits": 4,
               "year": 3,
-              "term": 2
+              "term": 2,
+              "description": "Mechanical Vibrations Theory of vibration of mechanical systems. Undamped 1 degree of freedom vibration, forced vibrations and resonance, damping, multiple degree of freedom systems, mode shapes and orthogonality, continuous systems, vibration measuring instruments and frequency spectrum analysis. [3-2*-1]",
+              "prerequisites": "One of"
             },
             {
               "code": "MTRL 455",
               "title": "",
               "credits": 3,
               "year": 3,
-              "term": 2
+              "term": 2,
+              "description": "Economic Aspects of Materials Engineering Time value of money, cash flows, capital and operating cost estimation, financial decision making and relevant case studies."
             },
             {
               "code": "STAT 251",
@@ -365,28 +390,32 @@
               "title": "",
               "credits": 3,
               "year": 4,
-              "term": 1
+              "term": 1,
+              "description": "Production Systems Management II Functional area of production and operations management. Decision-making, capacity planning, aggregate planning, inventory management, distribution planning, materials requirements planning and quality control. Prerequisite:"
             },
             {
               "code": "MANU 430",
               "title": "",
               "credits": 6,
               "year": 4,
-              "term": 1
+              "term": 1,
+              "description": "Manufacturing Design Capstone Project Project-based, multi-step, multi-part Capstone design project involving manufacturing engineering design methods, problem solving. ; Prerequisite:"
             },
             {
               "code": "MANU 480",
               "title": "",
               "credits": 3,
               "year": 4,
-              "term": 1
+              "term": 1,
+              "description": "Manufacturing Processes II Numerical modelling of manufacturing processes, linkage between material, process, properties and product geometry, heat/mass transport, thermodynamics and design principles applied to practical engineering processes. Prerequisite:"
             },
             {
               "code": "MANU 481",
               "title": "",
               "credits": 3,
               "year": 4,
-              "term": 1
+              "term": 1,
+              "description": "Manufacturing Processes III Integrating concepts of primary (casting), secondary (deformation), and tertiary (machining and surface treatment) processes and economic and environmental assessment. Prerequisite:"
             }
           ]
         },
@@ -398,28 +427,34 @@
               "title": "",
               "credits": 3,
               "year": 4,
-              "term": 2
+              "term": 2,
+              "description": "Metal Cutting and Machine Tool Vibrations Metal cutting and grinding mechanics; prediction of force-torque-power in turning, drilling, milling and grinding operations. Machine tool vibrations, forced and self-excited vibrations in machining, experimental modal testing of machine tools, chatter, and stability. Credit will be granted for only one of"
             },
             {
               "code": "MECH 400",
               "title": "",
               "credits": 3,
               "year": 4,
-              "term": 2
+              "term": 2,
+              "description": "Professionalism and Ethics in Engineering Professionalism, ethical frameworks, decolonization, equity, diversity, inclusion, law. Obligations of the engineer.",
+              "prerequisites": "Fourth-year standing in B.A.Sc."
             },
             {
               "code": "MECH 467",
               "title": "",
               "credits": 4,
               "year": 4,
-              "term": 2
+              "term": 2,
+              "description": "[3-2*-2]",
+              "prerequisites": "One of"
             },
             {
               "code": "MECH 491",
               "title": "",
               "credits": 3,
               "year": 4,
-              "term": 2
+              "term": 2,
+              "description": "Computer-Aided Manufacturing NC programming and machining with interactive CAD/CAM systems. Curve and surface geometry for tool-path generation. Tool-path generation methodologies. Geometric modelling techniques for simulation and verification of manufacturing processes. Introduction to Computer-Aided Process Planning. Supplementary tutorial laboratory experiments. Recommended co-requisites:"
             },
             {
               "code": "ELECTIVE",

@@ -23,15 +23,13 @@ const CourseDetailModal = ({ course, isOpen, onClose }) => {
     ? `https://ubcgrades.com/statistics/by-course/${subject}/${number}`
     : null
 
-  const courseTitle = course.title || course.name || course.code
-
   return (
     <>
       <div className="course-modal-overlay" onClick={onClose} />
       <div className="course-modal">
         <div className="course-modal-header">
           <h2 className="course-modal-title">
-            {course.code} {courseTitle && `- ${courseTitle}`}
+            {course.code}
           </h2>
           <button className="course-modal-close" onClick={onClose}>×</button>
         </div>

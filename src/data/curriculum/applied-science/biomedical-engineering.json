@@ -33,14 +33,17 @@
               "title": "",
               "credits": 3,
               "year": 1,
-              "term": 1
+              "term": 1,
+              "description": "Introduction to Biomedical Engineering Foundational material spanning the four streams of the BMEG undergraduate program. Topics include: sensors and instrumentation; biosignals; physiological modeling; biomechanics; biomaterials; cellular engineering; regenerative medicine; and engineering design in these contexts. *] Corequisite:",
+              "prerequisites": "APSC 100."
             },
             {
               "code": "BMEG 102",
               "title": "",
               "credits": 2,
               "year": 1,
-              "term": 1
+              "term": 1,
+              "description": "Biomedical Engineering Lab Introduction to the breadth of laboratory and experimental techniques in biomedical engineering. Hydrogel design, genetic engineering of bacteria, bioinformatics pipeline construction, electrical instrumentation, and bioreactor design. Credit will only be granted for one of"
             },
             {
               "code": "CHEM 121",
@@ -143,42 +146,52 @@
               "title": "",
               "credits": 3,
               "year": 2,
-              "term": 1
+              "term": 1,
+              "description": "Technical Communication for Biomedical Engineers Report preparation, business correspondence, and oral presentation in biomedical engineering specific cases and projects. Credit will be granted for only one of"
             },
             {
               "code": "BMEG 210",
               "title": "",
               "credits": 3,
               "year": 2,
-              "term": 1
+              "term": 1,
+              "description": "Thermodynamics in Biomedical Engineering Work, heat and energy; material and energy balances; the first law and second law of thermodynamics; entropy and process reversibility; availability (energy) analysis; Hess's Law; thermodynamic properties of fluids; and applications to biomedical systems.",
+              "prerequisites": "PHYS 157. CHEM 123 is recommended"
             },
             {
               "code": "BMEG 220",
               "title": "",
               "credits": 4,
               "year": 2,
-              "term": 1
+              "term": 1,
+              "description": "Circuits and Electromagnetics with Application to Biomedical Engineering Electromagnetic phenomena in the body; bioinstrumentation; electrostatic and electromagnetic fields, forces, capacitance and inductance; bio-effects of electromagnetic fields; and modelling electrical components of physiological and biomedical systems. *]",
+              "prerequisites": "All of PHYS 158, MATH 253, MATH 256.\n\nCorequisites: MATH 264."
             },
             {
               "code": "BMEG 230",
               "title": "",
               "credits": 4,
               "year": 2,
-              "term": 1
+              "term": 1,
+              "description": "Biomechanics I Integrating the study of two dimensional movement of animals and humans with the study of the manner in which forces on biomechanical structures such as bones, ligaments, tendons, muscles and joints cause motion. Techniques of solid mechanics and two dimensional rigid body dynamics. Students who have received credit for MECH 435 cannot also receive credit for"
             },
             {
               "code": "BMEG 245",
               "title": "",
               "credits": 4,
               "year": 2,
-              "term": 1
+              "term": 1,
+              "description": "The Fundamental Units of Life: From Cells To Systems The structure and function of cells and how they are organized to generate tissues and organ systems [3-3*-0]",
+              "prerequisites": "One of CHEM 12, CHEM 100. BIOL 12 strongly recommended"
             },
             {
               "code": "BMEG 250",
               "title": "",
               "credits": 4,
               "year": 2,
-              "term": 1
+              "term": 1,
+              "description": "Cellular Physiology and Biophysics Cellular structure and mechanisms of membrane transport, signal transduction, muscle mechanochemistry and neurotransmission. Structure and hierarchical organization up to the level of tissues. Light and electron microscopy.",
+              "prerequisites": "All of"
             }
           ]
         },
@@ -190,7 +203,9 @@
               "title": "",
               "credits": 4,
               "year": 2,
-              "term": 2
+              "term": 2,
+              "description": "Biomedical Engineering Design I Engineering design process for biomedical technologies. Practical skills in engineering design, computer aided design, electronic circuits, programming, and rapid prototyping in the context of biomedical technologies. Introduction to broader ethical and sustainability considerations for biomedical technology design.",
+              "prerequisites": "Either (a) all of"
             },
             {
               "code": "CPEN 221",
@@ -233,7 +248,9 @@
               "title": "",
               "credits": 3,
               "year": 2,
-              "term": 2
+              "term": 2,
+              "description": "Transport Phenomena I Fluid Mechanics. Momentum-transfer in fluids in laminar and turbulent flow; microscopic and macroscopic material; momentum and energy balances; rheology; dimensional analysis; flow in conduits; pumps; fluid metering. *]",
+              "prerequisites": "[PHYS170]\n\nCorequisites: One of MATH 255, MATH 256."
             }
           ]
         }
@@ -258,28 +275,33 @@
               "title": "",
               "credits": 4,
               "year": 3,
-              "term": 1
+              "term": 1,
+              "description": "Introduction to Bioinformatics Principles behind the methods of bioinformatics. The use of bioinformatics databases and tools for solving problems in genomics, proteomics, structural biology and evolutionary biology. Prerequisite:"
             },
             {
               "code": "BMEG 321",
-              "title": "",
+              "title": ", ELEC 371",
               "credits": 3,
               "year": 3,
-              "term": 1
+              "term": 1,
+              "prerequisites": "Either (a) MATH 256 or (b) all of MATH 265, MATH 267; and either (a)"
             },
             {
               "code": "BMEG 350",
               "title": "",
               "credits": 4,
               "year": 3,
-              "term": 1
+              "term": 1,
+              "description": "Human Structure/Function from Cells to Systems Human anatomy, histology and physiology with examples from biomedical engineering. Anatomical compartmentation and function regulation; homeostatic control systems, sensors and effectors; intercellular communication strategies; and cellular and organ function assessment.",
+              "prerequisites": "All of"
             },
             {
               "code": "BMEG 357",
               "title": "",
               "credits": 3,
               "year": 3,
-              "term": 1
+              "term": 1,
+              "description": "Biomedical Engineering Design II Creating innovations in biomedical technologies. Supervised design process for clinical clients, involving the building, testing, and verification of prototypes with potential users. [3*-3*-0] Prerequisite:"
             }
           ]
         },
@@ -291,7 +313,9 @@
               "title": "",
               "credits": 3,
               "year": 3,
-              "term": 2
+              "term": 2,
+              "description": "Transport Phenomena within Cells and Tissues Fluid flow and mass transport analysis within healthy and diseased cells and tissues using mathematics. Drug delivery and tissue engineering. *]",
+              "prerequisites": "One of MATH 253, MATH 217 and either (a) MATH 256 or (b) all of MATH 255, MATH 257.\n\nEquivalency: CHBE 470"
             },
             {
               "code": "CHEM 233",
@@ -339,21 +363,25 @@
               "title": "",
               "credits": 3,
               "year": 4,
-              "term": 1
+              "term": 1,
+              "description": "Economics of Healthcare Solutions Canadian and USA engineering economics in BME and healthcare systems. Economic equivalence, cost estimation, risk assessment, regulatory frameworks, economic optimization, intangible factors, ethics, sustainability, financial tools, commercialization and regulator regimes."
             },
             {
               "code": "BMEG 455",
               "title": "",
               "credits": 3,
               "year": 4,
-              "term": 1
+              "term": 1,
+              "description": "Professionalism and Ethics in Biomedical Engineering Ethical, equity, and diversity issues and professionalism in Biomedical Engineering practice and design. Case studies and design projects will be used to expand on the foundation of biomedical engineering design, applying real-world ethical dilemmas including professional, medical, and research ethics."
             },
             {
               "code": "BMEG 457",
               "title": "",
               "credits": 6,
               "year": 4,
-              "term": 1
+              "term": 1,
+              "description": "Biomedical Engineering Design Project Capstone design and development of a practical biomedical device or system. Projects provided by local industry and engineering research laboratories. ;",
+              "prerequisites": "All of"
             }
           ]
         },

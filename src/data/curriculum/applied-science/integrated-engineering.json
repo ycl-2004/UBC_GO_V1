@@ -162,21 +162,26 @@
               "title": "",
               "credits": 3,
               "year": 2,
-              "term": 1
+              "term": 1,
+              "description": "Material and Energy Balances Introduction to Chemical and Biological Engineering; units; stoichiometry; phase equilibria; material balances; energy balances.",
+              "prerequisites": "All of CHEM 154, MATH 152."
             },
             {
               "code": "CHBE 244",
               "title": "",
               "credits": 3,
               "year": 2,
-              "term": 1
+              "term": 1,
+              "description": "Chemical and Biological Engineering Thermodynamics I Energy and the first law; second law of thermodynamics; entropy; availability (energy) analysis; thermodynamic properties of fluids, application to power generation, refrigeration, and liquefaction, as well as biological, environmental, and electrochemical systems. *] Prerequisite:"
             },
             {
               "code": "CIVL 215",
               "title": "",
               "credits": 4,
               "year": 2,
-              "term": 1
+              "term": 1,
+              "description": "Fluid Mechanics I Fluid properties, hydrostatics, kinematics, and fluid dynamics: energy and momentum methods with applications. Dimensional analysis, modelling, introduction to flow in pipes and forces on immersed objects.",
+              "prerequisites": "All of PHYS 170, MATH 101."
             },
             {
               "code": "CPEN 312",
@@ -215,14 +220,17 @@
               "title": "",
               "credits": 3,
               "year": 2,
-              "term": 2
+              "term": 2,
+              "description": "Integrated Technical Communication Written and oral communication in business correspondence, engineering design methods, report preparation, and oral presentations of technical material. Restricted to students in second year of the Integrated Engineering Program. ;",
+              "prerequisites": "One of APSC 176, ENGL 110, ENGL 111, ENGL 112, ENGL 120, ENGL 121, WRDS 150.\n\nEquivalency: APSC201"
             },
             {
               "code": "IGEN 230",
               "title": "",
               "credits": 6,
               "year": 2,
-              "term": 2
+              "term": 2,
+              "description": "Introduction to Engineering Design Introduction to engineering design methods, problem solving, working individually and in teams, and methods of communication of results. Engineering design projects will be assigned. Restricted to students in the second year of the Integrated Engineering program. ;"
             },
             {
               "code": "MATH 253",
@@ -247,7 +255,9 @@
               "title": "",
               "credits": 3,
               "year": 2,
-              "term": 2
+              "term": 2,
+              "description": "Introduction to Mechanics of Materials Statically determinate frames and trusses; normal and shear stresses and strains; shear force and bending moment diagrams; theory of beam bending, torsion of circular rods; transformation of stress and strain in two and three dimensions, Mohr's circle; yield and ultimate failure criteria.",
+              "prerequisites": "Either (a) all of MATH 101, PHYS 170 or (b) all of APSC 172, APSC 173, APSC 180."
             }
           ]
         }
@@ -265,7 +275,9 @@
               "title": "",
               "credits": 3,
               "year": 3,
-              "term": 1
+              "term": 1,
+              "description": "Introduction to Unit Operations Foundational concepts and design equations for basic unit operations such as: comminution, screening, filtration, centrifugal separations, evaporation and crystallization. *]",
+              "prerequisites": "Either (a) all of"
             },
             {
               "code": "COMR 280",
@@ -288,14 +300,17 @@
               "title": "",
               "credits": 6,
               "year": 3,
-              "term": 1
+              "term": 1,
+              "description": "Intermediate Engineering Design Intermediate level engineering design projects involving material in the curriculum of the Integrated Engineering program. [1-4;1-4]"
             },
             {
               "code": "MECH 360",
               "title": "",
               "credits": 3,
               "year": 3,
-              "term": 1
+              "term": 1,
+              "description": "Mechanics of Materials Beam deflections, singularity functions; use of tabulated solutions; column buckling; Castigliano's theorem, statically indeterminate beams, bending of beams with asymmetric cross-sections, shear centre; principal stresses and stress invariants in three dimensions.",
+              "prerequisites": "One of"
             }
           ]
         },
@@ -307,14 +322,17 @@
               "title": "",
               "credits": 3,
               "year": 3,
-              "term": 2
+              "term": 2,
+              "description": "Heat Transfer Steady and transient conduction. Radiation heat transfer. Convective heat and mass transfer in pipes and from external surfaces. Design of heat exchangers.",
+              "prerequisites": "Either (a)"
             },
             {
               "code": "MTRL 280",
               "title": "",
               "credits": 3,
               "year": 3,
-              "term": 2
+              "term": 2,
+              "description": "Materials in Design The process of materials selection for different design criteria; the importance of shape and processing variables; the use of computer software in the selection process."
             },
             {
               "code": "STAT 251",
@@ -328,7 +346,9 @@
               "title": "One of ,",
               "credits": 4,
               "year": 3,
-              "term": 2
+              "term": 2,
+              "description": "Process Dynamics and Control Introduction to modelling of chemical processes; transient response analysis; design of feedback control systems; stability analysis; frequency response analysis; process control applications; instrumentation; advanced control techniques; distributed control systems.",
+              "prerequisites": "MATH_V 255 or MATH_V 256."
             },
             {
               "code": "ELECTIVE",
@@ -361,21 +381,24 @@
               "title": "",
               "credits": 3,
               "year": 4,
-              "term": 1
+              "term": 1,
+              "description": "Introduction to Environmental Engineering Applications Environmental legislation; risk assessment; urban water; mass balance; water and wastewater treatment; environmental impact assessment. Prerequisite:"
             },
             {
               "code": "IGEN 430",
               "title": "",
               "credits": 6,
               "year": 4,
-              "term": 1
+              "term": 1,
+              "description": "Advanced Engineering Design Projects Projects involving all material in the curriculum of the Integrated Engineering Program. Students will be expected to propose a project and complete the design and construction of a prototype. Restricted to students in the fourth year of the Integrated Engineering program. ;"
             },
             {
               "code": "MTRL 340",
               "title": "",
               "credits": 3,
               "year": 4,
-              "term": 1
+              "term": 1,
+              "description": "Manufacturing in Materials Engineering Manufacturing processes from a materials perspective; metal casting, heat treating processes, forming processes, machining, and joining. Role of manufacturing in microstructure and material properties development and on component performance."
             }
           ]
         },
@@ -387,14 +410,18 @@
               "title": "One of , , , ,  or",
               "credits": 3,
               "year": 4,
-              "term": 2
+              "term": 2,
+              "description": "Modelling and Simulation Methods for determining the behaviour of large scale industrial systems and their application to the design and analysis of such systems.",
+              "prerequisites": "STAT 251."
             },
             {
               "code": "CHBE 459",
               "title": "One of , , , , ,",
               "credits": 3,
               "year": 4,
-              "term": 2
+              "term": 2,
+              "description": "Chemical and Biological Engineering Economics Estimation of capital and operating costs; interest calculations; taxes; economic comparison of alternatives; economic optimization.",
+              "prerequisites": "Third-year or higher standing in BASc or BSc."
             },
             {
               "code": "ELECTIVE",
@@ -408,7 +435,9 @@
               "title": "Students failing  will be required to pass  subsequently.",
               "credits": 3,
               "year": 4,
-              "term": 2
+              "term": 2,
+              "description": "Integrated Technical Communication Written and oral communication in business correspondence, engineering design methods, report preparation, and oral presentations of technical material. Restricted to students in second year of the Integrated Engineering Program. ;",
+              "prerequisites": "One of APSC 176, ENGL 110, ENGL 111, ENGL 112, ENGL 120, ENGL 121, WRDS 150.\n\nEquivalency: APSC201"
             }
           ]
         }

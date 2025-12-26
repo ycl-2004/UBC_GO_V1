@@ -145,35 +145,44 @@
               "title": "",
               "credits": 3,
               "year": 2,
-              "term": 1
+              "term": 1,
+              "description": "Computational Methods Mathematical formulation of chemical and biological engineering problems; standard techniques of numerical analysis and their application to chemical, environmental and biotechnological systems; program development; use of commercial numerical analysis software.",
+              "prerequisites": "APSC 160.\n\nCorequisites: MATH 256."
             },
             {
               "code": "CHBE 241",
               "title": "",
               "credits": 3,
               "year": 2,
-              "term": 1
+              "term": 1,
+              "description": "Material and Energy Balances Introduction to Chemical and Biological Engineering; units; stoichiometry; phase equilibria; material balances; energy balances.",
+              "prerequisites": "All of CHEM 154, MATH 152."
             },
             {
               "code": "CHBE 244",
               "title": "",
               "credits": 3,
               "year": 2,
-              "term": 1
+              "term": 1,
+              "description": "Chemical and Biological Engineering Thermodynamics I Energy and the first law; second law of thermodynamics; entropy; availability (energy) analysis; thermodynamic properties of fluids, application to power generation, refrigeration, and liquefaction, as well as biological, environmental, and electrochemical systems. *] Prerequisite:"
             },
             {
               "code": "CIVL 204",
               "title": "",
               "credits": 3,
               "year": 2,
-              "term": 1
+              "term": 1,
+              "description": "Fundamentals of Environmental Engineering Environmental engineering issues and projects; application of scientific and engineering principles to addressing these; soil, water and air pollution, and remediation.",
+              "prerequisites": "CHEM 154."
             },
             {
               "code": "CIVL 215",
               "title": "",
               "credits": 4,
               "year": 2,
-              "term": 1
+              "term": 1,
+              "description": "Fluid Mechanics I Fluid properties, hydrostatics, kinematics, and fluid dynamics: energy and momentum methods with applications. Dimensional analysis, modelling, introduction to flow in pipes and forces on immersed objects.",
+              "prerequisites": "All of PHYS 170, MATH 101."
             }
           ]
         },
@@ -185,28 +194,35 @@
               "title": "",
               "credits": 4,
               "year": 2,
-              "term": 2
+              "term": 2,
+              "description": "Environmental Engineering Design and Decision Making Environmental Engineering design and decision-making, analysis tools and techniques, data illustration and other communication techniques, professional development including ethics and equity. Subject themes include water, air and soil.",
+              "prerequisites": "Second-year standing in ENVL."
             },
             {
               "code": "ENVE 201",
               "title": "",
               "credits": 3,
               "year": 2,
-              "term": 2
+              "term": 2,
+              "description": "Technical Communications for Environmental Engineering All aspects of technical communication, including report preparation, business correspondence, and oral presentation, applied to environmental engineering specific cases and projects. Corequisite:",
+              "prerequisites": "WRDS 150. or equivalent (ENGL 100, 110, 111 or 112)"
             },
             {
               "code": "ENVE 202",
               "title": "",
               "credits": 4,
               "year": 2,
-              "term": 2
+              "term": 2,
+              "description": "Environmental Engineering Science Analysis of integrated environmental systems, quantification of fundamental chemical and biological processes, systems design, evaluation of environmental impact, future trends.",
+              "prerequisites": "Four of CHEM 154, CIVL 204, CHBE 241."
             },
             {
               "code": "ENVE 203",
               "title": "",
               "credits": 4,
               "year": 2,
-              "term": 2
+              "term": 2,
+              "description": "Environmental Engineering and Sustainability Sustainability vocabulary and systems theory relevant to environmental engineering practice, foundational sustainability topics including those relating to urban ecology, industrial ecology/circular economy, and humanitarian engineering, stakeholder analysis, communication, and adaptive change leadership skills Prerequisite:"
             },
             {
               "code": "MATH 253",
@@ -242,35 +258,42 @@
               "title": "",
               "credits": 3,
               "year": 3,
-              "term": 1
+              "term": 1,
+              "description": "Environmental Engineering Laboratory Laboratory experiments to illustrate key concepts and measurement techniques in environmental engineering as used by engineers.",
+              "prerequisites": "Corequisites: One of"
             },
             {
               "code": "CHBE 370",
               "title": "",
               "credits": 3,
               "year": 3,
-              "term": 1
+              "term": 1,
+              "description": "Fundamentals of Sustainable Engineering Introduction to sustainable practice for Chemical and Biological Engineers. Pollution prevention, cleaner production, green chemistry and engineering, and sustainable design; environmental impact assessment including life-cycle assessment, total cost analysis and environmental systems analysis; applications in chemical and biological process industries. *]",
+              "prerequisites": "All of"
             },
             {
               "code": "CHBE 373",
-              "title": "",
+              "title": "or CIVL_V 406",
               "credits": 4,
               "year": 3,
-              "term": 1
+              "term": 1,
+              "prerequisites": "One of"
             },
             {
               "code": "CHBE 485",
               "title": "",
               "credits": 3,
               "year": 3,
-              "term": 1
+              "term": 1,
+              "description": "Air Pollution Prevention and Air Quality Engineering Fate of air-born chemicals and the associated impacts of air pollutants on health, visibility, smog formation, ozone depletion and global warming; air quality and emission standards; atmospheric dispersion of air pollutants; prevention and control technologies for particulates, SOx, NOx, VOCs, and CO2. Credit will be granted for only one of"
             },
             {
               "code": "CIVL 305",
               "title": "",
               "credits": 3,
               "year": 3,
-              "term": 1
+              "term": 1,
+              "description": "Introduction to Environmental Engineering Applications Environmental legislation; risk assessment; urban water; mass balance; water and wastewater treatment; environmental impact assessment. Prerequisite:"
             }
           ]
         },
@@ -282,28 +305,35 @@
               "title": "",
               "credits": 4,
               "year": 3,
-              "term": 2
+              "term": 2,
+              "description": "Fluid Mechanics II Two-dimensional flow around immersed objects; velocity and pressure fields; lift and drag on cylinders and aerofoils; fluid loads on structures and structural response; pumps and turbines; analysis and design of pipeline systems; unsteady flow in pipes; frictionless water hammer analysis. [3-2*-1]",
+              "prerequisites": "One of ENVE 201,"
             },
             {
               "code": "CIVL 316",
               "title": "",
               "credits": 4,
               "year": 3,
-              "term": 2
+              "term": 2,
+              "description": "Hydrology and Open Channel Flow Introduction to open channel hydraulics, engineering hydrology, and water resource systems; estimation of design discharge; flood statistics; nonuniform steady open channel flow; energy and momentum principles, backwater analysis; culvert and bridge hydraulics. [3-2*-1] Prerequisite:"
             },
             {
               "code": "ENVE 301",
               "title": "",
               "credits": 3,
               "year": 3,
-              "term": 2
+              "term": 2,
+              "description": "Environmental Engineering Intermediate Design Project Real-time, fully-integrated, conceptual and detailed design experiences that address an ill-structured, socially and technically complex environmental engineering problem for communities with consideration to the cultural history and needs of the communities. Corequisite:",
+              "prerequisites": "Third-year standing in ENVL or third-year standing in ENVE."
             },
             {
               "code": "EOSC 210",
               "title": "",
               "credits": 3,
               "year": 3,
-              "term": 2
+              "term": 2,
+              "description": "Earth Science for Engineers Focus on the interaction between society and the geologic environment. Locating, assessing and developing natural resources; understanding and preparing for natural hazards, design of structures and waste disposal sites.",
+              "prerequisites": "Corequisites: One of CIVL 215, MINE 200."
             },
             {
               "code": "STAT 251",
@@ -335,35 +365,43 @@
               "title": "",
               "credits": 3,
               "year": 4,
-              "term": 1
+              "term": 1,
+              "description": "Chemical and Biological Engineering Economics Estimation of capital and operating costs; interest calculations; taxes; economic comparison of alternatives; economic optimization.",
+              "prerequisites": "Third-year or higher standing in BASc or BSc."
             },
             {
               "code": "CHBE 483",
               "title": "",
               "credits": 3,
               "year": 4,
-              "term": 1
+              "term": 1,
+              "description": "Energy Engineering for Climate Change and Sustainability Supply and use of conventional and alternative fuels and energy. Design and operation of unit operations for processing of fossil fuels, biomass, and other energy sources. Environmental considerations of energy use. that address climate change and sustainability (water usage, environmental footprint, resource use, etc.). Credit will be granted for only one of"
             },
             {
               "code": "CHBE 486",
               "title": "",
               "credits": 3,
               "year": 4,
-              "term": 1
+              "term": 1,
+              "description": "Waste Mitigation and Processing for Resource Recovery How chemical and biological waste impact the environment. Physico-chemical, thermal, and biological methods for minimizing, isolating and sustainably treating solid waste and wastewater, including conversion to bioproducts/ industrial products, energy and clean water. Recommended",
+              "prerequisites": "All of"
             },
             {
               "code": "CIVL 402",
               "title": "",
               "credits": 3,
               "year": 4,
-              "term": 1
+              "term": 1,
+              "description": "Professionalism and Law in Civil Engineering The Professional Governance Act; professional ethics, conflicts of interest, confidentiality and accountability; health and safety; sustainable development and environmental stewardship; equity considerations; design and construction contracts, specifications and tendering; labour and employment law; dispute resolution; evidence and expert witnesses; torts and legal liability."
             },
             {
               "code": "CIVL 409",
               "title": "",
               "credits": 3,
               "year": 4,
-              "term": 1
+              "term": 1,
+              "description": "Municipal Engineering Design of municipal infrastructure, including streets, water supply networks, and sewers, garbage collection and solid waste management. Focus is on solutions for providing an adequate water supply, collecting and disposing of stormwater and sewage, and managing excess stormwater flow.",
+              "prerequisites": "All of"
             }
           ]
         },
@@ -375,28 +413,34 @@
               "title": "",
               "credits": 3,
               "year": 4,
-              "term": 2
+              "term": 2,
+              "description": "Environmental Hydraulics Application of hydraulic engineering principles to problems of environmental concern. Pollutant transport and dispersion. Mixing in rivers and lakes. Theory of jets and plumes. Design of outfall diffusers.",
+              "prerequisites": "All of"
             },
             {
               "code": "CIVL 418",
               "title": "",
               "credits": 3,
               "year": 4,
-              "term": 2
+              "term": 2,
+              "description": "Engineering Hydrology Hydrologic processes - weather, precipitation, infiltration, evaporation, snowmelt and runoff generation. Emphasis on quantitative techniques including: hydrograph analysis, reservoir and channel routing, statistical methods and design floods, hydrologic modelling. Prerequisite:"
             },
             {
               "code": "ENVE 401",
               "title": "",
               "credits": 8,
               "year": 4,
-              "term": 2
+              "term": 2,
+              "description": "Environmental Engineering Capstone Project Application of chemical, biological, and environmental science; engineering concepts; sustainable development and health and safety considerations; engineering economics; and life cycle analysis. Conceptual and detailed design for a multi-scale and complex environment health and protection problem. ; Prerequisite:"
             },
             {
               "code": "EOSC 329",
               "title": "",
               "credits": 3,
               "year": 4,
-              "term": 2
+              "term": 2,
+              "description": "Quantitative Groundwater Hydrology Introduction to theory of groundwater flow; flow nets; regional groundwater resource evaluation; well hydraulics; role of groundwater in geologic processes, case studies. [2-3*-3*]",
+              "prerequisites": "One of MATH 101, MATH 103, MATH 105, MATH 121, SCIE 001."
             },
             {
               "code": "ELECTIVE",

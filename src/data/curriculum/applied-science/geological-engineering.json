@@ -154,35 +154,45 @@
               "title": "",
               "credits": 4,
               "year": 2,
-              "term": 1
+              "term": 1,
+              "description": "Soil Mechanics I Soil classification, principle of effective stress, analysis of seepage, filter criteria, introduction to shear strength and slope stability analysis. [3-2*-1]",
+              "prerequisites": "One of"
             },
             {
               "code": "CIVL 215",
               "title": "",
               "credits": 4,
               "year": 2,
-              "term": 1
+              "term": 1,
+              "description": "Fluid Mechanics I Fluid properties, hydrostatics, kinematics, and fluid dynamics: energy and momentum methods with applications. Dimensional analysis, modelling, introduction to flow in pipes and forces on immersed objects.",
+              "prerequisites": "All of PHYS 170, MATH 101."
             },
             {
               "code": "CIVL 230",
               "title": "",
               "credits": 4,
               "year": 2,
-              "term": 1
+              "term": 1,
+              "description": "Solid Mechanics Stress and strain, Hooke's law, axially loaded members, torsion, shear forces and bending moments in beams, bending and shear stresses in beams, composite members, introduction to inelastic and statically indeterminate problems.",
+              "prerequisites": "All of PHYS 170, MATH 101."
             },
             {
               "code": "EOSC 210",
               "title": "",
               "credits": 3,
               "year": 2,
-              "term": 1
+              "term": 1,
+              "description": "Earth Science for Engineers Focus on the interaction between society and the geologic environment. Locating, assessing and developing natural resources; understanding and preparing for natural hazards, design of structures and waste disposal sites.",
+              "prerequisites": "Corequisites: One of CIVL 215, MINE 200."
             },
             {
               "code": "EOSC 213",
               "title": "",
               "credits": 3,
               "year": 2,
-              "term": 1
+              "term": 1,
+              "description": "Computational Methods in Geological Engineering Combining basic physical principles with their mathematical description and generating computational models that describe them. Introduction to basic building blocks in modelling, simulation and parameter estimation.",
+              "prerequisites": "One of MATH 200, MATH 253 and one of MATH 152, MATH 221, MATH 223 and one of APSC 160, CPSC 103, CPSC 110,"
             }
           ]
         },
@@ -194,28 +204,34 @@
               "title": "",
               "credits": 3,
               "year": 2,
-              "term": 2
+              "term": 2,
+              "description": "Introductory Mineralogy Introduction to crystallography, physical and chemical properties of minerals. Recognition and identification of common minerals. Please consult the Faculty of Science Credit Exclusion List: https://vancouver.calendar.ubc.ca/faculties-colleges-and-schools/facult… .",
+              "prerequisites": "One of CHEM 110, CHEM 111, CHEM 120, CHEM 121, CHEM 141, SCIE 001."
             },
             {
               "code": "EOSC 221",
               "title": "",
               "credits": 3,
               "year": 2,
-              "term": 2
+              "term": 2,
+              "description": "Introductory Petrology Optical mineralogy and the classification and genesis of igneous, metamorphic and sedimentary rocks.",
+              "prerequisites": "[EOSC220]"
             },
             {
               "code": "EOSC 223",
               "title": "",
               "credits": 3,
               "year": 2,
-              "term": 2
+              "term": 2,
+              "description": "Field Techniques Introduction to the techniques of geological mapping and the interpretation of field data. Includes three one-day field trips on weekends plus a seven-day field school after Spring examinations. A fee is to be paid by January 31. Corequisite:"
             },
             {
               "code": "EOSC 240",
               "title": "",
               "credits": 3,
               "year": 2,
-              "term": 2
+              "term": 2,
+              "description": "Site Investigation Theory and practice of site investigation for geological engineers, including background studies, field work, remote sensing, development of ground models, importance of geological variability and uncertainty. Impacts on design, project risk and decision making. Prerequisite:"
             },
             {
               "code": "MATH 253",
@@ -249,35 +265,43 @@
               "title": "",
               "credits": 4,
               "year": 3,
-              "term": 1
+              "term": 1,
+              "description": "Soil Mechanics II One-dimensional compression and stress-strain response of soils with application to estimation of the settlements and capacities of foundations and of retaining walls. [3-2*-1] Prerequisite:"
             },
             {
               "code": "CIVL 316",
               "title": "",
               "credits": 4,
               "year": 3,
-              "term": 1
+              "term": 1,
+              "description": "Hydrology and Open Channel Flow Introduction to open channel hydraulics, engineering hydrology, and water resource systems; estimation of design discharge; flood statistics; nonuniform steady open channel flow; energy and momentum principles, backwater analysis; culvert and bridge hydraulics. [3-2*-1] Prerequisite:"
             },
             {
               "code": "EOSC 323",
               "title": "",
               "credits": 3,
               "year": 3,
-              "term": 1
+              "term": 1,
+              "description": "Structural Geology I Analysis and interpretation of natural deformation.",
+              "prerequisites": "All of"
             },
             {
               "code": "EOSC 328",
               "title": "or 428",
               "credits": 3,
               "year": 3,
-              "term": 1
+              "term": 1,
+              "description": "Field Geology Recording and processing geological data in the field. Held within the three weeks following April examinations after third year. A special fee is to be paid by January 31.",
+              "prerequisites": "All of"
             },
             {
               "code": "EOSC 329",
               "title": "",
               "credits": 3,
               "year": 3,
-              "term": 1
+              "term": 1,
+              "description": "Quantitative Groundwater Hydrology Introduction to theory of groundwater flow; flow nets; regional groundwater resource evaluation; well hydraulics; role of groundwater in geologic processes, case studies. [2-3*-3*]",
+              "prerequisites": "One of MATH 101, MATH 103, MATH 105, MATH 121, SCIE 001."
             }
           ]
         },
@@ -289,28 +313,35 @@
               "title": "",
               "credits": 3,
               "year": 3,
-              "term": 2
+              "term": 2,
+              "description": "Principles of Geomorphology Landform development; morphological and historical analysis of landforms; applications in engineering and resource development. Please consult the Faculty of Science Credit Exclusion List: https://vancouver.calendar.ubc.ca/faculties-colleges-and-schools/facult… .",
+              "prerequisites": "One of GEOB 103,"
             },
             {
               "code": "EOSC 350",
               "title": "",
               "credits": 3,
               "year": 3,
-              "term": 2
+              "term": 2,
+              "description": "Environmental, Geotechnical, and Exploration Geophysics I Principles of geophysical survey design, data acquisition, processing and interpretation with emphasis on near-surface problems. Magnetic, seismic reflection/refraction, electromagnetic and ground penetrating radar surveys. Case history analysis of environmental and geotechnical problems.",
+              "prerequisites": "One of MATH_V 200, MATH_V 253 and third-year standing or higher in Science or Applied Science."
             },
             {
               "code": "MINE 303",
               "title": "",
               "credits": 4,
               "year": 3,
-              "term": 2
+              "term": 2,
+              "description": "Rock Engineering Fundamentals The study of the mechanical and structural properties of rock materials at the laboratory and field scale, with reference to common mining, geological and civil engineering problems.",
+              "prerequisites": "One of MECH 260, CIVL 230."
             },
             {
               "code": "EOSC 320",
               "title": "One of , , , ,",
               "credits": 3,
               "year": 3,
-              "term": 2
+              "term": 2,
+              "description": "Sedimentology Origin, diagenesis and geochemistry of sediments and sedimentary rocks. Prerequisite:"
             },
             {
               "code": "ELECTIVE",
@@ -335,28 +366,34 @@
               "title": "",
               "credits": 3,
               "year": 4,
-              "term": 1
+              "term": 1,
+              "description": "Professionalism and Law in Civil Engineering The Professional Governance Act; professional ethics, conflicts of interest, confidentiality and accountability; health and safety; sustainable development and environmental stewardship; equity considerations; design and construction contracts, specifications and tendering; labour and employment law; dispute resolution; evidence and expert witnesses; torts and legal liability."
             },
             {
               "code": "CIVL 410",
               "title": "",
               "credits": 3,
               "year": 4,
-              "term": 1
+              "term": 1,
+              "description": "Foundation Engineering I An introduction to the process of foundation engineering. Empirical and analytical approaches used in current professional practice. Topics include site investigation, preloading, liquefaction assessment, ground improvement, design of shallow and deep foundations, and retaining structures. The importance of geology and technical communication are emphasized.",
+              "prerequisites": "CIVL311"
             },
             {
               "code": "CIVL 411",
               "title": "",
               "credits": 3,
               "year": 4,
-              "term": 1
+              "term": 1,
+              "description": "Foundation Engineering II Aspects of Geotechnical Engineering. Design considerations illustrated by case histories pertinent to BC. Topics include: site investigation, terrain analyses, in situ testing, groundwater problems, deep foundations, tie back walls and bracing, tailings impoundments, Northern construction, ground ice, dikes and dams engineering. Many case histories presented in part by prominent consulting engineers in BC. Prerequisite:"
             },
             {
               "code": "EOSC 429",
               "title": "",
               "credits": 3,
               "year": 4,
-              "term": 1
+              "term": 1,
+              "description": "Groundwater Contamination Contaminant transport processes in groundwater flow systems; aqueous and multiphase transport; mathematical models describing migration and chemical evolution of contaminant plumes; case studies.",
+              "prerequisites": "One of"
             }
           ]
         },
@@ -368,28 +405,36 @@
               "title": "",
               "credits": 3,
               "year": 4,
-              "term": 2
+              "term": 2,
+              "description": "Geological Engineering Practice I - Rock Engineering Application of rock mechanics, hydrogeology, and engineering design tools in realistically complex geological environments. Influence and treatment of geological uncertainty, and use of field data, geotechnical monitoring, and numerical analyses for tunnelling, mining and rock slope engineering projects. Case histories.",
+              "prerequisites": "All of"
             },
             {
               "code": "EOSC 434",
               "title": "",
               "credits": 3,
               "year": 4,
-              "term": 2
+              "term": 2,
+              "description": "Geological Engineering Practice II - Soil Engineering Application of geomorphology, hydrogeology, and soil mechanics to geotechnical design. Influence and treatment of geological uncertainty in geotechnical hazard and risk assessments; multi-disciplinary approaches to geotechnical engineering problems in realistically complex geological environments. Case histories.",
+              "prerequisites": "All of"
             },
             {
               "code": "EOSC 445",
               "title": "",
               "credits": 6,
               "year": 4,
-              "term": 2
+              "term": 2,
+              "description": "Engineering Design Project Geological engineering design project from scope definition to final design. Based on a problem from industry. [2*-3-0, 2*-3-0]",
+              "prerequisites": "All of"
             },
             {
               "code": "CHBE 459",
               "title": "One of , , , , , ,",
               "credits": 3,
               "year": 4,
-              "term": 2
+              "term": 2,
+              "description": "Chemical and Biological Engineering Economics Estimation of capital and operating costs; interest calculations; taxes; economic comparison of alternatives; economic optimization.",
+              "prerequisites": "Third-year or higher standing in BASc or BSc."
             },
             {
               "code": "ELECTIVE",

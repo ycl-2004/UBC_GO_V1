@@ -154,14 +154,18 @@
               "title": "",
               "credits": 4,
               "year": 2,
-              "term": 1
+              "term": 1,
+              "description": "Soil Mechanics I Soil classification, principle of effective stress, analysis of seepage, filter criteria, introduction to shear strength and slope stability analysis. [3-2*-1]",
+              "prerequisites": "One of"
             },
             {
               "code": "EOSC 210",
               "title": "",
               "credits": 3,
               "year": 2,
-              "term": 1
+              "term": 1,
+              "description": "Earth Science for Engineers Focus on the interaction between society and the geologic environment. Locating, assessing and developing natural resources; understanding and preparing for natural hazards, design of structures and waste disposal sites.",
+              "prerequisites": "Corequisites: One of CIVL 215, MINE 200."
             },
             {
               "code": "MATH 253",
@@ -186,7 +190,9 @@
               "title": "",
               "credits": 3,
               "year": 2,
-              "term": 1
+              "term": 1,
+              "description": "Introduction to Mechanics of Materials Statically determinate frames and trusses; normal and shear stresses and strains; shear force and bending moment diagrams; theory of beam bending, torsion of circular rods; transformation of stress and strain in two and three dimensions, Mohr's circle; yield and ultimate failure criteria.",
+              "prerequisites": "Either (a) all of MATH 101, PHYS 170 or (b) all of APSC 172, APSC 173, APSC 180."
             }
           ]
         },
@@ -198,35 +204,42 @@
               "title": ", , or",
               "credits": 3,
               "year": 2,
-              "term": 2
+              "term": 2,
+              "description": "Introduction to Fluid Mechanics Fluid properties; statics; kinematics, dynamics, energy, and momentum principles for control volumes; dimensional analysis and similarity; laminar and turbulent flow; pipe flow; principles of centrifugal pumps.",
+              "prerequisites": "All of MATH 152, PHYS 170 and one of MATH 217, MATH 253; and either (a) PHYS 131 and one of PHYS 108, PHYS 118; or (b) PHYS 153 or (c) all of PHYS 157, PHYS 158, PHYS 159."
             },
             {
               "code": "MINE 200",
               "title": "",
               "credits": 3,
               "year": 2,
-              "term": 2
+              "term": 2,
+              "description": "Mineral Resources Engineering I Introduction to the mining life cycle and the design, planning, operation, and closure of mining systems, with a focus on mining methods, mineral processing, community engagement, and social license to operate."
             },
             {
               "code": "MINE 201",
               "title": "",
               "credits": 3,
               "year": 2,
-              "term": 2
+              "term": 2,
+              "description": "Mineral Resources Engineering II The design, planning, and operation, and closure of mining operations, with a focus on mineral processing technologies, plant design, waste and tailings management, and the future of mining. Prerequisite:"
             },
             {
               "code": "MINE 202",
               "title": "",
               "credits": 4,
               "year": 2,
-              "term": 2
+              "term": 2,
+              "description": "Mineralogy for Resources Engineering Fundamentals of rock and minerals formation. Exploring main techniques used to understand implications of mineralogy in mining and mineral processing.",
+              "prerequisites": "CHEM 154"
             },
             {
               "code": "MINE 293",
               "title": "",
               "credits": 1,
               "year": 2,
-              "term": 2
+              "term": 2,
+              "description": "Seminar Oral presentations of topics on mine safety, and mining engineering by industry practitioners, faculty and/or stake- and rights-holders."
             },
             {
               "code": "STAT 251",
@@ -284,21 +297,27 @@
               "title": "",
               "credits": 4,
               "year": 3,
-              "term": 1
+              "term": 1,
+              "description": "Underground Mining and Design Selection, design, and development of underground mining methods based upon physical, geological, economic, and environmental constraints. Underground excavation methods and equipment selection.",
+              "prerequisites": "Third-year standing."
             },
             {
               "code": "MINE 303",
               "title": "",
               "credits": 4,
               "year": 3,
-              "term": 1
+              "term": 1,
+              "description": "Rock Engineering Fundamentals The study of the mechanical and structural properties of rock materials at the laboratory and field scale, with reference to common mining, geological and civil engineering problems.",
+              "prerequisites": "One of MECH 260, CIVL 230."
             },
             {
               "code": "MINE 310",
               "title": "",
               "credits": 4,
               "year": 3,
-              "term": 1
+              "term": 1,
+              "description": "Surface Mining and Design Surface mining methods, calculation of pit limits, cutoff grades, break-even criteria, stripping ratios, ultimate pit depth and dimensions, and pit sequencing. Geotechnical inputs to surface mine design. Loading and hauling equipment, production rates, capacity and systems.",
+              "prerequisites": "Third-year standing."
             }
           ]
         },
@@ -310,35 +329,45 @@
               "title": "",
               "credits": 3,
               "year": 3,
-              "term": 2
+              "term": 2,
+              "description": "Physical Mineral Processes Mineral processing unit operations and sampling, crushing, grinding, screening, classification, gravity separation, magnetic separation, electrostatic separation, concentrate dewatering practices.",
+              "prerequisites": "Third Year Standing."
             },
             {
               "code": "MINE 333",
               "title": "",
               "credits": 3,
               "year": 3,
-              "term": 2
+              "term": 2,
+              "description": "Flotation Theory and technology of flotation and ancillary processes.",
+              "prerequisites": "Third Year Standing."
             },
             {
               "code": "MINE 350",
               "title": "",
               "credits": 3,
               "year": 3,
-              "term": 2
+              "term": 2,
+              "description": "Modelling and Simulation Methods for determining the behaviour of large scale industrial systems and their application to the design and analysis of such systems.",
+              "prerequisites": "STAT 251."
             },
             {
               "code": "MINE 380",
               "title": "",
               "credits": 3,
               "year": 3,
-              "term": 2
+              "term": 2,
+              "description": "Mine Waste Management Basic geotechnical, hydrological, and water management aspects of mine waste management.",
+              "prerequisites": "CIVL 210."
             },
             {
               "code": "MINE 396",
               "title": "",
               "credits": 3,
               "year": 3,
-              "term": 2
+              "term": 2,
+              "description": "Engineering Economics Discrete and continuous cash flow models, discounted cash flow analysis, effects of depreciation and taxes, economic analysis of projects, sensitivity and risk analysis, financing and cost of capital.",
+              "prerequisites": "Second-year standing in Engineering."
             },
             {
               "code": "ELECTIVE",
@@ -371,28 +400,34 @@
               "title": "",
               "credits": 3,
               "year": 4,
-              "term": 1
+              "term": 1,
+              "description": "Mine Ventilation and Occupational Health and Safety Design and analysis for ventilation systems for mining. Topics such as ventilation design, ventilation surveys, thermodynamic aspects, psychrometry of air and air conditioning.",
+              "prerequisites": "Fourth-year standing."
             },
             {
               "code": "MINE 403",
               "title": "",
               "credits": 3,
               "year": 4,
-              "term": 1
+              "term": 1,
+              "description": "Rock Engineering Design The design of rock slopes and underground openings with respect to stress, structure and the rock mass. Stabilization and monitoring of rock movement. Prerequisite:"
             },
             {
               "code": "MINE 432",
               "title": "",
               "credits": 3,
               "year": 4,
-              "term": 1
+              "term": 1,
+              "description": "Mineral Process Control Automatic control theory, PID control, Laplace and z-transforms, loop tuning, frequency response, stability analysis, control strategies in flotation, comminution, dewatering, reagent and bin/sump levels, automated load-haul-dump and drilling equipment, instrumentation and soft sensors."
             },
             {
               "code": "MINE 465",
               "title": "",
               "credits": 3,
               "year": 4,
-              "term": 1
+              "term": 1,
+              "description": "Materials Handling Knowledge and understanding of equipment used in mining operations, including diesel, electro-mechanical, hydraulic and pneumatic equipment as well as conveyors, load-haul-dump trucks and pumps.",
+              "prerequisites": "Third-year standing."
             }
           ]
         },
@@ -404,28 +439,35 @@
               "title": "",
               "credits": 3,
               "year": 4,
-              "term": 2
+              "term": 2,
+              "description": "Mining and The Environment Environmental topics of importance to engineers practicing within the mining, metallurgical and related industries including technical practices, regulatory and public issues."
             },
             {
               "code": "MINE 491",
               "title": "",
               "credits": 6,
               "year": 4,
-              "term": 2
+              "term": 2,
+              "description": "Mine and Plant Engineering Design Feasibility Study Mining Engineering design project from scope definition to final design and project feasibility. Based on a problem from industry and/or research. ;",
+              "prerequisites": "All of"
             },
             {
               "code": "MINE 444",
               "title": "",
               "credits": 3,
               "year": 4,
-              "term": 2
+              "term": 2,
+              "description": "Urban Mining: Recovering Value From E-waste Technological and social issues related to the recovery of value from e-waste seen through the eyes of engineers, social scientists and economists. Recovery of valuable minerals in the context of circular economy to provide sustainable solutions for our planet.",
+              "prerequisites": "Third-year standing"
             },
             {
               "code": "MINE 447",
               "title": "",
               "credits": 3,
               "year": 4,
-              "term": 2
+              "term": 2,
+              "description": "Dewatering of Fine Tailings Interparticle forces; DLVO theory of colloid stability; dispersion, coagulation, and flocculation phenomena; settling; thickening and consolidation processes; polymers in mineral processing; measurement techniques in tailings treatment; thickeners and principles of operation; industrial practice.",
+              "prerequisites": "Third-year standing"
             },
             {
               "code": "ELECTIVE",

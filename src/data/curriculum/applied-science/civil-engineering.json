@@ -162,35 +162,45 @@
               "title": "",
               "credits": 3,
               "year": 2,
-              "term": 1
+              "term": 1,
+              "description": "Introduction to Civil Engineering The design process; graphical, visualization and computational tools; civil engineering disciplines; decision-making; teamwork; conceptual design project reflecting community, economic, environmental, sustainability and technical considerations. Corequisite:",
+              "prerequisites": "One of APSC 176, ENGL 110, ENGL 111, ENGL 120, ENGL 121, WRDS 150."
             },
             {
               "code": "CIVL 203",
               "title": "",
               "credits": 3,
               "year": 2,
-              "term": 1
+              "term": 1,
+              "description": "Technical Communication in Civil Engineering Written and oral communication in civil engineering. Business correspondence, business meetings, poster presentations, oral presentations and technical reports. Restricted to students in second year of the Civil Engineering program. Corequisite:",
+              "prerequisites": "One of APSC_V 176, ENGL_V 110, ENGL_V 111, ENGL_V 120, ENGL_V 121, WRDS_V 150."
             },
             {
               "code": "CIVL 204",
               "title": "",
               "credits": 3,
               "year": 2,
-              "term": 1
+              "term": 1,
+              "description": "Fundamentals of Environmental Engineering Environmental engineering issues and projects; application of scientific and engineering principles to addressing these; soil, water and air pollution, and remediation.",
+              "prerequisites": "CHEM 154."
             },
             {
               "code": "CIVL 210",
               "title": "",
               "credits": 4,
               "year": 2,
-              "term": 1
+              "term": 1,
+              "description": "Soil Mechanics I Soil classification, principle of effective stress, analysis of seepage, filter criteria, introduction to shear strength and slope stability analysis. [3-2*-1]",
+              "prerequisites": "One of"
             },
             {
               "code": "CIVL 215",
               "title": "",
               "credits": 4,
               "year": 2,
-              "term": 1
+              "term": 1,
+              "description": "Fluid Mechanics I Fluid properties, hydrostatics, kinematics, and fluid dynamics: energy and momentum methods with applications. Dimensional analysis, modelling, introduction to flow in pipes and forces on immersed objects.",
+              "prerequisites": "All of PHYS 170, MATH 101."
             }
           ]
         },
@@ -202,28 +212,35 @@
               "title": "",
               "credits": 4,
               "year": 2,
-              "term": 2
+              "term": 2,
+              "description": "Solid Mechanics Stress and strain, Hooke's law, axially loaded members, torsion, shear forces and bending moments in beams, bending and shear stresses in beams, composite members, introduction to inelastic and statically indeterminate problems.",
+              "prerequisites": "All of PHYS 170, MATH 101."
             },
             {
               "code": "CIVL 231",
               "title": "",
               "credits": 4,
               "year": 2,
-              "term": 2
+              "term": 2,
+              "description": "Structural Mechanics Deflection of beams and structural systems; analysis of determinate structures; combined axial load and bending; beam- columns; buckling (stability); biaxial stresses and strains; construction and testing of model structures.",
+              "prerequisites": "All of MATH 152,"
             },
             {
               "code": "CIVL 235",
               "title": "",
               "credits": 4,
               "year": 2,
-              "term": 2
+              "term": 2,
+              "description": "Plane Surveying Theory and application of plane surveying methods. Introduction to and use of compass, transit, tape, and level. Construction and topographic surveys. Reduction of field data and construction of drawings. Demonstration of modern instruments, remote sensing methods and geographical information systems (GIS)."
             },
             {
               "code": "EOSC 210",
               "title": "",
               "credits": 3,
               "year": 2,
-              "term": 2
+              "term": 2,
+              "description": "Earth Science for Engineers Focus on the interaction between society and the geologic environment. Locating, assessing and developing natural resources; understanding and preparing for natural hazards, design of structures and waste disposal sites.",
+              "prerequisites": "Corequisites: One of CIVL 215, MINE 200."
             },
             {
               "code": "MATH 253",
@@ -273,42 +290,50 @@
               "title": "",
               "credits": 3,
               "year": 3,
-              "term": 1
+              "term": 1,
+              "description": "Construction Engineering and Management Project delivery systems: traditional; construction management; turnkey; project management. Network planning methods. Activity planning, including construction methods selection. Estimating, bidding and bonding. Project control tools and procedures. Human resources, including equity considerations; occupational health and safety and quality control."
             },
             {
               "code": "CIVL 301",
               "title": "",
               "credits": 3,
               "year": 3,
-              "term": 1
+              "term": 1,
+              "description": "Modelling and Decision-Making in Civil Engineering Introduction to systems engineering; applications of decision-making, modelling, and programming, including probabilistic analyses and optimization, to civil engineering projects; review of numerical methods",
+              "prerequisites": "All of MATH 152,"
             },
             {
               "code": "CIVL 302",
               "title": "",
               "credits": 3,
               "year": 3,
-              "term": 1
+              "term": 1,
+              "description": "Civil Engineering Impacts The social and biophysical context of infrastructure and the impact of civil engineering on people, the economy, and the environment. Specific topics vary from year to year. Prerequisite:"
             },
             {
               "code": "CIVL 303",
               "title": "",
               "credits": 3,
               "year": 3,
-              "term": 1
+              "term": 1,
+              "description": "Computational Tools in Civil Engineering Computational and numerical solutions to civil engineering problems; application to a civil engineering design project that reflects community, economic, environmental and technical considerations.",
+              "prerequisites": "All of"
             },
             {
               "code": "CIVL 305",
               "title": "",
               "credits": 3,
               "year": 3,
-              "term": 1
+              "term": 1,
+              "description": "Introduction to Environmental Engineering Applications Environmental legislation; risk assessment; urban water; mass balance; water and wastewater treatment; environmental impact assessment. Prerequisite:"
             },
             {
               "code": "CIVL 311",
               "title": "",
               "credits": 4,
               "year": 3,
-              "term": 1
+              "term": 1,
+              "description": "Soil Mechanics II One-dimensional compression and stress-strain response of soils with application to estimation of the settlements and capacities of foundations and of retaining walls. [3-2*-1] Prerequisite:"
             }
           ]
         },
@@ -320,42 +345,52 @@
               "title": "",
               "credits": 4,
               "year": 3,
-              "term": 2
+              "term": 2,
+              "description": "Fluid Mechanics II Two-dimensional flow around immersed objects; velocity and pressure fields; lift and drag on cylinders and aerofoils; fluid loads on structures and structural response; pumps and turbines; analysis and design of pipeline systems; unsteady flow in pipes; frictionless water hammer analysis. [3-2*-1]",
+              "prerequisites": "One of ENVE 201,"
             },
             {
               "code": "CIVL 316",
               "title": "",
               "credits": 4,
               "year": 3,
-              "term": 2
+              "term": 2,
+              "description": "Hydrology and Open Channel Flow Introduction to open channel hydraulics, engineering hydrology, and water resource systems; estimation of design discharge; flood statistics; nonuniform steady open channel flow; energy and momentum principles, backwater analysis; culvert and bridge hydraulics. [3-2*-1] Prerequisite:"
             },
             {
               "code": "CIVL 320",
               "title": "",
               "credits": 3,
               "year": 3,
-              "term": 2
+              "term": 2,
+              "description": "Civil Engineering Materials The structure and properties of common Civil Engineering materials: aggregates, Portland cement, concrete, wood, steel and other construction materials. The emphasis is on the relationship between the structure of materials and their mechanical and durability properties.",
+              "prerequisites": "All of APSC_V 278, APSC_V 279."
             },
             {
               "code": "CIVL 331",
               "title": "",
               "credits": 4,
               "year": 3,
-              "term": 2
+              "term": 2,
+              "description": "Steel and Timber Design Introduction to limit states design of steel and timber structures: design objectives, design loads and load combinations, structural safety, material properties, design of tension and compression members, beams, columns, and connections. Prerequisite:"
             },
             {
               "code": "CIVL 332",
               "title": "",
               "credits": 3,
               "year": 3,
-              "term": 2
+              "term": 2,
+              "description": "Structural Analysis Introduction to indeterminate structural analysis; approximate analysis of structures; calculation of displacements using virtual work; flexibility (force) method; stiffness method for frames; moment distribution method; influence lines, introduction to structural dynamics.",
+              "prerequisites": "All of"
             },
             {
               "code": "CIVL 340",
               "title": "",
               "credits": 3,
               "year": 3,
-              "term": 2
+              "term": 2,
+              "description": "Transportation Engineering I The analysis and design of transportation facilities; vehicle motion and vehicle/pavement interaction; geometric design of roadways; traffic flow analysis and level of service; fundamentals of intersection design; traffic safety.",
+              "prerequisites": "STAT 251."
             }
           ]
         }
@@ -373,21 +408,25 @@
               "title": "",
               "credits": 3,
               "year": 4,
-              "term": 1
+              "term": 1,
+              "description": "Professionalism and Law in Civil Engineering The Professional Governance Act; professional ethics, conflicts of interest, confidentiality and accountability; health and safety; sustainable development and environmental stewardship; equity considerations; design and construction contracts, specifications and tendering; labour and employment law; dispute resolution; evidence and expert witnesses; torts and legal liability."
             },
             {
               "code": "CIVL 403",
               "title": "",
               "credits": 3,
               "year": 4,
-              "term": 1
+              "term": 1,
+              "description": "Engineering Economic Analysis Time value of money; cash flow analysis; comparing options; depreciation, taxes, and inflation; financial accounting; company structures; public sector projects; decision-making."
             },
             {
               "code": "CIVL 409",
               "title": "",
               "credits": 3,
               "year": 4,
-              "term": 1
+              "term": 1,
+              "description": "Municipal Engineering Design of municipal infrastructure, including streets, water supply networks, and sewers, garbage collection and solid waste management. Focus is on solutions for providing an adequate water supply, collecting and disposing of stormwater and sewage, and managing excess stormwater flow.",
+              "prerequisites": "All of"
             }
           ]
         },
@@ -399,21 +438,24 @@
               "title": "",
               "credits": 4,
               "year": 4,
-              "term": 2
+              "term": 2,
+              "description": "Design of Concrete Structures Non-linear response of reinforced concrete members subjected to axial load, bending and shear; design of simple one-way members including beams, columns, slabs and footings. [3-2*-1] Prerequisite:"
             },
             {
               "code": "CIVL 445",
               "title": "",
               "credits": 3,
               "year": 4,
-              "term": 2
+              "term": 2,
+              "description": "Civil Engineering Design Project I Integration and application of previously acquired knowledge and skills to find design solutions for a multi-disciplinary civil engineering project. Focus on conceptual and preliminary design. [2*-0- 4] Prerequisite:"
             },
             {
               "code": "CIVL 446",
               "title": "",
               "credits": 2,
               "year": 4,
-              "term": 2
+              "term": 2,
+              "description": "Civil Engineering Design Project II Integration and application of previously acquired knowledge and skills to find design solutions for a multi-disciplinary civil engineering design project. Focus on detailed design. [2*-0-2] Prerequisite:"
             },
             {
               "code": "ELECTIVE",
