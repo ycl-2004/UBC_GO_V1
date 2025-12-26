@@ -177,11 +177,11 @@
             },
             {
               "code": "MECH 260",
-              "title": "",
+              "title": "Introduction to Mechanics of Materials",
               "credits": 3,
               "year": 2,
               "term": 1,
-              "description": "Introduction to Mechanics of Materials Statically determinate frames and trusses; normal and shear stresses and strains; shear force and bending moment diagrams; theory of beam bending, torsion of circular rods; transformation of stress and strain in two and three dimensions, Mohr's circle; yield and ultimate failure criteria.",
+              "description": "Statically determinate frames and trusses; normal and shear stresses and strains; shear force and bending moment diagrams; theory of beam bending, torsion of circular rods; transformation of stress and strain in two and three dimensions, Mohr's circle; yield and ultimate failure criteria.",
               "prerequisites": "Either (a) all of MATH 101, PHYS 170 or (b) all of APSC 172, APSC 173, APSC 180."
             },
             {

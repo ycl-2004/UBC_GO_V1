@@ -330,20 +330,20 @@
             },
             {
               "code": "MECH 280",
-              "title": "",
+              "title": "Introduction to Fluid Mechanics",
               "credits": 3,
               "year": 3,
               "term": 2,
-              "description": "Introduction to Fluid Mechanics Fluid properties; statics; kinematics, dynamics, energy, and momentum principles for control volumes; dimensional analysis and similarity; laminar and turbulent flow; pipe flow; principles of centrifugal pumps.",
+              "description": "Fluid properties; statics; kinematics, dynamics, energy, and momentum principles for control volumes; dimensional analysis and similarity; laminar and turbulent flow; pipe flow; principles of centrifugal pumps.",
               "prerequisites": "All of MATH 152, PHYS 170 and one of MATH 217, MATH 253; and either (a) PHYS 131 and one of PHYS 108, PHYS 118; or (b) PHYS 153 or (c) all of PHYS 157, PHYS 158, PHYS 159."
             },
             {
               "code": "MECH 325",
-              "title": "",
+              "title": "Machine Design",
               "credits": 4,
               "year": 3,
               "term": 2,
-              "description": "Machine Design Selection of flexible drives, bearings, fluid power system components, and couplings. Design of shafts, bolted joints and power screws. Design and selection of gears, gear trains, and mechanisms. Recommended co-requisite:"
+              "description": "Selection of flexible drives, bearings, fluid power system components, and couplings. Design of shafts, bolted joints and power screws. Design and selection of gears, gear trains, and mechanisms. Recommended co-requisite:"
             },
             {
               "code": "PHYS 301",

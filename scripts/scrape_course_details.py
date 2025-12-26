@@ -109,6 +109,11 @@ class UBCCourseDetailsScraper:
         if not chunk_text or not chunk_text.strip():
             return None
         
+        # Skip chunks that are clearly equivalency statements (e.g., "MECH_V 486 or NAME_V 581")
+        chunk_start = chunk_text[:100].lower()
+        if re.search(rf'{re.escape(self.code.lower())}_?v?\s+\d{{3}}\s+or\s+[a-z]', chunk_start):
+            return None
+        
         # Dynamic regex based on the current subject (handles SUBJECT_V or SUBJECT)
         # Pattern: SUBJECT_V 101 (3) or SUBJECT 101 (3) or just SUBJECT_V 101
         header_pattern = rf'{re.escape(self.code)}(?:_V)?\s+(\d{{3}}[A-Z]?)\s*(?:\((\d+)\))?'
@@ -128,9 +133,47 @@ class UBCCourseDetailsScraper:
         header_end = code_match.end()
         remaining_text = chunk_text[header_end:]
         
+        # Handle credit patterns that might appear right after the code
+        # Pattern: [x-x-x] or (x) or . [x-x-x] or . (x)
+        credit_vector_pattern = r'\.?\s*\[?\d+[-*]\d+[-*]\d+\]?'
+        credit_parentheses_pattern = r'\.?\s*\(\d+\)'
+        
+        # Check for credit vector pattern
+        credit_match = re.match(credit_vector_pattern, remaining_text.strip())
+        # Check for credits in parentheses (e.g., "(3)")
+        credit_paren_match = re.match(credit_parentheses_pattern, remaining_text.strip())
+        
+        # Skip credit vectors/credits and periods at the start
+        if credit_match:
+            skip_pos = credit_match.end()
+            remaining_text = remaining_text[skip_pos:].strip()
+        elif credit_paren_match:
+            skip_pos = credit_paren_match.end()
+            remaining_text = remaining_text[skip_pos:].strip()
+        elif remaining_text.strip().startswith('.'):
+            remaining_text = remaining_text[1:].strip()
+        
         # Split at the first newline to separate Title from the rest
+        # But skip empty/whitespace-only lines to find the actual title
         if '\n' in remaining_text:
-            raw_title, body_text = remaining_text.split('\n', 1)
+            lines = remaining_text.split('\n')
+            # Find first non-empty line as title
+            raw_title = ""
+            body_start_idx = 0
+            for i, line in enumerate(lines):
+                stripped = line.strip()
+                if stripped and not re.match(r'^\[?\d+[-*]\d+[-*]\d+\]?\.?$', stripped) and not re.match(r'^\(\d+\)\.?$', stripped):
+                    raw_title = stripped
+                    body_start_idx = i + 1
+                    break
+            
+            # If we found a title, join remaining lines as body_text
+            if raw_title:
+                body_text = '\n'.join(lines[body_start_idx:])
+            else:
+                # No title found, use first line as title and rest as body
+                raw_title = lines[0].strip() if lines else ""
+                body_text = '\n'.join(lines[1:]) if len(lines) > 1 else ""
         else:
             # Fallback: if no newline, try to find title by period (less reliable)
             raw_title = remaining_text
@@ -142,6 +185,14 @@ class UBCCourseDetailsScraper:
         
         # Clean up the title (remove leading spaces or trailing periods)
         title = raw_title.strip()
+        
+        # Skip if title is just a credit vector pattern or credits in parentheses
+        if re.match(r'^\[?\d+[-*]\d+[-*]\d+\]?\.?$', title) or re.match(r'^\(\d+\)\.?$', title):
+            title = ""
+            # If title was just credit info, use the body_text as the main content
+            if not body_text:
+                body_text = remaining_text
+        
         if title.endswith('.'): 
             title = title[:-1]
         title = title.strip()
@@ -155,8 +206,28 @@ class UBCCourseDetailsScraper:
         # Also remove any standalone course code patterns (e.g., "MATH 100" at the start)
         title = re.sub(rf'^{re.escape(course_code)}\s*', '', title, flags=re.IGNORECASE).strip()
         
+        # Remove credit vectors from title
+        title = re.sub(r'\[?\d+[-*]\d+[-*]\d+\]?', '', title).strip()
+        
         # Clean up any extra whitespace that might have been created
         title = re.sub(r'\s+', ' ', title).strip()
+        
+        # Reject titles that are clearly prerequisite/equivalency text or boilerplate
+        # (e.g., "and fourth-year standing", "or NAME_V 581", "Equivalency: X", "This course is not eligible...")
+        if title:
+            title_lower = title.lower()
+            if (title_lower.startswith('or ') or
+                title_lower.startswith(', ') or
+                title_lower.startswith('and ') or
+                'equivalency' in title_lower or
+                'fourth-year standing' in title_lower or
+                'third-year standing' in title_lower or
+                'second-year standing' in title_lower or
+                title_lower.startswith('prerequisite') or
+                'this course is not eligible' in title_lower or
+                'credit/d/fail' in title_lower or
+                len(title) < 3):
+                title = ""  # Reject bad title
         
         # Parse Body (Description, Prerequisites, Corequisites)
         full_text = body_text.strip()
@@ -258,7 +329,33 @@ class UBCCourseDetailsScraper:
             
             # Split text by occurrences of "SUBJECT_V 123" or "SUBJECT 123"
             header_pattern = rf'{re.escape(self.code)}(?:_V)?\s+\d{{3}}[A-Z]?'
-            headers = [m.start() for m in re.finditer(header_pattern, full_text, re.IGNORECASE)]
+            all_matches = list(re.finditer(header_pattern, full_text, re.IGNORECASE))
+            
+            # Filter out matches that are part of equivalency statements or prerequisites
+            # (e.g., "MECH_V 486 or NAME_V 581" or "MECH_V 360 and fourth-year standing")
+            headers = []
+            for m in all_matches:
+                # Look ahead to see if this is part of an equivalency or prerequisite
+                lookahead = full_text[m.end():m.end()+80].lower()
+                lookbehind = full_text[max(0, m.start()-80):m.start()].lower()
+                
+                # Skip if followed by "or" + course code pattern (equivalency)
+                is_equivalency_or = re.search(r'\s+or\s+[A-Z]{2,4}_?V?\s+\d', lookahead)
+                # Skip if followed by comma + course code pattern
+                is_equivalency_comma = re.search(r',\s*[A-Z]{2,4}_?V?\s+\d', lookahead)
+                # Skip if followed by "and" + text that looks like a requirement (not a course code)
+                # Pattern: "and" followed by words (like "fourth-year standing", "all of", etc.)
+                is_prerequisite_and = re.search(r'\s+and\s+(?:fourth-year|third-year|second-year|all of|one of|either)', lookahead)
+                # Skip if it's in an equivalency context (word "equivalency" nearby)
+                is_equivalency_context = 'equivalency' in lookbehind or 'equivalency' in lookahead
+                # Skip if preceded by "Prerequisite:" or "Corequisite:" (it's in a requirement list)
+                is_in_requirement = re.search(r'(?:prerequisite|corequisite):', lookbehind)
+                
+                is_equivalency = (is_equivalency_or or is_equivalency_comma or is_prerequisite_and or 
+                                 is_equivalency_context or is_in_requirement)
+                
+                if not is_equivalency:
+                    headers.append(m.start())
             
             if not headers:
                 print(f"  Warning: No {self.code} headers found at this URL.")
@@ -287,19 +384,72 @@ class UBCCourseDetailsScraper:
                 
                 course_info = self.parse_course_chunk(chunk)
                 if course_info and course_info['code']:
-                    # Avoid duplicates (keep first occurrence)
-                    if course_info['code'] not in course_data:
-                        course_data[course_info['code']] = course_info
+                    code = course_info['code']
+                    # Avoid duplicates - prefer entries with better titles
+                    if code not in course_data:
+                        course_data[code] = course_info
                         title_preview = course_info.get('title', 'No title')[:50]
-                        print(f"  Parsed: {course_info['code']} - {title_preview}")
+                        print(f"  Parsed: {code} - {title_preview}")
                     elif self.force:
                         # If force mode, update with more complete data
-                        existing = course_data.get(course_info['code'], {})
-                        # Update if new data has more information
-                        if (course_info.get('description') and len(course_info.get('description', '')) > len(existing.get('description', ''))) or \
-                           (course_info.get('prerequisites') and not existing.get('prerequisites')):
-                            course_data[course_info['code']] = course_info
-                            print(f"  Updated: {course_info['code']}")
+                        existing = course_data.get(code, {})
+                        existing_title = (existing.get('title') or '').strip()
+                        new_title = (course_info.get('title') or '').strip()
+                        
+                        # Prefer entry with a proper title (not empty, not equivalency/prerequisite text)
+                        # Reject titles that look like prerequisite/equivalency text or boilerplate
+                        is_bad_title = (new_title.lower().startswith('or ') or
+                                       new_title.lower().startswith(', ') or
+                                       new_title.lower().startswith('and ') or
+                                       'equivalency' in new_title.lower() or
+                                       'fourth-year standing' in new_title.lower() or
+                                       'third-year standing' in new_title.lower() or
+                                       'prerequisite' in new_title.lower() or
+                                       'this course is not eligible' in new_title.lower() or
+                                       'credit/d/fail' in new_title.lower() or
+                                       len(new_title) < 3)
+                        
+                        is_bad_existing_title = (existing_title and (
+                                       existing_title.lower().startswith('or ') or
+                                       existing_title.lower().startswith(', ') or
+                                       existing_title.lower().startswith('and ') or
+                                       'equivalency' in existing_title.lower() or
+                                       'fourth-year standing' in existing_title.lower() or
+                                       'third-year standing' in existing_title.lower() or
+                                       'prerequisite' in existing_title.lower() or
+                                       'this course is not eligible' in existing_title.lower() or
+                                       'credit/d/fail' in existing_title.lower()))
+                        
+                        has_better_title = (new_title and not is_bad_title and 
+                                           (not existing_title or is_bad_existing_title or 
+                                            (len(new_title) > len(existing_title) and not is_bad_title)))
+                        
+                        # Update if new data has better title, or more complete description/prerequisites
+                        # BUT never overwrite a good title with a bad one
+                        should_update = False
+                        if has_better_title:
+                            # New entry has better title - always use it
+                            should_update = True
+                        elif not is_bad_title and (is_bad_existing_title or 
+                                                   (course_info.get('description') and len(course_info.get('description', '')) > len(existing.get('description', ''))) or
+                                                   (course_info.get('prerequisites') and not existing.get('prerequisites'))):
+                            # New entry doesn't have bad title, and either existing has bad title or new has better data
+                            should_update = True
+                        
+                        if should_update:
+                            # If new entry has better title, use it; otherwise merge
+                            if has_better_title:
+                                course_data[code] = course_info
+                            else:
+                                # Merge: keep better title, update description/prerequisites
+                                if existing_title and not is_bad_existing_title and (not new_title or is_bad_title):
+                                    # Keep existing good title
+                                    course_info['title'] = existing_title
+                                elif new_title and not is_bad_title:
+                                    # Use new good title
+                                    pass
+                                course_data[code] = course_info
+                            print(f"  Updated: {code}")
             
             print(f"\nScraped {len(course_data)} {self.code} courses")
             return course_data
@@ -362,9 +512,18 @@ class UBCCourseDetailsScraper:
         # Update title (prefer scraped title if it exists and is better)
         if scraped.get('title') and scraped['title'].strip():
             scraped_title = scraped['title'].strip()
-            # Only update if current title is missing, empty, or the scraped title is different and non-empty
             current_title = (course.get('title') or '').strip()
-            if not current_title or (scraped_title != current_title and scraped_title != code):
+            # In force mode, always update if scraped title is different and valid
+            # Otherwise, only update if current title is missing/empty or scraped is better
+            should_update_title = False
+            if self.force:
+                # In force mode, update if scraped title is different and not just the course code
+                should_update_title = (scraped_title != current_title and scraped_title != code and len(scraped_title) > 0)
+            else:
+                # In normal mode, only update if current title is missing/empty or scraped is better
+                should_update_title = (not current_title or (scraped_title != current_title and scraped_title != code))
+            
+            if should_update_title:
                 course['title'] = scraped_title
                 updated = True
         

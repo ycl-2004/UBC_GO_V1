@@ -142,7 +142,7 @@
           "courses": [
             {
               "code": "CHBE 201",
-              "title": "",
+              "title": "Prerequisite: All of CHEM 154, MATH 101",
               "credits": 3,
               "year": 2,
               "term": 1,
@@ -151,32 +151,32 @@
             },
             {
               "code": "CHBE 220",
-              "title": "",
+              "title": "Founding Principles in Chemical and Biological Engineering I",
               "credits": 4,
               "year": 2,
               "term": 1,
-              "description": "Founding Principles in Chemical and Biological Engineering I Introduction to Chemical and Biological Engineering profession and the physical sciences that form the founding principles of the discipline. Recommended Corequisite:"
+              "description": "Introduction to Chemical and Biological Engineering profession and the physical sciences that form the founding principles of the discipline. Recommended Corequisite:"
             },
             {
               "code": "CHBE 221",
-              "title": "",
+              "title": "Founding Principles in Chemical and Biological Engineering II",
               "credits": 4,
               "year": 2,
               "term": 1,
-              "description": "Founding Principles in Chemical and Biological Engineering II Introduction to Chemical and Biological Engineering profession with emphasis on the biological sciences that form the founding principles of the discipline. Prerequisite:"
+              "description": "Introduction to Chemical and Biological Engineering profession with emphasis on the biological sciences that form the founding principles of the discipline. Prerequisite:"
             },
             {
               "code": "CHBE 230",
-              "title": "",
+              "title": "Computational Methods",
               "credits": 3,
               "year": 2,
               "term": 1,
-              "description": "Computational Methods Mathematical formulation of chemical and biological engineering problems; standard techniques of numerical analysis and their application to chemical, environmental and biotechnological systems; program development; use of commercial numerical analysis software.",
+              "description": "Mathematical formulation of chemical and biological engineering problems; standard techniques of numerical analysis and their application to chemical, environmental and biotechnological systems; program development; use of commercial numerical analysis software.",
               "prerequisites": "APSC 160.\n\nCorequisites: MATH 256."
             },
             {
               "code": "CHBE 241",
-              "title": "",
+              "title": "This course is not eligible for Credit/D/Fail grading",
               "credits": 3,
               "year": 2,
               "term": 1,
@@ -185,11 +185,11 @@
             },
             {
               "code": "CHBE 244",
-              "title": "",
+              "title": "Chemical and Biological Engineering Thermodynamics I",
               "credits": 3,
               "year": 2,
               "term": 1,
-              "description": "Chemical and Biological Engineering Thermodynamics I Energy and the first law; second law of thermodynamics; entropy; availability (energy) analysis; thermodynamic properties of fluids, application to power generation, refrigeration, and liquefaction, as well as biological, environmental, and electrochemical systems. *] Prerequisite:"
+              "description": "Energy and the first law; second law of thermodynamics; entropy; availability (energy) analysis; thermodynamic properties of fluids, application to power generation, refrigeration, and liquefaction, as well as biological, environmental, and electrochemical systems. *] Prerequisite:"
             }
           ]
         },
@@ -198,7 +198,7 @@
           "courses": [
             {
               "code": "CHBE 251",
-              "title": "",
+              "title": "This course is not eligible for Credit/D/Fail grading",
               "credits": 3,
               "year": 2,
               "term": 2,
@@ -207,20 +207,20 @@
             },
             {
               "code": "CHBE 263",
-              "title": "",
+              "title": "Introduction to Chemical and Biological Engineering Laboratory Practice",
               "credits": 1,
               "year": 2,
               "term": 2,
-              "description": "Introduction to Chemical and Biological Engineering Laboratory Practice Introduction to Chemical and Biological Engineering laboratory practice with topics in physical, inorganic and organic chemistry.",
-              "prerequisites": "Corequisites: All of"
+              "description": "Introduction to Chemical and Biological Engineering laboratory practice with topics in physical, inorganic and organic chemistry.",
+              "prerequisites": "Corequisites: All of\n\nCorequisites: All of\n\nCorequisites: All of"
             },
             {
               "code": "CHBE 264",
-              "title": "",
+              "title": "Chemical and Biological Engineering Laboratory",
               "credits": 3,
               "year": 2,
               "term": 2,
-              "description": "Chemical and Biological Engineering Laboratory Laboratory experiment in 2nd year Chemical and Biological Engineering Prerequisite:"
+              "description": "Laboratory experiment in 2nd year Chemical and Biological Engineering Prerequisite:"
             },
             {
               "code": "CHEM 250",
@@ -271,16 +271,16 @@
           "courses": [
             {
               "code": "CHBE 345",
-              "title": "",
+              "title": "Unit Operations",
               "credits": 4,
               "year": 3,
               "term": 1,
-              "description": "Unit Operations Stage-wise mass transfer operations; extraction and absorption; single and stage-wise binary and multi-component distillation; principles and equipment design for continuous contact mass transfer operations including absorption, binary distillation and others such as extraction, drying, and humidification. *]",
+              "description": "Stage-wise mass transfer operations; extraction and absorption; single and stage-wise binary and multi-component distillation; principles and equipment design for continuous contact mass transfer operations including absorption, binary distillation and others such as extraction, drying, and humidification. *]",
               "prerequisites": "All of"
             },
             {
               "code": "CHBE 346",
-              "title": "",
+              "title": "for students enrolled in CHBE or fourth-year standing in BASc",
               "credits": 3,
               "year": 3,
               "term": 1,
@@ -289,7 +289,7 @@
             },
             {
               "code": "CHBE 352",
-              "title": "",
+              "title": "This course is not eligible for Credit/D/Fail grading",
               "credits": 4,
               "year": 3,
               "term": 1,
@@ -298,7 +298,7 @@
             },
             {
               "code": "CHBE 355",
-              "title": "",
+              "title": "for students enrolled in CHBE or third-year standing in BASc",
               "credits": 3,
               "year": 3,
               "term": 1,
@@ -307,7 +307,7 @@
             },
             {
               "code": "CHBE 356",
-              "title": "",
+              "title": "This course is not eligible for Credit/D/Fail grading",
               "credits": 4,
               "year": 3,
               "term": 1,
@@ -316,16 +316,16 @@
             },
             {
               "code": "CHBE 362",
-              "title": "",
+              "title": "Process Engineering Laboratory",
               "credits": 3,
               "year": 3,
               "term": 1,
-              "description": "Process Engineering Laboratory Experiments to illustrate and use material presented in 200 and 300-level CHBE courses. Field trips may be required.",
+              "description": "Experiments to illustrate and use material presented in 200 and 300-level CHBE courses. Field trips may be required.",
               "prerequisites": "All of"
             },
             {
               "code": "CHBE 370",
-              "title": "",
+              "title": "Prerequisite: Third-year or higher standing in BASc. or BSc",
               "credits": 3,
               "year": 3,
               "term": 1,
@@ -339,7 +339,7 @@
           "courses": [
             {
               "code": "CHBE 376",
-              "title": "",
+              "title": "This course is not eligible for Credit/D/Fail grading",
               "credits": 4,
               "year": 3,
               "term": 2,
@@ -370,7 +370,7 @@
             },
             {
               "code": "CHBE 366",
-              "title": "",
+              "title": "This course is not eligible for Credit/D/Fail grading",
               "credits": 3,
               "year": 3,
               "term": 2,
@@ -379,7 +379,7 @@
             },
             {
               "code": "CHBE 365",
-              "title": "",
+              "title": "This course is not eligible for Credit/D/Fail grading",
               "credits": 3,
               "year": 3,
               "term": 2,
@@ -388,11 +388,11 @@
             },
             {
               "code": "CHBE 381",
-              "title": "",
+              "title": "Biological Engineering and Bio-Manufacturing I",
               "credits": 3,
               "year": 3,
               "term": 2,
-              "description": "Biological Engineering and Bio-Manufacturing I Biological process engineering in the fields of biotechnology and biomedical engineering; enzymatic and cellular kinetics; cell culture, bioreactor mass transport and process development; bioreactor design and operation. Credit will be granted for only one of"
+              "description": "Biological process engineering in the fields of biotechnology and biomedical engineering; enzymatic and cellular kinetics; cell culture, bioreactor mass transport and process development; bioreactor design and operation. Credit will be granted for only one of"
             }
           ]
         }
@@ -415,29 +415,29 @@
             },
             {
               "code": "CHBE 456",
-              "title": "",
+              "title": "Heterogenous Catalysis and Advanced Reactor Design",
               "credits": 3,
               "year": 4,
               "term": 1,
-              "description": "Heterogenous Catalysis and Advanced Reactor Design Definition of heterogeneous catalysis; properties of catalysts; kinetics of catalytic reactions; ideal heterogeneous reactors; non-isothermal reactor design; mass and heat transfer effects in heterogeneous reactors; examples of industrial reactors. *]",
+              "description": "Definition of heterogeneous catalysis; properties of catalysts; kinetics of catalytic reactions; ideal heterogeneous reactors; non-isothermal reactor design; mass and heat transfer effects in heterogeneous reactors; examples of industrial reactors. *]",
               "prerequisites": "All of"
             },
             {
               "code": "CHBE 459",
-              "title": "",
+              "title": "Chemical and Biological Engineering Economics",
               "credits": 3,
               "year": 4,
               "term": 1,
-              "description": "Chemical and Biological Engineering Economics Estimation of capital and operating costs; interest calculations; taxes; economic comparison of alternatives; economic optimization.",
+              "description": "Estimation of capital and operating costs; interest calculations; taxes; economic comparison of alternatives; economic optimization.",
               "prerequisites": "Third-year or higher standing in BASc or BSc."
             },
             {
               "code": "CHBE 464",
-              "title": "",
+              "title": "Chemical and Biological Engineering Laboratory",
               "credits": 4,
               "year": 4,
               "term": 1,
-              "description": "Chemical and Biological Engineering Laboratory Experiments in unit operations relating to process, environmental and biological engineering. Experiments are designed to provide experience in instrumentation and control. Field trips may be required. ;",
+              "description": "Experiments in unit operations relating to process, environmental and biological engineering. Experiments are designed to provide experience in instrumentation and control. Field trips may be required. ;",
               "prerequisites": "All of"
             }
           ]
@@ -454,37 +454,37 @@
             },
             {
               "code": "CHBE 454",
-              "title": "",
+              "title": "Chemical Process and Product Design",
               "credits": 8,
               "year": 4,
               "term": 2,
-              "description": "Chemical Process and Product Design 8-month project-based course, integrating chemical engineering concepts with economics, life cycle analysis and health and safety considerations in the design of major chemical processes. ;",
+              "description": "8-month project-based course, integrating chemical engineering concepts with economics, life cycle analysis and health and safety considerations in the design of major chemical processes. ;",
               "prerequisites": "All of"
             },
             {
               "code": "CHBE 471",
-              "title": "",
+              "title": "Chemical Process Engineering",
               "credits": 4,
               "year": 4,
               "term": 2,
-              "description": "Chemical Process Engineering Selection and design of major equipment used in chemical process plants, including heat exchangers, separators, reactors. Recommended pre-requisite:"
+              "description": "Selection and design of major equipment used in chemical process plants, including heat exchangers, separators, reactors. Recommended pre-requisite:"
             },
             {
               "code": "CHBE 453",
-              "title": "",
+              "title": "Biological Process and Product Design",
               "credits": 8,
               "year": 4,
               "term": 2,
-              "description": "Biological Process and Product Design 8-month project-based course, integrating chemical and biological engineering concepts with economics, life cycle analysis and health and safety considerations in the design of major biological processes. ;",
+              "description": "8-month project-based course, integrating chemical and biological engineering concepts with economics, life cycle analysis and health and safety considerations in the design of major biological processes. ;",
               "prerequisites": "All of"
             },
             {
               "code": "CHBE 481",
-              "title": "",
+              "title": "Biological Engineering and Bio-Manufacturing II",
               "credits": 4,
               "year": 4,
               "term": 2,
-              "description": "Biological Engineering and Bio-Manufacturing II Bioprocess flowsheeting; production-scale fermenter design; product recovery and purification; bioseparations; chromatography; viral inactivation and removal; process validation.",
+              "description": "Bioprocess flowsheeting; production-scale fermenter design; product recovery and purification; bioseparations; chromatography; viral inactivation and removal; process validation.",
               "prerequisites": "CHBE381"
             }
           ]

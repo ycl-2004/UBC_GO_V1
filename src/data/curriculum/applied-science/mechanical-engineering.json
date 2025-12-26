@@ -160,21 +160,21 @@
             },
             {
               "code": "MECH 220",
-              "title": "",
+              "title": "Technical Skills Practicum",
               "credits": 4,
               "year": 2,
               "term": 1,
-              "description": "Technical Skills Practicum Engineering graphics, spatial visualization, CAD, equation solvers, machine shop practice, electronic circuit construction and troubleshooting, elements of engineering science. Corequisite:",
-              "prerequisites": "All of APSC 160, MATH 101, MATH 152, PHYS 158, PHYS 170 and one of BMEG 102, PHYS 159 and one of APSC 176, ENGL 112, WRDS 150."
+              "description": "Engineering graphics, spatial visualization, CAD, equation solvers, machine shop practice, electronic circuit construction and troubleshooting, elements of engineering science.",
+              "prerequisites": "All of APSC 160, MATH 101, MATH 152, PHYS 158, PHYS 170 and one of BMEG 102, PHYS 159 and one of APSC 176, ENGL 112, WRDS 150.\n\nCorequisites: MECH 221."
             },
             {
               "code": "MECH 221",
-              "title": "",
+              "title": "Engineering Science I",
               "credits": 12,
               "year": 2,
               "term": 1,
-              "description": "Engineering Science I Rigid body kinetics and kinematics, basic electrical circuits, work and power, stress and strain, torsion, bending, engineering materials, probability and statistics. This course includes the content of ELEC 203.",
-              "prerequisites": "All of MATH 101, MATH 152, PHYS 158, PHYS 170 and one of BMEG 102, PHYS 159 and one of APSC 176, ENGL 112, WRDS 150.\n\nCorequisites: All of"
+              "description": "Rigid body kinetics and kinematics, basic electrical circuits, work and power, stress and strain, torsion, bending, engineering materials, probability and statistics. This course includes the content of ELEC 203.",
+              "prerequisites": "All of MATH 101, MATH 152, PHYS 158, PHYS 170 and one of BMEG 102, PHYS 159 and one of APSC 176, ENGL 112, WRDS 150.\n\nCorequisites: All of MECH 220, MECH 224."
             }
           ]
         },
@@ -183,43 +183,47 @@
           "courses": [
             {
               "code": "MECH 222",
-              "title": "",
+              "title": "Engineering Science II",
               "credits": 6,
               "year": 2,
               "term": 2,
-              "description": "Engineering Science II Fluid properties, equations of state. Pressure, buoyancy, hydrostatic forces. Conservation of mass, momentum, and energy. Work and heat; internal energy and enthalpy. Bernoulli's equation. Dimensional analysis, modelling. Turbulent flow in pipes; turbomachinery. Second law and the Carnot cycle; entropy; first and second law analysis of systems. Prerequisite:"
+              "description": "Fluid properties, equations of state. Pressure, buoyancy, hydrostatic forces. Conservation of mass, momentum, and energy. Work and heat; internal energy and enthalpy. Bernoulli's equation. Dimensional analysis, modelling. Turbulent flow in pipes; turbomachinery. Second law and the Carnot cycle; entropy; first and second law analysis of systems.",
+              "prerequisites": "MECH 220.\n\nCorequisites: MECH 225."
             },
             {
               "code": "MECH 223",
-              "title": "",
+              "title": "Introduction to the Mechanical Design Process",
               "credits": 7,
               "year": 2,
               "term": 2,
-              "description": "Introduction to the Mechanical Design Process Design methodology, synthesis and analysis. Design projects representing both mechanical mechanism design and thermofluid systems. Prerequisite:"
+              "description": "Design methodology, synthesis and analysis. Design projects representing both mechanical mechanism design and thermofluid systems.",
+              "prerequisites": "MECH 220."
             },
             {
               "code": "MECH 224",
-              "title": "",
+              "title": "Integration of Engineering Concepts I",
               "credits": 1,
               "year": 2,
               "term": 2,
-              "description": "Integration of Engineering Concepts I Integration of the theory and practice of Mechanical Engineering to illustrate the commonality and conceptual connectivity of seemingly different technical areas. Emphasis on dynamics, solid mechanics, materials, electronics, and mathematics. Corequisite:"
+              "description": "Integration of the theory and practice of Mechanical Engineering to illustrate the commonality and conceptual connectivity of seemingly different technical areas. Emphasis on dynamics, solid mechanics, materials, electronics, and mathematics.",
+              "prerequisites": "Corequisites: MECH 221.\n\nCorequisites: MECH 221."
             },
             {
               "code": "MECH 225",
-              "title": "",
+              "title": "Integration of Engineering Concepts II",
               "credits": 1,
               "year": 2,
               "term": 2,
-              "description": "Integration of Engineering Concepts II Integration of the theory and practice of Mechanical Engineering to illustrate the commonality and conceptual connectivity of seemingly different technical areas. Emphasis on thermodynamics, fluid mechanics, and mathematics. Corequisite:"
+              "description": "Integration of the theory and practice of Mechanical Engineering to illustrate the commonality and conceptual connectivity of seemingly different technical areas. Emphasis on thermodynamics, fluid mechanics, and mathematics.",
+              "prerequisites": "Corequisites: MECH 222.\n\nCorequisites: MECH 222."
             },
             {
               "code": "MECH 226",
-              "title": "or",
+              "title": "Technical Communication for Mechanical Engineers",
               "credits": 3,
               "year": 2,
               "term": 2,
-              "description": "Technical Communication for Mechanical Engineers Written and oral communication. Preparation of design reports, business correspondence, verbal, online, and visual presentation of technical material. Restricted to students in the second year of Mechanical Engineering. Credit will be granted for only one of"
+              "description": "Written and oral communication. Preparation of design reports, business correspondence, verbal, online, and visual presentation of technical material. Restricted to students in the second year of Mechanical Engineering. Credit will be granted for only one of"
             }
           ]
         }
@@ -243,89 +247,92 @@
             },
             {
               "code": "MECH 305",
-              "title": "",
+              "title": "Data Analysis and Mechanical Engineering Laboratories",
               "credits": 6,
               "year": 3,
               "term": 1,
-              "description": "Data Analysis and Mechanical Engineering Laboratories The use of probability and statistical methods for engineering applications. Mechanics of materials, heat transfer, and fluid dynamics. Instrumentation, data acquisition, and data manipulation using modern computational tools. *]",
-              "prerequisites": "All of"
+              "description": "The use of probability and statistical methods for engineering applications. Mechanics of materials, heat transfer, and fluid dynamics. Instrumentation, data acquisition, and data manipulation using modern computational tools. *]",
+              "prerequisites": "All of MECH_V 220, MECH_V 223, MECH_V 224, MECH_ 225."
             },
             {
               "code": "MECH 327",
-              "title": "",
+              "title": "Credit will be granted for only one of",
               "credits": 3,
               "year": 3,
               "term": 1,
-              "description": "Thermodynamics II Air standard and vapor cycles; first and second law of cycles. Exergy. Gas mixtures. Energy conservation. Equilibrium. Reacting systems. Application to thermofluid systems such as power plants.",
+              "description": "Air standard and vapor cycles; first and second law of cycles. Exergy. Gas mixtures. Energy conservation. Equilibrium. Reacting systems. Application to thermofluid systems such as power plants.",
               "prerequisites": "Either (a)"
             },
             {
               "code": "MECH 328",
-              "title": "",
+              "title": "Mechanical Engineering Design Project",
               "credits": 3,
               "year": 3,
               "term": 1,
-              "description": "Mechanical Engineering Design Project Applying the design process, making educated assumptions and decisions, and working in teams to provide a new mechanical design. Weekly lecture discussing product development and various factors affecting the design. Prerequisite:"
+              "description": "Applying the design process, making educated assumptions and decisions, and working in teams to provide a new mechanical design. Weekly lecture discussing product development and various factors affecting the design.",
+              "prerequisites": "MECH 223. (And third year standing in Mechanical Engineering)"
             },
             {
               "code": "MECH 358",
-              "title": "",
+              "title": "Engineering Analysis",
               "credits": 3,
               "year": 3,
               "term": 1,
-              "description": "Engineering Analysis Fourier series; auto- and cross-correlation; power spectra; discrete Fourier transform; boundary-value problems; numerical methods; partial differential equations; heat, wave, Laplace, Poisson, and wave equations. Applications to mechanical engineering and practical computing emphasized.",
-              "prerequisites": "All of"
+              "description": "Fourier series; auto- and cross-correlation; power spectra; discrete Fourier transform; boundary-value problems; numerical methods; partial differential equations; heat, wave, Laplace, Poisson, and wave equations. Applications to mechanical engineering and practical computing emphasized.",
+              "prerequisites": "All of MECH 224, MECH 225.\n\nEquivalency: MATH358"
             },
             {
               "code": "MECH 360",
-              "title": "",
+              "title": "Mechanics of Materials",
               "credits": 3,
               "year": 3,
               "term": 1,
-              "description": "Mechanics of Materials Beam deflections, singularity functions; use of tabulated solutions; column buckling; Castigliano's theorem, statically indeterminate beams, bending of beams with asymmetric cross-sections, shear centre; principal stresses and stress invariants in three dimensions.",
-              "prerequisites": "One of"
+              "description": "Beam deflections, singularity functions; use of tabulated solutions; column buckling; Castigliano's theorem, statically indeterminate beams, bending of beams with asymmetric cross-sections, shear centre; principal stresses and stress invariants in three dimensions.",
+              "prerequisites": "One of MECH 224, MECH 260."
             },
             {
               "code": "MECH 375",
-              "title": "",
+              "title": "Credit will be granted for only one of",
               "credits": 3,
               "year": 3,
               "term": 1,
-              "description": "Heat Transfer Steady and transient conduction. Radiation heat transfer. Convective heat and mass transfer in pipes and from external surfaces. Design of heat exchangers.",
+              "description": "Steady and transient conduction. Radiation heat transfer. Convective heat and mass transfer in pipes and from external surfaces. Design of heat exchangers.",
               "prerequisites": "Either (a)"
             },
             {
               "code": "MECH 380",
-              "title": "",
+              "title": "Fluid Dynamics",
               "credits": 3,
               "year": 3,
               "term": 1,
-              "description": "Fluid Dynamics Review of principles, compressible flow, potential flow, simple laminar viscous flow, boundary layers, flow around bluff bodies.",
-              "prerequisites": "Either (a)"
+              "description": "Review of principles, compressible flow, potential flow, simple laminar viscous flow, boundary layers, flow around bluff bodies.",
+              "prerequisites": "Either (a) MECH_V 225 or (b) one of MATH_V 255 or MATH_V 256 and one of CHBE_V 251, CIVL_V 215, MECH_V 280 and one of CHBE_V 241, ENPH_V 257, PHYS_V 203."
             },
             {
               "code": "MECH 426",
-              "title": "",
+              "title": "Mechanical Design",
               "credits": 3,
               "year": 3,
               "term": 1,
-              "description": "and fourth-year standing in the Aerospace Option. Equivalency:"
+              "description": "Design of shafts and welded joints. Fatigue and fracture considerations in design: failure types, failure under static and dynamic loading, fatigue failure, crack initiation, and propagation. Introduction to the FEM in mechanical design. Students can only receive credit for one of",
+              "prerequisites": "Equivalency: MECH 453, MECH 454, MECH 455, MECH 456,"
             },
             {
               "code": "MECH 466",
-              "title": "",
+              "title": "Credit will be granted for only one of",
               "credits": 4,
               "year": 3,
               "term": 1,
-              "description": "Automatic Control Process and system characteristics; transient response; the closed loop; block diagrams and transfer functions; control actions; stability; Nyquist diagrams; Bode diagrams; root locus methods; frequency response; system compensation; nonlinear control systems; digital computer control. Laboratory experiments to support the lecture content. Recommended prerequisite:"
+              "description": "Process and system characteristics; transient response; the closed loop; block diagrams and transfer functions; control actions; stability; Nyquist diagrams; Bode diagrams; root locus methods; frequency response; system compensation; nonlinear control systems; digital computer control. Laboratory experiments to support the lecture content. Recommended prerequisite:"
             },
             {
               "code": "MECH 481",
-              "title": "",
+              "title": "Aerodynamics of Aircraft",
               "credits": 3,
               "year": 3,
               "term": 1,
-              "description": "Aerodynamics of Aircraft Analysis of airfoils and wings. Potential flow, thin airfoil theory, lifting line analysis of wings. Predicting viscous drag. Numerical methods for analysis and design of airfoils and wings. Subsonic, transonic, supersonic, and hypersonic flow. Credit will be granted for only one of"
+              "description": "Analysis of airfoils and wings. Potential flow, thin airfoil theory, lifting line analysis of wings. Predicting viscous drag. Numerical methods for analysis and design of airfoils and wings. Subsonic, transonic, supersonic, and hypersonic flow. Credit will be granted for only one of MECH_V 481 or MECH_V 581. [3-1*-0]",
+              "prerequisites": "MECH_V 380\n\nEquivalency: MECH_V 581"
             },
             {
               "code": "ELECTIVE",
@@ -336,12 +343,12 @@
             },
             {
               "code": "MECH 368",
-              "title": "",
+              "title": "Engineering Measurements and Instrumentation",
               "credits": 3,
               "year": 3,
               "term": 1,
-              "description": "Engineering Measurements and Instrumentation Industrial measurement needs including: architecture of electronic instrumentation systems; electrical representation of physical quantities; sensors and actuators; analog signal processing using linear and non-linear circuits; computer-based readout including programming for user-interface and data acquisition.",
-              "prerequisites": "Either (a) two of"
+              "description": "Industrial measurement needs including: architecture of electronic instrumentation systems; electrical representation of physical quantities; sensors and actuators; analog signal processing using linear and non-linear circuits; computer-based readout including programming for user-interface and data acquisition.",
+              "prerequisites": "Either (a) two of MECH_V 220, MECH_V 224, ELEC_V 203 or (b) all of MANU_V 230, ELEC_V 203."
             }
           ]
         },
@@ -350,45 +357,45 @@
           "courses": [
             {
               "code": "MECH 463",
-              "title": "",
+              "title": "Mechanical Vibrations",
               "credits": 4,
               "year": 3,
               "term": 2,
-              "description": "Mechanical Vibrations Theory of vibration of mechanical systems. Undamped 1 degree of freedom vibration, forced vibrations and resonance, damping, multiple degree of freedom systems, mode shapes and orthogonality, continuous systems, vibration measuring instruments and frequency spectrum analysis. [3-2*-1]",
-              "prerequisites": "One of"
+              "description": "Theory of vibration of mechanical systems. Undamped 1 degree of freedom vibration, forced vibrations and resonance, damping, multiple degree of freedom systems, mode shapes and orthogonality, continuous systems, vibration measuring instruments and frequency spectrum analysis. [3-2*-1]",
+              "prerequisites": "One of MECH 224, MECH 260."
             },
             {
               "code": "BMEG 410",
-              "title": "",
+              "title": "Biomedical Equipment, Physiology, and Anatomy",
               "credits": 3,
               "year": 3,
               "term": 2,
-              "description": "Biomedical Equipment, Physiology, and Anatomy Principles and operation of biomedical equipment for cardiovascular system, respiratory system, renal dialysis, endoscopy, surgery, and imaging. Functional relationships of biomedical equipment to physiology and anatomy of major body systems. Credit will be granted for only one of"
+              "description": "Principles and operation of biomedical equipment for cardiovascular system, respiratory system, renal dialysis, endoscopy, surgery, and imaging. Functional relationships of biomedical equipment to physiology and anatomy of major body systems. Credit will be granted for only one of"
             },
             {
               "code": "MECH 325",
-              "title": "",
+              "title": "Machine Design",
               "credits": 4,
               "year": 3,
               "term": 2,
-              "description": "Machine Design Selection of flexible drives, bearings, fluid power system components, and couplings. Design of shafts, bolted joints and power screws. Design and selection of gears, gear trains, and mechanisms. Recommended co-requisite:"
+              "description": "Selection of flexible drives, bearings, fluid power system components, and couplings. Design of shafts, bolted joints and power screws. Design and selection of gears, gear trains, and mechanisms. Recommended co-requisite:"
             },
             {
               "code": "MECH 329",
-              "title": "",
+              "title": "Materials for Mechanical Design",
               "credits": 3,
               "year": 3,
               "term": 2,
-              "description": "Materials for Mechanical Design Selection of material properties for mechanical design. Metals and alloys, ceramics, polymers, composites and other hybrid materials.",
-              "prerequisites": "Either (a)"
+              "description": "Selection of material properties for mechanical design. Metals and alloys, ceramics, polymers, composites and other hybrid materials.",
+              "prerequisites": "Either (a) MECH 224 or (b) all of APSC 278, MECH 260."
             },
             {
               "code": "MECH 392",
-              "title": "",
+              "title": "Manufacturing Processes",
               "credits": 2,
               "year": 3,
               "term": 2,
-              "description": "Manufacturing Processes Manufacturing characteristics of materials and their control. Metal forming processes, plastic deformations, rolling, forging, drawing, extrusion, sheet metal forming. Machining processes and machine tools, turning, milling, drilling, grinding. Metal fabrication, welding and casting. An introduction to process planning."
+              "description": "Manufacturing characteristics of materials and their control. Metal forming processes, plastic deformations, rolling, forging, drawing, extrusion, sheet metal forming. Machining processes and machine tools, turning, milling, drilling, grinding. Metal fabrication, welding and casting. An introduction to process planning."
             },
             {
               "code": "CPEN 312",
@@ -428,37 +435,39 @@
             },
             {
               "code": "MECH 306",
-              "title": "",
+              "title": "Data Analysis and Mechatronics Laboratories",
               "credits": 4,
               "year": 3,
               "term": 2,
-              "description": "Data Analysis and Mechatronics Laboratories The use of probability and statistical methods for engineering applications. Mechanics of materials and heat transfer. Instrumentation, data acquisition, and data manipulation using modern computational tools. Common mechanical devices. For students in the Mechatronics Option only. [3-3*-1*]",
-              "prerequisites": "All of"
+              "description": "The use of probability and statistical methods for engineering applications. Mechanics of materials and heat transfer. Instrumentation, data acquisition, and data manipulation using modern computational tools. Common mechanical devices. For students in the Mechatronics Option only. [3-3*-1*]",
+              "prerequisites": "All of MECH_V 220, MECH_V 223, MECH_V 224, MECH_V 225."
             },
             {
               "code": "MECH 366",
-              "title": "",
+              "title": "Modelling of Mechatronic Systems",
               "credits": 3,
               "year": 3,
               "term": 2,
-              "description": "Modelling of Mechatronic Systems Modelling of mechanical, electrical, thermal, fluid elements and mixed mechatronic systems. Signal processing, signal conditioning. Sensors, data acquisition systems, actuators.",
-              "prerequisites": "All of"
+              "description": "Modelling of mechanical, electrical, thermal, fluid elements and mixed mechatronic systems. Signal processing, signal conditioning. Sensors, data acquisition systems, actuators.",
+              "prerequisites": "All of MECH 220, MECH 223, MECH 224, MECH 225."
             },
             {
               "code": "MECH 359",
-              "title": "",
+              "title": "Computational Methods for Mechanical Engineering",
               "credits": 4,
               "year": 3,
               "term": 2,
-              "prerequisites": "All of"
+              "prerequisites": "All of",
+              "description": "Computational methods for solving mechanical engineering problems. Numerical computation of linear and nonlinear algebraic equations; interpolation and extrapolation; numerical integration and differentiation; numerical solution of differential equations. Credit will be granted for only one of"
             },
             {
               "code": "MECH 386",
-              "title": "",
+              "title": "Industrial Fluid Mechanics",
               "credits": 3,
               "year": 3,
               "term": 2,
-              "description": "Industrial Fluid Mechanics Analysis of piping networks. Review of pumps, turbines and hydraulic motors. Flow measurement devices such as flow meters and transducers for measuring velocity and pressure. Multiphase flows. Introduction to turbulence, mixing and buoyancy driven flows. Prerequisite:"
+              "description": "Analysis of piping networks. Review of pumps, turbines and hydraulic motors. Flow measurement devices such as flow meters and transducers for measuring velocity and pressure. Multiphase flows. Introduction to turbulence, mixing and buoyancy driven flows.",
+              "prerequisites": "MECH 380."
             }
           ]
         }
@@ -481,78 +490,81 @@
             },
             {
               "code": "MECH 431",
-              "title": "",
+              "title": "Engineering Economics",
               "credits": 3,
               "year": 4,
               "term": 1,
-              "description": "Engineering Economics Discounted cash flows. Sources of funds, cost of capital. Effects of depreciation, taxes, inflation. Evaluation and comparison of economic models for engineering projects. Replacement decisions. Public project analysis. Risk analysis. Project control, inventory analysis, simulation. Recommended pre-requisite: third-year standing."
+              "description": "Discounted cash flows. Sources of funds, cost of capital. Effects of depreciation, taxes, inflation. Evaluation and comparison of economic models for engineering projects. Replacement decisions. Public project analysis. Risk analysis. Project control, inventory analysis, simulation. Recommended pre-requisite: third-year standing."
             },
             {
               "code": "MECH 453",
-              "title": "",
+              "title": "Aerospace Capstone Design Project",
               "credits": 6,
               "year": 4,
               "term": 1,
-              "description": "Aerospace Capstone Design Project A capstone course to provide students experience in the design/development of practical mechanical and aerospace devices. Projects are provided by local industry and engineering research laboratories. Credit will be granted for only one of"
+              "description": "A capstone course to provide students experience in the design/development of practical mechanical and aerospace devices. Projects are provided by local industry and engineering research laboratories. Credit will be granted for only one of"
             },
             {
               "code": "MECH 462",
-              "title": "",
+              "title": "Finite Element Analysis",
               "credits": 3,
               "year": 4,
               "term": 1,
-              "description": "Finite Element Analysis Theory and element selection. Virtual work and weighted residual formulation. Linear elastic analysis. Heat transfer analysis. Isoparametric elements. Development of computer programs for simple problems. Utilization of existing computer packages. Application to mechanical engineering problems. Credit will be granted for only one of"
+              "description": "Theory and element selection. Virtual work and weighted residual formulation. Linear elastic analysis. Heat transfer analysis. Isoparametric elements. Development of computer programs for simple problems. Utilization of existing computer packages. Application to mechanical engineering problems. Credit will be granted for only one of MECH_V 462 or MECH_V 514. [2-3*-0]",
+              "prerequisites": "MECH_V 360\n\nEquivalency: MECH_V 514"
             },
             {
               "code": "MECH 463",
-              "title": "",
+              "title": "Mechanical Vibrations",
               "credits": 4,
               "year": 4,
               "term": 1,
-              "description": "Mechanical Vibrations Theory of vibration of mechanical systems. Undamped 1 degree of freedom vibration, forced vibrations and resonance, damping, multiple degree of freedom systems, mode shapes and orthogonality, continuous systems, vibration measuring instruments and frequency spectrum analysis. [3-2*-1]",
-              "prerequisites": "One of"
+              "description": "Theory of vibration of mechanical systems. Undamped 1 degree of freedom vibration, forced vibrations and resonance, damping, multiple degree of freedom systems, mode shapes and orthogonality, continuous systems, vibration measuring instruments and frequency spectrum analysis. [3-2*-1]",
+              "prerequisites": "One of MECH 224, MECH 260."
             },
             {
               "code": "MECH 477",
-              "title": "",
+              "title": "Aerospace Propulsion",
               "credits": 3,
               "year": 4,
               "term": 1,
-              "description": "Aerospace Propulsion Cycle analysis of jet engines, thermodynamic cycles, mechanics and thermodynamics of combustion, components and the performance characteristics of chemical rockets. The detailed analysis of operating characteristics of turbojet, turbofan, turboprop, afterburning, and ramjet propulsion systems.",
-              "prerequisites": "All of"
+              "description": "Cycle analysis of jet engines, thermodynamic cycles, mechanics and thermodynamics of combustion, components and the performance characteristics of chemical rockets. The detailed analysis of operating characteristics of turbojet, turbofan, turboprop, afterburning, and ramjet propulsion systems.",
+              "prerequisites": "All of MECH 327, MECH 375, MECH 380."
             },
             {
               "code": "MECH 479",
-              "title": "",
+              "title": "Introduction to Computational Fluid Dynamics",
               "credits": 3,
               "year": 4,
               "term": 1,
-              "description": "Introduction to Computational Fluid Dynamics Techniques for numerical solution of ordinary and partial differential equations, including an introduction to the finite difference, finite volume and finite element approaches. Simulation of laminar and turbulent flows, including common turbulent models. Validation techniques. Recommended pre-requisite:"
+              "description": "Techniques for numerical solution of ordinary and partial differential equations, including an introduction to the finite difference, finite volume and finite element approaches. Simulation of laminar and turbulent flows, including common turbulent models. Validation techniques. Recommended pre-requisite:"
             },
             {
               "code": "MECH 484",
-              "title": "",
+              "title": "Aircraft Stability and Control",
               "credits": 3,
               "year": 4,
               "term": 1,
-              "description": "Aircraft Stability and Control Aircraft performance, stability and control, loading and air worthiness. Detailed example. Corequisite:"
+              "description": "Aircraft performance, stability and control, loading and air worthiness. Detailed example.",
+              "prerequisites": "Corequisites: MECH_V 481.\n\nCorequisites: MECH_V 481."
             },
             {
               "code": "MECH 485",
-              "title": "",
+              "title": "Aircraft Design: Structures",
               "credits": 3,
               "year": 4,
               "term": 1,
-              "description": "Aircraft Design: Structures Structural components of aircraft, introduction to the finite element method, bending and buckling of thin plates. Design of aircraft wing and fuselage structures, moments of inertia for complex shapes.",
-              "prerequisites": "One of"
+              "description": "Structural components of aircraft, introduction to the finite element method, bending and buckling of thin plates. Design of aircraft wing and fuselage structures, moments of inertia for complex shapes.",
+              "prerequisites": "One of MECH 224, MECH 260."
             },
             {
               "code": "MECH 489",
-              "title": "",
+              "title": "Experimental Thermofluids",
               "credits": 4,
               "year": 4,
               "term": 1,
-              "description": "Experimental Thermofluids Experimental uncertainty. Design of experiments. Test facilities. Temperature and pressure measurement techniques and instrumentation. Velocity and flow rate measurement techniques. Flow visualization. Case studies of industrial and research experimental practice. Credit will be granted for only one of"
+              "description": "Experimental uncertainty. Design of experiments. Test facilities. Temperature and pressure measurement techniques and instrumentation. Velocity and flow rate measurement techniques. Flow visualization. Case studies of industrial and research experimental practice. Credit will be granted for only one of MECH 489 or MECH 582.",
+              "prerequisites": "All of MECH 375, MECH 380.\n\nEquivalency: MECH582"
             },
             {
               "code": "MTRL 494",
@@ -571,20 +583,20 @@
             },
             {
               "code": "MECH 400",
-              "title": "",
+              "title": "Professionalism and Ethics in Engineering",
               "credits": 3,
               "year": 4,
               "term": 1,
-              "description": "Professionalism and Ethics in Engineering Professionalism, ethical frameworks, decolonization, equity, diversity, inclusion, law. Obligations of the engineer.",
+              "description": "Professionalism, ethical frameworks, decolonization, equity, diversity, inclusion, law. Obligations of the engineer.",
               "prerequisites": "Fourth-year standing in B.A.Sc."
             },
             {
               "code": "MECH 466",
-              "title": "",
+              "title": "Credit will be granted for only one of",
               "credits": 4,
               "year": 4,
               "term": 1,
-              "description": "Automatic Control Process and system characteristics; transient response; the closed loop; block diagrams and transfer functions; control actions; stability; Nyquist diagrams; Bode diagrams; root locus methods; frequency response; system compensation; nonlinear control systems; digital computer control. Laboratory experiments to support the lecture content. Recommended prerequisite:"
+              "description": "Process and system characteristics; transient response; the closed loop; block diagrams and transfer functions; control actions; stability; Nyquist diagrams; Bode diagrams; root locus methods; frequency response; system compensation; nonlinear control systems; digital computer control. Laboratory experiments to support the lecture content. Recommended prerequisite:"
             },
             {
               "code": "MTRL 484",
@@ -596,11 +608,11 @@
             },
             {
               "code": "BMEG 456",
-              "title": "",
+              "title": "Clinical and Industrial Biomedical Engineering",
               "credits": 3,
               "year": 4,
               "term": 1,
-              "description": "Clinical and Industrial Biomedical Engineering Principles of clinical practice, Canadian healthcare system, medical approach to diagnosis, ethics and regulations for clinical trials, medical technology management, medical device development and standards, biostatistics. Credit will be granted for only one of"
+              "description": "Principles of clinical practice, Canadian healthcare system, medical approach to diagnosis, ethics and regulations for clinical trials, medical technology management, medical device development and standards, biostatistics. Credit will be granted for only one of"
             },
             {
               "code": "ELEC 344",
@@ -618,27 +630,28 @@
           "courses": [
             {
               "code": "MECH 426",
-              "title": "",
+              "title": "Mechanical Design",
               "credits": 3,
               "year": 4,
               "term": 2,
-              "description": "and fourth-year standing in the Aerospace Option. Equivalency:"
+              "description": "Design of shafts and welded joints. Fatigue and fracture considerations in design: failure types, failure under static and dynamic loading, fatigue failure, crack initiation, and propagation. Introduction to the FEM in mechanical design. Students can only receive credit for one of",
+              "prerequisites": "Equivalency: MECH 453, MECH 454, MECH 455, MECH 456,"
             },
             {
               "code": "MECH 439",
-              "title": "",
+              "title": "Biomechanics Research",
               "credits": 1,
               "year": 4,
               "term": 2,
-              "description": "Biomechanics Research Seminar in Biomechanics research."
+              "description": "Seminar in Biomechanics research."
             },
             {
               "code": "MECH 459",
-              "title": "",
+              "title": "Biomechanics and Medical Devices Capstone Design Project",
               "credits": 6,
               "year": 4,
               "term": 2,
-              "description": "Biomechanics and Medical Devices Capstone Design Project A capstone design program designed to give students experience in the design and development of practical biomedical devices. Projects are provided by local industry and engineering research laboratories. For students in the Biomechanics and Medical Devices Option only. Credit will be granted for only one of"
+              "description": "A capstone design program designed to give students experience in the design and development of practical biomedical devices. Projects are provided by local industry and engineering research laboratories. For students in the Biomechanics and Medical Devices Option only. Credit will be granted for only one of"
             },
             {
               "code": "MTRL 495",
@@ -650,19 +663,19 @@
             },
             {
               "code": "MECH 456",
-              "title": "",
+              "title": "Energy and Environment Capstone Design Project",
               "credits": 6,
               "year": 4,
               "term": 2,
-              "description": "Energy and Environment Capstone Design Project A capstone course to provide students experience in the design/development of practical energy and environment devices. Projects are provided by local industry and engineering research laboratories. Credit will be granted for only one of"
+              "description": "A capstone course to provide students experience in the design/development of practical energy and environment devices. Projects are provided by local industry and engineering research laboratories. Credit will be granted for only one of"
             },
             {
               "code": "MECH 457",
-              "title": "",
+              "title": "Flex Capstone Design Project",
               "credits": 6,
               "year": 4,
               "term": 2,
-              "description": "Flex Capstone Design Project A capstone design project designed to give students experience in the design/development of practical mechanical devices. Projects are provided by local industry and engineering research laboratories. Credit will be granted for only one of"
+              "description": "A capstone design project designed to give students experience in the design/development of practical mechanical devices. Projects are provided by local industry and engineering research laboratories. Credit will be granted for only one of"
             },
             {
               "code": "CPEN 333",
@@ -675,70 +688,72 @@
             },
             {
               "code": "MECH 420",
-              "title": "",
+              "title": "Sensors and Actuators",
               "credits": 3,
               "year": 4,
               "term": 2,
-              "description": "Sensors and Actuators Measurement of motion, stress, force, torque, temperature, flow and pressure; principles of sensors and signal conditioning methods; selection and sizing of actuators. [ 2-2*- 1]",
-              "prerequisites": "All of"
+              "description": "Measurement of motion, stress, force, torque, temperature, flow and pressure; principles of sensors and signal conditioning methods; selection and sizing of actuators. [ 2-2*- 1]",
+              "prerequisites": "All of MECH_V 360, MECH_V 463, MECH_V 366, ELEC_V 343."
             },
             {
               "code": "MECH 421",
-              "title": "",
+              "title": "Mechatronics System Instrumentation",
               "credits": 4,
               "year": 4,
               "term": 2,
-              "description": "Mechatronics System Instrumentation Architecture of mechatronics devices; integration of mechanical, electronics, sensors, actuators, computer and real time software systems; PLC and PC based systems; discrete and continuous automation system design. Prerequisite:"
+              "description": "Architecture of mechatronics devices; integration of mechanical, electronics, sensors, actuators, computer and real time software systems; PLC and PC based systems; discrete and continuous automation system design.",
+              "prerequisites": "MECH 366.\n\nCorequisites: MECH 420."
             },
             {
               "code": "MECH 423",
-              "title": "",
+              "title": "Mechatronic Product Design",
               "credits": 4,
               "year": 4,
               "term": 2,
-              "description": "Mechatronic Product Design Design of mechatronic systems for industrial and human-centric applications compliant structures; electronic circuits to interface with sensors and actuators; embedded systems; precision timing and control; data acquisition and processing; user interfaces; and product innovation.",
-              "prerequisites": "All of"
+              "description": "Design of mechatronic systems for industrial and human-centric applications compliant structures; electronic circuits to interface with sensors and actuators; embedded systems; precision timing and control; data acquisition and processing; user interfaces; and product innovation.",
+              "prerequisites": "All of MECH_V 366, ELEC_V 302, CPEN_V 312. and 4th year standing.\n\nCorequisites: CPEN_V 333, MECH_V 421."
             },
             {
               "code": "MECH 458",
-              "title": "",
+              "title": "Mechatronics Capstone Design Project",
               "credits": 6,
               "year": 4,
               "term": 2,
-              "description": "Mechatronics Capstone Design Project A capstone design program designed to give students experience in the design/development of practical mechanical and mechatronics devices. Projects are provided by local industry and engineering research laboratories. Credit will be granted for only one of"
+              "description": "A capstone design program designed to give students experience in the design/development of practical mechanical and mechatronics devices. Projects are provided by local industry and engineering research laboratories. Credit will be granted for only one of"
             },
             {
               "code": "MECH 467",
-              "title": "",
+              "title": "Computer Control of Mechatronics Systems",
               "credits": 4,
               "year": 4,
               "term": 2,
-              "description": "[3-2*-2]",
+              "description": "Block diagrams and transfer functions, continuous and discrete domain transformations, feedback control system characteristics, control design in both continuous and discrete domain, absolute and relative stability, laboratory examples of Mechatronic systems design. Credit will be granted for only one of",
               "prerequisites": "One of"
             },
             {
               "code": "MECH 455",
-              "title": "",
+              "title": "Naval Architecture and Marine Engineering Capstone Design Project",
               "credits": 6,
               "year": 4,
               "term": 2,
-              "description": "Naval Architecture and Marine Engineering Capstone Design Project A capstone course to provide students experience in the design/development of practical naval architecture and marine engineering devices. Projects are provided by local industry and engineering research laboratories. Credit will be granted for only one of"
+              "description": "A capstone course to provide students experience in the design/development of practical naval architecture and marine engineering devices. Projects are provided by local industry and engineering research laboratories. Credit will be granted for only one of"
             },
             {
               "code": "MECH 486",
-              "title": "or NAME_V 581",
+              "title": "Introduction to Ship Design",
               "credits": 3,
               "year": 4,
               "term": 2,
-              "prerequisites": "Either (a)"
+              "prerequisites": "Either (a)",
+              "description": "This course introduces the ship design process from a Systems Engineering point of view. Topics include ship operational requirements, space and weight estimation, parametric design, optimization techniques, and the impacts of ship design on economics and the environment. Credit will be granted for only one of"
             },
             {
               "code": "MECH 488",
-              "title": "",
+              "title": "Introduction to Ship Hydrodynamics",
               "credits": 3,
               "year": 4,
               "term": 2,
-              "description": "Introduction to Ship Hydrodynamics Ship terminology, lines plans, ship hydrostatics, transverse and longitudinal stability of ships, dimensional analysis, ship resistance prediction; ship propulsion methods, propeller selection and design. Recommended",
+              "description": "Ship terminology, lines plans, ship hydrostatics, transverse and longitudinal stability of ships, dimensional analysis, ship resistance prediction; ship propulsion methods, propeller selection and design. Recommended",
               "prerequisites": "One of"
             },
             {
@@ -751,20 +766,20 @@
             },
             {
               "code": "MECH 368",
-              "title": "",
+              "title": "Engineering Measurements and Instrumentation",
               "credits": 4,
               "year": 4,
               "term": 2,
-              "description": "Engineering Measurements and Instrumentation Industrial measurement needs including: architecture of electronic instrumentation systems; electrical representation of physical quantities; sensors and actuators; analog signal processing using linear and non-linear circuits; computer-based readout including programming for user-interface and data acquisition.",
-              "prerequisites": "Either (a) two of"
+              "description": "Industrial measurement needs including: architecture of electronic instrumentation systems; electrical representation of physical quantities; sensors and actuators; analog signal processing using linear and non-linear circuits; computer-based readout including programming for user-interface and data acquisition.",
+              "prerequisites": "Either (a) two of MECH_V 220, MECH_V 224, ELEC_V 203 or (b) all of MANU_V 230, ELEC_V 203."
             },
             {
               "code": "MECH 454",
-              "title": "",
+              "title": "Thermofluids Capstone Design Project",
               "credits": 6,
               "year": 4,
               "term": 2,
-              "description": "Thermofluids Capstone Design Project A capstone course to provide students experience in the design/development of practical mechanical and thermofluids devices. Projects are provided by local industry and engineering research laboratories. Credit will be granted for only one of"
+              "description": "A capstone course to provide students experience in the design/development of practical mechanical and thermofluids devices. Projects are provided by local industry and engineering research laboratories. Credit will be granted for only one of"
             }
           ]
         }

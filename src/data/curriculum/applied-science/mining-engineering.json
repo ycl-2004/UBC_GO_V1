@@ -187,11 +187,11 @@
             },
             {
               "code": "MECH 260",
-              "title": "",
+              "title": "Introduction to Mechanics of Materials",
               "credits": 3,
               "year": 2,
               "term": 1,
-              "description": "Introduction to Mechanics of Materials Statically determinate frames and trusses; normal and shear stresses and strains; shear force and bending moment diagrams; theory of beam bending, torsion of circular rods; transformation of stress and strain in two and three dimensions, Mohr's circle; yield and ultimate failure criteria.",
+              "description": "Statically determinate frames and trusses; normal and shear stresses and strains; shear force and bending moment diagrams; theory of beam bending, torsion of circular rods; transformation of stress and strain in two and three dimensions, Mohr's circle; yield and ultimate failure criteria.",
               "prerequisites": "Either (a) all of MATH 101, PHYS 170 or (b) all of APSC 172, APSC 173, APSC 180."
             }
           ]
@@ -201,11 +201,11 @@
           "courses": [
             {
               "code": "MECH 280",
-              "title": ", , or",
+              "title": "Introduction to Fluid Mechanics",
               "credits": 3,
               "year": 2,
               "term": 2,
-              "description": "Introduction to Fluid Mechanics Fluid properties; statics; kinematics, dynamics, energy, and momentum principles for control volumes; dimensional analysis and similarity; laminar and turbulent flow; pipe flow; principles of centrifugal pumps.",
+              "description": "Fluid properties; statics; kinematics, dynamics, energy, and momentum principles for control volumes; dimensional analysis and similarity; laminar and turbulent flow; pipe flow; principles of centrifugal pumps.",
               "prerequisites": "All of MATH 152, PHYS 170 and one of MATH 217, MATH 253; and either (a) PHYS 131 and one of PHYS 108, PHYS 118; or (b) PHYS 153 or (c) all of PHYS 157, PHYS 158, PHYS 159."
             },
             {

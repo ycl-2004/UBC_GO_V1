@@ -142,16 +142,16 @@
           "courses": [
             {
               "code": "CHBE 230",
-              "title": "",
+              "title": "Computational Methods",
               "credits": 3,
               "year": 2,
               "term": 1,
-              "description": "Computational Methods Mathematical formulation of chemical and biological engineering problems; standard techniques of numerical analysis and their application to chemical, environmental and biotechnological systems; program development; use of commercial numerical analysis software.",
+              "description": "Mathematical formulation of chemical and biological engineering problems; standard techniques of numerical analysis and their application to chemical, environmental and biotechnological systems; program development; use of commercial numerical analysis software.",
               "prerequisites": "APSC 160.\n\nCorequisites: MATH 256."
             },
             {
               "code": "CHBE 241",
-              "title": "",
+              "title": "This course is not eligible for Credit/D/Fail grading",
               "credits": 3,
               "year": 2,
               "term": 1,
@@ -160,11 +160,11 @@
             },
             {
               "code": "CHBE 244",
-              "title": "",
+              "title": "Chemical and Biological Engineering Thermodynamics I",
               "credits": 3,
               "year": 2,
               "term": 1,
-              "description": "Chemical and Biological Engineering Thermodynamics I Energy and the first law; second law of thermodynamics; entropy; availability (energy) analysis; thermodynamic properties of fluids, application to power generation, refrigeration, and liquefaction, as well as biological, environmental, and electrochemical systems. *] Prerequisite:"
+              "description": "Energy and the first law; second law of thermodynamics; entropy; availability (energy) analysis; thermodynamic properties of fluids, application to power generation, refrigeration, and liquefaction, as well as biological, environmental, and electrochemical systems. *] Prerequisite:"
             },
             {
               "code": "CIVL 204",
@@ -255,16 +255,16 @@
           "courses": [
             {
               "code": "CHBE 364",
-              "title": "",
+              "title": "This course is not eligible for Credit/D/Fail grading",
               "credits": 3,
               "year": 3,
               "term": 1,
               "description": "Environmental Engineering Laboratory Laboratory experiments to illustrate key concepts and measurement techniques in environmental engineering as used by engineers.",
-              "prerequisites": "Corequisites: One of"
+              "prerequisites": "Corequisites: One of\n\nCorequisites: One of"
             },
             {
               "code": "CHBE 370",
-              "title": "",
+              "title": "Prerequisite: Third-year or higher standing in BASc. or BSc",
               "credits": 3,
               "year": 3,
               "term": 1,
@@ -273,19 +273,20 @@
             },
             {
               "code": "CHBE 373",
-              "title": "or CIVL_V 406",
+              "title": "Water and Wastewater Technology and Engineering",
               "credits": 4,
               "year": 3,
               "term": 1,
-              "prerequisites": "One of"
+              "prerequisites": "One of",
+              "description": "Legal, environmental and physicochemical aspects of industrial water pollution and its abatement will be surveyed; techniques for design of wastewater treatment processes currently used in industry; case studies from chemical and process industries will be considered in detail. Credit will be granted for only one of"
             },
             {
               "code": "CHBE 485",
-              "title": "",
+              "title": "Air Pollution Prevention and Air Quality Engineering",
               "credits": 3,
               "year": 3,
               "term": 1,
-              "description": "Air Pollution Prevention and Air Quality Engineering Fate of air-born chemicals and the associated impacts of air pollutants on health, visibility, smog formation, ozone depletion and global warming; air quality and emission standards; atmospheric dispersion of air pollutants; prevention and control technologies for particulates, SOx, NOx, VOCs, and CO2. Credit will be granted for only one of"
+              "description": "Fate of air-born chemicals and the associated impacts of air pollutants on health, visibility, smog formation, ozone depletion and global warming; air quality and emission standards; atmospheric dispersion of air pollutants; prevention and control technologies for particulates, SOx, NOx, VOCs, and CO2. Credit will be granted for only one of"
             },
             {
               "code": "CIVL 305",
@@ -362,28 +363,28 @@
           "courses": [
             {
               "code": "CHBE 459",
-              "title": "",
+              "title": "Chemical and Biological Engineering Economics",
               "credits": 3,
               "year": 4,
               "term": 1,
-              "description": "Chemical and Biological Engineering Economics Estimation of capital and operating costs; interest calculations; taxes; economic comparison of alternatives; economic optimization.",
+              "description": "Estimation of capital and operating costs; interest calculations; taxes; economic comparison of alternatives; economic optimization.",
               "prerequisites": "Third-year or higher standing in BASc or BSc."
             },
             {
               "code": "CHBE 483",
-              "title": "",
+              "title": "Energy Engineering for Climate Change and Sustainability",
               "credits": 3,
               "year": 4,
               "term": 1,
-              "description": "Energy Engineering for Climate Change and Sustainability Supply and use of conventional and alternative fuels and energy. Design and operation of unit operations for processing of fossil fuels, biomass, and other energy sources. Environmental considerations of energy use. that address climate change and sustainability (water usage, environmental footprint, resource use, etc.). Credit will be granted for only one of"
+              "description": "Supply and use of conventional and alternative fuels and energy. Design and operation of unit operations for processing of fossil fuels, biomass, and other energy sources. Environmental considerations of energy use. that address climate change and sustainability (water usage, environmental footprint, resource use, etc.). Credit will be granted for only one of"
             },
             {
               "code": "CHBE 486",
-              "title": "",
+              "title": "Waste Mitigation and Processing for Resource Recovery",
               "credits": 3,
               "year": 4,
               "term": 1,
-              "description": "Waste Mitigation and Processing for Resource Recovery How chemical and biological waste impact the environment. Physico-chemical, thermal, and biological methods for minimizing, isolating and sustainably treating solid waste and wastewater, including conversion to bioproducts/ industrial products, energy and clean water. Recommended",
+              "description": "How chemical and biological waste impact the environment. Physico-chemical, thermal, and biological methods for minimizing, isolating and sustainably treating solid waste and wastewater, including conversion to bioproducts/ industrial products, energy and clean water. Recommended",
               "prerequisites": "All of"
             },
             {

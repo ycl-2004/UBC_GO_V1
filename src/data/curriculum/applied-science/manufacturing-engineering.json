@@ -235,11 +235,11 @@
             },
             {
               "code": "MECH 260",
-              "title": "",
+              "title": "Introduction to Mechanics of Materials",
               "credits": 3,
               "year": 2,
               "term": 2,
-              "description": "Introduction to Mechanics of Materials Statically determinate frames and trusses; normal and shear stresses and strains; shear force and bending moment diagrams; theory of beam bending, torsion of circular rods; transformation of stress and strain in two and three dimensions, Mohr's circle; yield and ultimate failure criteria.",
+              "description": "Statically determinate frames and trusses; normal and shear stresses and strains; shear force and bending moment diagrams; theory of beam bending, torsion of circular rods; transformation of stress and strain in two and three dimensions, Mohr's circle; yield and ultimate failure criteria.",
               "prerequisites": "Either (a) all of MATH 101, PHYS 170 or (b) all of APSC 172, APSC 173, APSC 180."
             },
             {
@@ -327,30 +327,30 @@
           "courses": [
             {
               "code": "MECH 360",
-              "title": "",
+              "title": "Mechanics of Materials",
               "credits": 3,
               "year": 3,
               "term": 2,
-              "description": "Mechanics of Materials Beam deflections, singularity functions; use of tabulated solutions; column buckling; Castigliano's theorem, statically indeterminate beams, bending of beams with asymmetric cross-sections, shear centre; principal stresses and stress invariants in three dimensions.",
-              "prerequisites": "One of"
+              "description": "Beam deflections, singularity functions; use of tabulated solutions; column buckling; Castigliano's theorem, statically indeterminate beams, bending of beams with asymmetric cross-sections, shear centre; principal stresses and stress invariants in three dimensions.",
+              "prerequisites": "One of MECH 224, MECH 260."
             },
             {
               "code": "MECH 368",
-              "title": "",
+              "title": "Engineering Measurements and Instrumentation",
               "credits": 4,
               "year": 3,
               "term": 2,
-              "description": "Engineering Measurements and Instrumentation Industrial measurement needs including: architecture of electronic instrumentation systems; electrical representation of physical quantities; sensors and actuators; analog signal processing using linear and non-linear circuits; computer-based readout including programming for user-interface and data acquisition.",
-              "prerequisites": "Either (a) two of"
+              "description": "Industrial measurement needs including: architecture of electronic instrumentation systems; electrical representation of physical quantities; sensors and actuators; analog signal processing using linear and non-linear circuits; computer-based readout including programming for user-interface and data acquisition.",
+              "prerequisites": "Either (a) two of MECH_V 220, MECH_V 224, ELEC_V 203 or (b) all of MANU_V 230, ELEC_V 203."
             },
             {
               "code": "MECH 463",
-              "title": "",
+              "title": "Mechanical Vibrations",
               "credits": 4,
               "year": 3,
               "term": 2,
-              "description": "Mechanical Vibrations Theory of vibration of mechanical systems. Undamped 1 degree of freedom vibration, forced vibrations and resonance, damping, multiple degree of freedom systems, mode shapes and orthogonality, continuous systems, vibration measuring instruments and frequency spectrum analysis. [3-2*-1]",
-              "prerequisites": "One of"
+              "description": "Theory of vibration of mechanical systems. Undamped 1 degree of freedom vibration, forced vibrations and resonance, damping, multiple degree of freedom systems, mode shapes and orthogonality, continuous systems, vibration measuring instruments and frequency spectrum analysis. [3-2*-1]",
+              "prerequisites": "One of MECH 224, MECH 260."
             },
             {
               "code": "MTRL 455",
@@ -432,29 +432,29 @@
             },
             {
               "code": "MECH 400",
-              "title": "",
+              "title": "Professionalism and Ethics in Engineering",
               "credits": 3,
               "year": 4,
               "term": 2,
-              "description": "Professionalism and Ethics in Engineering Professionalism, ethical frameworks, decolonization, equity, diversity, inclusion, law. Obligations of the engineer.",
+              "description": "Professionalism, ethical frameworks, decolonization, equity, diversity, inclusion, law. Obligations of the engineer.",
               "prerequisites": "Fourth-year standing in B.A.Sc."
             },
             {
               "code": "MECH 467",
-              "title": "",
+              "title": "Computer Control of Mechatronics Systems",
               "credits": 4,
               "year": 4,
               "term": 2,
-              "description": "[3-2*-2]",
+              "description": "Block diagrams and transfer functions, continuous and discrete domain transformations, feedback control system characteristics, control design in both continuous and discrete domain, absolute and relative stability, laboratory examples of Mechatronic systems design. Credit will be granted for only one of",
               "prerequisites": "One of"
             },
             {
               "code": "MECH 491",
-              "title": "",
+              "title": "Computer-Aided Manufacturing",
               "credits": 3,
               "year": 4,
               "term": 2,
-              "description": "Computer-Aided Manufacturing NC programming and machining with interactive CAD/CAM systems. Curve and surface geometry for tool-path generation. Tool-path generation methodologies. Geometric modelling techniques for simulation and verification of manufacturing processes. Introduction to Computer-Aided Process Planning. Supplementary tutorial laboratory experiments. Recommended co-requisites:"
+              "description": "NC programming and machining with interactive CAD/CAM systems. Curve and surface geometry for tool-path generation. Tool-path generation methodologies. Geometric modelling techniques for simulation and verification of manufacturing processes. Introduction to Computer-Aided Process Planning. Supplementary tutorial laboratory experiments. Recommended co-requisites:"
             },
             {
               "code": "ELECTIVE",

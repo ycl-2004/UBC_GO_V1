@@ -159,7 +159,7 @@
             },
             {
               "code": "CHBE 241",
-              "title": "",
+              "title": "This course is not eligible for Credit/D/Fail grading",
               "credits": 3,
               "year": 2,
               "term": 1,
@@ -168,11 +168,11 @@
             },
             {
               "code": "CHBE 244",
-              "title": "",
+              "title": "Chemical and Biological Engineering Thermodynamics I",
               "credits": 3,
               "year": 2,
               "term": 1,
-              "description": "Chemical and Biological Engineering Thermodynamics I Energy and the first law; second law of thermodynamics; entropy; availability (energy) analysis; thermodynamic properties of fluids, application to power generation, refrigeration, and liquefaction, as well as biological, environmental, and electrochemical systems. *] Prerequisite:"
+              "description": "Energy and the first law; second law of thermodynamics; entropy; availability (energy) analysis; thermodynamic properties of fluids, application to power generation, refrigeration, and liquefaction, as well as biological, environmental, and electrochemical systems. *] Prerequisite:"
             },
             {
               "code": "CIVL 215",
@@ -252,11 +252,11 @@
             },
             {
               "code": "MECH 260",
-              "title": "",
+              "title": "Introduction to Mechanics of Materials",
               "credits": 3,
               "year": 2,
               "term": 2,
-              "description": "Introduction to Mechanics of Materials Statically determinate frames and trusses; normal and shear stresses and strains; shear force and bending moment diagrams; theory of beam bending, torsion of circular rods; transformation of stress and strain in two and three dimensions, Mohr's circle; yield and ultimate failure criteria.",
+              "description": "Statically determinate frames and trusses; normal and shear stresses and strains; shear force and bending moment diagrams; theory of beam bending, torsion of circular rods; transformation of stress and strain in two and three dimensions, Mohr's circle; yield and ultimate failure criteria.",
               "prerequisites": "Either (a) all of MATH 101, PHYS 170 or (b) all of APSC 172, APSC 173, APSC 180."
             }
           ]
@@ -272,7 +272,7 @@
           "courses": [
             {
               "code": "CHBE 344",
-              "title": "",
+              "title": "This course is not eligible for Credit/D/Fail grading",
               "credits": 3,
               "year": 3,
               "term": 1,
@@ -305,12 +305,12 @@
             },
             {
               "code": "MECH 360",
-              "title": "",
+              "title": "Mechanics of Materials",
               "credits": 3,
               "year": 3,
               "term": 1,
-              "description": "Mechanics of Materials Beam deflections, singularity functions; use of tabulated solutions; column buckling; Castigliano's theorem, statically indeterminate beams, bending of beams with asymmetric cross-sections, shear centre; principal stresses and stress invariants in three dimensions.",
-              "prerequisites": "One of"
+              "description": "Beam deflections, singularity functions; use of tabulated solutions; column buckling; Castigliano's theorem, statically indeterminate beams, bending of beams with asymmetric cross-sections, shear centre; principal stresses and stress invariants in three dimensions.",
+              "prerequisites": "One of MECH 224, MECH 260."
             }
           ]
         },
@@ -319,11 +319,11 @@
           "courses": [
             {
               "code": "MECH 375",
-              "title": "",
+              "title": "Credit will be granted for only one of",
               "credits": 3,
               "year": 3,
               "term": 2,
-              "description": "Heat Transfer Steady and transient conduction. Radiation heat transfer. Convective heat and mass transfer in pipes and from external surfaces. Design of heat exchangers.",
+              "description": "Steady and transient conduction. Radiation heat transfer. Convective heat and mass transfer in pipes and from external surfaces. Design of heat exchangers.",
               "prerequisites": "Either (a)"
             },
             {
@@ -343,7 +343,7 @@
             },
             {
               "code": "CHBE 356",
-              "title": "One of ,",
+              "title": "This course is not eligible for Credit/D/Fail grading",
               "credits": 4,
               "year": 3,
               "term": 2,
@@ -416,11 +416,11 @@
             },
             {
               "code": "CHBE 459",
-              "title": "One of , , , , ,",
+              "title": "Chemical and Biological Engineering Economics",
               "credits": 3,
               "year": 4,
               "term": 2,
-              "description": "Chemical and Biological Engineering Economics Estimation of capital and operating costs; interest calculations; taxes; economic comparison of alternatives; economic optimization.",
+              "description": "Estimation of capital and operating costs; interest calculations; taxes; economic comparison of alternatives; economic optimization.",
               "prerequisites": "Third-year or higher standing in BASc or BSc."
             },
             {
