@@ -16,21 +16,26 @@
               "title": "",
               "credits": 3,
               "year": 1,
-              "term": 1
+              "term": 1,
+              "description": "Introduction to Engineering I An introduction to the engineering profession including: roles and responsibilities of the engineer, the engineering disciplines, sustainability, an introduction to the engineering design process, introduction and application of the relevant foundational scientific principles, prototyping, engineering graphics, technical communication, and engineering ethics.",
+              "prerequisites": "APSC 100\n\nCorequisites: APSC 173"
             },
             {
               "code": "APSC 101",
               "title": "",
               "credits": 3,
               "year": 1,
-              "term": 1
+              "term": 1,
+              "description": "Introduction to Engineering II An introduction to the engineering profession including: the engineering design process, sustainability, prototype testing, introduction and application of the relevant foundational scientific principles, team functioning, engineering graphics, and technical communication.",
+              "prerequisites": "APSC 100."
             },
             {
               "code": "APSC 160",
               "title": "",
               "credits": 3,
               "year": 1,
-              "term": 1
+              "term": 1,
+              "description": "Introduction to Computation in Engineering Design Analysis and simulation, laboratory data acquisition and processing, measurement interfaces, engineering tools, computer systems organization, programming languages. Credit will only be given for one of: APSC 160, CPSC 301, or EOSC 211."
             },
             {
               "code": "CHEM 154",
@@ -48,10 +53,12 @@
             },
             {
               "code": "MATH 100",
-              "title": "",
+              "title": "Differential Calculus with Applications\n\n\nDerivatives of elementary functions",
               "credits": 3,
               "year": 1,
-              "term": 1
+              "term": 1,
+              "description": "Differential Calculus with Applications Derivatives of elementary functions. Applications and modelling: graphing, optimization. Consult the Faculty of Science Credit Exclusion List: https://vancouver.calendar.ubc.ca/faculties-colleges-and-schools/facult…",
+              "prerequisites": "A score of 80% or higher in BC Pre-calculus 12. High school calculus is strongly recommended."
             }
           ]
         },
@@ -63,14 +70,16 @@
               "title": "",
               "credits": 3,
               "year": 1,
-              "term": 2
+              "term": 2,
+              "description": "Integral Calculus with Applications The definite integral, integration techniques, applications, modelling, infinite series. Equivalency:"
             },
             {
               "code": "MATH 152",
-              "title": "",
+              "title": "Linear Systems\n\n\n2D and 3D geometry, vectors and matrices, eigenvalues and vibration, physical applications",
               "credits": 3,
               "year": 1,
-              "term": 2
+              "term": 2,
+              "description": "Linear Systems 2D and 3D geometry, vectors and matrices, eigenvalues and vibration, physical applications. Laboratories demonstrate computer solutions of large systems. Please consult the Faculty of Science Credit Exclusion List: https://vancouver.calendar.ubc.ca/faculties-colleges-and-schools/facult… [3-1*-0] Corequisite: [MATH101]"
             },
             {
               "code": "PHYS 157",
@@ -177,24 +186,30 @@
             },
             {
               "code": "MATH 220",
-              "title": "",
+              "title": "Mathematical Proof\n\n\nSets and functions; induction; cardinality; properties of the real numbers; sequences, series, and limits",
               "credits": 3,
               "year": 2,
-              "term": 2
+              "term": 2,
+              "description": "Mathematical Proof Sets and functions; induction; cardinality; properties of the real numbers; sequences, series, and limits. Logic, structure, style, and clarity of proofs emphasized throughout.",
+              "prerequisites": "Either (a) a score of 64% or higher in one of MATH 101, MATH 103, MATH 105, SCIE 001 or (b) one of MATH 121, MATH 200, MATH 217, MATH 226, MATH 253, MATH 254."
             },
             {
               "code": "MATH 253",
-              "title": "",
+              "title": "Multivariable Calculus\n\n\nPartial and directional derivatives; maxima and minima; Lagrange multipliers and second derivative test; multiple integrals and applications",
               "credits": 3,
               "year": 2,
-              "term": 2
+              "term": 2,
+              "description": "Multivariable Calculus Partial and directional derivatives; maxima and minima; Lagrange multipliers and second derivative test; multiple integrals and applications. Please consult the Faculty of Science Credit Exclusion List: https://vancouver.calendar.ubc.ca/faculties-colleges-and-schools/facult…",
+              "prerequisites": "One of MATH 101, MATH 103, MATH 105, MATH 121, SCIE 001."
             },
             {
               "code": "MATH 256",
-              "title": "",
+              "title": "Differential Equations\n\n\nLinear ordinary differential equations, Laplace transforms, Fourier series and separation of variables for linear partial differential equations",
               "credits": 3,
               "year": 2,
-              "term": 2
+              "term": 2,
+              "description": "Differential Equations Linear ordinary differential equations, Laplace transforms, Fourier series and separation of variables for linear partial differential equations. Consult the Faculty of Science Credit Exclusion List: https://vancouver.calendar.ubc.ca/faculties-colleges-and-schools/facult… .",
+              "prerequisites": "One of"
             },
             {
               "code": "ELECTIVE",
@@ -249,7 +264,9 @@
               "title": "One of , , ,",
               "credits": 3,
               "year": 3,
-              "term": 2
+              "term": 2,
+              "description": "Probability with Physical Applications Random variables, discrete and continuous distributions. Random walk, Markov chains, Monte Carlo methods. Characteristic functions, limit laws. Please consult the Faculty of Science Credit Exclusion List: https://vancouver.calendar.ubc.ca/faculties-colleges-and-schools/facult… Corequisite: One of MATH 256, MATH 257, MATH 316, MATH 358, MECH 358, PHYS 312.",
+              "prerequisites": "One of MATH 152, MATH 221, MATH 223."
             },
             {
               "code": "ELECTIVE",
@@ -274,7 +291,8 @@
               "title": "",
               "credits": 2,
               "year": 4,
-              "term": 1
+              "term": 1,
+              "description": "Management of engineering enterprises; labour relations, safety and environmental legislation. Restricted to engineering undergraduate students in the final year of their program."
             },
             {
               "code": "CPEN 481",
@@ -282,7 +300,7 @@
               "credits": 3,
               "year": 4,
               "term": 1,
-              "description": "Time-money relationships; economic analysis of alternatives including the effects of interest rates, inflation, depreciation, taxation and uncertainty; cost estimation and budgeting; financial analysis of engineering operations."
+              "description": "Your request has been blocked and logged because it has been identified as potentially automated or malicious by an automated UBC Cybersecurity system."
             }
           ]
         },

@@ -16,14 +16,17 @@
               "title": "",
               "credits": 3,
               "year": 1,
-              "term": 1
+              "term": 1,
+              "description": "Introduction to Engineering I An introduction to the engineering profession including: roles and responsibilities of the engineer, the engineering disciplines, sustainability, an introduction to the engineering design process, introduction and application of the relevant foundational scientific principles, prototyping, engineering graphics, technical communication, and engineering ethics.",
+              "prerequisites": "APSC 100\n\nCorequisites: APSC 173"
             },
             {
               "code": "APSC 160",
               "title": "",
               "credits": 3,
               "year": 1,
-              "term": 1
+              "term": 1,
+              "description": "Introduction to Computation in Engineering Design Analysis and simulation, laboratory data acquisition and processing, measurement interfaces, engineering tools, computer systems organization, programming languages. Credit will only be given for one of: APSC 160, CPSC 301, or EOSC 211."
             },
             {
               "code": "BMEG 101",
@@ -60,24 +63,28 @@
           "courses": [
             {
               "code": "MATH 100",
-              "title": "",
+              "title": "Differential Calculus with Applications\n\n\nDerivatives of elementary functions",
               "credits": 3,
               "year": 1,
-              "term": 2
+              "term": 2,
+              "description": "Differential Calculus with Applications Derivatives of elementary functions. Applications and modelling: graphing, optimization. Consult the Faculty of Science Credit Exclusion List: https://vancouver.calendar.ubc.ca/faculties-colleges-and-schools/facult…",
+              "prerequisites": "A score of 80% or higher in BC Pre-calculus 12. High school calculus is strongly recommended."
             },
             {
               "code": "MATH 101",
               "title": "",
               "credits": 3,
               "year": 1,
-              "term": 2
+              "term": 2,
+              "description": "Integral Calculus with Applications The definite integral, integration techniques, applications, modelling, infinite series. Equivalency:"
             },
             {
               "code": "MATH 152",
-              "title": "",
+              "title": "Linear Systems\n\n\n2D and 3D geometry, vectors and matrices, eigenvalues and vibration, physical applications",
               "credits": 3,
               "year": 1,
-              "term": 2
+              "term": 2,
+              "description": "Linear Systems 2D and 3D geometry, vectors and matrices, eigenvalues and vibration, physical applications. Laboratories demonstrate computer solutions of large systems. Please consult the Faculty of Science Credit Exclusion List: https://vancouver.calendar.ubc.ca/faculties-colleges-and-schools/facult… [3-1*-0] Corequisite: [MATH101]"
             },
             {
               "code": "PHYS 157",
@@ -177,28 +184,36 @@
               "title": "or 223",
               "credits": 4,
               "year": 2,
-              "term": 2
+              "term": 2,
+              "description": "Design, implementation, reasoning about software systems: Abstraction and specification of software, testing, verification, abstract data types, object-oriented design, design patterns, type hierarchies, concurrent software design. [3-2-1*]",
+              "prerequisites": "Prerequisites: APSC 160 – Introduction to Computation in Engineering Design"
             },
             {
               "code": "MATH 253",
               "title": "or 226",
               "credits": 3,
               "year": 2,
-              "term": 2
+              "term": 2,
+              "description": "Multivariable Calculus Partial and directional derivatives; maxima and minima; Lagrange multipliers and second derivative test; multiple integrals and applications. Please consult the Faculty of Science Credit Exclusion List: https://vancouver.calendar.ubc.ca/faculties-colleges-and-schools/facult…",
+              "prerequisites": "One of MATH 101, MATH 103, MATH 105, MATH 121, SCIE 001."
             },
             {
               "code": "MATH 256",
-              "title": "",
+              "title": "Differential Equations\n\n\nLinear ordinary differential equations, Laplace transforms, Fourier series and separation of variables for linear partial differential equations",
               "credits": 3,
               "year": 2,
-              "term": 2
+              "term": 2,
+              "description": "Differential Equations Linear ordinary differential equations, Laplace transforms, Fourier series and separation of variables for linear partial differential equations. Consult the Faculty of Science Credit Exclusion List: https://vancouver.calendar.ubc.ca/faculties-colleges-and-schools/facult… .",
+              "prerequisites": "One of"
             },
             {
               "code": "MATH 264",
-              "title": "",
+              "title": "Vector Calculus for Electrical Engineering\n\n\nDivergence, gradient, curl, theorems of Gauss and Stokes",
               "credits": 1,
               "year": 2,
-              "term": 2
+              "term": 2,
+              "description": "Vector Calculus for Electrical Engineering Divergence, gradient, curl, theorems of Gauss and Stokes. Applications to Electrostatics and Magnetostatics. MATH 264 content is strongly coupled to BMEG 220 and ELEC 211 with topics and student evaluations weighted accordingly. Corequisite: One of BMEG 220, ELEC 211.",
+              "prerequisites": "One of MATH 200, MATH 217, MATH 226, MATH 253, MATH 254."
             },
             {
               "code": "CHBE 251",
@@ -349,7 +364,9 @@
               "title": "Students planning to complete the Bioinformatics option should take .",
               "credits": 3,
               "year": 4,
-              "term": 2
+              "term": 2,
+              "description": "Design, implementation, reasoning about software systems: Abstraction and specification of software, testing, verification, abstract data types, object-oriented design, design patterns, type hierarchies, concurrent software design. [3-2-1*]",
+              "prerequisites": "Prerequisites: APSC 160 – Introduction to Computation in Engineering Design"
             }
           ]
         }

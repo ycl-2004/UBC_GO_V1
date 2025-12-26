@@ -16,21 +16,26 @@
               "title": "",
               "credits": 3,
               "year": 1,
-              "term": 1
+              "term": 1,
+              "description": "Introduction to Engineering I An introduction to the engineering profession including: roles and responsibilities of the engineer, the engineering disciplines, sustainability, an introduction to the engineering design process, introduction and application of the relevant foundational scientific principles, prototyping, engineering graphics, technical communication, and engineering ethics.",
+              "prerequisites": "APSC 100\n\nCorequisites: APSC 173"
             },
             {
               "code": "APSC 101",
               "title": "",
               "credits": 3,
               "year": 1,
-              "term": 1
+              "term": 1,
+              "description": "Introduction to Engineering II An introduction to the engineering profession including: the engineering design process, sustainability, prototype testing, introduction and application of the relevant foundational scientific principles, team functioning, engineering graphics, and technical communication.",
+              "prerequisites": "APSC 100."
             },
             {
               "code": "APSC 160",
               "title": "",
               "credits": 3,
               "year": 1,
-              "term": 1
+              "term": 1,
+              "description": "Introduction to Computation in Engineering Design Analysis and simulation, laboratory data acquisition and processing, measurement interfaces, engineering tools, computer systems organization, programming languages. Credit will only be given for one of: APSC 160, CPSC 301, or EOSC 211."
             },
             {
               "code": "CHEM 154",
@@ -48,10 +53,12 @@
             },
             {
               "code": "MATH 100",
-              "title": "",
+              "title": "Differential Calculus with Applications\n\n\nDerivatives of elementary functions",
               "credits": 3,
               "year": 1,
-              "term": 1
+              "term": 1,
+              "description": "Differential Calculus with Applications Derivatives of elementary functions. Applications and modelling: graphing, optimization. Consult the Faculty of Science Credit Exclusion List: https://vancouver.calendar.ubc.ca/faculties-colleges-and-schools/facult…",
+              "prerequisites": "A score of 80% or higher in BC Pre-calculus 12. High school calculus is strongly recommended."
             }
           ]
         },
@@ -63,14 +70,16 @@
               "title": "",
               "credits": 3,
               "year": 1,
-              "term": 2
+              "term": 2,
+              "description": "Integral Calculus with Applications The definite integral, integration techniques, applications, modelling, infinite series. Equivalency:"
             },
             {
               "code": "MATH 152",
-              "title": "",
+              "title": "Linear Systems\n\n\n2D and 3D geometry, vectors and matrices, eigenvalues and vibration, physical applications",
               "credits": 3,
               "year": 1,
-              "term": 2
+              "term": 2,
+              "description": "Linear Systems 2D and 3D geometry, vectors and matrices, eigenvalues and vibration, physical applications. Laboratories demonstrate computer solutions of large systems. Please consult the Faculty of Science Credit Exclusion List: https://vancouver.calendar.ubc.ca/faculties-colleges-and-schools/facult… [3-1*-0] Corequisite: [MATH101]"
             },
             {
               "code": "PHYS 157",
@@ -123,14 +132,18 @@
               "title": "",
               "credits": 3,
               "year": 2,
-              "term": 1
+              "term": 1,
+              "description": "Multivariable and Vector Calculus for Mechanical Engineering Partial differentiation, extreme values, multiple integration, vector fields, line and surface integrals, the divergence and Stokes' theorems; applications to fluid mechanics: buoyancy, hydrostatic force, pipe flow, drag; applications to thermodynamics: work, entropy, heat transfer; numerical methods. Emphasis on mechanical engineering applications. *] Corequisite: All of MECH 222, MECH 225.",
+              "prerequisites": "MATH 101 and one of MATH 152, MATH 221, MATH 223."
             },
             {
               "code": "MATH 258",
               "title": "",
               "credits": 3,
               "year": 2,
-              "term": 1
+              "term": 1,
+              "description": "Differential Equations for Mechanical Engineering First-order equations; linear equations; linear systems; Laplace transforms; trajectory analysis of plane nonlinear systems; translational and rotational vibrations; applications to RLC circuit analysis; numerical and graphical methods. Emphasis on mechanical engineering applications. *] Corequisite: All of MECH 221, MECH 224.",
+              "prerequisites": "MATH 101 and one of MATH 152, MATH 221, MATH 223."
             },
             {
               "code": "MECH 220",
@@ -202,7 +215,9 @@
               "title": "",
               "credits": 3,
               "year": 3,
-              "term": 1
+              "term": 1,
+              "description": "Characteristics of semiconductor devices; analog circuits; force and torque production; motor principles and torque-speed characteristics; principles of power electronics. Not open to students in Electrical and Computer Engineering. Credit will be granted for only one of ELEC 342, ELEC 343, ELEC 344.",
+              "prerequisites": "Prerequisites: skills for this course in include basic circuit analysis ability (i.e. Ohm’s Law, Kirchoff’s Voltage and Current laws.) 10 credits Prerequisite: ONE of ELEC 201 – Circuit Analysis I ELEC 203 – Basic Circuit Analysis ELEC 204 – Linear Circuits MECH 221 – Engineering Science I"
             },
             {
               "code": "MECH 305",
@@ -333,7 +348,9 @@
               "title": "",
               "credits": 3,
               "year": 3,
-              "term": 2
+              "term": 2,
+              "description": "Data representation in digital computers; boolean algebra; the design and optimization and implementation of combinatorial and sequential circuits; modern digital circuit technologies; memory and programmable logic devices; organization and operation of microcomputers; data/address bus organization; input-output interfacing. Credit will be given for only one of CPEN 312 or CPEN 211.",
+              "prerequisites": "Prerequisites: ONE of ELEC 201 – Circuit Analysis I ELEC 203 – Basic Circuit Analysis ELEC 204 – Linear Circuits MECH 221 – Engineering Science I"
             },
             {
               "code": "CPSC 259",
@@ -347,14 +364,18 @@
               "title": "",
               "credits": 3,
               "year": 3,
-              "term": 2
+              "term": 2,
+              "description": "Semiconductor fundamentals; modelling of electronic devices including diodes and transistors; design of power supplies, waveform generators and logic circuits; signals in time and frequency domains; operational amplifiers; active filters; oscillators; device specification and selection.",
+              "prerequisites": "Prerequisites: ONE of ELEC 201, ELEC 203, ELEC 204, or MECH 221"
             },
             {
               "code": "ELEC 343",
               "title": "",
               "credits": 3,
               "year": 3,
-              "term": 2
+              "term": 2,
+              "description": "Electromechanical energy conversion; linear actuators; torque/speed of rotating devices; reluctance, stepper, permanent-magnet, induction, brushless-DC motors and DC motors; actuator/motor drive circuits/controllers. Credit will be granted for only one of ELEC 344, ELEC 342, ELEC 343.",
+              "prerequisites": "Prerequisites: ONE of ELEC 202 or ELEC 302"
             },
             {
               "code": "MECH 306",
@@ -400,7 +421,8 @@
               "title": "",
               "credits": 2,
               "year": 4,
-              "term": 1
+              "term": 1,
+              "description": "Management of engineering enterprises; labour relations, safety and environmental legislation. Restricted to engineering undergraduate students in the final year of their program."
             },
             {
               "code": "MECH 431",
@@ -512,7 +534,9 @@
               "title": "",
               "credits": 3,
               "year": 4,
-              "term": 1
+              "term": 1,
+              "description": "Characteristics of semiconductor devices; analog circuits; force and torque production; motor principles and torque-speed characteristics; principles of power electronics. Not open to students in Electrical and Computer Engineering. Credit will be granted for only one of ELEC 342, ELEC 343, ELEC 344.",
+              "prerequisites": "Prerequisites: skills for this course in include basic circuit analysis ability (i.e. Ohm’s Law, Kirchoff’s Voltage and Current laws.) 10 credits Prerequisite: ONE of ELEC 201 – Circuit Analysis I ELEC 203 – Basic Circuit Analysis ELEC 204 – Linear Circuits MECH 221 – Engineering Science I"
             }
           ]
         },
@@ -566,7 +590,9 @@
               "title": "",
               "credits": 3,
               "year": 4,
-              "term": 2
+              "term": 2,
+              "description": "Operating systems principles, real-time systems, principles of concurrent and multi-threaded programming, information structures, introduction to object oriented analysis, design, and modeling using UML, testing of software systems.",
+              "prerequisites": "Prerequisites: ONE of CPSC 259 – Data Structures and Algorithms for Electrical Engineers CPEN 223 – Software Design for Engineers I"
             },
             {
               "code": "MECH 420",

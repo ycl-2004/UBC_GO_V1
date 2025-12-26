@@ -33,6 +33,9 @@ class ECECourseDetailsScraper:
         # Path to curriculum JSON files
         script_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
         self.curriculum_dir = os.path.join(script_dir, 'src', 'data', 'curriculum', 'applied-science')
+        
+        # Cache for scraped course data (key: course_code, value: {description, prerequisites})
+        self.scraped_data_cache = {}
     
     def clean_prerequisites_text(self, text: str) -> str:
         """
@@ -276,11 +279,21 @@ class ECECourseDetailsScraper:
         
         return "\n\n".join(result_parts).strip()
     
-    def scrape_course_details(self, subject: str, number: str) -> Dict[str, str]:
+    def scrape_course_details(self, subject: str, number: str, course_code: str = None) -> Dict[str, str]:
         """
         Scrape course details from ECE website.
         Returns dict with 'description' and 'prerequisites' fields.
+        Uses cache to avoid re-scraping the same course.
         """
+        # Generate course code if not provided
+        if not course_code:
+            course_code = f"{subject} {number}"
+        
+        # Check cache first
+        if course_code in self.scraped_data_cache:
+            print(f"  Using cached data for {course_code}")
+            return self.scraped_data_cache[course_code]
+        
         url = self.build_course_url(subject, number)
         result = {
             'description': '',
@@ -294,6 +307,8 @@ class ECECourseDetailsScraper:
             # Handle 404 gracefully
             if response.status_code == 404:
                 print(f"    → 404: Course page not found, skipping")
+                # Cache the empty result to avoid re-trying
+                self.scraped_data_cache[course_code] = result
                 return result
             
             response.raise_for_status()
@@ -309,17 +324,24 @@ class ECECourseDetailsScraper:
             prerequisites = self.extract_prerequisites(soup)
             if prerequisites:
                 result['prerequisites'] = prerequisites
-                print(f"    → Prerequisites: {prerequisites}")
+                print(f"    → Prerequisites: {prerequisites[:100]}...")
             else:
                 print(f"    → No prerequisites found")
+            
+            # Cache the result
+            self.scraped_data_cache[course_code] = result
             
             # Be polite to the server
             time.sleep(0.5)
             
         except requests.exceptions.RequestException as e:
             print(f"    → Error fetching {url}: {e}")
+            # Cache empty result to avoid re-trying
+            self.scraped_data_cache[course_code] = result
         except Exception as e:
             print(f"    → Unexpected error: {e}")
+            # Cache empty result to avoid re-trying
+            self.scraped_data_cache[course_code] = result
         
         return result
     
@@ -373,7 +395,7 @@ class ECECourseDetailsScraper:
             return updated
         
         print(f"  Processing {code}...")
-        details = self.scrape_course_details(subject, number)
+        details = self.scrape_course_details(subject, number, code)
         
         # Update course object
         if details['description']:
@@ -468,19 +490,40 @@ class ECECourseDetailsScraper:
         else:
             print("Mode: NORMAL (skip courses with existing details)")
         print(f"Curriculum directory: {self.curriculum_dir}")
+        print("Using cache to avoid re-scraping duplicate courses")
         print("=" * 60)
         
-        # Process both ECE-related curriculum files
-        files_to_process = [
-            'electrical-engineering.json',
-            'computer-engineering.json'
-        ]
+        # Get all JSON files in the directory
+        if not os.path.exists(self.curriculum_dir):
+            print(f"Error: Directory not found: {self.curriculum_dir}")
+            return
         
-        for filename in files_to_process:
+        json_files = [f for f in os.listdir(self.curriculum_dir) if f.endswith('.json')]
+        json_files.sort()  # Process in alphabetical order
+        
+        if not json_files:
+            print("No JSON files found in curriculum directory")
+            return
+        
+        print(f"\nFound {len(json_files)} JSON files to process:")
+        for f in json_files:
+            print(f"  - {f}")
+        
+        total_scraped = 0
+        total_updated = 0
+        
+        # Process all JSON files
+        for filename in json_files:
             self.process_curriculum_file(filename)
-            time.sleep(1)  # Brief pause between files
+            time.sleep(0.5)  # Brief pause between files
         
+        # Print cache statistics
         print(f"\n{'='*60}")
+        print("Cache Statistics:")
+        print(f"  Total unique courses scraped: {len(self.scraped_data_cache)}")
+        print(f"  Courses with descriptions: {sum(1 for d in self.scraped_data_cache.values() if d.get('description'))}")
+        print(f"  Courses with prerequisites: {sum(1 for d in self.scraped_data_cache.values() if d.get('prerequisites'))}")
+        print(f"{'='*60}")
         print("Scraping Complete!")
         print(f"{'='*60}")
 

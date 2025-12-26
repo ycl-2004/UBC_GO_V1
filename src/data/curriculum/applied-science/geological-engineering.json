@@ -16,21 +16,26 @@
               "title": "",
               "credits": 3,
               "year": 1,
-              "term": 1
+              "term": 1,
+              "description": "Introduction to Engineering I An introduction to the engineering profession including: roles and responsibilities of the engineer, the engineering disciplines, sustainability, an introduction to the engineering design process, introduction and application of the relevant foundational scientific principles, prototyping, engineering graphics, technical communication, and engineering ethics.",
+              "prerequisites": "APSC 100\n\nCorequisites: APSC 173"
             },
             {
               "code": "APSC 101",
               "title": "",
               "credits": 3,
               "year": 1,
-              "term": 1
+              "term": 1,
+              "description": "Introduction to Engineering II An introduction to the engineering profession including: the engineering design process, sustainability, prototype testing, introduction and application of the relevant foundational scientific principles, team functioning, engineering graphics, and technical communication.",
+              "prerequisites": "APSC 100."
             },
             {
               "code": "APSC 160",
               "title": "",
               "credits": 3,
               "year": 1,
-              "term": 1
+              "term": 1,
+              "description": "Introduction to Computation in Engineering Design Analysis and simulation, laboratory data acquisition and processing, measurement interfaces, engineering tools, computer systems organization, programming languages. Credit will only be given for one of: APSC 160, CPSC 301, or EOSC 211."
             },
             {
               "code": "CHEM 154",
@@ -48,10 +53,12 @@
             },
             {
               "code": "MATH 100",
-              "title": "",
+              "title": "Differential Calculus with Applications\n\n\nDerivatives of elementary functions",
               "credits": 3,
               "year": 1,
-              "term": 1
+              "term": 1,
+              "description": "Differential Calculus with Applications Derivatives of elementary functions. Applications and modelling: graphing, optimization. Consult the Faculty of Science Credit Exclusion List: https://vancouver.calendar.ubc.ca/faculties-colleges-and-schools/facult…",
+              "prerequisites": "A score of 80% or higher in BC Pre-calculus 12. High school calculus is strongly recommended."
             }
           ]
         },
@@ -63,14 +70,16 @@
               "title": "",
               "credits": 3,
               "year": 1,
-              "term": 2
+              "term": 2,
+              "description": "Integral Calculus with Applications The definite integral, integration techniques, applications, modelling, infinite series. Equivalency:"
             },
             {
               "code": "MATH 152",
-              "title": "",
+              "title": "Linear Systems\n\n\n2D and 3D geometry, vectors and matrices, eigenvalues and vibration, physical applications",
               "credits": 3,
               "year": 1,
-              "term": 2
+              "term": 2,
+              "description": "Linear Systems 2D and 3D geometry, vectors and matrices, eigenvalues and vibration, physical applications. Laboratories demonstrate computer solutions of large systems. Please consult the Faculty of Science Credit Exclusion List: https://vancouver.calendar.ubc.ca/faculties-colleges-and-schools/facult… [3-1*-0] Corequisite: [MATH101]"
             },
             {
               "code": "PHYS 157",
@@ -123,7 +132,9 @@
               "title": "",
               "credits": 3,
               "year": 2,
-              "term": 1
+              "term": 1,
+              "description": "Report preparation, business correspondence, and oral presentation of technical material. Credit will be granted for only one of BMEG 201, CHBE 201, CIVL 203, CPEN 281, ELEC 281, IGEN 201, MANU 201, MECH 226, MTRL 201, or APSC 201.",
+              "prerequisites": "One of APSC 176, ENGL 110, ENGL 111, ENGL 112, ENGL 120, ENGL 121, WRDS 150."
             },
             {
               "code": "CIVL 210",
@@ -195,10 +206,12 @@
             },
             {
               "code": "MATH 253",
-              "title": "",
+              "title": "Multivariable Calculus\n\n\nPartial and directional derivatives; maxima and minima; Lagrange multipliers and second derivative test; multiple integrals and applications",
               "credits": 3,
               "year": 2,
-              "term": 2
+              "term": 2,
+              "description": "Multivariable Calculus Partial and directional derivatives; maxima and minima; Lagrange multipliers and second derivative test; multiple integrals and applications. Please consult the Faculty of Science Credit Exclusion List: https://vancouver.calendar.ubc.ca/faculties-colleges-and-schools/facult…",
+              "prerequisites": "One of MATH 101, MATH 103, MATH 105, MATH 121, SCIE 001."
             },
             {
               "code": "STAT 251",

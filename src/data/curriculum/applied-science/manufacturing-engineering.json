@@ -16,21 +16,26 @@
               "title": "",
               "credits": 3,
               "year": 1,
-              "term": 1
+              "term": 1,
+              "description": "Introduction to Engineering I An introduction to the engineering profession including: roles and responsibilities of the engineer, the engineering disciplines, sustainability, an introduction to the engineering design process, introduction and application of the relevant foundational scientific principles, prototyping, engineering graphics, technical communication, and engineering ethics.",
+              "prerequisites": "APSC 100\n\nCorequisites: APSC 173"
             },
             {
               "code": "APSC 101",
               "title": "",
               "credits": 3,
               "year": 1,
-              "term": 1
+              "term": 1,
+              "description": "Introduction to Engineering II An introduction to the engineering profession including: the engineering design process, sustainability, prototype testing, introduction and application of the relevant foundational scientific principles, team functioning, engineering graphics, and technical communication.",
+              "prerequisites": "APSC 100."
             },
             {
               "code": "APSC 160",
               "title": "",
               "credits": 3,
               "year": 1,
-              "term": 1
+              "term": 1,
+              "description": "Introduction to Computation in Engineering Design Analysis and simulation, laboratory data acquisition and processing, measurement interfaces, engineering tools, computer systems organization, programming languages. Credit will only be given for one of: APSC 160, CPSC 301, or EOSC 211."
             },
             {
               "code": "CHEM 154",
@@ -48,10 +53,12 @@
             },
             {
               "code": "MATH 100",
-              "title": "",
+              "title": "Differential Calculus with Applications\n\n\nDerivatives of elementary functions",
               "credits": 3,
               "year": 1,
-              "term": 1
+              "term": 1,
+              "description": "Differential Calculus with Applications Derivatives of elementary functions. Applications and modelling: graphing, optimization. Consult the Faculty of Science Credit Exclusion List: https://vancouver.calendar.ubc.ca/faculties-colleges-and-schools/facult…",
+              "prerequisites": "A score of 80% or higher in BC Pre-calculus 12. High school calculus is strongly recommended."
             }
           ]
         },
@@ -63,14 +70,16 @@
               "title": "",
               "credits": 3,
               "year": 1,
-              "term": 2
+              "term": 2,
+              "description": "Integral Calculus with Applications The definite integral, integration techniques, applications, modelling, infinite series. Equivalency:"
             },
             {
               "code": "MATH 152",
-              "title": "",
+              "title": "Linear Systems\n\n\n2D and 3D geometry, vectors and matrices, eigenvalues and vibration, physical applications",
               "credits": 3,
               "year": 1,
-              "term": 2
+              "term": 2,
+              "description": "Linear Systems 2D and 3D geometry, vectors and matrices, eigenvalues and vibration, physical applications. Laboratories demonstrate computer solutions of large systems. Please consult the Faculty of Science Credit Exclusion List: https://vancouver.calendar.ubc.ca/faculties-colleges-and-schools/facult… [3-1*-0] Corequisite: [MATH101]"
             },
             {
               "code": "PHYS 157",
@@ -123,28 +132,35 @@
               "title": "",
               "credits": 3,
               "year": 2,
-              "term": 1
+              "term": 1,
+              "description": "Engineering Materials Atomic bonding; crystal structures and imperfections; properties of metals, ceramics, polymers, wood, concrete and fibre composite materials; selection of materials; corrosion; mechanical testing and heat treatment."
             },
             {
               "code": "APSC 279",
               "title": "",
               "credits": 1,
               "year": 2,
-              "term": 1
+              "term": 1,
+              "description": "Engineering Materials Laboratory Atomic bonding; crystal structures and imperfections; properties of metals, ceramics, polymers, wood, concrete and fibre composite materials; selection of materials; corrosion; mechanical testing and heat treatment. [0-2*- 0] Corequisite:",
+              "prerequisites": "Corequisites: APSC_V 278"
             },
             {
               "code": "CPEN 223",
               "title": "",
               "credits": 4,
               "year": 2,
-              "term": 1
+              "term": 1,
+              "description": "Introduction to robust software design: static typing, procedural specifications, unit testing, black-box and white-box tests, user-defined data types (representations, invariants, abstraction functions), data abstractions, communicating design (e.g., UML).",
+              "prerequisites": "Prerequisites: APSC 160 – Introduction to Computation in Engineering Design"
             },
             {
               "code": "ELEC 203",
               "title": "",
               "credits": 3,
               "year": 2,
-              "term": 1
+              "term": 1,
+              "description": "Ideal passive elements and sources; Kirchhoff’s Laws; DC circuits; natural,  and complete response of first order circuits; operational amplifiers; impedance; phasors; complex power. Not open to students in Electrical and Computer Engineering. [3-2*-0]",
+              "prerequisites": "Prerequisites: MATH 101 – Integral Calculus with Applications AND ONE of PHYS 108 – Enriched Physics II PHYS 118 – Electricity, Light and Radiation PHYS 158 – Introductory Physics for Engineers II\n\nCorequisites: ONE of MATH 255 – Ordinary Differential Equations MATH 256 – Differential Equations"
             },
             {
               "code": "MANU 201",
@@ -181,17 +197,21 @@
             },
             {
               "code": "MATH 253",
-              "title": "",
+              "title": "Multivariable Calculus\n\n\nPartial and directional derivatives; maxima and minima; Lagrange multipliers and second derivative test; multiple integrals and applications",
               "credits": 3,
               "year": 2,
-              "term": 2
+              "term": 2,
+              "description": "Multivariable Calculus Partial and directional derivatives; maxima and minima; Lagrange multipliers and second derivative test; multiple integrals and applications. Please consult the Faculty of Science Credit Exclusion List: https://vancouver.calendar.ubc.ca/faculties-colleges-and-schools/facult…",
+              "prerequisites": "One of MATH 101, MATH 103, MATH 105, MATH 121, SCIE 001."
             },
             {
               "code": "MATH 255",
-              "title": "",
+              "title": "Ordinary Differential Equations\n\n\nReview of linear systems; nonlinear equations and applications; phase plane analysis; Laplace transforms; numerical methods",
               "credits": 3,
               "year": 2,
-              "term": 2
+              "term": 2,
+              "description": "Ordinary Differential Equations Review of linear systems; nonlinear equations and applications; phase plane analysis; Laplace transforms; numerical methods. Please consult the Faculty of Science Credit Exclusion List: https://vancouver.calendar.ubc.ca/faculties-colleges-and-schools/facult… Corequisite: One of MATH 200, MATH 217, MATH 226, MATH 253, MATH 254.",
+              "prerequisites": "One of MATH 101, MATH 103, MATH 105, MATH 121, SCIE 001 and one of MATH 152, MATH 221, MATH 223."
             },
             {
               "code": "MECH 260",
@@ -230,7 +250,9 @@
               "title": "",
               "credits": 3,
               "year": 3,
-              "term": 1
+              "term": 1,
+              "description": "Operating systems principles, real-time systems, principles of concurrent and multi-threaded programming, information structures, introduction to object oriented analysis, design, and modeling using UML, testing of software systems.",
+              "prerequisites": "Prerequisites: ONE of CPSC 259 – Data Structures and Algorithms for Electrical Engineers CPEN 223 – Software Design for Engineers I"
             },
             {
               "code": "MANU 270",

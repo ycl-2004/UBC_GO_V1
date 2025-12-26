@@ -16,21 +16,26 @@
               "title": "",
               "credits": 3,
               "year": 1,
-              "term": 1
+              "term": 1,
+              "description": "Introduction to Engineering I An introduction to the engineering profession including: roles and responsibilities of the engineer, the engineering disciplines, sustainability, an introduction to the engineering design process, introduction and application of the relevant foundational scientific principles, prototyping, engineering graphics, technical communication, and engineering ethics.",
+              "prerequisites": "APSC 100\n\nCorequisites: APSC 173"
             },
             {
               "code": "APSC 101",
               "title": "",
               "credits": 3,
               "year": 1,
-              "term": 1
+              "term": 1,
+              "description": "Introduction to Engineering II An introduction to the engineering profession including: the engineering design process, sustainability, prototype testing, introduction and application of the relevant foundational scientific principles, team functioning, engineering graphics, and technical communication.",
+              "prerequisites": "APSC 100."
             },
             {
               "code": "APSC 160",
               "title": "",
               "credits": 3,
               "year": 1,
-              "term": 1
+              "term": 1,
+              "description": "Introduction to Computation in Engineering Design Analysis and simulation, laboratory data acquisition and processing, measurement interfaces, engineering tools, computer systems organization, programming languages. Credit will only be given for one of: APSC 160, CPSC 301, or EOSC 211."
             },
             {
               "code": "CHEM 154",
@@ -48,10 +53,12 @@
             },
             {
               "code": "MATH 100",
-              "title": "",
+              "title": "Differential Calculus with Applications\n\n\nDerivatives of elementary functions",
               "credits": 3,
               "year": 1,
-              "term": 1
+              "term": 1,
+              "description": "Differential Calculus with Applications Derivatives of elementary functions. Applications and modelling: graphing, optimization. Consult the Faculty of Science Credit Exclusion List: https://vancouver.calendar.ubc.ca/faculties-colleges-and-schools/facult…",
+              "prerequisites": "A score of 80% or higher in BC Pre-calculus 12. High school calculus is strongly recommended."
             }
           ]
         },
@@ -63,14 +70,16 @@
               "title": "",
               "credits": 3,
               "year": 1,
-              "term": 2
+              "term": 2,
+              "description": "Integral Calculus with Applications The definite integral, integration techniques, applications, modelling, infinite series. Equivalency:"
             },
             {
               "code": "MATH 152",
-              "title": "",
+              "title": "Linear Systems\n\n\n2D and 3D geometry, vectors and matrices, eigenvalues and vibration, physical applications",
               "credits": 3,
               "year": 1,
-              "term": 2
+              "term": 2,
+              "description": "Linear Systems 2D and 3D geometry, vectors and matrices, eigenvalues and vibration, physical applications. Laboratories demonstrate computer solutions of large systems. Please consult the Faculty of Science Credit Exclusion List: https://vancouver.calendar.ubc.ca/faculties-colleges-and-schools/facult… [3-1*-0] Corequisite: [MATH101]"
             },
             {
               "code": "PHYS 157",
@@ -123,14 +132,18 @@
               "title": "",
               "credits": 4,
               "year": 2,
-              "term": 1
+              "term": 1,
+              "description": "Design, implementation, reasoning about software systems: Abstraction and specification of software, testing, verification, abstract data types, object-oriented design, design patterns, type hierarchies, concurrent software design. [3-2-1*]",
+              "prerequisites": "Prerequisites: APSC 160 – Introduction to Computation in Engineering Design"
             },
             {
               "code": "ELEC 204",
               "title": "",
               "credits": 4,
               "year": 2,
-              "term": 1
+              "term": 1,
+              "description": "Basic concepts and analysis techniques in the context of electric and electronic circuits including Bode plots and the Laplace transform. Treatment of RLC circuits, phasors, op-amps. Introduction to nonlinear circuit elements, diodes, BJT, FET circuits. [4-0-1]",
+              "prerequisites": "Prerequisites: MATH 152 – Linear Systems AND ONE of PHYS 108 – Enriched Physics II PHYS 118 – Electricity, Light and Radiation PHYS 158 – Introductory Physics for Engineers II\n\nCorequisites: ONE of MATH 255 – Ordinary Differential Equations MATH 256 – Differential equations"
             },
             {
               "code": "ENPH 253",
@@ -155,10 +168,12 @@
             },
             {
               "code": "MATH 217",
-              "title": "",
+              "title": "Multivariable and Vector Calculus\n\n\nPartial differentiation, extreme values, multiple integration, vector fields, line and surface integrals, the divergence theorem, Green's and Stokes' theorems",
               "credits": 4,
               "year": 2,
-              "term": 1
+              "term": 1,
+              "description": "Multivariable and Vector Calculus Partial differentiation, extreme values, multiple integration, vector fields, line and surface integrals, the divergence theorem, Green's and Stokes' theorems. Intended for students in Honours Physics and Engineering Physics. Please consult the Faculty of Science Credit Exclusion List: https://vancouver.calendar.ubc.ca/faculties-colleges-and-schools/facult… Corequisite: One of MATH 152, MATH 221, MATH 223.",
+              "prerequisites": "A score of 68% or higher in one of PHYS 102, PHYS 108, PHYS 118, PHYS 153, PHYS 158, SCIE 001 and a score of 68% or higher in one of MATH 101, MATH 103, MATH 105, MATH 121, SCIE 001."
             }
           ]
         },
@@ -167,17 +182,21 @@
           "courses": [
             {
               "code": "MATH 255",
-              "title": "",
+              "title": "Ordinary Differential Equations\n\n\nReview of linear systems; nonlinear equations and applications; phase plane analysis; Laplace transforms; numerical methods",
               "credits": 3,
               "year": 2,
-              "term": 2
+              "term": 2,
+              "description": "Ordinary Differential Equations Review of linear systems; nonlinear equations and applications; phase plane analysis; Laplace transforms; numerical methods. Please consult the Faculty of Science Credit Exclusion List: https://vancouver.calendar.ubc.ca/faculties-colleges-and-schools/facult… Corequisite: One of MATH 200, MATH 217, MATH 226, MATH 253, MATH 254.",
+              "prerequisites": "One of MATH 101, MATH 103, MATH 105, MATH 121, SCIE 001 and one of MATH 152, MATH 221, MATH 223."
             },
             {
               "code": "MATH 257",
-              "title": "",
+              "title": "Partial Differential Equations\n\n\nIntroduction to partial differential equations; Fourier series; the heat, wave and potential equations; boundary-value problems; numerical methods",
               "credits": 3,
               "year": 2,
-              "term": 2
+              "term": 2,
+              "description": "Partial Differential Equations Introduction to partial differential equations; Fourier series; the heat, wave and potential equations; boundary-value problems; numerical methods. Please consult the Faculty of Science Credit Exclusion List: https://vancouver.calendar.ubc.ca/faculties-colleges-and-schools/facult…",
+              "prerequisites": "One of MATH 215, MATH 255, MATH 256, MATH 258."
             },
             {
               "code": "ENPH 257",
@@ -198,7 +217,9 @@
               "title": "",
               "credits": 3,
               "year": 2,
-              "term": 2
+              "term": 2,
+              "description": "Technical Communication Engineering Physics Written and oral communication in business correspondence, engineering design methods, report preparation, and oral presentations of technical material. Restricted to students in second year of the Engineering Physics Program.",
+              "prerequisites": "One of"
             },
             {
               "code": "ELECTIVE",
@@ -223,28 +244,35 @@
               "title": "",
               "credits": 3,
               "year": 3,
-              "term": 1
+              "term": 1,
+              "description": "Engineering Materials Atomic bonding; crystal structures and imperfections; properties of metals, ceramics, polymers, wood, concrete and fibre composite materials; selection of materials; corrosion; mechanical testing and heat treatment."
             },
             {
               "code": "APSC 279",
               "title": "",
               "credits": 1,
               "year": 3,
-              "term": 1
+              "term": 1,
+              "description": "Engineering Materials Laboratory Atomic bonding; crystal structures and imperfections; properties of metals, ceramics, polymers, wood, concrete and fibre composite materials; selection of materials; corrosion; mechanical testing and heat treatment. [0-2*- 0] Corequisite:",
+              "prerequisites": "Corequisites: APSC_V 278"
             },
             {
               "code": "CPEN 312",
               "title": "",
               "credits": 3,
               "year": 3,
-              "term": 1
+              "term": 1,
+              "description": "Data representation in digital computers; boolean algebra; the design and optimization and implementation of combinatorial and sequential circuits; modern digital circuit technologies; memory and programmable logic devices; organization and operation of microcomputers; data/address bus organization; input-output interfacing. Credit will be given for only one of CPEN 312 or CPEN 211.",
+              "prerequisites": "Prerequisites: ONE of ELEC 201 – Circuit Analysis I ELEC 203 – Basic Circuit Analysis ELEC 204 – Linear Circuits MECH 221 – Engineering Science I"
             },
             {
               "code": "ELEC 221",
               "title": "",
               "credits": 4,
               "year": 3,
-              "term": 1
+              "term": 1,
+              "description": "Complex numbers, LTI systems,  convolution sum, discrete-time Fourier series and transforms, z-transform, sampling, introduction to filtering and modulation, feedback systems, stability. [3-0-2]",
+              "prerequisites": "Prerequisites: ONE of MATH 255 – Ordinary Differential Equations MATH 256 – Differential equations"
             },
             {
               "code": "ENPH 353",
@@ -255,10 +283,12 @@
             },
             {
               "code": "MATH 307",
-              "title": "",
+              "title": "Applied Linear Algebra\n\n\nApplications of linear algebra to problems in science and engineering; use of computer algebra systems for solving problems in linear algebra",
               "credits": 3,
               "year": 3,
-              "term": 1
+              "term": 1,
+              "prerequisites": "One of MATH 152, MATH 221, MATH 223 and one of MATH 200, MATH 217, MATH 226, MATH 253, MATH 254.",
+              "description": "Applied Linear Algebra Applications of linear algebra to problems in science and engineering; use of computer algebra systems for solving problems in linear algebra."
             }
           ]
         },
@@ -267,10 +297,12 @@
           "courses": [
             {
               "code": "MATH 305",
-              "title": "",
+              "title": "Applied Complex Analysis\n\n\nFunctions of a complex variable, Cauchy-Riemann equations, contour integration, Laurent series, residues, integrals of multi-valued functions, Fourier transforms",
               "credits": 3,
               "year": 3,
-              "term": 2
+              "term": 2,
+              "description": "Applied Complex Analysis Functions of a complex variable, Cauchy-Riemann equations, contour integration, Laurent series, residues, integrals of multi-valued functions, Fourier transforms. Please consult the Faculty of Science Credit Exclusion List: https://vancouver.calendar.ubc.ca/faculties-colleges-and-schools/facult… Corequisite: One of MATH 256, MATH 257, MATH 316, MATH 358, MECH 358, PHYS 312.",
+              "prerequisites": "One of MATH 200, MATH 217, MATH 226, MATH 253, MATH 254."
             },
             {
               "code": "MECH 280",
@@ -334,17 +366,21 @@
             },
             {
               "code": "MATH 318",
-              "title": "",
+              "title": "Probability with Physical Applications\n\n\nRandom variables, discrete and continuous distributions",
               "credits": 3,
               "year": 4,
-              "term": 1
+              "term": 1,
+              "description": "Probability with Physical Applications Random variables, discrete and continuous distributions. Random walk, Markov chains, Monte Carlo methods. Characteristic functions, limit laws. Please consult the Faculty of Science Credit Exclusion List: https://vancouver.calendar.ubc.ca/faculties-colleges-and-schools/facult… Corequisite: One of MATH 256, MATH 257, MATH 316, MATH 358, MECH 358, PHYS 312.",
+              "prerequisites": "One of MATH 152, MATH 221, MATH 223."
             },
             {
               "code": "MATH 400",
-              "title": "",
+              "title": "Applied Partial Differential Equations\n\n\nSeparation of variables, first order equations, Sturm-Liouville theory, integral transform methods",
               "credits": 3,
               "year": 4,
-              "term": 1
+              "term": 1,
+              "prerequisites": "One of MATH 300, MATH 305 and one of MATH 256, MATH 257, MATH 316, MATH 358, MECH 358, PHYS 312.",
+              "description": "Applied Partial Differential Equations Separation of variables, first order equations, Sturm-Liouville theory, integral transform methods."
             }
           ]
         },
@@ -363,7 +399,9 @@
               "title": "One of ,",
               "credits": 4,
               "year": 4,
-              "term": 2
+              "term": 2,
+              "description": "Continuous time system analysis by Laplace transforms; system modeling by transfer function and state space methods; feedback, stability and sensitivity; control design; frequency domain analysis. Credit will be given for only one of EECE 360 or 369. [4-0-0]",
+              "prerequisites": "Prerequisites: ONE of ELEC 202 – Circuit Analysis II ELEC 204 – Linear Circuits"
             },
             {
               "code": "ELECTIVE",
