@@ -106,12 +106,12 @@
             },
             {
               "code": "PHYS 159",
-              "title": "Introductory Physics Laboratory for Engineers",
+              "title": "or (d) SCIE 001",
               "credits": 1,
               "year": 1,
               "term": 2,
               "description": "A laboratory course with emphasis on experimental design, measurement and analysis techniques.",
-              "prerequisites": "One of PHYS 12, PHYS 100.\n\nCorequisites: One of PHYS 157, PHYS 158. PHYS_V 170 (3) Mechanics I Statics of particles, equilibrium or rigid bodies, rigid body statics and internal forces, trusses; kinematics: rectilinear motion; dynamics: Newton's second law, friction, impulse, momentum, work and energy. Recommended pre-requisites: one of PHYS 12, PHYS 100 and one of MATH 100, MATH 102, MATH 104, MATH 110, MATH 120, MATH 180, MATH 184. Recommended co-requisite: one of MATH 101, MATH 103, MATH 105, MATH 121."
+              "prerequisites": "One of PHYS 12, PHYS 100.\n\nCorequisites: One of PHYS 157, PHYS 158. PHYS_V 170 (3) Mechanics I Statics of particles, equilibrium or rigid bodies, rigid body statics and internal forces, trusses; kinematics: rectilinear motion; dynamics: Newton's second law, friction, impulse, momentum, work and energy. Recommended pre-requisites: one of PHYS 12, PHYS 100 and one of MATH 100, MATH 102, MATH 104, MATH 110, MATH 120, MATH 180, MATH 184. Recommended co-requisite: one of MATH 101, MATH 103, MATH 105, MATH 121.\n\nCorequisites: One of MATH 200, MATH 217, MATH 226, MATH 253.\n\nCorequisites: One of MATH 200, MATH 217, MATH 226, MATH 253.\n\nCorequisites: One of MATH 200, MATH 217, MATH 226, MATH 253.\n\nCorequisites: One of MATH 200, MATH 217, MATH 226, MATH 253."
             },
             {
               "code": "PHYS 170",
@@ -227,12 +227,12 @@
             },
             {
               "code": "PHYS 250",
-              "title": "",
+              "title": ", CHEM 312. Corequisite: [MATH215]",
               "credits": 3,
               "year": 2,
               "term": 2,
-              "description": "PHYS_V 318 (3) Experimental Acoustics Experimental techniques of acoustics: data acquisition hardware and software, microphones, loudspeakers, noise, vibration and modal analysis.",
-              "prerequisites": "One of ENPH 259, PHYS 209, PHYS 229. PHYS_V 319 (3) Electronics Laboratory A project-oriented lab introducing the design and construction of microprocessor-controlled devices. Prerequisite: One of PHYS 209, PHYS 219, ENPH 259. PHYS_V 330 (3) Modern Physics Quantum physics, nuclear energy and particle physics at a level suitable for third- and fourth-year Science students not proceeding to a physics degree. Not for credit towards a B.Sc. in Astronomy, Biophysics or Physics. Prerequisite: Either (a) one of MATH 100, MATH 102, MATH 104, MATH 110, MATH 180, MATH 184 and one of"
+              "description": "PHYS_V 318 (3)\nExperimental Acoustics\nExperimental techniques of acoustics: data acquisition hardware and software, microphones, loudspeakers, noise, vibration and modal analysis.",
+              "prerequisites": "One of ENPH 259, PHYS 209, PHYS 229.\nPHYS_V 319 (3)\nElectronics Laboratory\nA project-oriented lab introducing the design and construction of microprocessor-controlled devices. Prerequisite: One of PHYS 209, PHYS 219, ENPH 259.\nPHYS_V 330 (3)\nModern Physics\nQuantum physics, nuclear energy and particle physics at a level suitable for third- and fourth-year Science students not proceeding to a physics degree. Not for credit towards a B.Sc. in Astronomy, Biophysics or Physics. Prerequisite: Either (a) one of MATH 100, MATH 102, MATH 104, MATH 110, MATH 180, MATH 184 and one of"
             },
             {
               "code": "APSC 202",
@@ -351,17 +351,17 @@
               "credits": 3,
               "year": 3,
               "term": 2,
-              "description": "Maxwell's equations and their applications, electrical fields and potentials of static charge distributions, current, fields of moving charges, magnetic fields, electromagnetic induction.",
+              "description": "and one of",
               "prerequisites": "One of PHYS 102, PHYS 108, PHYS 118, PHYS 153, PHYS 158, SCIE 001 and one of MATH 217, MATH 227, MATH 317 and one of MATH 215, MATH 255."
             },
             {
               "code": "PHYS 304",
-              "title": "Introduction to Quantum Mechanics",
+              "title": ", 450 or CHEM 312. Prerequisite: One of PHYS 200, PHYS 250",
               "credits": 3,
               "year": 3,
               "term": 2,
-              "description": "Principles and applications of quantum mechanics, wave mechanics, the Schroedinger equation, expectation values, Hermitian operators, commuting observables, one-dimensional systems, harmonic oscillators, angular momentum, three-dimensional systems. Prerequisite: One of PHYS 102, PHYS 108, PHYS 118, PHYS 153, PHYS 158, SCIE 001 and either (a) PHYS 203 or (b) one of ENPH 257, CHEM 201, CHEM 205 and one of MATH 302, MATH 318, STAT 241, STAT 251, STAT 302.",
-              "prerequisites": "One of PHYS 200, PHYS 250.\n\nCorequisites: One of MATH 257, MATH 316, PHYS 312. PHYS_V 305 (3) Introduction to Biophysics Physical principles involved in biological systems at the microscopic and molecular scales. Diffusion, low Reynolds number dynamics, the physicist's view of biomolecular structure, models of molecular motors and membranes."
+              "description": "PHYS_V 454 (3)\nApplied Electromagnetic Theory\nWave propagation and related phenomena in dielectrics, conductors and plasmas. Wave guides, radiation, antennae, special relativity. Credit will be granted for only one of",
+              "prerequisites": "One of PHYS_V 301, PHYS_V 354.\nPHYS_V 455 (3)\nStatistical Mechanics"
             },
             {
               "code": "PHYS 350",

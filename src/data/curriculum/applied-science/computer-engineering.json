@@ -106,12 +106,12 @@
             },
             {
               "code": "PHYS 159",
-              "title": "Introductory Physics Laboratory for Engineers",
+              "title": "or (d) SCIE 001",
               "credits": 1,
               "year": 1,
               "term": 2,
               "description": "A laboratory course with emphasis on experimental design, measurement and analysis techniques.",
-              "prerequisites": "One of PHYS 12, PHYS 100.\n\nCorequisites: One of PHYS 157, PHYS 158. PHYS_V 170 (3) Mechanics I Statics of particles, equilibrium or rigid bodies, rigid body statics and internal forces, trusses; kinematics: rectilinear motion; dynamics: Newton's second law, friction, impulse, momentum, work and energy. Recommended pre-requisites: one of PHYS 12, PHYS 100 and one of MATH 100, MATH 102, MATH 104, MATH 110, MATH 120, MATH 180, MATH 184. Recommended co-requisite: one of MATH 101, MATH 103, MATH 105, MATH 121."
+              "prerequisites": "One of PHYS 12, PHYS 100.\n\nCorequisites: One of PHYS 157, PHYS 158. PHYS_V 170 (3) Mechanics I Statics of particles, equilibrium or rigid bodies, rigid body statics and internal forces, trusses; kinematics: rectilinear motion; dynamics: Newton's second law, friction, impulse, momentum, work and energy. Recommended pre-requisites: one of PHYS 12, PHYS 100 and one of MATH 100, MATH 102, MATH 104, MATH 110, MATH 120, MATH 180, MATH 184. Recommended co-requisite: one of MATH 101, MATH 103, MATH 105, MATH 121.\n\nCorequisites: One of MATH 200, MATH 217, MATH 226, MATH 253.\n\nCorequisites: One of MATH 200, MATH 217, MATH 226, MATH 253.\n\nCorequisites: One of MATH 200, MATH 217, MATH 226, MATH 253.\n\nCorequisites: One of MATH 200, MATH 217, MATH 226, MATH 253."
             },
             {
               "code": "PHYS 170",
