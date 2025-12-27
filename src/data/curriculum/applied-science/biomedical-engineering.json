@@ -331,11 +331,12 @@
             },
             {
               "code": "CHEM 235",
-              "title": "Corequisite: CHEM 213",
+              "title": "Organic Chemistry Laboratory",
               "credits": 1,
               "year": 3,
               "term": 2,
-              "description": "Organic Chemistry Laboratory Techniques of organic chemistry. To be taken in conjunction with, or in the term following,"
+              "description": "Techniques of organic chemistry. To be taken in conjunction with, or in the term following, CHEM 233. Credit will be granted for only one of CHEM 235 or CHEM 203.",
+              "prerequisites": "One of CHEM 123, CHEM 135, SCIE 001.\n\nCorequisites: [CHEM233]"
             },
             {
               "code": "STAT 251",
