@@ -23,6 +23,16 @@ const CourseDetailModal = ({ course, isOpen, onClose }) => {
     ? `https://ubcgrades.com/statistics/by-course/${subject}/${number}`
     : null
 
+  // Check if prerequisites field already contains corequisites
+  const prerequisitesText = course.prerequisites || ''
+  const hasCorequisitesInPrereqs = prerequisitesText.toLowerCase().includes('corequisites:') || 
+                                    prerequisitesText.toLowerCase().includes('co-requisites:')
+  
+  // Only show separate corequisites section if:
+  // 1. corequisites field exists AND
+  // 2. prerequisites field doesn't already contain corequisites
+  const shouldShowSeparateCorequisites = course.corequisites && !hasCorequisitesInPrereqs
+
   return (
     <>
       <div className="course-modal-overlay" onClick={onClose} />
@@ -48,10 +58,29 @@ const CourseDetailModal = ({ course, isOpen, onClose }) => {
             </div>
           )}
 
-          <div className="course-modal-section">
-            <h3 className="course-modal-section-title">Prerequisites</h3>
-            <RequirementParser text={course.prerequisites} />
-          </div>
+          {/* Prerequisites Section */}
+          {course.prerequisites && (
+            <div className="course-modal-section">
+              <h3 className="course-modal-section-title">Prerequisites</h3>
+              <RequirementParser text={course.prerequisites} />
+            </div>
+          )}
+
+          {/* Corequisites Section - Show separately only if not already in prerequisites */}
+          {shouldShowSeparateCorequisites && (
+            <div className="course-modal-section">
+              <h3 className="course-modal-section-title">Corequisites</h3>
+              <RequirementParser text={course.corequisites} />
+            </div>
+          )}
+
+          {/* If no prerequisites or corequisites, show message */}
+          {!course.prerequisites && !shouldShowSeparateCorequisites && (
+            <div className="course-modal-section">
+              <h3 className="course-modal-section-title">Prerequisites</h3>
+              <p className="text-gray-500 italic">None</p>
+            </div>
+          )}
 
           {ubcGradesUrl && (
             <div className="course-modal-section">
@@ -72,4 +101,3 @@ const CourseDetailModal = ({ course, isOpen, onClose }) => {
 }
 
 export default CourseDetailModal
-
