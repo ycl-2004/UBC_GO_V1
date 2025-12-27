@@ -224,8 +224,13 @@ class UBCCourseDetailsScraper:
                 'third-year standing' in title_lower or
                 'second-year standing' in title_lower or
                 title_lower.startswith('prerequisite') or
+                title_lower.startswith('corequisite') or
+                title_lower.startswith('co-requisite') or
                 'this course is not eligible' in title_lower or
                 'credit/d/fail' in title_lower or
+                'credit will be granted' in title_lower or
+                title_lower == 'requirements' or
+                title_lower == 'requirement' or
                 len(title) < 3):
                 title = ""  # Reject bad title
         
