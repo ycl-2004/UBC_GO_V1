@@ -277,3 +277,4 @@ const RequirementParser = ({ text }) => {
 }
 
 export default RequirementParser
+
