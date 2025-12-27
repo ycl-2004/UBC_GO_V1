@@ -56,12 +56,12 @@
             },
             {
               "code": "MATH 100",
-              "title": "Differential Calculus with Applications\n\n\nDerivatives of elementary functions",
+              "title": "; intended for students with no previous knowledge of Calculus. Please consult the Faculty of Science Credit Exclusion List:",
               "credits": 3,
               "year": 1,
               "term": 1,
-              "description": "Differential Calculus with Applications Derivatives of elementary functions. Applications and modelling: graphing, optimization. Consult the Faculty of Science Credit Exclusion List: https://vancouver.calendar.ubc.ca/faculties-colleges-and-schools/facult…",
-              "prerequisites": "A score of 80% or higher in BC Pre-calculus 12. High school calculus is strongly recommended."
+              "description": "https://vancouver.calendar.ubc.ca/faculties-colleges-and-schools/facult… . Not for credit for students with AP Calculus AB, AP Calculus BC, or a passing score on the UBC-SFU-UVIC-UNBC Calculus Challenge Examination.5]",
+              "prerequisites": "A grade of 80% or higher in BC Principles of Mathematics 12 or Pre-calculus 12."
             }
           ]
         },
@@ -79,39 +79,39 @@
             },
             {
               "code": "MATH 152",
-              "title": "Linear Systems\n\n\n2D and 3D geometry, vectors and matrices, eigenvalues and vibration, physical applications",
+              "title": "Linear Systems",
               "credits": 3,
               "year": 1,
               "term": 2,
-              "description": "Linear Systems 2D and 3D geometry, vectors and matrices, eigenvalues and vibration, physical applications. Laboratories demonstrate computer solutions of large systems. Please consult the Faculty of Science Credit Exclusion List: https://vancouver.calendar.ubc.ca/faculties-colleges-and-schools/facult… [3-1*-0]",
-              "prerequisites": "Corequisites: [MATH101]"
+              "description": "2D and 3D geometry, vectors and matrices, eigenvalues and vibration, physical applications. Laboratories demonstrate computer solutions of large systems. Please consult the Faculty of Science Credit Exclusion List: https://vancouver.calendar.ubc.ca/faculties-colleges-and-schools/facult… [3-1*-0]",
+              "prerequisites": "Corequisites: [MATH101]\n\nCorequisites: [MATH101] MATH_V 180 (4) Differential Calculus with Applications Topics as for\n\nCorequisites: [MATH101] MATH_V 180 (4) Differential Calculus with Applications Topics as for"
             },
             {
               "code": "PHYS 157",
-              "title": "",
+              "title": "Introductory Physics for Engineers I",
               "credits": 3,
               "year": 1,
               "term": 2,
-              "description": "Introductory Physics for Engineers I Heat, thermodynamics, oscillations, waves, and sound.",
+              "description": "Heat, thermodynamics, oscillations, waves, and sound.",
               "prerequisites": "One of PHYS 12, PHYS 100.\n\nCorequisites: One of MATH 100, MATH 102, MATH 104, MATH 110, MATH 120, MATH 180, MATH 184."
             },
             {
               "code": "PHYS 158",
-              "title": ", SCIE 001 and a score of 68% or higher in one of MATH 101, MATH 103, MATH 105, MATH 121, SCIE 001. Corequisite: One of MATH 152, MATH 221, MATH 223",
+              "title": "Introductory Physics for Engineers II",
               "credits": 3,
               "year": 1,
               "term": 2,
-              "description": "Introductory Physics for Engineers II Electricity and magnetism, DC and AC circuits, optics.",
+              "description": "Electricity and magnetism, DC and AC circuits, optics.",
               "prerequisites": "PHYS 157.\n\nCorequisites: One of MATH 101, MATH 103, MATH 105, MATH 121."
             },
             {
               "code": "PHYS 159",
-              "title": "",
+              "title": "Introductory Physics Laboratory for Engineers",
               "credits": 1,
               "year": 1,
               "term": 2,
-              "description": "Introductory Physics Laboratory for Engineers A laboratory course with emphasis on experimental design, measurement and analysis techniques.",
-              "prerequisites": "One of PHYS 12, PHYS 100.\n\nCorequisites: One of PHYS 157, PHYS 158."
+              "description": "A laboratory course with emphasis on experimental design, measurement and analysis techniques.",
+              "prerequisites": "One of PHYS 12, PHYS 100.\n\nCorequisites: One of PHYS 157, PHYS 158. PHYS_V 170 (3) Mechanics I Statics of particles, equilibrium or rigid bodies, rigid body statics and internal forces, trusses; kinematics: rectilinear motion; dynamics: Newton's second law, friction, impulse, momentum, work and energy. Recommended pre-requisites: one of PHYS 12, PHYS 100 and one of MATH 100, MATH 102, MATH 104, MATH 110, MATH 120, MATH 180, MATH 184. Recommended co-requisite: one of MATH 101, MATH 103, MATH 105, MATH 121."
             },
             {
               "code": "PHYS 170",
@@ -159,12 +159,12 @@
             },
             {
               "code": "MATH 253",
-              "title": "Multivariable Calculus\n\n\nPartial and directional derivatives; maxima and minima; Lagrange multipliers and second derivative test; multiple integrals and applications",
+              "title": "Multivariable Calculus",
               "credits": 3,
               "year": 2,
               "term": 1,
-              "description": "Multivariable Calculus Partial and directional derivatives; maxima and minima; Lagrange multipliers and second derivative test; multiple integrals and applications. Please consult the Faculty of Science Credit Exclusion List: https://vancouver.calendar.ubc.ca/faculties-colleges-and-schools/facult…",
-              "prerequisites": "One of"
+              "description": "Partial and directional derivatives; maxima and minima; Lagrange multipliers and second derivative test; multiple integrals and applications. Please consult the Faculty of Science Credit Exclusion List: https://vancouver.calendar.ubc.ca/faculties-colleges-and-schools/facult…",
+              "prerequisites": "One of MATH 101, MATH 103, MATH 105, MATH 121, SCIE 001."
             },
             {
               "code": "MATH 255",

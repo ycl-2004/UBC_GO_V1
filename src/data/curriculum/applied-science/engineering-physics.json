@@ -56,12 +56,12 @@
             },
             {
               "code": "MATH 100",
-              "title": "Differential Calculus with Applications\n\n\nDerivatives of elementary functions",
+              "title": "; intended for students with no previous knowledge of Calculus. Please consult the Faculty of Science Credit Exclusion List:",
               "credits": 3,
               "year": 1,
               "term": 1,
-              "description": "Differential Calculus with Applications Derivatives of elementary functions. Applications and modelling: graphing, optimization. Consult the Faculty of Science Credit Exclusion List: https://vancouver.calendar.ubc.ca/faculties-colleges-and-schools/facult…",
-              "prerequisites": "A score of 80% or higher in BC Pre-calculus 12. High school calculus is strongly recommended."
+              "description": "https://vancouver.calendar.ubc.ca/faculties-colleges-and-schools/facult… . Not for credit for students with AP Calculus AB, AP Calculus BC, or a passing score on the UBC-SFU-UVIC-UNBC Calculus Challenge Examination.5]",
+              "prerequisites": "A grade of 80% or higher in BC Principles of Mathematics 12 or Pre-calculus 12."
             }
           ]
         },
@@ -79,39 +79,39 @@
             },
             {
               "code": "MATH 152",
-              "title": "Linear Systems\n\n\n2D and 3D geometry, vectors and matrices, eigenvalues and vibration, physical applications",
+              "title": "Linear Systems",
               "credits": 3,
               "year": 1,
               "term": 2,
-              "description": "Linear Systems 2D and 3D geometry, vectors and matrices, eigenvalues and vibration, physical applications. Laboratories demonstrate computer solutions of large systems. Please consult the Faculty of Science Credit Exclusion List: https://vancouver.calendar.ubc.ca/faculties-colleges-and-schools/facult… [3-1*-0]",
-              "prerequisites": "Corequisites: [MATH101]"
+              "description": "2D and 3D geometry, vectors and matrices, eigenvalues and vibration, physical applications. Laboratories demonstrate computer solutions of large systems. Please consult the Faculty of Science Credit Exclusion List: https://vancouver.calendar.ubc.ca/faculties-colleges-and-schools/facult… [3-1*-0]",
+              "prerequisites": "Corequisites: [MATH101]\n\nCorequisites: [MATH101] MATH_V 180 (4) Differential Calculus with Applications Topics as for\n\nCorequisites: [MATH101] MATH_V 180 (4) Differential Calculus with Applications Topics as for"
             },
             {
               "code": "PHYS 157",
-              "title": "",
+              "title": "Introductory Physics for Engineers I",
               "credits": 3,
               "year": 1,
               "term": 2,
-              "description": "Introductory Physics for Engineers I Heat, thermodynamics, oscillations, waves, and sound.",
+              "description": "Heat, thermodynamics, oscillations, waves, and sound.",
               "prerequisites": "One of PHYS 12, PHYS 100.\n\nCorequisites: One of MATH 100, MATH 102, MATH 104, MATH 110, MATH 120, MATH 180, MATH 184."
             },
             {
               "code": "PHYS 158",
-              "title": ", SCIE 001 and a score of 68% or higher in one of MATH 101, MATH 103, MATH 105, MATH 121, SCIE 001. Corequisite: One of MATH 152, MATH 221, MATH 223",
+              "title": "Introductory Physics for Engineers II",
               "credits": 3,
               "year": 1,
               "term": 2,
-              "description": "Introductory Physics for Engineers II Electricity and magnetism, DC and AC circuits, optics.",
+              "description": "Electricity and magnetism, DC and AC circuits, optics.",
               "prerequisites": "PHYS 157.\n\nCorequisites: One of MATH 101, MATH 103, MATH 105, MATH 121."
             },
             {
               "code": "PHYS 159",
-              "title": "",
+              "title": "Introductory Physics Laboratory for Engineers",
               "credits": 1,
               "year": 1,
               "term": 2,
-              "description": "Introductory Physics Laboratory for Engineers A laboratory course with emphasis on experimental design, measurement and analysis techniques.",
-              "prerequisites": "One of PHYS 12, PHYS 100.\n\nCorequisites: One of PHYS 157, PHYS 158."
+              "description": "A laboratory course with emphasis on experimental design, measurement and analysis techniques.",
+              "prerequisites": "One of PHYS 12, PHYS 100.\n\nCorequisites: One of PHYS 157, PHYS 158. PHYS_V 170 (3) Mechanics I Statics of particles, equilibrium or rigid bodies, rigid body statics and internal forces, trusses; kinematics: rectilinear motion; dynamics: Newton's second law, friction, impulse, momentum, work and energy. Recommended pre-requisites: one of PHYS 12, PHYS 100 and one of MATH 100, MATH 102, MATH 104, MATH 110, MATH 120, MATH 180, MATH 184. Recommended co-requisite: one of MATH 101, MATH 103, MATH 105, MATH 121."
             },
             {
               "code": "PHYS 170",
@@ -186,11 +186,11 @@
             },
             {
               "code": "MATH 217",
-              "title": "Multivariable and Vector Calculus\n\n\nPartial differentiation, extreme values, multiple integration, vector fields, line and surface integrals, the divergence theorem, Green's and Stokes' theorems",
+              "title": "Multivariable and Vector Calculus",
               "credits": 4,
               "year": 2,
               "term": 1,
-              "description": "Multivariable and Vector Calculus Partial differentiation, extreme values, multiple integration, vector fields, line and surface integrals, the divergence theorem, Green's and Stokes' theorems. Intended for students in Honours Physics and Engineering Physics. Please consult the Faculty of Science Credit Exclusion List: https://vancouver.calendar.ubc.ca/faculties-colleges-and-schools/facult…",
+              "description": "Partial differentiation, extreme values, multiple integration, vector fields, line and surface integrals, the divergence theorem, Green's and Stokes' theorems. Intended for students in Honours Physics and Engineering Physics. Please consult the Faculty of Science Credit Exclusion List: https://vancouver.calendar.ubc.ca/faculties-colleges-and-schools/facult…",
               "prerequisites": "A score of 68% or higher in one of PHYS 102, PHYS 108, PHYS 118, PHYS 153, PHYS 158, SCIE 001 and a score of 68% or higher in one of"
             }
           ]
@@ -209,12 +209,12 @@
             },
             {
               "code": "MATH 257",
-              "title": "Partial Differential Equations\n\n\nIntroduction to partial differential equations; Fourier series; the heat, wave and potential equations; boundary-value problems; numerical methods",
+              "title": "Partial Differential Equations",
               "credits": 3,
               "year": 2,
               "term": 2,
-              "description": "Partial Differential Equations Introduction to partial differential equations; Fourier series; the heat, wave and potential equations; boundary-value problems; numerical methods. Please consult the Faculty of Science Credit Exclusion List: https://vancouver.calendar.ubc.ca/faculties-colleges-and-schools/facult…",
-              "prerequisites": "One of"
+              "description": "Introduction to partial differential equations; Fourier series; the heat, wave and potential equations; boundary-value problems; numerical methods. Please consult the Faculty of Science Credit Exclusion List: https://vancouver.calendar.ubc.ca/faculties-colleges-and-schools/facult…",
+              "prerequisites": "One of MATH 215, MATH 255, MATH 256, MATH 258."
             },
             {
               "code": "ENPH 257",
@@ -227,12 +227,12 @@
             },
             {
               "code": "PHYS 250",
-              "title": "Introduction to Modern Physics",
+              "title": "",
               "credits": 3,
               "year": 2,
               "term": 2,
-              "description": "Introduction to Modern Physics Wave-particle duality of matter, special relativity, processes in atomic, nuclear and solid state, and introduction to quantum mechanical devices and techniques.",
-              "prerequisites": "One of"
+              "description": "PHYS_V 318 (3) Experimental Acoustics Experimental techniques of acoustics: data acquisition hardware and software, microphones, loudspeakers, noise, vibration and modal analysis.",
+              "prerequisites": "One of ENPH 259, PHYS 209, PHYS 229. PHYS_V 319 (3) Electronics Laboratory A project-oriented lab introducing the design and construction of microprocessor-controlled devices. Prerequisite: One of PHYS 209, PHYS 219, ENPH 259. PHYS_V 330 (3) Modern Physics Quantum physics, nuclear energy and particle physics at a level suitable for third- and fourth-year Science students not proceeding to a physics degree. Not for credit towards a B.Sc. in Astronomy, Biophysics or Physics. Prerequisite: Either (a) one of MATH 100, MATH 102, MATH 104, MATH 110, MATH 180, MATH 184 and one of"
             },
             {
               "code": "APSC 202",
@@ -307,12 +307,12 @@
             },
             {
               "code": "MATH 307",
-              "title": "Applied Linear Algebra\n\n\nApplications of linear algebra to problems in science and engineering; use of computer algebra systems for solving problems in linear algebra",
+              "title": "Applied Linear Algebra",
               "credits": 3,
               "year": 3,
               "term": 1,
-              "prerequisites": "One of",
-              "description": "Applied Linear Algebra Applications of linear algebra to problems in science and engineering; use of computer algebra systems for solving problems in linear algebra."
+              "prerequisites": "One of MATH 152, MATH 221, MATH 223 and one of MATH 200, MATH 217,",
+              "description": "Applications of linear algebra to problems in science and engineering; use of computer algebra systems for solving problems in linear algebra."
             }
           ]
         },
@@ -347,12 +347,12 @@
             },
             {
               "code": "PHYS 301",
-              "title": "",
+              "title": "Electricity and Magnetism",
               "credits": 3,
               "year": 3,
               "term": 2,
-              "description": "Electricity and Magnetism Maxwell's equations and their applications, electrical fields and potentials of static charge distributions, current, fields of moving charges, magnetic fields, electromagnetic induction.",
-              "prerequisites": "One of"
+              "description": "Maxwell's equations and their applications, electrical fields and potentials of static charge distributions, current, fields of moving charges, magnetic fields, electromagnetic induction.",
+              "prerequisites": "One of PHYS 102, PHYS 108, PHYS 118, PHYS 153, PHYS 158, SCIE 001 and one of MATH 217, MATH 227, MATH 317 and one of MATH 215, MATH 255."
             },
             {
               "code": "PHYS 304",
@@ -360,16 +360,16 @@
               "credits": 3,
               "year": 3,
               "term": 2,
-              "description": "Introduction to Quantum Mechanics Principles and applications of quantum mechanics, wave mechanics, the Schroedinger equation, expectation values, Hermitian operators, commuting observables, one-dimensional systems, harmonic oscillators, angular momentum, three-dimensional systems.",
-              "prerequisites": "One of"
+              "description": "Principles and applications of quantum mechanics, wave mechanics, the Schroedinger equation, expectation values, Hermitian operators, commuting observables, one-dimensional systems, harmonic oscillators, angular momentum, three-dimensional systems. Prerequisite: One of PHYS 102, PHYS 108, PHYS 118, PHYS 153, PHYS 158, SCIE 001 and either (a) PHYS 203 or (b) one of ENPH 257, CHEM 201, CHEM 205 and one of MATH 302, MATH 318, STAT 241, STAT 251, STAT 302.",
+              "prerequisites": "One of PHYS 200, PHYS 250.\n\nCorequisites: One of MATH 257, MATH 316, PHYS 312. PHYS_V 305 (3) Introduction to Biophysics Physical principles involved in biological systems at the microscopic and molecular scales. Diffusion, low Reynolds number dynamics, the physicist's view of biomolecular structure, models of molecular motors and membranes."
             },
             {
               "code": "PHYS 350",
-              "title": "",
+              "title": "Applications of Classical Mechanics",
               "credits": 3,
               "year": 3,
               "term": 2,
-              "description": "Applications of Classical Mechanics Review of principles. Particle mechanics: Euler's equations, tops and gyroscopes, motion of the Earth, Lagrangian and Hamiltonian methods. Variational principles in optics and mechanics, Liouville's theorem and statistical mechanics. The relationship between classical and quantum mechanics.",
+              "description": "Review of principles. Particle mechanics: Euler's equations, tops and gyroscopes, motion of the Earth, Lagrangian and Hamiltonian methods. Variational principles in optics and mechanics, Liouville's theorem and statistical mechanics. The relationship between classical and quantum mechanics.",
               "prerequisites": ""
             },
             {
@@ -400,21 +400,21 @@
             },
             {
               "code": "MATH 318",
-              "title": "Probability with Physical Applications\n\n\nRandom variables, discrete and continuous distributions",
+              "title": "Probability with Physical Applications",
               "credits": 3,
               "year": 4,
               "term": 1,
-              "description": "Probability with Physical Applications Random variables, discrete and continuous distributions. Random walk, Markov chains, Monte Carlo methods. Characteristic functions, limit laws. Please consult the Faculty of Science Credit Exclusion List: https://vancouver.calendar.ubc.ca/faculties-colleges-and-schools/facult…",
-              "prerequisites": "One of"
+              "description": "Random variables, discrete and continuous distributions. Random walk, Markov chains, Monte Carlo methods. Characteristic functions, limit laws. Please consult the Faculty of Science Credit Exclusion List: https://vancouver.calendar.ubc.ca/faculties-colleges-and-schools/facult…",
+              "prerequisites": "One of MATH 152, MATH 221, MATH 223.\n\nCorequisites: One of MATH 256, MATH 257, MATH 316, MATH 358, MECH 358, PHYS 312."
             },
             {
               "code": "MATH 400",
-              "title": "Applied Partial Differential Equations\n\n\nSeparation of variables, first order equations, Sturm-Liouville theory, integral transform methods",
+              "title": "Applied Partial Differential Equations",
               "credits": 3,
               "year": 4,
               "term": 1,
-              "prerequisites": "One of",
-              "description": "Applied Partial Differential Equations Separation of variables, first order equations, Sturm-Liouville theory, integral transform methods."
+              "prerequisites": "One of MATH 300, MATH 305 and one of MATH 256, MATH 257, MATH 316,",
+              "description": "Separation of variables, first order equations, Sturm-Liouville theory, integral transform methods."
             }
           ]
         },
