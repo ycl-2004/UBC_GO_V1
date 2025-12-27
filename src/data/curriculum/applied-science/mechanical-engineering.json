@@ -70,12 +70,12 @@
           "courses": [
             {
               "code": "MATH 101",
-              "title": ", 105",
+              "title": "Integral Calculus with Applications",
               "credits": 3,
               "year": 1,
               "term": 2,
-              "description": "Integral Calculus with Applications The definite integral, integration techniques, applications, modelling, infinite series. Equivalency:",
-              "prerequisites": "One of"
+              "description": "The definite integral, integration techniques, applications, modelling, infinite series.",
+              "prerequisites": "One of MATH_V 100, MATH_V 102, MATH_V 104, MATH_V 110, MATH_V 120, MATH_V 180, MATH_V 184.\n\nEquivalency: MATH_V 103, 105."
             },
             {
               "code": "MATH 152",
@@ -93,7 +93,7 @@
               "year": 1,
               "term": 2,
               "description": "Introductory Physics for Engineers I Heat, thermodynamics, oscillations, waves, and sound.",
-              "prerequisites": "One of PHYS 12,"
+              "prerequisites": "One of PHYS 12, PHYS 100.\n\nCorequisites: One of MATH 100, MATH 102, MATH 104, MATH 110, MATH 120, MATH 180, MATH 184."
             },
             {
               "code": "PHYS 158",
@@ -101,8 +101,8 @@
               "credits": 3,
               "year": 1,
               "term": 2,
-              "description": "Introductory Physics for Engineers II Electricity and magnetism, DC and AC circuits, optics. Prerequisite:",
-              "prerequisites": "Either (a) a score of 64% or higher in one of MATH 101, MATH 103, MATH 105, SCIE 001 or (b) one of MATH 121, MATH 200, MATH 217, MATH 226, MATH 253, MATH 254. MATH_V 221 (3) Matrix Algebra Systems of linear equations, operations on matrices, determinants, eigenvalues and eigenvectors, diagonalization of symmetric matrices.\n\nEquivalency: MATH_V 111.\n\nCorequisites: One of MATH 152, MATH 221, MATH 223. MATH_V 227 (3) Advanced Calculus II Parametrization of curves and surfaces; line and surface integrals; theorems of Green, Gauss, Stokes; applications to physics and/or introduction to differential forms. Please consult the Faculty of Science Credit Exclusion List: https://vancouver.calendar.ubc.ca/faculties-colleges-and-schools/facult…"
+              "description": "Introductory Physics for Engineers II Electricity and magnetism, DC and AC circuits, optics.",
+              "prerequisites": "PHYS 157.\n\nCorequisites: One of MATH 101, MATH 103, MATH 105, MATH 121."
             },
             {
               "code": "PHYS 159",
@@ -111,7 +111,7 @@
               "year": 1,
               "term": 2,
               "description": "Introductory Physics Laboratory for Engineers A laboratory course with emphasis on experimental design, measurement and analysis techniques.",
-              "prerequisites": "One of PHYS 12,"
+              "prerequisites": "One of PHYS 12, PHYS 100.\n\nCorequisites: One of PHYS 157, PHYS 158."
             },
             {
               "code": "PHYS 170",

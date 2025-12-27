@@ -11,8 +11,22 @@ const RequirementParser = ({ text }) => {
   /**
    * Split text by course codes to separate individual courses in a "ONE of" group
    * Handles cases like "PHYS 108 – Title PHYS 118 – Title" by detecting course codes
+   * Also handles comma-separated lists like "MATH_V 101, MATH_V 103, MATH_V 105"
    */
   const splitByCourseCodes = (text) => {
+    // First, try splitting by comma if it looks like a comma-separated list
+    // Pattern: course code, course code, course code (with optional spaces)
+    const commaSeparatedPattern = /([A-Z]{2,4}_?V?\s+\d{3}[A-Z]?)\s*,\s*([A-Z]{2,4}_?V?\s+\d{3}[A-Z]?)/g
+    if (commaSeparatedPattern.test(text)) {
+      // Split by comma and clean up
+      const parts = text.split(',').map(part => part.trim()).filter(part => part.length > 0)
+      // If all parts look like course codes, return them
+      const allAreCourseCodes = parts.every(part => COURSE_CODE_PATTERN.test(part.trim()))
+      if (allAreCourseCodes && parts.length > 1) {
+        return parts
+      }
+    }
+    
     // Reset regex lastIndex
     COURSE_CODE_PATTERN.lastIndex = 0
     
@@ -58,13 +72,16 @@ const RequirementParser = ({ text }) => {
       
       const courseText = text.substring(start, end).trim()
       if (courseText) {
-        // Clean up: remove extra dashes and spaces
+        // Clean up: remove extra dashes, commas, and spaces
         const cleaned = courseText
           .replace(/\s*–\s*/g, ' – ') // Normalize em-dash
           .replace(/\s*-\s*/g, ' – ') // Normalize hyphen
+          .replace(/,\s*$/, '') // Remove trailing comma
           .replace(/\s+/g, ' ') // Normalize spaces
           .trim()
-        parts.push(cleaned)
+        if (cleaned) {
+          parts.push(cleaned)
+        }
       }
     }
 
@@ -123,14 +140,22 @@ const RequirementParser = ({ text }) => {
    */
   const parseRequirements = (text) => {
     const sections = []
-    let currentText = text
+    
+    // Clean up text: remove common scraped artifacts
+    // Remove patterns like "Course Descriptions\nIntroduction\nCourses by Subject..."
+    let cleanedText = text
+      .replace(/\nCourse Descriptions.*$/i, '')
+      .replace(/\nIntroduction.*$/i, '')
+      .replace(/\nCourses by Subject.*$/i, '')
+      .replace(/\nCourses by Faculty.*$/i, '')
+      .trim()
 
     // Check for section headers (Prerequisites, Corequisites, etc.)
     const sectionPattern = /(Prerequisites?|Corequisites?|Co-requisites?):\s*/gi
     const sectionMatches = []
     let match
 
-    while ((match = sectionPattern.exec(text)) !== null) {
+    while ((match = sectionPattern.exec(cleanedText)) !== null) {
       sectionMatches.push({
         index: match.index,
         header: match[1],
@@ -142,33 +167,72 @@ const RequirementParser = ({ text }) => {
       // No explicit sections, treat entire text as prerequisites
       sections.push({
         header: 'Prerequisites',
-        content: text
+        content: cleanedText
       })
     } else {
-      // Split into sections
+      // Handle text before the first section header (if any)
+      const firstMatch = sectionMatches[0]
+      if (firstMatch.index > 0) {
+        // There's text before the first section header - treat it as Prerequisites
+        const prereqText = cleanedText.substring(0, firstMatch.index).trim()
+        if (prereqText) {
+          sections.push({
+            header: 'Prerequisites',
+            content: prereqText
+          })
+        }
+      }
+      
+      // Split into sections based on found headers
       for (let i = 0; i < sectionMatches.length; i++) {
         const sectionMatch = sectionMatches[i]
         const nextMatch = sectionMatches[i + 1]
         
         const start = sectionMatch.index + sectionMatch.fullMatch.length
-        const end = nextMatch ? nextMatch.index : text.length
+        const end = nextMatch ? nextMatch.index : cleanedText.length
         
-        sections.push({
-          header: sectionMatch.header,
-          content: text.substring(start, end).trim()
-        })
+        const sectionContent = cleanedText.substring(start, end).trim()
+        if (sectionContent) {
+          sections.push({
+            header: sectionMatch.header,
+            content: sectionContent
+          })
+        }
       }
     }
 
     // Parse each section
     return sections.map(section => {
-      // Split by "AND" (case-insensitive, but preserve the word)
-      const andPattern = /\s+AND\s+/gi
-      const items = section.content.split(andPattern).map(item => item.trim()).filter(item => item.length > 0)
+      // Split by "AND" or "and" (case-insensitive)
+      // Special handling: "One of ... and one of ..." should be split into two separate "One of" groups
+      // Pattern 1: Match "and one of" as a split point (this creates two "One of" groups)
+      // Pattern 2: Match regular "and" (but not "and one of")
+      const andOneOfPattern = /\s+and\s+(?=one\s+of)/gi
+      const regularAndPattern = /\s+and\s+(?!one\s+of)/gi
+      
+      // First, split by "and one of" to separate multiple "One of" groups
+      let items = section.content.split(andOneOfPattern).map(item => item.trim()).filter(item => item.length > 0)
+      
+      // If we split by "and one of", we need to add "one of" back to the second part
+      if (items.length > 1) {
+        items = items.map((item, index) => {
+          if (index > 0 && !item.toLowerCase().startsWith('one of')) {
+            return 'one of ' + item
+          }
+          return item
+        })
+      }
+      
+      // Then, for each item, split by regular "and" if needed
+      const finalItems = []
+      for (const item of items) {
+        const subItems = item.split(regularAndPattern).map(subItem => subItem.trim()).filter(subItem => subItem.length > 0)
+        finalItems.push(...subItems)
+      }
       
       return {
         header: section.header,
-        items: items.map(parseRequirementItem)
+        items: finalItems.map(parseRequirementItem)
       }
     })
   }
@@ -213,4 +277,3 @@ const RequirementParser = ({ text }) => {
 }
 
 export default RequirementParser
-
