@@ -114,6 +114,12 @@ class SingleCourseScraper:
         if not text:
             return ""
 
+        # Remove common scraped artifacts (navigation text, etc.)
+        text = re.sub(r'\nCourse Descriptions.*$', '', text, flags=re.IGNORECASE | re.MULTILINE)
+        text = re.sub(r'\nIntroduction.*$', '', text, flags=re.IGNORECASE | re.MULTILINE)
+        text = re.sub(r'\nCourses by Subject.*$', '', text, flags=re.IGNORECASE | re.MULTILINE)
+        text = re.sub(r'\nCourses by Faculty.*$', '', text, flags=re.IGNORECASE | re.MULTILINE)
+
         # Remove credit vectors like [3-0-0], [3-0-1*], [3-0-1.5; 3-0-1.5], etc.
         text = re.sub(
             r"\[\s*\d+(?:\.\d+)?\s*-\s*\d+(?:\.\d+)?\s*-\s*\d+(?:\.\d+)?\s*\*?"
