@@ -60,6 +60,7 @@ const Navigation = () => {
             Application Info
           </Link>
           <Link to="/planner" className="nav-link">Planner</Link>
+          <Link to="/first-year-guide" className="nav-link">First Year Guide</Link>
           {isAuthenticated ? (
             <>
               <Link to="/profile" className="nav-link">Profile</Link>

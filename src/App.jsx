@@ -4,6 +4,7 @@ import { AuthProvider } from './context/AuthContext'
 import HomePage from './pages/HomePage'
 import ApplyInfoPage from './pages/ApplyInfoPage'
 import PlannerPage from './pages/PlannerPage'
+import FirstYearGuide from './pages/FirstYearGuide'
 import LoginPage from './pages/LoginPage'
 import ProfilePage from './pages/ProfilePage'
 import AboutPage from './pages/AboutPage'
@@ -20,6 +21,7 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/ApplyInfo" element={<ApplyInfoPage />} />
           <Route path="/planner" element={<PlannerPage />} />
+          <Route path="/first-year-guide" element={<FirstYearGuide />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/profile" element={<ProfilePage />} />
           <Route path="/about" element={<AboutPage />} />
