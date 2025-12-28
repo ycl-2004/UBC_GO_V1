@@ -1,0 +1,572 @@
+{
+  "BMEG": [
+    {
+      "course": "BMEG 101",
+      "direct": "BMEG 230 (Term 1)",
+      "affected": ""
+    },
+    {
+      "course": "BMEG 101",
+      "direct": "BMEG 257 (Term 2)",
+      "affected": ""
+    },
+    {
+      "course": "APSC 160",
+      "direct": "CPEN 221 (Term 1) or CPEN 223 (Term 1)",
+      "affected": ""
+    },
+    {
+      "course": "CHEM 123",
+      "direct": "BMEG 210 (Term 1)*",
+      "affected": ""
+    },
+    {
+      "course": "MATH 101",
+      "direct": "MATH 253 or MATH 226 (Term 1)",
+      "affected": "BMEG 220 (Term 2, MATH 253, MATH 256 are pre-req, MATH 264 is a co-req) MATH 264 (Term 2, MATH 253 or MATH 226 is pre-req)"
+    },
+    {
+      "course": "MATH 101",
+      "direct": "(Term 1 & Term 2, MATH 253 or MATH 226 is co-req)",
+      "affected": "BMEG 250 (Term 2, MATH 256 is pre-req)"
+    },
+    {
+      "course": "MATH 152",
+      "direct": "MATH 256 (Term 1 & Term 2)",
+      "affected": "BMEG 220 (Term 2, MATH 256 is pre-req) BMEG 250 (Term 2, MATH 256 is pre-req)"
+    },
+    {
+      "course": "MATH 152",
+      "direct": "",
+      "affected": "MATH 264 (Term 2, BMEG 220 is co-req)"
+    },
+    {
+      "course": "PHYS 157",
+      "direct": "BMEG 210 (Term 1)",
+      "affected": ""
+    },
+    {
+      "course": "PHYS 158",
+      "direct": "BMEG 220 (Term 2)",
+      "affected": ""
+    },
+    {
+      "course": "PHYS 170",
+      "direct": "BMEG 230 (Term 1)",
+      "affected": ""
+    },
+    {
+      "course": "WRDS 150",
+      "direct": "BMEG 201 (Term 2)",
+      "affected": ""
+    }
+  ],
+  "CHBE": [
+    {
+      "course": "APSC 160",
+      "direct": "CHBE 230 (Term 2)",
+      "affected": ""
+    },
+    {
+      "course": "CHEM 154",
+      "direct": "CHBE 220 (Term 1)",
+      "affected": "CHBE 201 (Term 1, CHBE 220 is co-req) CHBE 221 (Term 2, CHBE 220 is pre-req)"
+    },
+    {
+      "course": "MATH 101",
+      "direct": "CHBE 220 (Term 1)",
+      "affected": "CHBE 201 (Term 1, CHBE 220 is co-req) CHBE 221 (Term 2, CHBE 220 is pre-req) CHBE 263 (Term 1, CHBE 220 is co-req) CHBE 264 (Term 2, CHBE 263 is pre-req)"
+    },
+    {
+      "course": "MATH 152",
+      "direct": "MATH 256 (Term 1&2)",
+      "affected": "CHBE 230 (Term 2, MATH 256 is co-req) CHBE 251 (Term 2, MATH 256 is co-req)"
+    },
+    {
+      "course": "PHYS 170",
+      "direct": "CHBE 251 (Term 2)",
+      "affected": "CHBE 264 (Term 2, CHBE 251 is co-req)"
+    },
+    {
+      "course": "WRDS 150",
+      "direct": "CHBE 201 (Term 1)",
+      "affected": "CHBE 220 (Term 1, CHBE 201 is co-req) CHBE 221 (Term 2, CHBE 220 is pre-req) CHBE 263 (Term 1, CHBE 220 is co-req) CHBE 264 (Term 2, CHBE 263 is pre-req)"
+    }
+  ],
+  "CIVL": [
+    {
+      "course": "CHEM 154",
+      "direct": "CIVL 204 (Term 1&2)",
+      "affected": ""
+    },
+    {
+      "course": "MATH 101",
+      "direct": "CIVL 230 (Term 1)",
+      "affected": "CIVL 210 (Term 2, CIVL 230 is pre-req) CIVL 231 (Term 2, CIVL 230 is pre-req)"
+    },
+    {
+      "course": "MATH 101",
+      "direct": "CIVL 215 (Term 1)",
+      "affected": "EOSC 210 (Term 1, CIVL 215 is co-req)"
+    },
+    {
+      "course": "MATH 101",
+      "direct": "MATH 253 (Term 1)",
+      "affected": ""
+    },
+    {
+      "course": "MATH 101",
+      "direct": "MATH 256 (Term 1&2, MATH 253 is co-req)",
+      "affected": ""
+    },
+    {
+      "course": "MATH 101",
+      "direct": "STAT 251 (Term1&2)",
+      "affected": ""
+    },
+    {
+      "course": "MATH 152",
+      "direct": "CIVL 231 (Term 2)",
+      "affected": ""
+    },
+    {
+      "course": "MATH 152",
+      "direct": "MATH 256 (Term 1&2)",
+      "affected": ""
+    },
+    {
+      "course": "PHYS 170",
+      "direct": "CIVL 230 (Term 1)",
+      "affected": "CIVL 210 (Term 2 CIVL 230 is pre-req) CIVL 231 (Term 2, CIVL 230 is pre-req),"
+    },
+    {
+      "course": "PHYS 170",
+      "direct": "CIVL 215 (Term 1)",
+      "affected": "EOSC 210 (Term 1, CIVL 215 is co-req)"
+    },
+    {
+      "course": "WRDS 150",
+      "direct": "CIVL 201 (Term 1)",
+      "affected": ""
+    },
+    {
+      "course": "WRDS 150",
+      "direct": "CIVL 203 (Term 1 CIVL 201 is co-req)",
+      "affected": "CIVL 231 (Term 2 CIVL 203 is pre-req)"
+    }
+  ],
+  "CPEN": [
+    {
+      "course": "APSC 160",
+      "direct": "CPEN 211 (Term 1)",
+      "affected": "CPEN 212 ( Term 2, CPEN 211 and CPEN 221 are pre-reqs)"
+    },
+    {
+      "course": "APSC 160",
+      "direct": "CPEN 221 (Term 1)",
+      "affected": "CPEN 221 (Term 1&2, CPEN 221 is pre-req)"
+    },
+    {
+      "course": "MATH 101",
+      "direct": "MAT 220* (Term1&2)",
+      "affected": "CPEN 221 (Term 1&2, MATH 220 is pre-req)"
+    },
+    {
+      "course": "MATH 101",
+      "direct": "MATH 253 (Term 1)",
+      "affected": ""
+    },
+    {
+      "course": "MATH 101",
+      "direct": "MATH 256 (Term1&2, MATH 253 is co-req",
+      "affected": ""
+    },
+    {
+      "course": "MATH 101",
+      "direct": "ELEC 201 (Term 1 & 2, MATH 256 is co-req)",
+      "affected": ""
+    },
+    {
+      "course": "MATH 152",
+      "direct": "MATH 256 (Term 1&2)",
+      "affected": "ELEC 201 (Term 1 & 2, MATH 256 is co-req)"
+    },
+    {
+      "course": "PHYS 158",
+      "direct": "ELEC 201 (Term 1 & 2)",
+      "affected": ""
+    },
+    {
+      "course": "WRDS 150",
+      "direct": "CPEN 281 (Term 1)",
+      "affected": ""
+    }
+  ],
+  "ELEC": [
+    {
+      "course": "APSC 160",
+      "direct": "CPEN 211 (Term 1)",
+      "affected": ""
+    },
+    {
+      "course": "MATH 101",
+      "direct": "MATH 253 (Term 1)",
+      "affected": "MATH 264 (Term 2, MATH 253 is pre-req) ELEC 211 (Term 2, MATH 253 is pre-req and MATH 264 is co-req)"
+    },
+    {
+      "course": "MATH 101",
+      "direct": "MATH 256 (Term 1&2, MATH 253 is co-req)",
+      "affected": "ELEC 221 (Term 1&2, MATH 256 is pre-req)"
+    },
+    {
+      "course": "MATH 152",
+      "direct": "MATH 256 (Term 1&2)",
+      "affected": "ELEC 201 (Term 1&2, MATH 256 is co-req) ELEC 202 (Term 1&2, MATH 256 is a pre-req) ELEC 221 (Term 1&2, MATH 256 is pre-req) ELEC 291 (Term 2, MATH 256 is co-req)"
+    },
+    {
+      "course": "PHYS 158",
+      "direct": "ELEC 201 (Term 1&2)",
+      "affected": "ELEC 291 (Term 2, ELEC 201 is pre-req)"
+    },
+    {
+      "course": "WRDS 150",
+      "direct": "ELEC 281 (Term 2)",
+      "affected": ""
+    }
+  ],
+  "ENPH": [
+    {
+      "course": "APSC 160",
+      "direct": "CPEN 211 (Term 1)",
+      "affected": ""
+    },
+    {
+      "course": "MATH 101",
+      "direct": "MATH 217 (Term1, minimum score 68% or higher)*",
+      "affected": "ENPH 257 (Summer Term 1 MATH 217 or MATH 255 is pre-req)"
+    },
+    {
+      "course": "MATH 101",
+      "direct": "MATH 255 MATH 255 (Term 1, Math 217 is co-req)",
+      "affected": "ELEC 204 (Term 1, MATH 255 is co-req) MATH 257 (Summer Term 1, MATH 255 is pre-req)"
+    },
+    {
+      "course": "MATH 101",
+      "direct": "MECH 260 (Term1&2)",
+      "affected": ""
+    },
+    {
+      "course": "MATH 152",
+      "direct": "MATH 217 (Term 1)*",
+      "affected": "ENPH 257 (Summer Term 1 MATH 217 or MATH 255 is pre-req)"
+    },
+    {
+      "course": "MATH 152",
+      "direct": "MATH 255 (Term 1, Math 217 is co-req)",
+      "affected": "MATH 257 (Summer Term 1, MATH 255 is pre-req)"
+    },
+    {
+      "course": "MATH 152",
+      "direct": "ELEC 204 (Term 1, MATH 255 is co-req)",
+      "affected": ""
+    },
+    {
+      "course": "PHYS 157",
+      "direct": "ENPH 257 (Term 1)",
+      "affected": ""
+    },
+    {
+      "course": "PHYS 157",
+      "direct": "ENPH 259 (Term 1)",
+      "affected": "ENPH 253 (Summer Term 1&2, ENPH 259 is pre-req)"
+    },
+    {
+      "course": "PHYS 158",
+      "direct": "MATH 217 (Term1, minimum score 68% or higher)*",
+      "affected": "MATH 255 (Term 1, Math 217 is co-req) MATH 257 (Summer Term 1, MATH 255 is pre-req)"
+    },
+    {
+      "course": "PHYS 158",
+      "direct": "ELEC 204 (Term 1, MATH 255 is co-req)",
+      "affected": ""
+    },
+    {
+      "course": "PHYS 158",
+      "direct": "ENPH 257 (Summer Term 1 MATH 217 or MATH 255 is pre-req)",
+      "affected": ""
+    },
+    {
+      "course": "PHYS 158",
+      "direct": "ENPH 259 (Term 1)",
+      "affected": "ENPH 253 (Summer Term 1&2, ENPH 259 is pre-req)"
+    },
+    {
+      "course": "PHYS 158",
+      "direct": "PHYS 250 (Summer Term 1)",
+      "affected": ""
+    },
+    {
+      "course": "PHYS 159",
+      "direct": "ENPH 257 (Term 1)",
+      "affected": ""
+    },
+    {
+      "course": "PHYS 159",
+      "direct": "ENPH 259 (Term 1)",
+      "affected": "ENPH 253 (Summer Term 1&2, ENPH 259 is pre-req)"
+    },
+    {
+      "course": "PHYS 170",
+      "direct": "MECH 260 (Term1 & 2)",
+      "affected": ""
+    },
+    {
+      "course": "PHYS 170",
+      "direct": "ENPH 270 (Summer Term 1)",
+      "affected": ""
+    },
+    {
+      "course": "WRDS 150",
+      "direct": "ENPH 259 (Term 1)",
+      "affected": "ENPH 253 (Summer Term 1&2, ENPH 259 is pre-req)"
+    },
+    {
+      "course": "WRDS 150",
+      "direct": "IGEN 201 (Summer Term 1)",
+      "affected": ""
+    }
+  ],
+  "ENVL": [
+    {
+      "course": "APSC 160",
+      "direct": "CHBE 230 (Term 2)",
+      "affected": ""
+    },
+    {
+      "course": "CHEM 154",
+      "direct": "CHBE 241 (Term 1)",
+      "affected": "CHBE 244 (Term 2, CHBE 241 is pre-req)"
+    },
+    {
+      "course": "CHEM 154",
+      "direct": "CIVL 204 (Term 1&2)",
+      "affected": ""
+    },
+    {
+      "course": "CHEM 154",
+      "direct": "ENVE 202 (Term 2, CHBE 241 and CIVL 204 are pre-req)",
+      "affected": ""
+    },
+    {
+      "course": "MATH 101",
+      "direct": "MATH 253 (Term 1)",
+      "affected": ""
+    },
+    {
+      "course": "MATH 101",
+      "direct": "MATH 256 (Term 1&2, MATH 253 is co-req)",
+      "affected": "CHBE 230 (Term 2, MATH 256 is co-req)"
+    },
+    {
+      "course": "MATH 101",
+      "direct": "CIVL 215 (Term 1)",
+      "affected": ""
+    },
+    {
+      "course": "MATH 152",
+      "direct": "MATH 256 (Term 1&2)",
+      "affected": "CHBE 230 (Term 2, MATH 256 is co-req)"
+    },
+    {
+      "course": "MATH 152",
+      "direct": "CHBE 241 (Term 1)",
+      "affected": "CHBE 244 (Term 2, CHBE 241 is pre-req) ENVE 202 (Term 2, CHBE 241 is pre-req)"
+    },
+    {
+      "course": "PHYS 170",
+      "direct": "CIVL 215 (Term 1)",
+      "affected": ""
+    },
+    {
+      "course": "WRDS 150",
+      "direct": "ENVE 201 (Term 2)",
+      "affected": ""
+    }
+  ],
+  "GEOE": [
+    {
+      "course": "APSC 160",
+      "direct": "EOSC 213 (Term 2)",
+      "affected": ""
+    },
+    {
+      "course": "CHEM 154",
+      "direct": "EOSC 220 (Term 1)",
+      "affected": "EOSC 221 (Term 2, EOSC 220 is pre-req) EOSC 223* (Term 2, EOSC 221 is co-req)"
+    },
+    {
+      "course": "MATH 101",
+      "direct": "CIVL 230 (Term 1)",
+      "affected": "CIVL 210 (Term 2, CIVL 230 is pre-req)"
+    },
+    {
+      "course": "MATH 101",
+      "direct": "CIVL 215 (Term 1)",
+      "affected": "EOSC 210 (Term 1, CIVL 215 is co-req) EOSC 240 (Term 2, EOSC 210 is pre-req and CIVL 210 is co-req)"
+    },
+    {
+      "course": "MATH 101",
+      "direct": "MATH 253 (Term )",
+      "affected": "EOSC 213 (Term 2, MATH 253 is pre-req)"
+    },
+    {
+      "course": "MATH 101",
+      "direct": "STAT 251 (Term 1&2)",
+      "affected": ""
+    },
+    {
+      "course": "MATH 152",
+      "direct": "EOSC 213 (Term 2)",
+      "affected": ""
+    },
+    {
+      "course": "PHYS 170",
+      "direct": "CIVL 230 (Term 1)",
+      "affected": "CIVL 210 (Term 2, CIVL 230 is pre-req)"
+    },
+    {
+      "course": "PHYS 170",
+      "direct": "CIVL 215 (Term 1)",
+      "affected": "EOSC 210 (Term 1, CIVL 215 is co-req) EOSC 240 (Term 2, EOSC 210 is pre-req and CIVL 210 is co-req)"
+    },
+    {
+      "course": "WRDS 150",
+      "direct": "APSC 201 (Term 1&2)",
+      "affected": ""
+    }
+  ],
+  "IGEN": [
+    {
+      "course": "CHEM 154",
+      "direct": "CHBE 241 (Term 1)",
+      "affected": "CHBE 244 (Term 2, CHBE 241 is pre-req)"
+    },
+    {
+      "course": "MATH 101",
+      "direct": "MATH 253 (Term 1)",
+      "affected": ""
+    },
+    {
+      "course": "MATH 152",
+      "direct": "MATH 255 (Term 1)",
+      "affected": ""
+    },
+    {
+      "course": "PHYS 158",
+      "direct": "ELEC 204 (Term 1)",
+      "affected": "ELEC 205 (Term 1, ELEC 204 is pre-req) CPEN 312 (Term 2, ELEC 204 is pre-req)"
+    },
+    {
+      "course": "PHYS 170",
+      "direct": "MECH 260 (Term 1&2)",
+      "affected": ""
+    },
+    {
+      "course": "WRDS 150",
+      "direct": "IGEN 201 (Term 2)",
+      "affected": ""
+    }
+  ],
+  "MANU": [
+    {
+      "course": "APSC 160",
+      "direct": "CPEN 223 (Term 1)",
+      "affected": ""
+    },
+    {
+      "course": "MATH 101",
+      "direct": "MATH 253 (Term 1)",
+      "affected": ""
+    },
+    {
+      "course": "MATH 152",
+      "direct": "MATH 255 (Term 1)",
+      "affected": "ELEC 203 (Term 1, MATH 255 is co-req)"
+    },
+    {
+      "course": "PHYS 158",
+      "direct": "ELEC 203 (Term 1)",
+      "affected": ""
+    },
+    {
+      "course": "PHYS 170",
+      "direct": "MECH 260 (Term 1&2)",
+      "affected": ""
+    },
+    {
+      "course": "WRDS 150",
+      "direct": "MANU 201 (Term 1)",
+      "affected": ""
+    }
+  ],
+  "MECH": [],
+  "MINE": [
+    {
+      "course": "MATH 101",
+      "direct": "MATH 253 (Term 1)",
+      "affected": "MECH 280 (Term 2, MATH 253 is pre-req)*"
+    },
+    {
+      "course": "MATH 152",
+      "direct": "MATH 255 (Term 1) or MATH 256 (Term 1 &2)*",
+      "affected": "CHBE 251 (Term 2, MATH 256 is co-req)*"
+    },
+    {
+      "course": "PHYS 157",
+      "direct": "MECH 280 (Term 2)*",
+      "affected": ""
+    },
+    {
+      "course": "PHYS 158",
+      "direct": "MECH 280 (Term 2)*",
+      "affected": ""
+    },
+    {
+      "course": "PHYS 159",
+      "direct": "MECH 280 (Term 2)*",
+      "affected": ""
+    },
+    {
+      "course": "PHYS 170",
+      "direct": "MECH 260 (Term 1&2)",
+      "affected": "CIVL 210 (Term 2, MECH 260 is pre-req)"
+    },
+    {
+      "course": "WRDS 150",
+      "direct": "APSC 201 (Term 2)",
+      "affected": ""
+    }
+  ],
+  "MTRL": [
+    {
+      "course": "MATH 101",
+      "direct": "MATH 253 (Term 1)",
+      "affected": ""
+    },
+    {
+      "course": "MATH 152",
+      "direct": "MATH 255 (Term 1)",
+      "affected": ""
+    },
+    {
+      "course": "PHYS 170",
+      "direct": "MECH 260 (Term 1&2)",
+      "affected": ""
+    },
+    {
+      "course": "WRDS 150",
+      "direct": "MTRL 201 (Term 2)",
+      "affected": "MTRL 280 (Term 2, MTRL 201 is co-req)"
+    }
+  ]
+}
