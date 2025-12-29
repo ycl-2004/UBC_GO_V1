@@ -148,6 +148,79 @@
   color: white;
 }
 
+/* Collapsible Section Component */
+.collapsible-section {
+  background: white;
+  border-radius: 12px;
+  margin-bottom: 2rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+}
+
+.collapsible-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem 2rem;
+  cursor: pointer;
+  background: white;
+  border: none;
+  transition: background-color 0.2s ease;
+  user-select: none;
+}
+
+.collapsible-header:hover {
+  background: #f8f9fa;
+}
+
+.collapsible-header:focus {
+  outline: 2px solid #002145;
+  outline-offset: -2px;
+}
+
+.collapsible-title {
+  color: #002145;
+  font-size: 1.8rem;
+  margin: 0;
+  font-weight: 600;
+}
+
+.chevron-icon {
+  font-size: 1rem;
+  color: #002145;
+  transition: transform 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  line-height: 1;
+}
+
+.chevron-icon.open {
+  transform: rotate(0deg);
+}
+
+.chevron-icon:not(.open) {
+  transform: rotate(-90deg);
+}
+
+.collapsible-content {
+  padding: 0 2rem 2rem 2rem;
+  animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 /* Section Styling */
 section {
   background: white;
@@ -172,8 +245,13 @@ section h2 {
 }
 
 /* Section 1: Standard Curriculum Table */
+.curriculum-section {
+  margin-bottom: 0;
+}
+
 .curriculum-table-wrapper {
   overflow-x: auto;
+  margin-top: 1rem;
 }
 
 .curriculum-table {
@@ -293,7 +371,7 @@ section h2 {
 
 /* Section 3: Major Prerequisites */
 .prerequisites-section {
-  background: white;
+  margin-bottom: 0;
 }
 
 .major-selector {
@@ -468,6 +546,18 @@ section h2 {
     font-size: 1.5rem;
   }
 
+  .collapsible-header {
+    padding: 1.25rem 1.5rem;
+  }
+
+  .collapsible-title {
+    font-size: 1.5rem;
+  }
+
+  .collapsible-content {
+    padding: 0 1.5rem 1.5rem 1.5rem;
+  }
+
   .curriculum-table,
   .prerequisites-table {
     font-size: 0.875rem;
@@ -540,6 +630,18 @@ section h2 {
 
   section h2 {
     font-size: 1.3rem;
+  }
+
+  .collapsible-header {
+    padding: 1rem 1.25rem;
+  }
+
+  .collapsible-title {
+    font-size: 1.3rem;
+  }
+
+  .collapsible-content {
+    padding: 0 1.25rem 1.25rem 1.25rem;
   }
 
   .curriculum-table,

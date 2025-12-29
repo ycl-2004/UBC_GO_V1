@@ -509,7 +509,48 @@
       "affected": ""
     }
   ],
-  "MECH": [],
+  "MECH": [
+    {
+      "course": "MATH 100",
+      "direct": "MATH 101 (Term 1)",
+      "affected": ""
+    },
+    {
+      "course": "MATH 101",
+      "direct": "MATH 253 (Term 1) or MATH 226 (Term 1), MECH 221 (Term 1)",
+      "affected": "MECH 280 (Term 2, MATH 253 is pre-req)"
+    },
+    {
+      "course": "MATH 152",
+      "direct": "MATH 255 (Term 1) or MATH 256 (Term 1 & 2), MECH 221 (Term 1)",
+      "affected": ""
+    },
+    {
+      "course": "PHYS 157",
+      "direct": "MECH 2 (Required for Second Year Entry)",
+      "affected": ""
+    },
+    {
+      "course": "PHYS 158",
+      "direct": "MECH 221 (Term 1), MECH 280 (Term 2)",
+      "affected": ""
+    },
+    {
+      "course": "PHYS 159",
+      "direct": "MECH 221 (Term 1), MECH 2 (Required for Second Year Entry)",
+      "affected": ""
+    },
+    {
+      "course": "PHYS 170",
+      "direct": "MECH 221 (Term 1), MECH 260 (Term 1 & 2)",
+      "affected": ""
+    },
+    {
+      "course": "WRDS 150",
+      "direct": "MECH 2 (Required for Second Year Entry)",
+      "affected": ""
+    }
+  ],
   "MINE": [
     {
       "course": "MATH 101",

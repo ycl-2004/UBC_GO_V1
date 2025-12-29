@@ -3,6 +3,38 @@ import Navigation from '../components/Navigation'
 import { standardFirstYearCourses, getAllMajors, getMajorByCode } from '../data/firstYearRequirements'
 import './FirstYearGuide.css'
 
+// CollapsibleSection Component
+const CollapsibleSection = ({ title, children, defaultOpen = false }) => {
+  const [isOpen, setIsOpen] = useState(defaultOpen)
+
+  return (
+    <div className="collapsible-section">
+      <div 
+        className="collapsible-header"
+        onClick={() => setIsOpen(!isOpen)}
+        role="button"
+        tabIndex={0}
+        onKeyDown={(e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault()
+            setIsOpen(!isOpen)
+          }
+        }}
+      >
+        <h2 className="collapsible-title">{title}</h2>
+        <span className={`chevron-icon ${isOpen ? 'open' : ''}`}>
+          ▼
+        </span>
+      </div>
+      {isOpen && (
+        <div className="collapsible-content">
+          {children}
+        </div>
+      )}
+    </div>
+  )
+}
+
 const FirstYearGuide = () => {
   const [selectedFaculty, setSelectedFaculty] = useState(null)
   const [selectedMajor, setSelectedMajor] = useState('CIVL')
@@ -69,8 +101,7 @@ const FirstYearGuide = () => {
             </button>
 
             {/* Section 1: Standard Curriculum */}
-            <section className="curriculum-section">
-              <h2>Standard First Year Engineering Curriculum</h2>
+            <CollapsibleSection title="Standard First Year Engineering Curriculum" defaultOpen={true}>
               <div className="curriculum-table-wrapper">
                 <table className="curriculum-table">
                   <thead>
@@ -99,7 +130,7 @@ const FirstYearGuide = () => {
                   </tbody>
                 </table>
               </div>
-            </section>
+            </CollapsibleSection>
 
             {/* Section 2: Complementary Studies Info */}
             <section className="complementary-studies-section">
@@ -119,8 +150,7 @@ const FirstYearGuide = () => {
             </section>
 
             {/* Section 3: Second-Year Major Prerequisites */}
-            <section className="prerequisites-section">
-              <h2>Second-Year Major Prerequisites</h2>
+            <CollapsibleSection title="Second-Year Major Prerequisites" defaultOpen={false}>
               <p className="section-description">
                 Select your target major to see which First Year courses are critical prerequisites for that specialization.
               </p>
@@ -178,7 +208,7 @@ const FirstYearGuide = () => {
                   <p>Prerequisites for {selectedMajorData?.majorName} are not yet available. Check back soon!</p>
                 </div>
               )}
-            </section>
+            </CollapsibleSection>
           </>
         )}
       </div>
