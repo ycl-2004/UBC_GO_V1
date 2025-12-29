@@ -20,7 +20,7 @@
 
 #### Gemini API 密钥
 1. 访问 [Google AI Studio](https://makersuite.google.com/app/apikey)
-2. 找到暴露的 API 密钥：`AIzaSyBmxJAQ-71pZQYQPthdfqF-duhqirqAfK8`
+2. 找到暴露的 API 密钥（已在 Git 历史中暴露）
 3. **立即删除/撤销该密钥**
 4. 创建新的 API 密钥
 5. 更新 `.env.local` 文件中的新密钥
