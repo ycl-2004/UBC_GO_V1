@@ -159,3 +159,48 @@ CREATE TRIGGER update_course_status_updated_at
   FOR EACH ROW
   EXECUTE FUNCTION update_updated_at_column();
 
+-- ============================================
+-- Admission Scenarios Table
+-- Stores user's admission calculation scenarios for comparison
+-- ============================================
+CREATE TABLE IF NOT EXISTS admission_scenarios (
+  id UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
+  user_id UUID REFERENCES profiles(id) ON DELETE CASCADE NOT NULL,
+  scenario_name TEXT NOT NULL DEFAULT 'My Scenario',
+  program_id TEXT NOT NULL,
+  inputs_json JSONB NOT NULL DEFAULT '{}'::jsonb,
+  results_json JSONB NOT NULL DEFAULT '{}'::jsonb,
+  created_at TIMESTAMP WITH TIME ZONE DEFAULT TIMEZONE('utc'::text, NOW()) NOT NULL,
+  updated_at TIMESTAMP WITH TIME ZONE DEFAULT TIMEZONE('utc'::text, NOW()) NOT NULL
+);
+
+-- Enable Row Level Security
+ALTER TABLE admission_scenarios ENABLE ROW LEVEL SECURITY;
+
+-- Policy: Users can only read their own scenarios
+CREATE POLICY "Users can view own scenarios"
+  ON admission_scenarios FOR SELECT
+  USING (auth.uid() = user_id);
+
+-- Policy: Users can insert their own scenarios
+CREATE POLICY "Users can insert own scenarios"
+  ON admission_scenarios FOR INSERT
+  WITH CHECK (auth.uid() = user_id);
+
+-- Policy: Users can update their own scenarios
+CREATE POLICY "Users can update own scenarios"
+  ON admission_scenarios FOR UPDATE
+  USING (auth.uid() = user_id);
+
+-- Policy: Users can delete their own scenarios
+CREATE POLICY "Users can delete own scenarios"
+  ON admission_scenarios FOR DELETE
+  USING (auth.uid() = user_id);
+
+-- Apply updated_at trigger to admission_scenarios
+DROP TRIGGER IF EXISTS update_admission_scenarios_updated_at ON admission_scenarios;
+CREATE TRIGGER update_admission_scenarios_updated_at
+  BEFORE UPDATE ON admission_scenarios
+  FOR EACH ROW
+  EXECUTE FUNCTION update_updated_at_column();
+

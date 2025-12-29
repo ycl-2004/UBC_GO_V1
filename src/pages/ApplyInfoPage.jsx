@@ -2,6 +2,8 @@ import React, { useState, useEffect, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import Navigation from "../components/Navigation";
 import StepByStepRequirements from "../components/StepByStepRequirements";
+import ScenarioComparator from "../components/ScenarioComparator";
+import { useAdmissionScenarios } from "../hooks/useAdmissionScenarios";
 import "./ApplyInfoPage.css";
 import {
   facultyAdmissionData,
@@ -71,7 +73,14 @@ const getAdmissionData = (majorName) => {
 
 const ApplyInfoPage = () => {
   const navigate = useNavigate();
+  const { scenarios, createScenario, deleteScenario, duplicateScenario, loading: scenariosLoading } = useAdmissionScenarios();
   const [selectedMajor, setSelectedMajor] = useState("Arts");
+  const [showSaveDialog, setShowSaveDialog] = useState(false);
+  const [scenarioName, setScenarioName] = useState("");
+  const [showScenariosList, setShowScenariosList] = useState(false);
+  const [showComparison, setShowComparison] = useState(false);
+  const [scenarioA, setScenarioA] = useState(null);
+  const [scenarioB, setScenarioB] = useState(null);
   const [formData, setFormData] = useState({
     gpa: "",
     courseDifficulty: "regular",
@@ -836,6 +845,25 @@ const ApplyInfoPage = () => {
       leadership: 3,
       volunteering: 3,
       supplementScore: 50,
+      applicantType: "domestic",
+      gradeTrend: "stable",
+      activityRelevance: "medium",
+      roleDepth: "member",
+      courseStatus: {
+        Math12: "completed",
+        English12: "completed",
+        Physics12: "notTaken",
+        Chemistry12: "notTaken",
+        Biology12: "notTaken",
+        Geography12: "notTaken",
+      },
+      coreSubjectScores: {
+        Math12: "",
+        English12: "",
+        Physics12: "",
+        Chemistry12: "",
+        Biology12: "",
+      },
       completedCourses: {
         Math12: true,
         English12: true,
@@ -847,6 +875,119 @@ const ApplyInfoPage = () => {
     });
     setResult(null);
     setShowResult(false);
+  };
+
+  // Generate automatic scenario name
+  const generateScenarioName = () => {
+    if (realTimeResult) {
+      const date = new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+      return `${selectedMajor} - ${realTimeResult.percentage}% - ${date}`;
+    }
+    return `${selectedMajor} - ${new Date().toLocaleDateString()}`;
+  };
+
+  // Handle save scenario
+  const handleSaveScenario = async () => {
+    if (!realTimeResult) {
+      alert('Please enter your information and wait for calculation to complete.');
+      return;
+    }
+
+    const name = scenarioName.trim() || generateScenarioName();
+    
+    try {
+      // Prepare inputs JSON (exclude completedCourses legacy field)
+      const inputsToSave = {
+        gpa: formData.gpa,
+        courseDifficulty: formData.courseDifficulty,
+        applicantType: formData.applicantType,
+        gradeTrend: formData.gradeTrend,
+        activityRelevance: formData.activityRelevance,
+        roleDepth: formData.roleDepth,
+        courseStatus: formData.courseStatus,
+        coreSubjectScores: formData.coreSubjectScores,
+        extracurriculars: formData.extracurriculars,
+        leadership: formData.leadership,
+        volunteering: formData.volunteering,
+        supplementScore: formData.supplementScore,
+      };
+
+      // Prepare results JSON
+      const resultsToSave = {
+        percentage: realTimeResult.percentage,
+        percentageRange: realTimeResult.percentageRange,
+        finalScore: realTimeResult.finalScore,
+        academicScore: realTimeResult.academicScore,
+        profileScore: realTimeResult.profileScore,
+        supplementScore: realTimeResult.supplementScore,
+        chance: realTimeResult.chance,
+        category: realTimeResult.category,
+        gateCheck: realTimeResult.gateCheck,
+        explanation: realTimeResult.explanation,
+      };
+
+      await createScenario(name, selectedMajor, inputsToSave, resultsToSave);
+      setShowSaveDialog(false);
+      setScenarioName("");
+    } catch (error) {
+      console.error('Error saving scenario:', error);
+    }
+  };
+
+  // Handle load scenario into form
+  const handleLoadScenario = (scenario) => {
+    const inputs = scenario.inputs_json || scenario.inputs;
+    if (!inputs) return;
+
+    setSelectedMajor(scenario.program_id);
+    setFormData(prev => ({
+      ...prev,
+      gpa: inputs.gpa || "",
+      courseDifficulty: inputs.courseDifficulty || "regular",
+      applicantType: inputs.applicantType || "domestic",
+      gradeTrend: inputs.gradeTrend || "stable",
+      activityRelevance: inputs.activityRelevance || "medium",
+      roleDepth: inputs.roleDepth || "member",
+      courseStatus: inputs.courseStatus || prev.courseStatus,
+      coreSubjectScores: inputs.coreSubjectScores || prev.coreSubjectScores,
+      extracurriculars: inputs.extracurriculars || 3,
+      leadership: inputs.leadership || 3,
+      volunteering: inputs.volunteering || 3,
+      supplementScore: inputs.supplementScore || 50,
+    }));
+    setShowScenariosList(false);
+  };
+
+  // Handle duplicate scenario
+  const handleDuplicateScenario = async (scenarioId) => {
+    try {
+      await duplicateScenario(scenarioId);
+      setShowScenariosList(false);
+    } catch (error) {
+      console.error('Error duplicating scenario:', error);
+    }
+  };
+
+  // Handle delete scenario
+  const handleDeleteScenario = async (scenarioId) => {
+    if (window.confirm('Are you sure you want to delete this scenario?')) {
+      try {
+        await deleteScenario(scenarioId);
+        // Clear comparison if deleted scenario was selected
+        if (scenarioA?.id === scenarioId) setScenarioA(null);
+        if (scenarioB?.id === scenarioId) setScenarioB(null);
+        if (!scenarioA || !scenarioB) setShowComparison(false);
+      } catch (error) {
+        console.error('Error deleting scenario:', error);
+      }
+    }
+  };
+
+  // Handle start comparison
+  const handleStartComparison = () => {
+    if (scenarioA && scenarioB) {
+      setShowComparison(true);
+    }
   };
 
   return (
@@ -1210,7 +1351,27 @@ const ApplyInfoPage = () => {
 
             {/* Right Side - Result Card */}
             <div className="applyinfo-result-card">
-              <h2>Your Admission Chance</h2>
+              <div className="result-card-header">
+                <h2>Your Admission Chance</h2>
+                <div className="result-card-actions">
+                  {realTimeResult && (
+                    <button 
+                      className="btn-save-scenario"
+                      onClick={() => setShowSaveDialog(true)}
+                      title="Save this scenario"
+                    >
+                      💾 Save Scenario
+                    </button>
+                  )}
+                  <button 
+                    className="btn-manage-scenarios"
+                    onClick={() => setShowScenariosList(!showScenariosList)}
+                    title="Manage saved scenarios"
+                  >
+                    📋 Scenarios ({scenarios.length})
+                  </button>
+                </div>
+              </div>
               
               {realTimeResult ? (
                 <>
@@ -1478,6 +1639,191 @@ const ApplyInfoPage = () => {
               </div>
             </div>
           )}
+
+          {/* Save Scenario Dialog */}
+          {showSaveDialog && (
+            <>
+              <div className="modal-overlay" onClick={() => setShowSaveDialog(false)} />
+              <div className="save-scenario-modal">
+                <div className="modal-header">
+                  <h3>Save Scenario</h3>
+                  <button className="close-btn" onClick={() => setShowSaveDialog(false)}>×</button>
+                </div>
+                <div className="modal-body">
+                  <div className="form-group">
+                    <label htmlFor="scenarioName">Scenario Name</label>
+                    <input
+                      type="text"
+                      id="scenarioName"
+                      value={scenarioName}
+                      onChange={(e) => setScenarioName(e.target.value)}
+                      placeholder={generateScenarioName()}
+                      className="form-input"
+                    />
+                    <small>Leave empty to use auto-generated name</small>
+                  </div>
+                  {scenarios.length >= 3 && (
+                    <div className="warning-message">
+                      ⚠️ You have reached the maximum of 3 scenarios. Please delete one before saving a new scenario.
+                    </div>
+                  )}
+                </div>
+                <div className="modal-footer">
+                  <button 
+                    className="btn-cancel" 
+                    onClick={() => {
+                      setShowSaveDialog(false);
+                      setScenarioName("");
+                    }}
+                  >
+                    Cancel
+                  </button>
+                  <button 
+                    className="btn-save" 
+                    onClick={handleSaveScenario}
+                    disabled={scenarios.length >= 3}
+                  >
+                    Save
+                  </button>
+                </div>
+              </div>
+            </>
+          )}
+
+          {/* Scenarios List Sidebar */}
+          {showScenariosList && (
+            <>
+              <div className="modal-overlay" onClick={() => setShowScenariosList(false)} />
+              <div className="scenarios-sidebar">
+                <div className="sidebar-header">
+                  <h3>Saved Scenarios</h3>
+                  <button className="close-btn" onClick={() => setShowScenariosList(false)}>×</button>
+                </div>
+                <div className="scenarios-list">
+                  {scenarios.length === 0 ? (
+                    <div className="no-scenarios">
+                      <p>No saved scenarios yet.</p>
+                      <p>Save your current calculation to create your first scenario.</p>
+                    </div>
+                  ) : (
+                    scenarios.map(scenario => {
+                      const results = scenario.results_json || scenario.results || {};
+                      return (
+                        <div key={scenario.id} className="scenario-item">
+                          <div className="scenario-item-header">
+                            <h4>{scenario.scenario_name}</h4>
+                            <span className="scenario-program-badge">{scenario.program_id}</span>
+                          </div>
+                          <div className="scenario-item-details">
+                            <div className="scenario-probability">
+                              Probability: <strong>{results.percentage?.toFixed(1) || 'N/A'}%</strong>
+                            </div>
+                            <div className="scenario-date">
+                              {new Date(scenario.created_at).toLocaleDateString()}
+                            </div>
+                          </div>
+                          <div className="scenario-item-actions">
+                            <button 
+                              className="btn-load"
+                              onClick={() => handleLoadScenario(scenario)}
+                            >
+                              Load
+                            </button>
+                            <button 
+                              className="btn-duplicate"
+                              onClick={() => handleDuplicateScenario(scenario.id)}
+                            >
+                              Copy
+                            </button>
+                            <button 
+                              className="btn-delete"
+                              onClick={() => handleDeleteScenario(scenario.id)}
+                            >
+                              Delete
+                            </button>
+                          </div>
+                        </div>
+                      );
+                    })
+                  )}
+                </div>
+              </div>
+            </>
+          )}
+
+          {/* Comparison Section */}
+          <div className="comparison-section">
+            <div className="comparison-header">
+              <h2>Compare Scenarios</h2>
+              <p>Select two scenarios to compare and see what factors make the biggest difference</p>
+            </div>
+            <div className="comparison-selectors">
+              <div className="comparison-selector">
+                <label htmlFor="scenarioA">Scenario A:</label>
+                <select
+                  id="scenarioA"
+                  value={scenarioA?.id || ""}
+                  onChange={(e) => {
+                    const selected = scenarios.find(s => s.id === e.target.value);
+                    setScenarioA(selected || null);
+                    if (!selected || !scenarioB) setShowComparison(false);
+                  }}
+                >
+                  <option value="">Select scenario...</option>
+                  {scenarios.map(s => (
+                    <option key={s.id} value={s.id}>
+                      {s.scenario_name} ({s.program_id})
+                    </option>
+                  ))}
+                </select>
+              </div>
+              <div className="comparison-selector">
+                <label htmlFor="scenarioB">Scenario B:</label>
+                <select
+                  id="scenarioB"
+                  value={scenarioB?.id || ""}
+                  onChange={(e) => {
+                    const selected = scenarios.find(s => s.id === e.target.value);
+                    setScenarioB(selected || null);
+                    if (!scenarioA || !selected) setShowComparison(false);
+                  }}
+                >
+                  <option value="">Select scenario...</option>
+                  {scenarios.map(s => (
+                    <option key={s.id} value={s.id}>
+                      {s.scenario_name} ({s.program_id})
+                    </option>
+                  ))}
+                </select>
+              </div>
+              <button
+                className="btn-compare"
+                onClick={handleStartComparison}
+                disabled={!scenarioA || !scenarioB}
+              >
+                Compare
+              </button>
+              {showComparison && (
+                <button
+                  className="btn-clear-comparison"
+                  onClick={() => {
+                    setShowComparison(false);
+                    setScenarioA(null);
+                    setScenarioB(null);
+                  }}
+                >
+                  Clear
+                </button>
+              )}
+            </div>
+            {showComparison && scenarioA && scenarioB && (
+              <ScenarioComparator
+                scenarioA={scenarioA}
+                scenarioB={scenarioB}
+                onClose={() => setShowComparison(false)}
+              />
+            )}
+          </div>
         </div>
       </div>
     </div>
