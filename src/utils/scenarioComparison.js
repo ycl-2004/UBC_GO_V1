@@ -1,7 +1,7 @@
 /**
  * Utility functions for comparing admission scenarios
  * Provides sensitivity analysis and difference calculations
- * Supports both AI-powered analysis (Gemini) and fallback estimated analysis
+ * Supports both AI-powered analysis (ChatAnywhere API) and fallback estimated analysis
  */
 
 import { getAIComparison, isAIAvailable } from '../services/aiAnalysisService'
@@ -318,7 +318,7 @@ export async function calculateSensitivity(scenarioA, scenarioB) {
         recommendations = aiResult.insights || []
         analysisMethod = 'ai'
         
-        console.log('✅ Using AI analysis (Gemini)')
+        console.log('✅ Using AI analysis (ChatAnywhere)')
       } else {
         // AI returned null, fall back to estimated
         console.log('⚠️ AI analysis returned null, using estimated analysis')

@@ -9,7 +9,6 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@google/generative-ai": "^0.21.0",
     "@sentry/react": "^10.32.1",
     "@supabase/supabase-js": "^2.89.0",
     "cheerio": "^1.1.2",

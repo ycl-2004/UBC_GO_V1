@@ -1,57 +1,112 @@
 # 📚 UBC PathFinder Documentation Summary
 
-This folder contains all project documentation organized by category.
+## 🚀 Overview
+
+This folder contains all project documentation organized by category for easy navigation and reference.
 
 ## 📁 Folder Structure
 
 ### 01-Project-Status/
 **Current project status and completion reports**
-- `✅_ALL_13_PROVINCES_COMPLETE.md` - Complete summary of all 13 provinces mapping (LATEST)
-- `ALL_PROVINCES_MAPPED.md` - Detailed province-by-province breakdown
+- See [README.md](01-Project-Status/README.md) for complete project status
 
 ### 02-Problem-Solutions/
 **Problem-solving documentation and solutions**
-- `✅_PROBLEM_SOLVED.md` - Latest problem solution (province-specific course codes)
-- `SOLUTION_SUMMARY.md` - Technical solution summary
+- See [README.md](02-Problem-Solutions/README.md) for all problem solutions
 
 ### 03-Guides/
 **User guides and how-to documentation**
-- `HOW_TO_UPDATE_REQUIREMENTS.md` - Step-by-step guide to update requirements data
-- `QUICK_START.md` - Quick start guide for the project
-- `MAPPING_FIX_SUMMARY.md` - Summary of mapping fixes and improvements
+- See [README.md](03-Guides/README.md) for all user guides
 
 ### 04-Scraper-Documentation/
 **Scraper-related documentation**
-- `REQUIREMENTS_SCRAPER_GUIDE.md` - Guide for requirements scraper
-- `SCRAPER_GUIDE.md` - General scraper guide
-- `SCRAPER_INSTRUCTIONS.md` - Scraper usage instructions
-- `SCRAPER_UPDATES.md` - Scraper updates and changes
+- See [README.md](04-Scraper-Documentation/README.md) for complete scraper documentation
 
 ### 05-Archives/
 **Old/archived documentation (for reference only)**
-- `PROBLEM_SOLVED.md` - Old problem solution (Alberta Applied Biology issue)
-- `SUMMARY.md` - Old system summary
+- Historical reference documents
+- May contain outdated information
 
 ## 🎯 Quick Reference
 
 ### For Users:
-- **Getting Started:** See `03-Guides/QUICK_START.md`
-- **Updating Data:** See `03-Guides/HOW_TO_UPDATE_REQUIREMENTS.md`
+- **Getting Started:** See [03-Guides/README.md](03-Guides/README.md)
+- **Updating Data:** See [03-Guides/README.md](03-Guides/README.md)
 
 ### For Developers:
-- **Current Status:** See `01-Project-Status/✅_ALL_13_PROVINCES_COMPLETE.md`
-- **Scraper Info:** See `04-Scraper-Documentation/`
+- **Current Status:** See [01-Project-Status/README.md](01-Project-Status/README.md)
+- **Scraper Info:** See [04-Scraper-Documentation/README.md](04-Scraper-Documentation/README.md)
 
 ### For Troubleshooting:
-- **Latest Solutions:** See `02-Problem-Solutions/✅_PROBLEM_SOLVED.md`
+- **Latest Solutions:** See [02-Problem-Solutions/README.md](02-Problem-Solutions/README.md)
 
-## 📝 Note
+## 📑 Complete File Index
 
-- Files in `05-Archives/` are kept for historical reference but may contain outdated information
-- Always refer to files in `01-Project-Status/` for the most current project status
-- Latest documentation is always in the numbered folders (01-04)
+### Start Here
+
+#### For New Users
+1. **Quick Start:** [03-Guides/README.md](03-Guides/README.md)
+2. **Project Status:** [01-Project-Status/README.md](01-Project-Status/README.md)
+
+#### For Developers
+1. **Current Status:** [01-Project-Status/README.md](01-Project-Status/README.md)
+2. **How to Update:** [03-Guides/README.md](03-Guides/README.md)
+3. **Scraper Workflow:** [04-Scraper-Documentation/README.md](04-Scraper-Documentation/README.md)
+
+#### For Troubleshooting
+1. **Latest Solutions:** [02-Problem-Solutions/README.md](02-Problem-Solutions/README.md)
+2. **Technical Details:** [02-Problem-Solutions/README.md](02-Problem-Solutions/README.md)
+
+### Complete File List
+
+#### 01-Project-Status/
+- **README.md** ⭐ **LATEST** - Complete project status and province mapping summary
+
+#### 02-Problem-Solutions/
+- **README.md** ⭐ **LATEST** - All problem solutions and technical details
+
+#### 03-Guides/
+- **README.md** ⭐ **LATEST** - All user guides and how-to documentation
+
+#### 04-Scraper-Documentation/
+- **README.md** ⭐ **RECOMMENDED** - Complete scraper documentation and workflow
+
+### File Descriptions
+
+#### Project Status Files
+| File | Purpose | When to Use |
+|------|---------|-------------|
+| 01-Project-Status/README.md | Complete project status | Check current project state |
+
+#### Problem Solutions
+| File | Purpose | When to Use |
+|------|---------|-------------|
+| 02-Problem-Solutions/README.md | All solutions | Troubleshooting current issues |
+
+#### Guides
+| File | Purpose | When to Use |
+|------|---------|-------------|
+| 03-Guides/README.md | All guides | Need instructions or how-to |
+
+#### Scraper Documentation
+| File | Purpose | When to Use |
+|------|---------|-------------|
+| 04-Scraper-Documentation/README.md | Complete workflow | Running full scrape |
+
+## ⚠️ Important Notes
+
+1. **Always check README.md files first** - they contain the latest consolidated information
+2. **Files in 05-Archives/** are kept for reference but may be outdated
+3. **README.md** in each folder provides comprehensive guide for that category
+4. **Main README.md** in project root provides project overview
+
+## 🔄 Update History
+
+- **January 2025** - Documentation consolidated into standardized README.md files
+- **December 18, 2024** - All 13 provinces mapping completed
+- **December 18, 2024** - Documentation structure created
 
 ---
 
-**Last Updated:** December 18, 2024
+**Last Updated:** January 2025
 

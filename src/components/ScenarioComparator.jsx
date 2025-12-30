@@ -93,7 +93,7 @@ const ScenarioComparator = ({ scenarioA, scenarioB, onClose }) => {
             {analysisMethod === 'ai' ? (
               <>
                 <span className="badge-icon">🤖</span>
-                <span>AI 精确分析 (Gemini)</span>
+                <span>AI 精确分析 (ChatAnywhere)</span>
               </>
             ) : (
               <>

@@ -1,11 +1,44 @@
-import { GoogleGenerativeAI } from '@google/generative-ai'
-
 /**
  * AI Analysis Service for Admission Scenario Comparison
- * Uses Google Gemini API to provide intelligent analysis of scenario differences
+ * Uses ChatAnywhere API (OpenAI Standard Protocol) to provide intelligent analysis of scenario differences
+ * 
+ * Features:
+ * - Automatic fallback to estimated analysis if AI fails
+ * - Rate limit handling (200 requests/day for free tier)
+ * - Direct connection optimized for China/overseas without VPN
  */
 
-const API_KEY = import.meta.env.VITE_GEMINI_API_KEY
+const API_KEY = import.meta.env.VITE_CHATANYWHERE_API_KEY
+const MODEL = 'gpt-4o-mini' // 200 requests/day limit, use deepseek-v3 as fallback if needed
+
+// Determine API URL based on environment
+// In development, use Vite proxy to avoid CORS issues
+// In production, use direct URL (backend proxy recommended for security)
+const getApiUrl = () => {
+  // In development, ALWAYS use proxy (ignore BASE_URL env var to prevent CORS)
+  if (import.meta.env.DEV || import.meta.env.MODE === 'development') {
+    const proxyUrl = '/api-proxy/v1/chat/completions'
+    console.log('🔧 Development mode: Using Vite proxy:', proxyUrl)
+    return proxyUrl
+  }
+  
+  // In production, use BASE_URL if provided, otherwise default
+  const baseUrl = import.meta.env.VITE_CHATANYWHERE_BASE_URL || 'https://api.chatanywhere.org'
+  
+  // Ensure full path is included
+  let finalUrl = baseUrl
+  if (!finalUrl.includes('/v1/chat/completions')) {
+    // Remove trailing slash if present
+    finalUrl = finalUrl.replace(/\/$/, '')
+    // Append path if missing
+    finalUrl = finalUrl + '/v1/chat/completions'
+  }
+  
+  console.log('🔧 Production mode: Using URL:', finalUrl)
+  return finalUrl
+}
+
+const BASE_URL = getApiUrl()
 
 /**
  * Format scenario data for AI analysis
@@ -51,14 +84,11 @@ function formatScenarioForAI(scenario, label) {
 export async function getAIComparison(scenarioA, scenarioB) {
   // Check if API key is available
   if (!API_KEY) {
-    console.warn('Gemini API key not found, falling back to estimated analysis')
+    console.warn('ChatAnywhere API key not found, falling back to estimated analysis')
     return null
   }
 
   try {
-    const genAI = new GoogleGenerativeAI(API_KEY)
-    const model = genAI.getGenerativeModel({ model: 'gemini-1.5-pro' })
-
     // Format scenarios for AI
     const scenarioAFormatted = formatScenarioForAI(scenarioA, 'Scenario A')
     const scenarioBFormatted = formatScenarioForAI(scenarioB, 'Scenario B')
@@ -211,14 +241,72 @@ ${JSON.stringify(inputDiffs, null, 2)}
 
 **重要：只返回 JSON，不要包含任何其他文字或 markdown 格式。**`
 
-    // Call Gemini API
-    const result = await model.generateContent(prompt)
-    const response = await result.response
-    const text = response.text()
+    // Call ChatAnywhere API
+    console.log(`🤖 Calling ChatAnywhere API with model: ${MODEL}`)
+    console.log(`   URL: ${BASE_URL}`)
+    console.log(`   Environment: ${import.meta.env.MODE}`)
+    console.log(`   Using proxy: ${BASE_URL.startsWith('/api-proxy')}`)
+    
+    const response = await fetch(BASE_URL, {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${API_KEY}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        model: MODEL,
+        messages: [
+          {
+            role: 'system',
+            content: '你是一名专业的 UBC (University of British Columbia) 招生顾问，拥有丰富的录取评估经验。请以 JSON 格式返回分析结果，只返回 JSON，不要包含任何其他文字或 markdown 格式。'
+          },
+          {
+            role: 'user',
+            content: prompt
+          }
+        ],
+        response_format: { type: 'json_object' }
+      })
+    })
 
+    if (!response.ok) {
+      const errorText = await response.text()
+      
+      if (response.status === 404) {
+        console.error('❌ Endpoint not found (404)')
+        console.error(`   URL called: ${BASE_URL}`)
+        console.error('   Check that the URL includes /v1/chat/completions')
+        if (import.meta.env.DEV) {
+          console.error('   Development: Should use /api-proxy/v1/chat/completions')
+          console.error('   Make sure Vite dev server is running and proxy is configured')
+        }
+      } else if (response.status === 429) {
+        console.error('❌ Rate limit exceeded (429)')
+        console.error('   ChatAnywhere free tier has a 200 requests/day limit.')
+        console.error('   Please wait before making another request or check status at status.chatanywhere.org')
+      } else if (response.status === 401 || response.status === 403) {
+        console.error(`❌ API key authentication failed (${response.status})`)
+        console.error('   Please check your ChatAnywhere API key.')
+      } else {
+        console.error(`❌ API request failed (${response.status}):`, errorText)
+      }
+      
+      return null
+    }
+
+    const data = await response.json()
+    
+    // Parse response from OpenAI-compatible format
+    if (!data.choices || !data.choices[0] || !data.choices[0].message) {
+      console.warn('⚠️ Invalid API response format')
+      return null
+    }
+
+    const content = data.choices[0].message.content
+    
     // Parse JSON response
     // Remove markdown code blocks if present
-    let jsonText = text.trim()
+    let jsonText = content.trim()
     if (jsonText.startsWith('```json')) {
       jsonText = jsonText.replace(/```json\n?/g, '').replace(/```\n?/g, '')
     } else if (jsonText.startsWith('```')) {
@@ -229,6 +317,7 @@ ${JSON.stringify(inputDiffs, null, 2)}
 
     // Validate and format the response
     if (aiResult.primaryDriver && aiResult.insights) {
+      console.log('✅ AI analysis completed successfully')
       return {
         primaryDriver: {
           field: aiResult.primaryDriver.field || 'unknown',
@@ -239,13 +328,29 @@ ${JSON.stringify(inputDiffs, null, 2)}
           reasoning: aiResult.reasoning || ''
         },
         insights: Array.isArray(aiResult.insights) ? aiResult.insights : [],
-        method: 'ai'
+        method: 'ai',
+        model: MODEL
       }
     }
 
+    console.warn('⚠️ AI returned invalid response format')
     return null
   } catch (error) {
-    console.error('AI Analysis failed:', error)
+    // Provide detailed error information
+    if (error instanceof SyntaxError) {
+      console.error('❌ Failed to parse JSON response:', error.message)
+    } else if (error.message?.includes('fetch')) {
+      console.error('❌ Network error:', error.message)
+      if (import.meta.env.DEV) {
+        console.error('   Development: Using Vite proxy. Check that dev server is running.')
+      } else {
+        console.error('   Production: Check your internet connection or API endpoint availability.')
+      }
+      console.error('   Status: status.chatanywhere.org')
+    } else {
+      console.error('❌ AI Analysis failed:', error.message || error)
+    }
+    
     // Return null to trigger fallback to estimated analysis
     return null
   }
@@ -253,8 +358,8 @@ ${JSON.stringify(inputDiffs, null, 2)}
 
 /**
  * Check if AI service is available
+ * Note: This only checks for API key presence, not actual API availability
  */
 export function isAIAvailable() {
   return !!API_KEY
 }
-
