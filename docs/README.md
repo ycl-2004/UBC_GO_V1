@@ -13,14 +13,21 @@ This folder contains additional project documentation and planning materials for
 | `planning/goal_tmr.txt` | Tomorrow's goals and tasks |
 | `planning/Goal.txt` | Overall project goals and objectives |
 
+### Technical Documentation
+
+| File | Purpose |
+|------|---------|
+| `CALCULATOR_OPERATION.md` | Complete technical details of how the admission probability calculator operates |
+
 ## 📁 Structure
 
 ```
 docs/
-├── planning/          # Planning documents and goals
-│   ├── goal_tmr.txt   # Tomorrow's goals
-│   └── Goal.txt       # Overall project goals
-└── README.md          # This file
+├── planning/                    # Planning documents and goals
+│   ├── goal_tmr.txt            # Tomorrow's goals
+│   └── Goal.txt                # Overall project goals
+├── CALCULATOR_OPERATION.md     # Calculator technical documentation
+└── README.md                    # This file
 ```
 
 ## 📚 Main Documentation
