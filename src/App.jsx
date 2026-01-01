@@ -1,6 +1,7 @@
 import React from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { AuthProvider } from './context/AuthContext'
+import ScrollToTop from './components/ScrollToTop'
 import HomePage from './pages/HomePage'
 import ApplyInfoPage from './pages/ApplyInfoPage'
 import PlannerPage from './pages/PlannerPage'
@@ -17,6 +18,7 @@ function App() {
   return (
     <AuthProvider>
       <Router basename="/UBC_GO_V1">
+        <ScrollToTop />
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/ApplyInfo" element={<ApplyInfoPage />} />
