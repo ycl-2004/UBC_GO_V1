@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import Navigation from "../components/Navigation";
 import StepByStepRequirements from "../components/StepByStepRequirements";
 import ScenarioComparator from "../components/ScenarioComparator";
+import MultiSelect from "../components/MultiSelect";
 import { useAdmissionScenarios } from "../hooks/useAdmissionScenarios";
 import "./ApplyInfoPage.css";
 import {
@@ -101,8 +102,8 @@ const ApplyInfoPage = () => {
     // New: Role Depth
     roleDepth: "member", // "founder", "executive", "member"
     
-    // New: AP Exams Count (number of AP exams with score of 5)
-    apExamsCount: 0, // Number of AP exams with score of 5 in relevant subjects
+    // New: AP Exams (array of AP exam names with score of 5)
+    apExams: [], // Array of AP exam names with score of 5, e.g., ['AP Calculus BC', 'AP Chemistry']
     
     // Course completion tracking with status
     courseStatus: {
@@ -244,7 +245,7 @@ const ApplyInfoPage = () => {
     
     // AP Rigor Bonus: For each AP exam with score of 5, add 0.75% to academicScore
     // This allows slight "rigor overage" up to 100.5% to recognize university-level achievement
-    const apExamsCount = parseInt(formData.apExamsCount) || 0;
+    const apExamsCount = (formData.apExams || []).length;
     const apRigorBonus = apExamsCount * 0.75; // 0.75% per AP score of 5
     academicScore = Math.min(100.5, academicScore + apRigorBonus); // Cap at 100.5%
     
@@ -280,6 +281,11 @@ const ApplyInfoPage = () => {
   };
   
   // Helper function: Linear-Sigmoid Hybrid for probability calculation
+  // This function ensures granular probability changes while maintaining a realistic feel.
+  // Safety Limit: Maximum probability change per GPA point is capped at 2% through:
+  //   - Narrower scale (scale × 0.7) for higher sensitivity in the target range
+  //   - Linear bonus (0.5% per point) for scores above target
+  //   - These mechanisms naturally keep changes under 2% per GPA point
   const calculateFinalProbability = (finalScore, target, scale, capMaxProb) => {
     // 1. Base probability with narrower scale (0.7 multiplier) for higher sensitivity
     const adjustedScale = scale * 0.7;
@@ -291,17 +297,18 @@ const ApplyInfoPage = () => {
       rawProb += bonus;
     }
     
-    // 3. Safety check: The combination of 0.7 scale and 0.5 linear bonus typically keeps
-    // probability changes per GPA point under 2%, which maintains a realistic feel
+    // 3. Safety Limit: Maximum probability change per GPA point ≤ 2%
+    // The combination of 0.7 scale multiplier and 0.5% linear bonus ensures
+    // that even at the steepest part of the curve, changes remain realistic
     
     return Math.min(rawProb, capMaxProb);
   };
 
   // LAYER 3: Probability Calculation - Enhanced with academic primacy and Linear-Sigmoid Hybrid
-  const calculateProbability = (scores, gateCheck, admissionData, applicantType, coreSubjectScores = {}, apExamsCount = 0) => {
+  const calculateProbability = (scores, gateCheck, admissionData, applicantType, coreSubjectScores = {}, apExams = []) => {
     const weights = admissionData.weights || {
-      academic: admissionData.gpaWeight || 0.8,
-      profile: admissionData.personalProfileWeight || 0.2,
+      academic: admissionData.gpaWeight || 0.75,
+      profile: admissionData.personalProfileWeight || 0.25,
       supplement: admissionData.supplementWeight || 0.0
     };
     
@@ -374,16 +381,18 @@ const ApplyInfoPage = () => {
       'English12': ['AP English Language and Composition', 'AP English Literature and Composition']
     };
     
-    // Check if student has AP exams (simplified: if apExamsCount > 0, insurance may apply)
-    const hasAPInsurance = apExamsCount > 0;
-    
+    // Check if student has AP 5 in the SPECIFIC weak subject (subject-specific matching)
     for (const subject of coreSubjects) {
       const score = parseFloat(coreSubjectScores[subject]);
       if (score && score < coreMinScore) {
         hasWeakCoreSubject = true;
-        // Check if AP insurance applies for this subject
-        if (hasAPInsurance && apSubjectMap[subject]) {
-          insuranceApplies = true; // Student has AP 5 in relevant area
+        // Check if AP insurance applies for THIS specific subject
+        const relevantAPs = apSubjectMap[subject] || [];
+        const hasMatchingAP = relevantAPs.some(apName => 
+          (apExams || []).includes(apName)
+        );
+        if (hasMatchingAP) {
+          insuranceApplies = true; // Student has AP 5 in the exact weak subject
         }
         break;
       }
@@ -583,7 +592,7 @@ const ApplyInfoPage = () => {
       admissionData, 
       formData.applicantType,
       formData.coreSubjectScores,
-      parseInt(formData.apExamsCount) || 0
+      formData.apExams || []
     );
     
     // LAYER 4: Explanation Generation
@@ -591,8 +600,8 @@ const ApplyInfoPage = () => {
     
     // Get weights for display
     const weights = admissionData.weights || {
-      academic: admissionData.gpaWeight || 0.8,
-      profile: admissionData.personalProfileWeight || 0.2,
+      academic: admissionData.gpaWeight || 0.75,
+      profile: admissionData.personalProfileWeight || 0.25,
       supplement: admissionData.supplementWeight || 0.0
     };
     
@@ -1169,24 +1178,27 @@ const ApplyInfoPage = () => {
                   </select>
                 </div>
 
-                <div className="form-group">
-                  <label htmlFor="apExamsCount">
-                    <span className="input-icon">🎓</span>
-                    Number of AP Exams with Score of 5
-                  </label>
-                  <input
-                    type="number"
-                    id="apExamsCount"
-                    name="apExamsCount"
-                    value={formData.apExamsCount}
-                    onChange={handleInputChange}
-                    placeholder="e.g., 3"
-                    min="0"
-                    max="10"
-                    step="1"
+                <div className="form-group" style={{ marginTop: '1rem' }}>
+                  <MultiSelect
+                    options={[
+                      'AP Calculus AB',
+                      'AP Calculus BC',
+                      'AP Statistics',
+                      'AP Physics 1',
+                      'AP Physics 2',
+                      'AP Physics C: Mechanics',
+                      'AP Physics C: Electricity and Magnetism',
+                      'AP Chemistry',
+                      'AP Biology',
+                      'AP English Language and Composition',
+                      'AP English Literature and Composition'
+                    ]}
+                    value={formData.apExams || []}
+                    onChange={(apExams) => setFormData(prev => ({ ...prev, apExams }))}
+                    placeholder="Select AP exams with score of 5..."
                   />
                   <small style={{ display: 'block', marginTop: '0.5rem', color: '#666', fontSize: '0.875rem' }}>
-                    Each AP exam with score of 5 adds 0.75% to your academic score and can reduce core subject penalties.
+                    Each selected AP score of 5 adds 0.75% to your academic score and can reduce core subject penalties.
                   </small>
                 </div>
                 
@@ -1575,14 +1587,14 @@ const ApplyInfoPage = () => {
                         <span className="score-label">Academic Score:</span>
                         <span className="score-value">{realTimeResult.academicScore}/100</span>
                         <span className="score-weight">
-                          ({Math.round((realTimeResult.admissionData.weights?.academic || 0.8) * 100)}%)
+                          ({Math.round((realTimeResult.admissionData.weights?.academic || 0.75) * 100)}%)
                         </span>
                       </div>
                       <div className="score-item">
                         <span className="score-label">Personal Profile:</span>
                         <span className="score-value">{realTimeResult.profileScore}/100</span>
                         <span className="score-weight">
-                          ({Math.round((realTimeResult.admissionData.weights?.profile || 0.2) * 100)}%)
+                          ({Math.round((realTimeResult.admissionData.weights?.profile || 0.25) * 100)}%)
                         </span>
                       </div>
                       {realTimeResult.supplementScore !== null && (

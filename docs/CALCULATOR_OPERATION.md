@@ -170,18 +170,18 @@ if (scores.academicScore < academicThreshold) {
 }
 ```
 
-**Example**: If default weights are 0.8/0.2 and academic score < 85:
-- Profile weight: 0.2 × 0.5 = 0.1
-- Weight difference: 0.2 - 0.1 = 0.1
-- Academic weight: 0.8 + 0.1 = 0.9
-- Final weights: 0.9 academic, 0.1 profile (sums to 1.0)
+**Example**: If default weights are 0.75/0.25 and academic score < 85:
+- Profile weight: 0.25 × 0.5 = 0.125
+- Weight difference: 0.25 - 0.125 = 0.125
+- Academic weight: 0.75 + 0.125 = 0.875
+- Final weights: 0.875 academic, 0.125 profile (sums to 1.0)
 
 ### **3.2 Weighted Final Score**
 
 ```javascript
 weights = {
-  academic: 0.8 (default, program-specific),
-  profile: 0.2 (default, program-specific),
+  academic: 0.75 (default, program-specific),
+  profile: 0.25 (default, program-specific),
   supplement: 0.0 (only if required)
 }
 
@@ -470,8 +470,8 @@ Each program has custom settings in `src/data/facultiesData.js`:
 
 - `medianGPA`: Median GPA of admitted students (2025/2026 statistics)
 - `competitivenessLevel`: Competition level (1-5), used by ParameterCalculator
-- `gpaWeight`: Academic weight (default: 0.8, updated from 0.7)
-- `personalProfileWeight`: Profile weight (default: 0.2, updated from 0.3)
+- `gpaWeight`: Academic weight (default: 0.75, updated from 0.8)
+- `personalProfileWeight`: Profile weight (default: 0.25, updated from 0.2)
 - `supplementWeight`: Supplement weight (if required)
 - `targetScore`: **Automatically calculated** by ParameterCalculator from medianGPA and competitivenessLevel
 - `scale`: **Automatically calculated** by ParameterCalculator (hard-capped at 6.0 for Level 5)
@@ -484,7 +484,7 @@ Each program has custom settings in `src/data/facultiesData.js`:
 - **Engineering**: medianGPA 97%, competitivenessLevel 5 → targetScore ≈ 94.5, scale = 6.0
 - **Science**: medianGPA 96%, competitivenessLevel 5 → targetScore ≈ 93.5, scale = 6.0
 - **Commerce (Sauder)**: medianGPA 95%, competitivenessLevel 5 → targetScore ≈ 92.5, scale = 6.0
-  - **Special**: Maintains custom `gpaWeight: 0.55` (not 0.8) due to high Personal Profile importance
+  - **Special**: Maintains custom `gpaWeight: 0.55` (not 0.75) due to high Personal Profile importance
 - **Arts**: medianGPA 92%, competitivenessLevel 4 → targetScore ≈ 89, scale ≈ 6.1
 
 **Note**: Some programs (Fine Arts, Music, Design, Commerce) have custom weights that differ from defaults, reflecting their unique evaluation criteria.
@@ -647,24 +647,24 @@ This is naturally maintained by the 0.7 scale multiplier and 0.5 linear bonus co
 4. **Academic Primacy Check:**
    - Academic Score: 95 ≥ 85 ✓
    - No weight adjustment needed
-   - **Weights: 0.8 academic, 0.2 profile**
+   - **Weights: 0.75 academic, 0.25 profile**
 
 5. **Final Score:**
-   - (95 × 0.8) + (86.1 × 0.2) = 76 + 17.2 = **93.2**
+   - (95 × 0.75) + (86.1 × 0.25) = 71.25 + 21.525 = **92.775**
 
 6. **Probability (Linear-Sigmoid Hybrid):**
-   - Base: sigmoid(93.2, 89, 6.1×0.7) = sigmoid(93.2, 89, 4.27) = 0.84
-   - Since 93.2 > 89: Linear bonus = (93.2 - 89) × 0.5 = 2.1%
-   - Raw probability: 84% + 2.1% = 86.1%
+   - Base: sigmoid(92.775, 89, 6.1×0.7) = sigmoid(92.775, 89, 4.27) = 0.82
+   - Since 92.775 > 89: Linear bonus = (92.775 - 89) × 0.5 = 1.89%
+   - Raw probability: 82% + 1.89% = 83.89%
 
 7. **Penalty Factors:**
    - High-End Dampening: 95 ≥ 93 ✓ (no penalty)
    - Core Subject Dampening: English12 = 88 ≥ 80 ✓ (no penalty)
    - International Penalty: N/A (domestic)
-   - **Adjusted: 86.1%**
+   - **Adjusted: 83.89%**
 
 8. **Category:**
-   - 86% ≥ 70 → **Safety** (High chance)
+   - 84% ≥ 70 → **Safety** (High chance)
 
 ### Example 2: Engineering Program (2025/2026 Statistics) - 90% GPA
 
@@ -710,10 +710,10 @@ This is naturally maintained by the 0.7 scale multiplier and 0.5 linear bonus co
 **Calculation:**
 1. **Academic Primacy Check:**
    - Academic Score: 82 < 85 ✗
-   - Original weights: 0.8/0.2
-   - Reduced profile: 0.2 × 0.5 = 0.1
-   - Weight difference: 0.2 - 0.1 = 0.1
-   - **Adjusted weights: 0.9 academic, 0.1 profile**
+   - Original weights: 0.75/0.25
+   - Reduced profile: 0.25 × 0.5 = 0.125
+   - Weight difference: 0.25 - 0.125 = 0.125
+   - **Adjusted weights: 0.875 academic, 0.125 profile**
 
 2. **Final Score:**
    - (82 × 0.9) + (85 × 0.1) = 73.8 + 8.5 = **82.3**
@@ -731,7 +731,7 @@ This is naturally maintained by the 0.7 scale multiplier and 0.5 linear bonus co
 ## **Notes**
 
 - All calculations are performed in real-time as user inputs change
-- The model prioritizes academic scores (default 0.8/0.2 weights)
+- The model prioritizes academic scores (default 0.75/0.25 weights)
 - **ParameterCalculator**: Automatically derives targetScore and scale from medianGPA and competitivenessLevel
 - **2025/2026 Statistics**: Updated with official UBC Vancouver admission data (Engineering 97%, Science 96%, Arts 92%)
 - **Academic Primacy**: Academic scores below 85% reduce profile impact by 50%

@@ -1,0 +1,74 @@
+/* Collapsible Section Component */
+.collapsible-section {
+  background: white;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+  border: 1px solid #e0e0e0;
+}
+
+.collapsible-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.25rem;
+  cursor: pointer;
+  background: white;
+  border: none;
+  transition: background-color 0.2s ease;
+  user-select: none;
+}
+
+.collapsible-header:hover {
+  background: #f8f9fa;
+}
+
+.collapsible-header:focus {
+  outline: 2px solid #002145;
+  outline-offset: -2px;
+}
+
+.collapsible-title {
+  color: #002145;
+  font-size: 1rem;
+  margin: 0;
+  font-weight: 600;
+}
+
+.chevron-icon {
+  font-size: 0.875rem;
+  color: #002145;
+  transition: transform 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  line-height: 1;
+}
+
+.chevron-icon.open {
+  transform: rotate(0deg);
+}
+
+.chevron-icon:not(.open) {
+  transform: rotate(-90deg);
+}
+
+.collapsible-content {
+  padding: 1rem 1.25rem;
+  animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
