@@ -41,6 +41,25 @@ const getApiUrl = () => {
 const BASE_URL = getApiUrl()
 
 /**
+ * Validate URL before making API request
+ * @param {string} url - URL to validate
+ * @returns {boolean} - True if URL is valid
+ */
+const isValidUrl = (url) => {
+  try {
+    // For relative URLs (proxy), check if it starts with /api-proxy
+    if (url.startsWith('/')) {
+      return url.startsWith('/api-proxy') || url.startsWith('/v1/chat/completions')
+    }
+    // For absolute URLs, validate the URL structure
+    const urlObj = new URL(url)
+    return urlObj.protocol === 'https:' && urlObj.hostname.includes('chatanywhere.org')
+  } catch {
+    return false
+  }
+}
+
+/**
  * Format scenario data for AI analysis
  */
 function formatScenarioForAI(scenario, label) {
@@ -241,6 +260,12 @@ ${JSON.stringify(inputDiffs, null, 2)}
 
 **重要：只返回 JSON，不要包含任何其他文字或 markdown 格式。**`
 
+    // Validate URL before making request
+    if (!isValidUrl(BASE_URL)) {
+      console.error('❌ Invalid API URL:', BASE_URL)
+      throw new Error('Invalid API URL. Please check your configuration.')
+    }
+    
     // Call ChatAnywhere API
     console.log(`🤖 Calling ChatAnywhere API with model: ${MODEL}`)
     console.log(`   URL: ${BASE_URL}`)

@@ -101,6 +101,9 @@ const ApplyInfoPage = () => {
     // New: Role Depth
     roleDepth: "member", // "founder", "executive", "member"
     
+    // New: AP Exams Count (number of AP exams with score of 5)
+    apExamsCount: 0, // Number of AP exams with score of 5 in relevant subjects
+    
     // Course completion tracking with status
     courseStatus: {
       Math12: "completed",     // "completed", "inProgress", "notTaken"
@@ -239,6 +242,12 @@ const ApplyInfoPage = () => {
     }
     academicScore = Math.min(100, Math.max(0, academicScore + coreBoost));
     
+    // AP Rigor Bonus: For each AP exam with score of 5, add 0.75% to academicScore
+    // This allows slight "rigor overage" up to 100.5% to recognize university-level achievement
+    const apExamsCount = parseInt(formData.apExamsCount) || 0;
+    const apRigorBonus = apExamsCount * 0.75; // 0.75% per AP score of 5
+    academicScore = Math.min(100.5, academicScore + apRigorBonus); // Cap at 100.5%
+    
     // Profile Score (0-100)
     const ec = parseInt(formData.extracurriculars) || 3;
     const leadership = parseInt(formData.leadership) || 3;
@@ -270,13 +279,51 @@ const ApplyInfoPage = () => {
     };
   };
   
-  // LAYER 3: Probability Calculation - Enhanced with cap and range
-  const calculateProbability = (scores, gateCheck, admissionData, applicantType) => {
+  // Helper function: Linear-Sigmoid Hybrid for probability calculation
+  const calculateFinalProbability = (finalScore, target, scale, capMaxProb) => {
+    // 1. Base probability with narrower scale (0.7 multiplier) for higher sensitivity
+    const adjustedScale = scale * 0.7;
+    let rawProb = 1 / (1 + Math.exp(-(finalScore - target) / adjustedScale)) * 100;
+    
+    // 2. Linear polish for high scores (ensures 95 vs 97 vs 100 feels different)
+    if (finalScore > target) {
+      const bonus = (finalScore - target) * 0.5; // Every point above target adds 0.5%
+      rawProb += bonus;
+    }
+    
+    // 3. Safety check: The combination of 0.7 scale and 0.5 linear bonus typically keeps
+    // probability changes per GPA point under 2%, which maintains a realistic feel
+    
+    return Math.min(rawProb, capMaxProb);
+  };
+
+  // LAYER 3: Probability Calculation - Enhanced with academic primacy and Linear-Sigmoid Hybrid
+  const calculateProbability = (scores, gateCheck, admissionData, applicantType, coreSubjectScores = {}, apExamsCount = 0) => {
     const weights = admissionData.weights || {
-      academic: admissionData.gpaWeight || 0.7,
-      profile: admissionData.personalProfileWeight || 0.3,
+      academic: admissionData.gpaWeight || 0.8,
+      profile: admissionData.personalProfileWeight || 0.2,
       supplement: admissionData.supplementWeight || 0.0
     };
+    
+    // Academic Primacy: If academic score is below threshold, reduce profile impact
+    const academicThreshold = 85;
+    if (scores.academicScore < academicThreshold) {
+      // Reduce profile impact by 50%
+      const reducedProfileWeight = weights.profile * 0.5;
+      const weightDifference = weights.profile - reducedProfileWeight;
+      
+      // Re-normalize: Move the difference back to academic weight
+      weights.profile = reducedProfileWeight;
+      weights.academic = weights.academic + weightDifference;
+      
+      // Ensure weights still sum to 1.0 (accounting for supplement weight)
+      const totalWeight = weights.academic + weights.profile + weights.supplement;
+      if (Math.abs(totalWeight - 1.0) > 0.001) {
+        const adjustment = (1.0 - totalWeight) / 2;
+        weights.academic += adjustment;
+        weights.profile += adjustment;
+      }
+    }
     
     // Calculate weighted final score
     let finalScore = 
@@ -296,11 +343,60 @@ const ApplyInfoPage = () => {
       capMaxProb -= intlAdjust.capReduction;
     }
     
-    // Calculate raw probability using sigmoid
-    const rawProbability = sigmoid(finalScore, target, scale) * 100;
+    // Calculate raw probability using Linear-Sigmoid Hybrid
+    let rawProbability = calculateFinalProbability(finalScore, target, scale, capMaxProb);
     
-    // Apply cap
-    const cappedProbability = Math.min(rawProbability, capMaxProb);
+    // Apply penalty factors
+    let adjustedProbability = rawProbability;
+    
+    // 1. High-End Dampening: If academic score < 93, reduce probability by 15%
+    // This prevents scores below 93 from reaching "Safety" category too easily
+    if (scores.academicScore < 93) {
+      adjustedProbability = rawProbability * 0.85;
+    }
+    
+    // 2. Core Subject Dampening with AP Insurance: Check if any core subject is below minimum
+    // Penalize students with weak core subjects even if overall GPA is high
+    // However, if student has AP exam with score of 5 in relevant subject, reduce penalty by 50%
+    const gates = admissionData.gates || {};
+    const coreSubjects = gates.coreSubjects || [];
+    const coreMinScore = gates.coreMinScore || 85;
+    let hasWeakCoreSubject = false;
+    let insuranceApplies = false;
+    
+    // AP subject mapping: Maps core subjects to relevant AP exams
+    // If student has AP 5 in any of these subjects, insurance applies
+    const apSubjectMap = {
+      'Math12': ['AP Calculus AB', 'AP Calculus BC', 'AP Statistics'],
+      'Physics12': ['AP Physics 1', 'AP Physics 2', 'AP Physics C: Mechanics', 'AP Physics C: Electricity and Magnetism'],
+      'Chemistry12': ['AP Chemistry'],
+      'Biology12': ['AP Biology'],
+      'English12': ['AP English Language and Composition', 'AP English Literature and Composition']
+    };
+    
+    // Check if student has AP exams (simplified: if apExamsCount > 0, insurance may apply)
+    const hasAPInsurance = apExamsCount > 0;
+    
+    for (const subject of coreSubjects) {
+      const score = parseFloat(coreSubjectScores[subject]);
+      if (score && score < coreMinScore) {
+        hasWeakCoreSubject = true;
+        // Check if AP insurance applies for this subject
+        if (hasAPInsurance && apSubjectMap[subject]) {
+          insuranceApplies = true; // Student has AP 5 in relevant area
+        }
+        break;
+      }
+    }
+    
+    // Apply penalty: 30% reduction normally, but only 15% reduction if AP insurance applies (50% penalty reduction)
+    if (hasWeakCoreSubject) {
+      const penaltyMultiplier = insuranceApplies ? 0.85 : 0.7; // 50% reduction in penalty (from 30% to 15%)
+      adjustedProbability = adjustedProbability * penaltyMultiplier;
+    }
+    
+    // Apply cap (already handled in calculateFinalProbability, but keep for safety)
+    const cappedProbability = Math.min(adjustedProbability, capMaxProb);
     
     // Calculate confidence interval based on data completeness
     let confidenceWidth = 8;
@@ -404,7 +500,7 @@ const ApplyInfoPage = () => {
       });
     }
     
-    if (weights.profile > 0.35 && scores.profileScore < 80) {
+    if (weights.profile > 0.25 && scores.profileScore < 80) {
       explanations.push({
         type: "score",
         severity: "info",
@@ -421,7 +517,7 @@ const ApplyInfoPage = () => {
     if (scores.academicScore < 90 && weights.academic > 0.5) {
       actions.push("Improve GPA to 90+");
     }
-    if (scores.profileScore < 85 && weights.profile > 0.3) {
+    if (scores.profileScore < 85 && weights.profile > 0.2) {
       actions.push("Increase depth of relevant extracurricular activities");
     }
     if (gateCheck.supplementRequired && scores.supplementScore < 70) {
@@ -485,7 +581,9 @@ const ApplyInfoPage = () => {
       scores, 
       gateCheck, 
       admissionData, 
-      formData.applicantType
+      formData.applicantType,
+      formData.coreSubjectScores,
+      parseInt(formData.apExamsCount) || 0
     );
     
     // LAYER 4: Explanation Generation
@@ -493,8 +591,8 @@ const ApplyInfoPage = () => {
     
     // Get weights for display
     const weights = admissionData.weights || {
-      academic: admissionData.gpaWeight || 0.7,
-      profile: admissionData.personalProfileWeight || 0.3,
+      academic: admissionData.gpaWeight || 0.8,
+      profile: admissionData.personalProfileWeight || 0.2,
       supplement: admissionData.supplementWeight || 0.0
     };
     
@@ -1070,6 +1168,27 @@ const ApplyInfoPage = () => {
                     <option value="ib">IB (International Baccalaureate)</option>
                   </select>
                 </div>
+
+                <div className="form-group">
+                  <label htmlFor="apExamsCount">
+                    <span className="input-icon">🎓</span>
+                    Number of AP Exams with Score of 5
+                  </label>
+                  <input
+                    type="number"
+                    id="apExamsCount"
+                    name="apExamsCount"
+                    value={formData.apExamsCount}
+                    onChange={handleInputChange}
+                    placeholder="e.g., 3"
+                    min="0"
+                    max="10"
+                    step="1"
+                  />
+                  <small style={{ display: 'block', marginTop: '0.5rem', color: '#666', fontSize: '0.875rem' }}>
+                    Each AP exam with score of 5 adds 0.75% to your academic score and can reduce core subject penalties.
+                  </small>
+                </div>
                 
                 <div className="form-group">
                   <label htmlFor="applicantType">
@@ -1456,14 +1575,14 @@ const ApplyInfoPage = () => {
                         <span className="score-label">Academic Score:</span>
                         <span className="score-value">{realTimeResult.academicScore}/100</span>
                         <span className="score-weight">
-                          ({Math.round((realTimeResult.admissionData.weights?.academic || 0.7) * 100)}%)
+                          ({Math.round((realTimeResult.admissionData.weights?.academic || 0.8) * 100)}%)
                         </span>
                       </div>
                       <div className="score-item">
                         <span className="score-label">Personal Profile:</span>
                         <span className="score-value">{realTimeResult.profileScore}/100</span>
                         <span className="score-weight">
-                          ({Math.round((realTimeResult.admissionData.weights?.profile || 0.3) * 100)}%)
+                          ({Math.round((realTimeResult.admissionData.weights?.profile || 0.2) * 100)}%)
                         </span>
                       </div>
                       {realTimeResult.supplementScore !== null && (

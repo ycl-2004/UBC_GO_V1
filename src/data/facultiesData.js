@@ -1,6 +1,8 @@
 // Multi-faculty data structure
 // This will be populated from scraped data or can be manually maintained
 
+import ParameterCalculator from '../utils/ParameterCalculator';
+
 export const facultyRequirements = {
   arts: {
     faculty: "Faculty of Arts",
@@ -126,8 +128,8 @@ export const facultyAdmissionData = {
   // Engineering / Applied Science
   "Applied Science (Engineering)": {
     // Legacy fields (for backward compatibility)
-    gpaWeight: 0.65,
-    personalProfileWeight: 0.35,
+    gpaWeight: 0.8,
+    personalProfileWeight: 0.2,
     supplementWeight: 0.0,
     averageGPA: { high: 94, medium: 91 },
     courseDifficultyMultiplier: { regular: 1.0, ap: 1.05, ib: 1.07 },
@@ -137,6 +139,7 @@ export const facultyAdmissionData = {
     // New 4-Layer Model Parameters
     competitivenessLevel: 5, // C(1-5), 5 = most competitive
     academicThreshold: { min: 80, ideal: 90 },
+    medianGPA: 97, // 2025/2026 Vancouver Campus statistics
     
     // Gate Layer Configuration
     gates: {
@@ -154,14 +157,13 @@ export const facultyAdmissionData = {
     
     // Score Layer Configuration
     weights: {
-      academic: 0.65,
-      profile: 0.35,
+      academic: 0.8,
+      profile: 0.2,
       supplement: 0.0
     },
     
-    // Probability Layer Configuration
-    targetScore: 86,
-    scale: 6.5,
+    // Probability Layer Configuration (calculated from medianGPA using ParameterCalculator)
+    ...ParameterCalculator.getModelParams(97, 5), // medianGPA: 97, competitivenessLevel: 5
     capMaxProb: 88, // Maximum probability cap
     
     // Explanation Layer
@@ -184,8 +186,8 @@ export const facultyAdmissionData = {
   
   // Science
   "Science": {
-    gpaWeight: 0.70,
-    personalProfileWeight: 0.30,
+    gpaWeight: 0.8,
+    personalProfileWeight: 0.2,
     supplementWeight: 0.0,
     averageGPA: { high: 93, medium: 89 },
     courseDifficultyMultiplier: { regular: 1.0, ap: 1.05, ib: 1.07 },
@@ -204,9 +206,9 @@ export const facultyAdmissionData = {
       supplementType: null
     },
     
-    weights: { academic: 0.70, profile: 0.30, supplement: 0.0 },
-    targetScore: 84,
-    scale: 7.2,
+    weights: { academic: 0.8, profile: 0.2, supplement: 0.0 },
+    // Probability Layer Configuration (calculated from medianGPA using ParameterCalculator)
+    ...ParameterCalculator.getModelParams(96, 5), // medianGPA: 96, competitivenessLevel: 5
     capMaxProb: 90,
     
     core: "學術廣度",
@@ -220,7 +222,7 @@ export const facultyAdmissionData = {
       activityRelevance: { high: 2, medium: 1, low: -1 },
       depthMultiplier: { founder: 1.2, executive: 1.1, member: 1.0 }
     },
-    internationalAdjustment: { targetBonus: 1, capReduction: 2 }
+    internationalAdjustment: { targetBonus: 2, capReduction: 2 }
   },
 
   // Business / Sauder
@@ -245,9 +247,9 @@ export const facultyAdmissionData = {
       supplementType: null
     },
     
-    weights: { academic: 0.55, profile: 0.45, supplement: 0.0 },
-    targetScore: 87,
-    scale: 6.0,
+    weights: { academic: 0.55, profile: 0.45, supplement: 0.0 }, // Maintain custom weights for Sauder
+    // Probability Layer Configuration (calculated from medianGPA using ParameterCalculator)
+    ...ParameterCalculator.getModelParams(95, 5), // medianGPA: 95, competitivenessLevel: 5
     capMaxProb: 88,
     
     core: "領導力與潛力",
@@ -306,16 +308,17 @@ export const facultyAdmissionData = {
 
   // Arts & Economics
   "Arts": {
-    gpaWeight: 0.60,
-    personalProfileWeight: 0.40,
+    gpaWeight: 0.8,
+    personalProfileWeight: 0.2,
     supplementWeight: 0.0,
     averageGPA: { high: 88, medium: 84 },
     courseDifficultyMultiplier: { regular: 1.0, ap: 1.03, ib: 1.05 },
     competitiveness: "moderate",
     acceptanceRateRange: { low: 45, high: 60 },
     
-    competitivenessLevel: 3,
+    competitivenessLevel: 4, // Updated to 4 for 2025/2026
     academicThreshold: { min: 80, ideal: 85 },
+    medianGPA: 92, // 2025/2026 Vancouver Campus statistics
     
     gates: {
       requiredCourses: ["English12"],
@@ -326,9 +329,9 @@ export const facultyAdmissionData = {
       supplementType: null
     },
     
-    weights: { academic: 0.60, profile: 0.40, supplement: 0.0 },
-    targetScore: 81,
-    scale: 8.0,
+    weights: { academic: 0.8, profile: 0.2, supplement: 0.0 },
+    // Probability Layer Configuration (calculated from medianGPA using ParameterCalculator)
+    ...ParameterCalculator.getModelParams(92, 4), // medianGPA: 92, competitivenessLevel: 4
     capMaxProb: 92,
     
     core: "人文素養",
@@ -342,12 +345,12 @@ export const facultyAdmissionData = {
       activityRelevance: { high: 3, medium: 1, low: 0 },
       depthMultiplier: { founder: 1.15, executive: 1.1, member: 1.0 }
     },
-    internationalAdjustment: { targetBonus: 1, capReduction: 2 }
+    internationalAdjustment: { targetBonus: 2, capReduction: 2 }
   },
 
   "International Economics": {
-    gpaWeight: 0.70,
-    personalProfileWeight: 0.30,
+    gpaWeight: 0.8,
+    personalProfileWeight: 0.2,
     supplementWeight: 0.0,
     averageGPA: { high: 93, medium: 90 },
     courseDifficultyMultiplier: { regular: 1.0, ap: 1.05, ib: 1.07 },
@@ -356,6 +359,7 @@ export const facultyAdmissionData = {
     
     competitivenessLevel: 5,
     academicThreshold: { min: 90, ideal: 95 },
+    medianGPA: 94, // 2025/2026 statistics
     
     gates: {
       requiredCourses: ["Math12", "English12"],
@@ -366,9 +370,9 @@ export const facultyAdmissionData = {
       supplementType: null
     },
     
-    weights: { academic: 0.70, profile: 0.30, supplement: 0.0 },
-    targetScore: 88,
-    scale: 6.0,
+    weights: { academic: 0.8, profile: 0.2, supplement: 0.0 },
+    // Probability Layer Configuration (calculated from medianGPA using ParameterCalculator)
+    ...ParameterCalculator.getModelParams(94, 5), // medianGPA: 94, competitivenessLevel: 5
     capMaxProb: 85,
     
     core: "數據分析能力",
@@ -396,6 +400,7 @@ export const facultyAdmissionData = {
     
     competitivenessLevel: 4,
     academicThreshold: { min: 85, ideal: 90 },
+    medianGPA: 91, // 2025/2026 statistics
     
     gates: {
       requiredCourses: ["English12"],
@@ -407,8 +412,8 @@ export const facultyAdmissionData = {
     },
     
     weights: { academic: 0.55, profile: 0.45, supplement: 0.0 },
-    targetScore: 84,
-    scale: 6.8,
+    // Probability Layer Configuration (calculated from medianGPA using ParameterCalculator)
+    ...ParameterCalculator.getModelParams(91, 4), // medianGPA: 91, competitivenessLevel: 4
     capMaxProb: 90,
     
     core: "創意表現",
@@ -427,8 +432,8 @@ export const facultyAdmissionData = {
 
   // Specialized Health & Science
   "Pharmaceutical Sciences": {
-    gpaWeight: 0.70,
-    personalProfileWeight: 0.30,
+    gpaWeight: 0.8,
+    personalProfileWeight: 0.2,
     supplementWeight: 0.10,
     averageGPA: { high: 94, medium: 91 },
     courseDifficultyMultiplier: { regular: 1.0, ap: 1.05, ib: 1.07 },
@@ -437,6 +442,7 @@ export const facultyAdmissionData = {
     
     competitivenessLevel: 5,
     academicThreshold: { min: 90, ideal: 95 },
+    medianGPA: 95, // 2025/2026 statistics
     
     gates: {
       requiredCourses: ["Math12", "Chemistry12", "Biology12"],
@@ -447,9 +453,9 @@ export const facultyAdmissionData = {
       supplementType: "interview" // 可能有面試
     },
     
-    weights: { academic: 0.70, profile: 0.20, supplement: 0.10 },
-    targetScore: 89,
-    scale: 5.8,
+    weights: { academic: 0.8, profile: 0.1, supplement: 0.10 },
+    // Probability Layer Configuration (calculated from medianGPA using ParameterCalculator)
+    ...ParameterCalculator.getModelParams(95, 5), // medianGPA: 95, competitivenessLevel: 5
     capMaxProb: 82,
     
     core: "藥理科研潛力",
@@ -467,8 +473,8 @@ export const facultyAdmissionData = {
   },
 
   "Kinesiology": {
-    gpaWeight: 0.65,
-    personalProfileWeight: 0.35,
+    gpaWeight: 0.8,
+    personalProfileWeight: 0.2,
     supplementWeight: 0.0,
     averageGPA: { high: 90, medium: 86 },
     courseDifficultyMultiplier: { regular: 1.0, ap: 1.03, ib: 1.05 },
@@ -477,6 +483,7 @@ export const facultyAdmissionData = {
     
     competitivenessLevel: 4,
     academicThreshold: { min: 80, ideal: 90 },
+    medianGPA: 94, // 2025/2026 statistics
     
     gates: {
       requiredCourses: ["Biology12", "English12"],
@@ -488,8 +495,8 @@ export const facultyAdmissionData = {
     },
     
     weights: { academic: 0.65, profile: 0.35, supplement: 0.0 },
-    targetScore: 84,
-    scale: 7.0,
+    // Probability Layer Configuration (calculated from medianGPA using ParameterCalculator)
+    ...ParameterCalculator.getModelParams(94, 4), // medianGPA: 94, competitivenessLevel: 4
     capMaxProb: 90,
     
     core: "科學與運動背景",
@@ -597,8 +604,9 @@ export const facultyAdmissionData = {
     competitiveness: "medium",
     acceptanceRateRange: { low: 30, high: 45 },
     
-    competitivenessLevel: 4,
+    competitivenessLevel: 3, // Updated to 3 for 2025/2026
     academicThreshold: { min: 75, ideal: 80 },
+    medianGPA: 90, // 2025/2026 statistics
     
     gates: {
       requiredCourses: ["English12"],
@@ -610,8 +618,8 @@ export const facultyAdmissionData = {
     },
     
     weights: { academic: 0.25, profile: 0.20, supplement: 0.55 },
-    targetScore: 83,
-    scale: 5.4,
+    // Probability Layer Configuration (calculated from medianGPA using ParameterCalculator)
+    ...ParameterCalculator.getModelParams(90, 3), // medianGPA: 90, competitivenessLevel: 3
     capMaxProb: 90,
     
     core: "藝術表現力",
@@ -672,8 +680,8 @@ export const facultyAdmissionData = {
 
   // Land and Food Systems & Forestry
   "Applied Biology": {
-    gpaWeight: 0.65,
-    personalProfileWeight: 0.35,
+    gpaWeight: 0.8,
+    personalProfileWeight: 0.2,
     supplementWeight: 0.0,
     averageGPA: { high: 87, medium: 83 },
     courseDifficultyMultiplier: { regular: 1.0, ap: 1.03, ib: 1.05 },
@@ -692,7 +700,7 @@ export const facultyAdmissionData = {
       supplementType: null
     },
     
-    weights: { academic: 0.65, profile: 0.35, supplement: 0.0 },
+    weights: { academic: 0.8, profile: 0.2, supplement: 0.0 },
     targetScore: 80,
     scale: 8.2,
     capMaxProb: 92,
@@ -712,8 +720,8 @@ export const facultyAdmissionData = {
   },
 
   "Food, Nutrition, and Health": {
-    gpaWeight: 0.65,
-    personalProfileWeight: 0.35,
+    gpaWeight: 0.8,
+    personalProfileWeight: 0.2,
     supplementWeight: 0.0,
     averageGPA: { high: 88, medium: 84 },
     courseDifficultyMultiplier: { regular: 1.0, ap: 1.03, ib: 1.05 },
@@ -732,7 +740,7 @@ export const facultyAdmissionData = {
       supplementType: null
     },
     
-    weights: { academic: 0.65, profile: 0.35, supplement: 0.0 },
+    weights: { academic: 0.8, profile: 0.2, supplement: 0.0 },
     targetScore: 81,
     scale: 8.0,
     capMaxProb: 92,
@@ -752,8 +760,8 @@ export const facultyAdmissionData = {
   },
 
   "Food and Resource Economics": {
-    gpaWeight: 0.65,
-    personalProfileWeight: 0.35,
+    gpaWeight: 0.8,
+    personalProfileWeight: 0.2,
     supplementWeight: 0.0,
     averageGPA: { high: 88, medium: 84 },
     courseDifficultyMultiplier: { regular: 1.0, ap: 1.03, ib: 1.05 },
@@ -772,7 +780,7 @@ export const facultyAdmissionData = {
       supplementType: null
     },
     
-    weights: { academic: 0.65, profile: 0.35, supplement: 0.0 },
+    weights: { academic: 0.8, profile: 0.2, supplement: 0.0 },
     targetScore: 81,
     scale: 8.0,
     capMaxProb: 92,
@@ -792,8 +800,8 @@ export const facultyAdmissionData = {
   },
 
   "Natural Resources": {
-    gpaWeight: 0.60,
-    personalProfileWeight: 0.40,
+    gpaWeight: 0.8,
+    personalProfileWeight: 0.2,
     supplementWeight: 0.0,
     averageGPA: { high: 86, medium: 82 },
     courseDifficultyMultiplier: { regular: 1.0, ap: 1.03, ib: 1.05 },
@@ -812,7 +820,7 @@ export const facultyAdmissionData = {
       supplementType: null
     },
     
-    weights: { academic: 0.60, profile: 0.40, supplement: 0.0 },
+    weights: { academic: 0.8, profile: 0.2, supplement: 0.0 },
     targetScore: 79,
     scale: 8.5,
     capMaxProb: 93,
@@ -832,8 +840,8 @@ export const facultyAdmissionData = {
   },
 
   "Urban Forestry": {
-    gpaWeight: 0.60,
-    personalProfileWeight: 0.40,
+    gpaWeight: 0.8,
+    personalProfileWeight: 0.2,
     supplementWeight: 0.0,
     averageGPA: { high: 86, medium: 82 },
     courseDifficultyMultiplier: { regular: 1.0, ap: 1.03, ib: 1.05 },
@@ -852,7 +860,7 @@ export const facultyAdmissionData = {
       supplementType: null
     },
     
-    weights: { academic: 0.60, profile: 0.40, supplement: 0.0 },
+    weights: { academic: 0.8, profile: 0.2, supplement: 0.0 },
     targetScore: 79,
     scale: 8.5,
     capMaxProb: 93,
@@ -959,8 +967,8 @@ export const facultyAdmissionData = {
       medium: 82,
       high: 88,
     },
-    personalProfileWeight: 0.3,
-    gpaWeight: 0.7,
+    personalProfileWeight: 0.2,
+    gpaWeight: 0.8,
     courseDifficultyMultiplier: {
       regular: 1.0,
       ap: 1.1,
@@ -973,8 +981,8 @@ export const facultyAdmissionData = {
       medium: 90,
       high: 95,
     },
-    personalProfileWeight: 0.25,
-    gpaWeight: 0.75,
+    personalProfileWeight: 0.2,
+    gpaWeight: 0.8,
     courseDifficultyMultiplier: {
       regular: 1.0,
       ap: 1.15,
@@ -987,8 +995,8 @@ export const facultyAdmissionData = {
       medium: 92,
       high: 96,
     },
-    personalProfileWeight: 0.35,
-    gpaWeight: 0.65,
+    personalProfileWeight: 0.2,
+    gpaWeight: 0.8,
     courseDifficultyMultiplier: {
       regular: 1.0,
       ap: 1.12,
