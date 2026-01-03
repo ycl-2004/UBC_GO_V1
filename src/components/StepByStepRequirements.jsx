@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Book } from "lucide-react";
 import "./StepByStepRequirements.css";
 import requirementsData from "../data/detailed_requirements_enhanced.json";
 
@@ -482,7 +483,7 @@ const StepByStepRequirements = () => {
                     currentReqs.degree.grade_12_requirements.length > 0 && (
                       <div className="requirements-card highlight-card">
                         <h4>
-                          <span className="req-icon">📚</span>
+                          <span className="req-icon"><Book size={20} /></span>
                           Grade 12 Requirements
                         </h4>
                         <p className="card-description">

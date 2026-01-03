@@ -1,9 +1,9 @@
 .action-cards-section {
-  padding: 0 2rem;
+  padding: 3rem 2rem 3rem;
   margin-top: -6rem;
   position: relative;
   z-index: 10;
-  margin-bottom: 6rem;
+  margin-bottom: 3rem;
 }
 
 .action-cards-container {
@@ -20,9 +20,10 @@
   padding: 3rem;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
   text-align: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: box-shadow 0.3s ease, opacity 0.2s ease;
   position: relative;
   overflow: hidden;
+  cursor: pointer;
 }
 
 .action-card::before {
@@ -36,8 +37,8 @@
 }
 
 .action-card:hover {
-  transform: translateY(-8px);
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+  opacity: 0.95;
 }
 
 .card-icon {
@@ -50,7 +51,7 @@
 .card-title {
   font-size: 1.1rem;
   font-weight: 600;
-  color: #666;
+  color: #334155;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   margin-bottom: 1rem;
@@ -65,7 +66,7 @@
 
 .card-description {
   font-size: 1.1rem;
-  color: #666;
+  color: #334155;
   margin-bottom: 2rem;
   line-height: 1.6;
 }
@@ -74,24 +75,30 @@
   display: inline-block;
   background: #002145;
   color: #fff;
-  padding: 1rem 2.5rem;
+  padding: 0.75rem 1.5rem;
   border-radius: 8px;
   text-decoration: none;
   font-weight: 600;
   font-size: 1.1rem;
-  transition: background 0.3s ease, transform 0.2s ease;
+  transition: all 0.2s ease-in-out;
   text-transform: uppercase;
   letter-spacing: 0.05em;
+  cursor: pointer;
 }
 
 .card-button:hover {
   background: #003d7a;
-  transform: scale(1.05);
+  opacity: 0.9;
+}
+
+.card-button:focus {
+  outline: 2px solid #002145;
+  outline-offset: 2px;
 }
 
 @media (max-width: 768px) {
   .action-cards-section {
-    padding: 0 1rem;
+    padding: 2rem 1rem 2rem;
     margin-top: -4rem;
   }
   

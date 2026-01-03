@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
+import { Book, Palette, Rocket, AlertCircle } from "lucide-react";
 import Navigation from "../components/Navigation";
 import StepByStepRequirements from "../components/StepByStepRequirements";
 import ScenarioComparator from "../components/ScenarioComparator";
@@ -1147,7 +1148,7 @@ const ApplyInfoPage = () => {
                 
                 <div className="form-group">
                   <label htmlFor="gpa">
-                    <span className="input-icon">📚</span>
+                    <span className="input-icon"><Book size={20} /></span>
                     High School Average / GPA (%)
                   </label>
                   <input
@@ -1449,7 +1450,7 @@ const ApplyInfoPage = () => {
               {getSupplementInfo().required && (
                 <div className="form-section supplement-section">
                   <h3 className="section-title">
-                    <span className="supplement-icon">🎨</span>
+                    <span className="supplement-icon"><Palette size={20} /></span>
                     Supplement Material ({getSupplementInfo().type || "Portfolio/Interview"})
                   </h3>
                   <p className="section-description supplement-warning">
@@ -1554,7 +1555,7 @@ const ApplyInfoPage = () => {
                         <div className={`category-badge ${realTimeResult.category.toLowerCase()}`}>
                           {realTimeResult.category === "Safety" && "🛡️ "}
                           {realTimeResult.category === "Match" && "🎯 "}
-                          {realTimeResult.category === "Reach" && "🚀 "}
+                          {realTimeResult.category === "Reach" && <><Rocket size={16} /> </>}
                           {realTimeResult.category}
                         </div>
                       )}
@@ -1623,7 +1624,7 @@ const ApplyInfoPage = () => {
                     {/* Supplement Warning */}
                     {realTimeResult.gateCheck && realTimeResult.gateCheck.supplementWarning && (
                       <div className="supplement-warning-box">
-                        <span className="warning-icon">🎨</span>
+                        <span className="warning-icon"><AlertCircle size={20} /></span>
                         <span>{realTimeResult.gateCheck.supplementWarning}</span>
                       </div>
                     )}

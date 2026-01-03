@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useCallback, useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { Book, Check, Clock } from 'lucide-react'
 import Navigation from '../components/Navigation'
 import CourseDetailModal from '../components/CourseDetailModal'
 import { useAuth } from '../context/AuthContext'
@@ -793,7 +794,9 @@ const PlannerPage = () => {
         {showEmptyState && (
           <div className="empty-state-container">
             <div className="empty-state-content">
-              <div className="empty-state-icon">📚</div>
+              <div className="empty-state-icon">
+                <Book size={48} />
+              </div>
               <h2>No Plan Active</h2>
               <p>You haven't created a degree plan yet.</p>
               <p>Click "Manage Plans" to create your first plan and start tracking your courses.</p>
@@ -910,7 +913,9 @@ const PlannerPage = () => {
               <h2>Progress Dashboard</h2>
               <div className="dashboard-grid">
                 <div className="dashboard-card completed-card">
-                  <div className="dashboard-icon completed-icon">✓</div>
+                  <div className="dashboard-icon completed-icon">
+                    <Check size={32} />
+                  </div>
                   <div className="dashboard-content">
                     <h3>Completed</h3>
                     <p className="dashboard-count">{progress.completedCount}</p>
@@ -918,7 +923,9 @@ const PlannerPage = () => {
                   </div>
                 </div>
                 <div className="dashboard-card in-progress-card">
-                  <div className="dashboard-icon in-progress-icon">⏱</div>
+                  <div className="dashboard-icon in-progress-icon">
+                    <Clock size={32} />
+                  </div>
                   <div className="dashboard-content">
                     <h3>In Progress</h3>
                     <p className="dashboard-count">{progress.inProgressCount}</p>
@@ -926,7 +933,9 @@ const PlannerPage = () => {
                   </div>
                 </div>
                 <div className="dashboard-card remaining-card">
-                  <div className="dashboard-icon remaining-icon">📚</div>
+                  <div className="dashboard-icon remaining-icon">
+                    <Book size={32} />
+                  </div>
                   <div className="dashboard-content">
                     <h3>Remaining</h3>
                     <p className="dashboard-count">{progress.remainingCount}</p>

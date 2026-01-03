@@ -31,7 +31,7 @@
 
 .planner-header .subtitle {
   font-size: 1.2rem;
-  color: #666;
+  color: #334155;
   text-align: left;
 }
 
@@ -289,7 +289,13 @@
   border-radius: 8px;
   font-weight: 600;
   cursor: pointer;
-  transition: background 0.3s ease;
+  transition: all 0.2s ease-in-out;
+}
+
+.btn-manage-plans:focus,
+.btn-login-prompt:focus {
+  outline: 2px solid #002145;
+  outline-offset: 2px;
 }
 
 .btn-manage-plans:hover,
@@ -390,7 +396,7 @@
   background: none;
   border: none;
   font-size: 2rem;
-  color: #666;
+  color: #334155;
   cursor: pointer;
   padding: 0;
   width: 32px;
@@ -439,7 +445,7 @@
 }
 
 .plan-item p {
-  color: #666;
+  color: #334155;
   margin: 0 0 0.25rem 0;
   font-size: 0.9rem;
 }
@@ -454,10 +460,15 @@
   color: #fff;
   border: none;
   padding: 0.5rem 1rem;
-  border-radius: 6px;
+  border-radius: 8px;
   cursor: pointer;
   font-size: 0.9rem;
-  transition: background 0.3s ease;
+  transition: all 0.2s ease-in-out;
+}
+
+.delete-plan-btn:focus {
+  outline: 2px solid #dc3545;
+  outline-offset: 2px;
 }
 
 .delete-plan-btn:hover {
@@ -494,8 +505,13 @@
   border-radius: 8px;
   font-weight: 600;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.2s ease-in-out;
   animation: pulse 2s infinite;
+}
+
+.btn-save-changes:focus {
+  outline: 2px solid #28a745;
+  outline-offset: 2px;
 }
 
 .btn-save-changes:hover {
@@ -618,13 +634,18 @@
 
 .btn-cancel {
   background: #fff;
-  color: #666;
+  color: #334155;
   padding: 0.75rem 1.5rem;
   border: 2px solid #e0e0e0;
   border-radius: 8px;
   font-weight: 600;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.2s ease-in-out;
+}
+
+.btn-cancel:focus {
+  outline: 2px solid #475569;
+  outline-offset: 2px;
 }
 
 .btn-cancel:hover {
@@ -640,7 +661,12 @@
   border-radius: 8px;
   font-weight: 600;
   cursor: pointer;
-  transition: background 0.3s ease;
+  transition: all 0.2s ease-in-out;
+}
+
+.btn-create:focus {
+  outline: 2px solid #002145;
+  outline-offset: 2px;
 }
 
 .btn-create:hover {
@@ -651,7 +677,7 @@
 .no-plans-message {
   text-align: center;
   padding: 2rem;
-  color: #666;
+  color: #475569;
 }
 
 .no-plans-message p {
@@ -677,8 +703,11 @@
 }
 
 .empty-state-icon {
-  font-size: 4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin-bottom: 1.5rem;
+  color: #002145;
 }
 
 .empty-state-content h2 {
@@ -688,7 +717,7 @@
 }
 
 .empty-state-content p {
-  color: #666;
+  color: #334155;
   margin-bottom: 0.5rem;
   line-height: 1.6;
 }
@@ -845,7 +874,7 @@
 .progress-label {
   display: block;
   font-size: 0.9rem;
-  color: #666;
+  color: #475569;
   margin-top: 0.5rem;
 }
 
@@ -864,7 +893,7 @@
 }
 
 .progress-item-label {
-  color: #666;
+  color: #475569;
   font-weight: 500;
 }
 
@@ -916,7 +945,7 @@
 
 .requirement-progress span {
   font-size: 0.9rem;
-  color: #666;
+  color: #475569;
 }
 
 /* Courses Section - Aligned with page container */
@@ -974,7 +1003,7 @@
 .empty-state {
   text-align: center;
   padding: 3rem;
-  color: #666;
+  color: #334155;
 }
 
 .course-list {
@@ -1011,12 +1040,12 @@
 }
 
 .course-credits {
-  color: #666;
+  color: #475569;
   font-size: 0.85rem;
 }
 
 .course-term {
-  color: #666;
+  color: #475569;
   font-size: 0.85rem;
   font-style: italic;
 }
@@ -1282,14 +1311,13 @@
 }
 
 .dashboard-icon {
-  font-size: 2.5rem;
   width: 60px;
   height: 60px;
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 50%;
-  font-weight: bold;
+  flex-shrink: 0;
 }
 
 .dashboard-icon.completed-icon {
@@ -1313,7 +1341,7 @@
 
 .dashboard-content h3 {
   font-size: 1rem;
-  color: #666;
+  color: #475569;
   margin: 0 0 0.5rem 0;
   font-weight: 500;
 }
@@ -1328,7 +1356,7 @@
 
 .dashboard-label {
   font-size: 0.85rem;
-  color: #666;
+  color: #475569;
   margin: 0.25rem 0 0 0;
 }
 
@@ -1351,8 +1379,8 @@
 }
 
 .course-card-unified:hover {
-  transform: translateY(-4px);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  opacity: 0.95;
 }
 
 .course-card-unified:hover .course-card-view-details {
@@ -1485,7 +1513,7 @@
 
 .status-badge.status-not-started {
   background: #e0e0e0;
-  color: #666;
+  color: #475569;
 }
 
 /* Year Tabs - Modern Tab Switcher Style */

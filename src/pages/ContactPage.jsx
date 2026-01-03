@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Check, Clock } from 'lucide-react'
 import Navigation from '../components/Navigation'
 import Footer from '../components/Footer'
 import './ContactPage.css'
@@ -47,7 +48,7 @@ const ContactPage = () => {
               <h2>Send us a Message</h2>
               {submitted ? (
                 <div className="success-message">
-                  <span className="success-icon">✓</span>
+                  <span className="success-icon"><Check size={24} /></span>
                   <p>Thank you for your message! We'll get back to you soon.</p>
                 </div>
               ) : (
@@ -141,7 +142,7 @@ const ContactPage = () => {
               </div>
 
               <div className="info-card">
-                <h3>⏱️ Response Time</h3>
+                <h3><Clock size={20} style={{ display: 'inline', verticalAlign: 'middle', marginRight: '0.5rem' }} /> Response Time</h3>
                 <p>
                   We typically respond within 2-3 business days. For urgent matters 
                   regarding data accuracy, we prioritize those requests.

@@ -44,7 +44,7 @@ const FirstYearGuide = () => {
   const faculties = [
     { id: 'Applied Science', name: 'Applied Science', icon: '🔧', available: true },
     { id: 'Science', name: 'Science', icon: '🔬', available: false },
-    { id: 'Arts', name: 'Arts', icon: '🎨', available: false },
+    { id: 'Arts', name: 'Arts', icon: 'palette', available: false },
     { id: 'Commerce', name: 'Commerce', icon: '💼', available: false },
   ]
 
