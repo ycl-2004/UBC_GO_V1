@@ -1,0 +1,162 @@
+{
+  "Astronomy": {
+    "1": [
+      {
+        "code": "SCIE 113",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "Additional Communication Requirement",
+        "credits": 3,
+        "title": "",
+        "notes": "SCIE 113, ENGL 110, ENGL 111, ENGL 112, ENGL 120, ENGL 121, WRDS 150"
+      },
+      {
+        "code": "CHEM 121 (or 111)",
+        "credits": 4,
+        "title": "",
+        "notes": "Students who do not have B.C. High School Chemistry 12 (or its equivalent) must write the UBC Chemistry Basic Skills Test and may be required to take CHEM_V 100. CHEM_V 110 may substitute for CHEM_V 111. CHEM_V 120 may substitute for CHEM_V 121. Students interested in senior chemistry courses or who are planning to enter a career in teaching should take a second introductory chemistry course as an elective."
+      },
+      {
+        "code": "MATH 100 (or 102 or 104 or 110 or 180 or 184 or 120)",
+        "credits": 3,
+        "title": "",
+        "notes": "MATH_V 110 is 6 credits, MATH_V 120, 121, 180, and 184 are 4 credits; the extra credit counts as electives so students should adjust electives accordingly."
+      },
+      {
+        "code": "MATH 101 (or 103 or 105 or 121)",
+        "credits": 3,
+        "title": "",
+        "notes": "MATH_V 110 is 6 credits, MATH_V 120, 121, 180, and 184 are 4 credits; the extra credit counts as electives so students should adjust electives accordingly."
+      },
+      {
+        "code": "PHYS 117 (or 106 or 107)",
+        "credits": 3,
+        "title": "",
+        "notes": "Students who do not have B.C. High School Physics 12 (or its equivalent) must take PHYS_V 100 prior to other PHYS_V courses. Qualified students are encouraged to take PHYS_V (106 or 107)/108/109. Students who took PHYS_V 101 or 131 may enter the specialization but will need to take PHYS_V 106, 107, 117, or 170 before the required PHYS_V 216."
+      },
+      {
+        "code": "PHYS 118 (or 108)",
+        "credits": 3,
+        "title": "",
+        "notes": "Students who do not have B.C. High School Physics 12 (or its equivalent) must take PHYS_V 100 prior to other PHYS_V courses. Qualified students are encouraged to take PHYS_V (106 or 107)/108/109. Students who took PHYS_V 101 or 131 may enter the specialization but will need to take PHYS_V 106, 107, 117, or 170 before the required PHYS_V 216."
+      },
+      {
+        "code": "PHYS 119 (or 109)",
+        "credits": 1,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "Electives",
+        "credits": 7,
+        "title": "",
+        "notes": "The number of elective credits in each year is chosen to make the yearly total be 30. Some course alternatives have different credit values. Students are permitted to move elective credits between years. Elective credits together with required courses must fulfill the Faculty of Science’s: a) Foundational Requirement ; b) Laboratory Science Requirement ; c) Science Breadth Requirement ; d) Science and Arts Requirements ; e) Upper-level Requirement ; f) General Degree Requirements ."
+      }
+    ],
+    "2": [
+      {
+        "code": "ASTR 200, 205",
+        "credits": 6,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "MATH 200, 317",
+        "credits": 6,
+        "title": "",
+        "notes": "Qualified students may take MATH_V 217 and 2 credits of electives instead of MATH_V 200 and MATH_V 317, by requesting permission to register for more than 18 credits in the term."
+      },
+      {
+        "code": "MATH 221 (or 223) , 215",
+        "credits": 6,
+        "title": "",
+        "notes": "Students with credit for MATH_V 152 prior to entering this specialization can substitute it for MATH_V 221. MATH_V 221 or MATH_V 223 can be taken in first year."
+      },
+      {
+        "code": "PHYS 200, 219, 229",
+        "credits": 7,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "PHYS 210",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "Electives",
+        "credits": 2,
+        "title": "",
+        "notes": "The number of elective credits in each year is chosen to make the yearly total be 30. Some course alternatives have different credit values. Students are permitted to move elective credits between years. Elective credits together with required courses must fulfill the Faculty of Science’s: a) Foundational Requirement ; b) Laboratory Science Requirement ; c) Science Breadth Requirement ; d) Science and Arts Requirements ; e) Upper-level Requirement ; f) General Degree Requirements ."
+      }
+    ],
+    "3": [
+      {
+        "code": "ASTR 300",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "MATH 316 or PHYS 312",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "PHYS 203",
+        "credits": 4,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "PHYS 301, 216",
+        "credits": 6,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "PHYS 408",
+        "credits": 4,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "Electives",
+        "credits": 10,
+        "title": "",
+        "notes": "The number of elective credits in each year is chosen to make the yearly total be 30. Some course alternatives have different credit values. Students are permitted to move elective credits between years. Elective credits together with required courses must fulfill the Faculty of Science’s: a) Foundational Requirement ; b) Laboratory Science Requirement ; c) Science Breadth Requirement ; d) Science and Arts Requirements ; e) Upper-level Requirement ; f) General Degree Requirements ."
+      }
+    ],
+    "4": [
+      {
+        "code": "ASTR 406 or ASTR 407",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "ASTR 404, 405",
+        "credits": 6,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "PHYS 304, 403",
+        "credits": 6,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "Electives",
+        "credits": 15,
+        "title": "",
+        "notes": "The number of elective credits in each year is chosen to make the yearly total be 30. Some course alternatives have different credit values. Students are permitted to move elective credits between years. Elective credits together with required courses must fulfill the Faculty of Science’s: a) Foundational Requirement ; b) Laboratory Science Requirement ; c) Science Breadth Requirement ; d) Science and Arts Requirements ; e) Upper-level Requirement ; f) General Degree Requirements ."
+      }
+    ]
+  }
+}

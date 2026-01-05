@@ -1,0 +1,198 @@
+{
+  "Geographical Sciences": {
+    "1": [
+      {
+        "code": "SCIE 113",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "Additional Communication Requirement",
+        "credits": 3,
+        "title": "",
+        "notes": "SCIE 113, ENGL 110, ENGL 111, ENGL 112, ENGL 120, ENGL 121, WRDS 150"
+      },
+      {
+        "code": "GEOS 102 (or BIOL 121 )",
+        "credits": 3,
+        "title": "",
+        "notes": "Students without Biology 11 or 12 must take BIOL_V 111 before taking BIOL_V 121."
+      },
+      {
+        "code": "GEOS 103",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "CHEM 121, (or 111 or 141)",
+        "credits": 3,
+        "title": "",
+        "notes": "CHEM_V 110 and 115 may substitute for CHEM_V 111, CHEM_V 120 and 115 may substitute for CHEM_V 121, CHEM_V 130 and 135 may substitute for CHEM_V 123. If the two-course combination of first year PHYS_V and CHEM_V courses exceeds 6 credits, surplus credit may be applied to electives. Students who do not have B.C. High School Chemistry 12 (or its equivalent) must write the UBC Chemistry Basic Skills Test and may be required to take CHEM_V 100. PHYS_V chosen from 100-level PHYS_V courses, excluding PHYS_V 100. Students without Physics 12 must take PHYS_V 100 before taking other 100-level PHYS_V courses. Students may defer taking first year PHYS_V until second year."
+      },
+      {
+        "code": "One of CHEM 123, PHYS 100-level",
+        "credits": 3,
+        "title": "",
+        "notes": "CHEM_V 110 and 115 may substitute for CHEM_V 111, CHEM_V 120 and 115 may substitute for CHEM_V 121, CHEM_V 130 and 135 may substitute for CHEM_V 123. If the two-course combination of first year PHYS_V and CHEM_V courses exceeds 6 credits, surplus credit may be applied to electives. Students who do not have B.C. High School Chemistry 12 (or its equivalent) must write the UBC Chemistry Basic Skills Test and may be required to take CHEM_V 100. PHYS_V chosen from 100-level PHYS_V courses, excluding PHYS_V 100. Students without Physics 12 must take PHYS_V 100 before taking other 100-level PHYS_V courses. Students may defer taking first year PHYS_V until second year."
+      },
+      {
+        "code": "MATH 100 or 102 or 104",
+        "credits": 3,
+        "title": "",
+        "notes": "MATH_V 180 or 184 or 120 may substitute for any of the specified differential calculus courses listed by decreasing the electives by 1 credit. MATH_V 110 may substitute for any of the specified differential calculus courses listed by decreasing the electives by 3 credits."
+      },
+      {
+        "code": "MATH 101 or 103 or 105",
+        "credits": 3,
+        "title": "",
+        "notes": "MATH_V 121 may substitute for any of the specified integral calculus courses listed by decreasing the electives by 1 credit."
+      },
+      {
+        "code": "DSCI 100 OR CPSC 103",
+        "credits": 3,
+        "title": "",
+        "notes": "CPSC_V 110 is also acceptable by decreasing the electives by 1 credit."
+      },
+      {
+        "code": "Electives",
+        "credits": 3,
+        "title": "",
+        "notes": "CHEM_V 110 and 115 may substitute for CHEM_V 111, CHEM_V 120 and 115 may substitute for CHEM_V 121, CHEM_V 130 and 135 may substitute for CHEM_V 123. If the two-course combination of first year PHYS_V and CHEM_V courses exceeds 6 credits, surplus credit may be applied to electives. Students who do not have B.C. High School Chemistry 12 (or its equivalent) must write the UBC Chemistry Basic Skills Test and may be required to take CHEM_V 100. PHYS_V chosen from 100-level PHYS_V courses, excluding PHYS_V 100. Students without Physics 12 must take PHYS_V 100 before taking other 100-level PHYS_V courses. Students may defer taking first year PHYS_V until second year. Students are permitted to move elective credits between years. Elective credits together with required courses must fulfill the Faculty of Science’s: a) Foundational Requirement ; b) Laboratory Science Requirement ; c) Science Breadth Requirement ; d) Science and Arts Requirements ; e) Upper-level Requirement ; f) General Degree Requirements ."
+      }
+    ],
+    "2": [
+      {
+        "code": "GEOS 200 (or 204)",
+        "credits": 3,
+        "title": "",
+        "notes": "GEOS_V 200 is required to complete the climatology area."
+      },
+      {
+        "code": "GEOS 206 (or EOSC 222)",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "GEOS 207 (or BIOL 230)",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "GEOS 270",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "One of CHEM 205, EOSC 211, CPSC 301, MATH 200, 221",
+        "credits": 3,
+        "title": "",
+        "notes": "Select the course appropriate to one of your sub-disciplinary areas of interest."
+      },
+      {
+        "code": "GEOG 211 or ASIC 220",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "Electives",
+        "credits": 12,
+        "title": "",
+        "notes": "Students are permitted to move elective credits between years. Elective credits together with required courses must fulfill the Faculty of Science’s: a) Foundational Requirement ; b) Laboratory Science Requirement ; c) Science Breadth Requirement ; d) Science and Arts Requirements ; e) Upper-level Requirement ; f) General Degree Requirements ."
+      }
+    ],
+    "3": [
+      {
+        "code": "Selections from Geographical Sciences",
+        "credits": 18,
+        "title": "",
+        "notes": "See list of selections in sub-disciplinary areas of Geographical Sciences at the start of the footnotes."
+      },
+      {
+        "code": "GEOS 309",
+        "credits": 3,
+        "title": "",
+        "notes": "Field Course must be taken by the summer preceding fourth year; extra fee to be paid."
+      },
+      {
+        "code": "One of GEOG 374, BIOL 300, FRST 231, STAT 200",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "One of GEOS 370, 373, 409, ATSC 303",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "One of GEOG 310, 311, ISCI 360",
+        "credits": 3,
+        "title": "",
+        "notes": "Students are permitted to move elective credits between years. Elective credits together with required courses must fulfill the Faculty of Science’s: a) Foundational Requirement ; b) Laboratory Science Requirement ; c) Science Breadth Requirement ; d) Science and Arts Requirements ; e) Upper-level Requirement ; f) General Degree Requirements ."
+      },
+      {
+        "code": "One of GEOG 312, 315, 316, 318, 319, ENVR 410",
+        "credits": 3,
+        "title": "",
+        "notes": "Students are permitted to move elective credits between years. Elective credits together with required courses must fulfill the Faculty of Science’s: a) Foundational Requirement ; b) Laboratory Science Requirement ; c) Science Breadth Requirement ; d) Science and Arts Requirements ; e) Upper-level Requirement ; f) General Degree Requirements ."
+      },
+      {
+        "code": "Electives",
+        "credits": 27,
+        "title": "",
+        "notes": "Students are permitted to move elective credits between years. Elective credits together with required courses must fulfill the Faculty of Science’s: a) Foundational Requirement ; b) Laboratory Science Requirement ; c) Science Breadth Requirement ; d) Science and Arts Requirements ; e) Upper-level Requirement ; f) General Degree Requirements . Students interested in pursuing registration as a Professional Geoscientist with the Engineers and Geoscientists of BC (EGBC) should consult the Geography Department science advisor and select their electives accordingly. Students are also encouraged to consider Environmental Geoscience-related courses in other Departments or a minor in a specialization in Earth Ocean and Atmospheric Sciences (EOAS). Please see the Field of Geography."
+      }
+    ],
+    "4": [
+      {
+        "code": "Selections from Geographical Sciences",
+        "credits": 18,
+        "title": "",
+        "notes": "See list of selections in sub-disciplinary areas of Geographical Sciences at the start of the footnotes."
+      },
+      {
+        "code": "GEOS 309",
+        "credits": 3,
+        "title": "",
+        "notes": "Field Course must be taken by the summer preceding fourth year; extra fee to be paid."
+      },
+      {
+        "code": "One of GEOG 374, BIOL 300, FRST 231, STAT 200",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "One of GEOS 370, 373, 409, ATSC 303",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "One of GEOG 310, 311, ISCI 360",
+        "credits": 3,
+        "title": "",
+        "notes": "Students are permitted to move elective credits between years. Elective credits together with required courses must fulfill the Faculty of Science’s: a) Foundational Requirement ; b) Laboratory Science Requirement ; c) Science Breadth Requirement ; d) Science and Arts Requirements ; e) Upper-level Requirement ; f) General Degree Requirements ."
+      },
+      {
+        "code": "One of GEOG 312, 315, 316, 318, 319, ENVR 410",
+        "credits": 3,
+        "title": "",
+        "notes": "Students are permitted to move elective credits between years. Elective credits together with required courses must fulfill the Faculty of Science’s: a) Foundational Requirement ; b) Laboratory Science Requirement ; c) Science Breadth Requirement ; d) Science and Arts Requirements ; e) Upper-level Requirement ; f) General Degree Requirements ."
+      },
+      {
+        "code": "Electives",
+        "credits": 27,
+        "title": "",
+        "notes": "Students are permitted to move elective credits between years. Elective credits together with required courses must fulfill the Faculty of Science’s: a) Foundational Requirement ; b) Laboratory Science Requirement ; c) Science Breadth Requirement ; d) Science and Arts Requirements ; e) Upper-level Requirement ; f) General Degree Requirements . Students interested in pursuing registration as a Professional Geoscientist with the Engineers and Geoscientists of BC (EGBC) should consult the Geography Department science advisor and select their electives accordingly. Students are also encouraged to consider Environmental Geoscience-related courses in other Departments or a minor in a specialization in Earth Ocean and Atmospheric Sciences (EOAS). Please see the Field of Geography."
+      }
+    ]
+  }
+}

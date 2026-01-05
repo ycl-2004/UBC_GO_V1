@@ -1,0 +1,168 @@
+{
+  "Biology": {
+    "1": [
+      {
+        "code": "SCIE 113",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "BIOL 112",
+        "credits": 3,
+        "title": "",
+        "notes": "Students without one of Biology 11 or Biology 12 must take BIOL_V 111 before taking BIOL_V 112, 121 or 180. Students without Chemistry 12 must take CHEM_V 100, CHEM_V 110, or CHEM_V 111 before taking BIOL_V 112."
+      },
+      {
+        "code": "BIOL 121",
+        "credits": 3,
+        "title": "",
+        "notes": "Students without one of Biology 11 or Biology 12 must take BIOL_V 111 before taking BIOL_V 112, 121 or 180. Students without Chemistry 12 must take CHEM_V 100, CHEM_V 110, or CHEM_V 111 before taking BIOL_V 112."
+      },
+      {
+        "code": "BIOL 180 (or BIOL 140)",
+        "credits": 2,
+        "title": "",
+        "notes": "Students without one of Biology 11 or Biology 12 must take BIOL_V 111 before taking BIOL_V 112, 121 or 180. Students without Chemistry 12 must take CHEM_V 100, CHEM_V 110, or CHEM_V 111 before taking BIOL_V 112."
+      },
+      {
+        "code": "CHEM 121 (or 111 or 141)",
+        "credits": 4,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "CHEM 123",
+        "credits": 4,
+        "title": "",
+        "notes": "Students who do not have B.C. High School Chemistry 12 (or its equivalent) must write the UBC Chemistry Basic Skills Test and may be required to take CHEM_V 100. CHEM_V 110 and CHEM_V 115 may substitute for CHEM_V 111. CHEM_V 120 and CHEM_V 115 may substitute for CHEM_V 121. CHEM_V 130 and CHEM_V 135 may substitute for CHEM_V 123."
+      },
+      {
+        "code": "CPSC 103 or DSCI 100",
+        "credits": 3,
+        "title": "",
+        "notes": "May be deferred until second or third-year to allow space for electives. CPSC_V 100, CPSC_V 110, or CPSC_V 301 may substitute for CPSC_V 103. Students who substitute CPSC_V 103 with CPSC_V 110 should decrease the electives by one credit."
+      },
+      {
+        "code": "MATH 100 or 102 or 104 (or 120 or 180 or 184)",
+        "credits": 3,
+        "title": "",
+        "notes": "MATH_V 110 may substitute for any of the specified differential calculus courses listed by decreasing the electives by 3 credits. Students may substitute 4-credit MATH_V courses (MATH_V 120, 121, 180, 184) as appropriate by decreasing the electives."
+      },
+      {
+        "code": "MATH 101 or 103 or 105 (or 121)",
+        "credits": 3,
+        "title": "",
+        "notes": "MATH_V 110 may substitute for any of the specified differential calculus courses listed by decreasing the electives by 3 credits. Students may substitute 4-credit MATH_V courses (MATH_V 120, 121, 180, 184) as appropriate by decreasing the electives."
+      },
+      {
+        "code": "PHYS 131",
+        "credits": 3,
+        "title": "",
+        "notes": "PHYS_V 101, PHYS_V 106, PHYS_V 107 or PHYS_V 117 may substitute for PHYS_V 131. Students are encouraged to also take PHYS_V 119. Students without credit for Physics 12 must take PHYS_V 100 before taking other 100-level PHYS_V courses. PHYS_V 100 will count as an elective."
+      }
+    ],
+    "2": [
+      {
+        "code": "Additional Communication Requirement",
+        "credits": 3,
+        "title": "",
+        "notes": "SCIE 113, ENGL 110, ENGL 111, ENGL 112, ENGL 120, ENGL 121, WRDS 150"
+      },
+      {
+        "code": "BIOL 200, 230, 260",
+        "credits": 9,
+        "title": "",
+        "notes": "Up to 3 credits of BIOL_V 200, 230, 233, 234, and 260 may be deferred until third-year to allow space for additional electives."
+      },
+      {
+        "code": "BIOL 233 or 234",
+        "credits": 3,
+        "title": "",
+        "notes": "Up to 3 credits of BIOL_V 200, 230, 233, 234, and 260 may be deferred until third-year to allow space for additional electives."
+      },
+      {
+        "code": "Two of BIOL 203, 204, 205, 209, 210, or MICB 201 or 211",
+        "credits": 8,
+        "title": "",
+        "notes": "Up to 4 credits of BIOL_V 203, 204, 205, 209, 210, MICB_V 201 or 211 may be deferred to third-year to allow space for additional electives. BIOL_V 201 and CHEM_V 205 are recommended electives. Students who take MICB_V 201 or 211 as one of the two organismal diversity courses (BIOL_V 203, 204, 205, 209, 210, or MICB_V 201 or 211) should increase the electives by 1 credit."
+      },
+      {
+        "code": "CHEM 233, 235",
+        "credits": 4,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "Electives",
+        "credits": 3,
+        "title": "",
+        "notes": "May be deferred until second or third-year to allow space for electives. CPSC_V 100, CPSC_V 110, or CPSC_V 301 may substitute for CPSC_V 103. Students who substitute CPSC_V 103 with CPSC_V 110 should decrease the electives by one credit. MATH_V 110 may substitute for any of the specified differential calculus courses listed by decreasing the electives by 3 credits. Students may substitute 4-credit MATH_V courses (MATH_V 120, 121, 180, 184) as appropriate by decreasing the electives. Up to 3 credits of BIOL_V 200, 230, 233, 234, and 260 may be deferred until third-year to allow space for additional electives. Up to 4 credits of BIOL_V 203, 204, 205, 209, 210, MICB_V 201 or 211 may be deferred to third-year to allow space for additional electives. BIOL_V 201 and CHEM_V 205 are recommended electives. Students who take MICB_V 201 or 211 as one of the two organismal diversity courses (BIOL_V 203, 204, 205, 209, 210, or MICB_V 201 or 211) should increase the electives by 1 credit. Students are permitted to move elective credits between years. Elective credits together with required courses must fulfill the Faculty of Science’s: a) Foundational Requirement ; b) Laboratory Science Requirement ; c) Science Breadth Requirement ; d) Science and Arts Requirements ; e) Upper-level Requirement ; f) General Degree Requirements ."
+      }
+    ],
+    "3": [
+      {
+        "code": "BIOL 300",
+        "credits": 3,
+        "title": "",
+        "notes": "STAT_V 200 can replace BIOL_V 300 with permission of a Biology specialization advisor. However, students who take STAT_V 200 must complete an additional 3 credits of BIOL_V numbered higher than 300."
+      },
+      {
+        "code": "BIOL 336",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "Biology Laboratory Selections",
+        "credits": 4,
+        "title": "",
+        "notes": "See below for the list of accepted Biology Laboratory and Life Science selections. If the credit total of the courses selected for the Biology Laboratory selections exceeds 4, then these excess credits of Biology Laboratory selections will count toward the Life Science selections. At least 12 credits of Life Science selections must be taken from BIOL_V or MRNE_V courses. See the Biology Program Guide for advice about choosing appropriate Life Science and Laboratory selections."
+      },
+      {
+        "code": "Life Science Selections",
+        "credits": 20,
+        "title": "",
+        "notes": "See below for the list of accepted Biology Laboratory and Life Science selections. If the credit total of the courses selected for the Biology Laboratory selections exceeds 4, then these excess credits of Biology Laboratory selections will count toward the Life Science selections. At least 12 credits of Life Science selections must be taken from BIOL_V or MRNE_V courses. See the Biology Program Guide for advice about choosing appropriate Life Science and Laboratory selections."
+      },
+      {
+        "code": "Electives",
+        "credits": 29,
+        "title": "",
+        "notes": "May be deferred until second or third-year to allow space for electives. CPSC_V 100, CPSC_V 110, or CPSC_V 301 may substitute for CPSC_V 103. Students who substitute CPSC_V 103 with CPSC_V 110 should decrease the electives by one credit. MATH_V 110 may substitute for any of the specified differential calculus courses listed by decreasing the electives by 3 credits. Students may substitute 4-credit MATH_V courses (MATH_V 120, 121, 180, 184) as appropriate by decreasing the electives. Up to 3 credits of BIOL_V 200, 230, 233, 234, and 260 may be deferred until third-year to allow space for additional electives. Up to 4 credits of BIOL_V 203, 204, 205, 209, 210, MICB_V 201 or 211 may be deferred to third-year to allow space for additional electives. BIOL_V 201 and CHEM_V 205 are recommended electives. Students who take MICB_V 201 or 211 as one of the two organismal diversity courses (BIOL_V 203, 204, 205, 209, 210, or MICB_V 201 or 211) should increase the electives by 1 credit. Students are permitted to move elective credits between years. Elective credits together with required courses must fulfill the Faculty of Science’s: a) Foundational Requirement ; b) Laboratory Science Requirement ; c) Science Breadth Requirement ; d) Science and Arts Requirements ; e) Upper-level Requirement ; f) General Degree Requirements ."
+      }
+    ],
+    "4": [
+      {
+        "code": "BIOL 300",
+        "credits": 3,
+        "title": "",
+        "notes": "STAT_V 200 can replace BIOL_V 300 with permission of a Biology specialization advisor. However, students who take STAT_V 200 must complete an additional 3 credits of BIOL_V numbered higher than 300."
+      },
+      {
+        "code": "BIOL 336",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "Biology Laboratory Selections",
+        "credits": 4,
+        "title": "",
+        "notes": "See below for the list of accepted Biology Laboratory and Life Science selections. If the credit total of the courses selected for the Biology Laboratory selections exceeds 4, then these excess credits of Biology Laboratory selections will count toward the Life Science selections. At least 12 credits of Life Science selections must be taken from BIOL_V or MRNE_V courses. See the Biology Program Guide for advice about choosing appropriate Life Science and Laboratory selections."
+      },
+      {
+        "code": "Life Science Selections",
+        "credits": 20,
+        "title": "",
+        "notes": "See below for the list of accepted Biology Laboratory and Life Science selections. If the credit total of the courses selected for the Biology Laboratory selections exceeds 4, then these excess credits of Biology Laboratory selections will count toward the Life Science selections. At least 12 credits of Life Science selections must be taken from BIOL_V or MRNE_V courses. See the Biology Program Guide for advice about choosing appropriate Life Science and Laboratory selections."
+      },
+      {
+        "code": "Electives",
+        "credits": 29,
+        "title": "",
+        "notes": "May be deferred until second or third-year to allow space for electives. CPSC_V 100, CPSC_V 110, or CPSC_V 301 may substitute for CPSC_V 103. Students who substitute CPSC_V 103 with CPSC_V 110 should decrease the electives by one credit. MATH_V 110 may substitute for any of the specified differential calculus courses listed by decreasing the electives by 3 credits. Students may substitute 4-credit MATH_V courses (MATH_V 120, 121, 180, 184) as appropriate by decreasing the electives. Up to 3 credits of BIOL_V 200, 230, 233, 234, and 260 may be deferred until third-year to allow space for additional electives. Up to 4 credits of BIOL_V 203, 204, 205, 209, 210, MICB_V 201 or 211 may be deferred to third-year to allow space for additional electives. BIOL_V 201 and CHEM_V 205 are recommended electives. Students who take MICB_V 201 or 211 as one of the two organismal diversity courses (BIOL_V 203, 204, 205, 209, 210, or MICB_V 201 or 211) should increase the electives by 1 credit. Students are permitted to move elective credits between years. Elective credits together with required courses must fulfill the Faculty of Science’s: a) Foundational Requirement ; b) Laboratory Science Requirement ; c) Science Breadth Requirement ; d) Science and Arts Requirements ; e) Upper-level Requirement ; f) General Degree Requirements ."
+      }
+    ]
+  }
+}

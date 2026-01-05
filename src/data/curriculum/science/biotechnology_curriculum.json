@@ -1,0 +1,192 @@
+{
+  "Biotechnology": {
+    "1": [
+      {
+        "code": "Two of BIOL 111, 112, 121",
+        "credits": 6,
+        "title": "",
+        "notes": "Students without Biology 11 or 12 must take BIOL_V 111. Applicants from other universities and colleges may substitute 6 credits of introductory biology courses for two of BIOL_V 111, 112, 121."
+      },
+      {
+        "code": "CHEM 121 (or 111, 141)",
+        "credits": 4,
+        "title": "",
+        "notes": "Applicants from other universities and colleges may substitute 3 credits of introductory chemistry that includes a lab. Students who do not have BC high school Chemistry 12 (or its equivalent) must write the UBC Chemistry Basic Skills Test and may be required to take CHEM_V 100. CHEM_V 110 and CHEM_V 115 may substitute for CHEM_V 111. CHEM_V 120 and CHEM_V 115 may substitute for CHEM_V 121. CHEM_V 130 and CHEM_V 135 may substitute for CHEM_V 123."
+      },
+      {
+        "code": "CHEM 123",
+        "credits": 4,
+        "title": "",
+        "notes": "Applicants from other universities and colleges may substitute 3 credits of introductory chemistry that includes a lab. Students who do not have BC high school Chemistry 12 (or its equivalent) must write the UBC Chemistry Basic Skills Test and may be required to take CHEM_V 100. CHEM_V 110 and CHEM_V 115 may substitute for CHEM_V 111. CHEM_V 120 and CHEM_V 115 may substitute for CHEM_V 121. CHEM_V 130 and CHEM_V 135 may substitute for CHEM_V 123."
+      },
+      {
+        "code": "SCIE 113",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "Additional Communication Requirement",
+        "credits": 3,
+        "title": "",
+        "notes": "SCIE 113, ENGL 110, ENGL 111, ENGL 112, ENGL 120, ENGL 121, WRDS 150"
+      },
+      {
+        "code": "MATH 102 (or 100 or 104)",
+        "credits": 3,
+        "title": "",
+        "notes": "Students must take one differential calculus course during first year of studies at UBC. MATH_V 180 or 184 or 120 may substitute for any of the specified differential calculus courses listed by decreasing the electives by 1 credit. MATH_V 110 may substitute for any of the specified differential calculus courses listed by decreasing the electives by 3 credits."
+      },
+      {
+        "code": "PHYS 100-level",
+        "credits": 3,
+        "title": "",
+        "notes": "Students require 3 credits of 100-level PHYS_V beyond PHYS_V 100. Students lacking Physics 12 must take PHYS_V 100 in first year. Another 3 credits of PHYS_V may be taken at any time during the specialization but PHYS_V 100 must be taken during first year."
+      },
+      {
+        "code": "Electives",
+        "credits": 4,
+        "title": "",
+        "notes": "Elective credits together with required courses must fulfill the Faculty of Science’s: a) Foundational Requirement ; b) Laboratory Science Requirement ; c) Science Breadth Requirement ; d) Science and Arts Requirements ; e) Upper-level Requirement ; f) General Degree Requirements . Note that BCIT credits include 9 UBC Arts credits and 3 credits equivalent to UBC STAT_V 200. Students should be aware that BIOL_V 140 is a prerequisite for many upper-level BIOL_V courses at UBC. To maintain flexibility in their ability to study at UBC, students should consider including BIOL_V 140 in their first year at UBC even though this course is not required in the Biotechnology specialization."
+      }
+    ],
+    "2": [
+      {
+        "code": "BIOT 280",
+        "credits": 0,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "BIOT 380",
+        "credits": 0,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "BIOT 398",
+        "credits": 0,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "BIOT 399",
+        "credits": 0,
+        "title": "",
+        "notes": ""
+      }
+    ],
+    "3": [
+      {
+        "code": "Biotechnology selection list:",
+        "credits": 0,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "Five of BIOC 402, 403, 410, 440, 450, 460, BIOL 421, 436, 440, 458, 462, 463, MEDG 420, 421, MICB 301, 306, 308, 402, 407, 408, 418, 425",
+        "credits": 15,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "One of MICB 404, 406, 412, 413, 430",
+        "credits": 3,
+        "title": "",
+        "notes": "If more than one of these courses are taken, the extra courses can count as part of the 6 credits of courses from the Biotechnology selection list."
+      },
+      {
+        "code": "MICB 405",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "CHBE 419",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "One of MICB 305, 421, 447, 448, 471,475",
+        "credits": 3,
+        "title": "",
+        "notes": "If more than one of these courses are taken, the extra courses can count as part of the 6 credits of courses from the Biotechnology selection list. MICB_V 448 would normally be 3 credits. It may be taken as 6 credits if the total number of electives in fourth and fifth years is lowered from 9 credits to 6 credits, so the total required credit remains at 42 credits."
+      },
+      {
+        "code": "Two of COMR 383, 388, 457, 465",
+        "credits": 6,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "MICB 398, 399, 498, 499",
+        "credits": 6,
+        "title": "",
+        "notes": "The credit for the work terms is not included in the academic credits needed for the degree or the totals for the academic year. Students must take at least one work term as either a Fall work term or a Winter work term. The remaining work term may be done as a Fall, Winter, or Summer work term. The Biotechnology specialization normally ends with a final study term. Students must complete 3 of the 4 possible co-op work terms: MICB_V/BIOT_V 398, MICB_V/BIOT_V 399, MICB_V 498 and MICB_V 499.  If only 1 co-op work term is completed during 2nd and 3rd year at the BCIT campus, then at least 2 must be taken during 4th and 5th year. If 2 co-op work terms are completed at BCIT, students must complete at least 1 work term during 4th and 5th year."
+      },
+      {
+        "code": "Electives",
+        "credits": 9,
+        "title": "",
+        "notes": "Elective credits together with required courses must fulfill the Faculty of Science’s: a) Foundational Requirement ; b) Laboratory Science Requirement ; c) Science Breadth Requirement ; d) Science and Arts Requirements ; e) Upper-level Requirement ; f) General Degree Requirements . Note that BCIT credits include 9 UBC Arts credits and 3 credits equivalent to UBC STAT_V 200. Students should be aware that BIOL_V 140 is a prerequisite for many upper-level BIOL_V courses at UBC. To maintain flexibility in their ability to study at UBC, students should consider including BIOL_V 140 in their first year at UBC even though this course is not required in the Biotechnology specialization."
+      }
+    ],
+    "4": [
+      {
+        "code": "Biotechnology selection list:",
+        "credits": 0,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "Five of BIOC 402, 403, 410, 440, 450, 460, BIOL 421, 436, 440, 458, 462, 463, MEDG 420, 421, MICB 301, 306, 308, 402, 407, 408, 418, 425",
+        "credits": 15,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "One of MICB 404, 406, 412, 413, 430",
+        "credits": 3,
+        "title": "",
+        "notes": "If more than one of these courses are taken, the extra courses can count as part of the 6 credits of courses from the Biotechnology selection list."
+      },
+      {
+        "code": "MICB 405",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "CHBE 419",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "One of MICB 305, 421, 447, 448, 471,475",
+        "credits": 3,
+        "title": "",
+        "notes": "If more than one of these courses are taken, the extra courses can count as part of the 6 credits of courses from the Biotechnology selection list. MICB_V 448 would normally be 3 credits. It may be taken as 6 credits if the total number of electives in fourth and fifth years is lowered from 9 credits to 6 credits, so the total required credit remains at 42 credits."
+      },
+      {
+        "code": "Two of COMR 383, 388, 457, 465",
+        "credits": 6,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "MICB 398, 399, 498, 499",
+        "credits": 6,
+        "title": "",
+        "notes": "The credit for the work terms is not included in the academic credits needed for the degree or the totals for the academic year. Students must take at least one work term as either a Fall work term or a Winter work term. The remaining work term may be done as a Fall, Winter, or Summer work term. The Biotechnology specialization normally ends with a final study term. Students must complete 3 of the 4 possible co-op work terms: MICB_V/BIOT_V 398, MICB_V/BIOT_V 399, MICB_V 498 and MICB_V 499.  If only 1 co-op work term is completed during 2nd and 3rd year at the BCIT campus, then at least 2 must be taken during 4th and 5th year. If 2 co-op work terms are completed at BCIT, students must complete at least 1 work term during 4th and 5th year."
+      },
+      {
+        "code": "Electives",
+        "credits": 9,
+        "title": "",
+        "notes": "Elective credits together with required courses must fulfill the Faculty of Science’s: a) Foundational Requirement ; b) Laboratory Science Requirement ; c) Science Breadth Requirement ; d) Science and Arts Requirements ; e) Upper-level Requirement ; f) General Degree Requirements . Note that BCIT credits include 9 UBC Arts credits and 3 credits equivalent to UBC STAT_V 200. Students should be aware that BIOL_V 140 is a prerequisite for many upper-level BIOL_V courses at UBC. To maintain flexibility in their ability to study at UBC, students should consider including BIOL_V 140 in their first year at UBC even though this course is not required in the Biotechnology specialization."
+      }
+    ]
+  }
+}

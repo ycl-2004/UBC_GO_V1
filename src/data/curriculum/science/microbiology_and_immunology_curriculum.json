@@ -1,0 +1,168 @@
+{
+  "Microbiology and Immunology": {
+    "1": [
+      {
+        "code": "BIOL 112",
+        "credits": 3,
+        "title": "",
+        "notes": "Students without one of Biology 11 or Biology 12 must take BIOL_V 111 before taking BIOL_V 112 or BIOL_V 121 and students without Chemistry 12 must take CHEM_V 100 or CHEM_V 111 before taking BIOL_V 112 (See Footnote 2). Students with credit for BIOL_V 200 or sufficient credits of first year biology to enrol in BIOL_V 200 may skip BIOL_V 112 if they take an extra 3 credits of upper-level MICB_V courses in year 3 or 4. Students should be aware that BIOL_V 180 (or BIOL_V 140) is a prerequisite for many upper-level BIOL_V courses at UBC. To maintain flexibility in their ability to study at UBC, students should consider including BIOL_V 180 (or BIOL_V 140) in their first year at UBC even though this course is not required in this specialization."
+      },
+      {
+        "code": "One of BIOL 111, 121",
+        "credits": 3,
+        "title": "",
+        "notes": "Students without one of Biology 11 or Biology 12 must take BIOL_V 111 before taking BIOL_V 112 or BIOL_V 121 and students without Chemistry 12 must take CHEM_V 100 or CHEM_V 111 before taking BIOL_V 112 (See Footnote 2). Students with credit for BIOL_V 200 or sufficient credits of first year biology to enrol in BIOL_V 200 may skip BIOL_V 112 if they take an extra 3 credits of upper-level MICB_V courses in year 3 or 4. Students should be aware that BIOL_V 180 (or BIOL_V 140) is a prerequisite for many upper-level BIOL_V courses at UBC. To maintain flexibility in their ability to study at UBC, students should consider including BIOL_V 180 (or BIOL_V 140) in their first year at UBC even though this course is not required in this specialization."
+      },
+      {
+        "code": "CHEM 121 (or 111, 141)",
+        "credits": 4,
+        "title": "",
+        "notes": "Students who do not have BC high school Chemistry 12 (or its equivalent) must write the UBC Chemistry Basic Skills Test and may be required to take CHEM_V 100. CHEM_V 110 and CHEM_V 115 may substitute for CHEM_V 111. CHEM_V 120 and CHEM_V 115 may substitute for CHEM_V 121. CHEM_V 130 and CHEM_V 135 may substitute for CHEM_V 123."
+      },
+      {
+        "code": "CHEM 123",
+        "credits": 4,
+        "title": "",
+        "notes": "Students who do not have BC high school Chemistry 12 (or its equivalent) must write the UBC Chemistry Basic Skills Test and may be required to take CHEM_V 100. CHEM_V 110 and CHEM_V 115 may substitute for CHEM_V 111. CHEM_V 120 and CHEM_V 115 may substitute for CHEM_V 121. CHEM_V 130 and CHEM_V 135 may substitute for CHEM_V 123."
+      },
+      {
+        "code": "One of MATH 100, 102, 104",
+        "credits": 3,
+        "title": "",
+        "notes": "MATH_V 180 or 184 or 120 may substitute for any of the specified differential calculus courses listed by decreasing the electives by 1 credit. MATH_V 110 may substitute for any of the specified differential calculus courses listed by decreasing the electives by 3 credits. All of the differential calculus courses are suitable prerequisites for later MATH_V courses."
+      },
+      {
+        "code": "PHYS 100-level",
+        "credits": 3,
+        "title": "",
+        "notes": "Chosen from 100-level PHYS_V courses, excluding PHYS_V 100. Students lacking Physics 12 must take PHYS_V 100 before taking any other 100-level PHYS_V course, using PHYS_V 100 as an elective. Students requiring PHYS_V 100 may delay other 100-level PHYS_V courses until second year."
+      },
+      {
+        "code": "SCIE 113",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "DSCI 100",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "Electives",
+        "credits": 4,
+        "title": "",
+        "notes": "Elective credits together with required courses must fulfill the Faculty of Science’s: a) Foundational Requirement ; b) Laboratory Science Requirement ; c) Science Breadth Requirement ; d) Science and Arts Requirements ; e) Upper-level Requirement ; f) General Degree Requirements ."
+      }
+    ],
+    "2": [
+      {
+        "code": "MICB 205, 211 (or 201), 212 (or 202)",
+        "credits": 9,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "BIOL 200, 201",
+        "credits": 6,
+        "title": "",
+        "notes": "Students may substitute BIOC_V 202 or BIOC_V 203 for BIOL_V 201."
+      },
+      {
+        "code": "CHEM 233, 235",
+        "credits": 4,
+        "title": "",
+        "notes": "Students may substitute CHEM_V 203 for CHEM_V 233 and 235."
+      },
+      {
+        "code": "Electives",
+        "credits": 8,
+        "title": "",
+        "notes": "Elective credits together with required courses must fulfill the Faculty of Science’s: a) Foundational Requirement ; b) Laboratory Science Requirement ; c) Science Breadth Requirement ; d) Science and Arts Requirements ; e) Upper-level Requirement ; f) General Degree Requirements ."
+      },
+      {
+        "code": "Additional Communication Requirement",
+        "credits": 3,
+        "title": "",
+        "notes": "SCIE 113, ENGL 110, ENGL 111, ENGL 112, ENGL 120, ENGL 121, WRDS 150"
+      }
+    ],
+    "3": [
+      {
+        "code": "MICB 301, 302, 322, 323",
+        "credits": 12,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "At least one of MICB 325, BIOL 335",
+        "credits": 3,
+        "title": "",
+        "notes": "If both courses are taken, MICB_V 325 counts as an MICB_V selection."
+      },
+      {
+        "code": "BIOC 302",
+        "credits": 3,
+        "title": "",
+        "notes": "BIOC_V 303 may be substituted for BIOC_V 302 by using 3 credits of elective space."
+      },
+      {
+        "code": "Additional MICB selections",
+        "credits": 9,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "Another MICB selection or a selection from BIOC 402, 410, 421, BIOL 328, 421, CHBE 381, MEDG 421, EOSC 475",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "Electives",
+        "credits": 24,
+        "title": "",
+        "notes": "Elective credits together with required courses must fulfill the Faculty of Science’s: a) Foundational Requirement ; b) Laboratory Science Requirement ; c) Science Breadth Requirement ; d) Science and Arts Requirements ; e) Upper-level Requirement ; f) General Degree Requirements ."
+      }
+    ],
+    "4": [
+      {
+        "code": "BIOC 302",
+        "credits": 3,
+        "title": "",
+        "notes": "BIOC_V 303 may be substituted for BIOC_V 302 by using 3 credits of elective space."
+      },
+      {
+        "code": "Additional MICB selections",
+        "credits": 9,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "Another MICB selection or a selection from BIOC 402, 410, 421, BIOL 328, 421, CHBE 381, MEDG 421, EOSC 475",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "Electives",
+        "credits": 24,
+        "title": "",
+        "notes": "Elective credits together with required courses must fulfill the Faculty of Science’s: a) Foundational Requirement ; b) Laboratory Science Requirement ; c) Science Breadth Requirement ; d) Science and Arts Requirements ; e) Upper-level Requirement ; f) General Degree Requirements ."
+      },
+      {
+        "code": "MICB 471 (or 421 or 447)",
+        "credits": 3,
+        "title": "",
+        "notes": "Students concerned about taking more than one upper level laboratory course in a single term are encouraged to organize their schedule so each lab is taken in a different term if possible."
+      },
+      {
+        "code": "MICB 305 (or 401 or 475)",
+        "credits": 3,
+        "title": "",
+        "notes": "Students concerned about taking more than one upper level laboratory course in a single term are encouraged to organize their schedule so each lab is taken in a different term if possible."
+      }
+    ]
+  }
+}

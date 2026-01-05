@@ -1,0 +1,144 @@
+{
+  "Neuroscience": {
+    "1": [
+      {
+        "code": "SCIE 113",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "Additional Communication Requirement",
+        "credits": 3,
+        "title": "",
+        "notes": "SCIE 113, ENGL 110, ENGL 111, ENGL 112, ENGL 120, ENGL 121, WRDS 150"
+      },
+      {
+        "code": "BIOL 112, 121",
+        "credits": 6,
+        "title": "",
+        "notes": "Students without one of Biology 11 or Biology 12 must take BIOL_V 111 before taking BIOL_V 112 or 121. Students without Chemistry 12 must take CHEM_V_V 100, CHEM_V 110, or CHEM_V 111 before taking BIOL_V 112."
+      },
+      {
+        "code": "CHEM 110 or 111 or 120 or 121 or 141",
+        "credits": 4,
+        "title": "",
+        "notes": "Students who do not have B.C. High School Chemistry 12 (or its equivalent) must write the UBC Chemistry Basic Skills Test and may be required to take CHEM_V 100. If a student elects to take CHEM_V 110 or 120, and/or CHEM_V 130, the student will have an extra 1 or 2 elective credits available to them."
+      },
+      {
+        "code": "CHEM 123 or 130",
+        "credits": 4,
+        "title": "",
+        "notes": "Students who do not have B.C. High School Chemistry 12 (or its equivalent) must write the UBC Chemistry Basic Skills Test and may be required to take CHEM_V 100. If a student elects to take CHEM_V 110 or 120, and/or CHEM_V 130, the student will have an extra 1 or 2 elective credits available to them."
+      },
+      {
+        "code": "CPSC 103 (or 110)",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "MATH 100 or 102 or 104 (or 120 or 180 or 184)",
+        "credits": 3,
+        "title": "",
+        "notes": "Students taking more than 3 credits of first year MATH_V should count these extra credits as electives and reduce the total number of elective credits accordingly. MATH_V 110 may substitute for any of the specified differential calculus courses listed by reducing the total number of elective credits by 3."
+      },
+      {
+        "code": "PHYS 106 or 117 or 131",
+        "credits": 3,
+        "title": "",
+        "notes": "Students without Physics 12 must take PHYS_V 100 before taking PHYS_V 106 or PHYS_V 117 or PHYS_V 131."
+      }
+    ],
+    "2": [
+      {
+        "code": "STAT 200",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "NSCI 210",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "NSCI 200, 201",
+        "credits": 6,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "BIOL 200, 234",
+        "credits": 6,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "BIOL 201 or BIOC 202",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "CHEM 233",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "Electives",
+        "credits": 7,
+        "title": "",
+        "notes": "Elective credits together with required courses must fulfill the Faculty of Science’s: a) Foundational Requirement ; b) Laboratory Science Requirement ; c) Science Breadth Requirement ; d) Science and Arts Requirements ; e) Upper-level Requirement ; f) General Degree Requirements ."
+      }
+    ],
+    "3": [
+      {
+        "code": "NSCI 300, 301, 302, 303, 311",
+        "credits": 15,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "BIOL 371, 372 or PSYC 370, 371",
+        "credits": 6,
+        "title": "",
+        "notes": "For Cellular and Molecular Emphasis, take BIOL_V 371, 372. For Behavioural and Cognitive Emphasis, take PSYC_V 370, 371."
+      },
+      {
+        "code": "Electives",
+        "credits": 9,
+        "title": "",
+        "notes": "Elective credits together with required courses must fulfill the Faculty of Science’s: a) Foundational Requirement ; b) Laboratory Science Requirement ; c) Science Breadth Requirement ; d) Science and Arts Requirements ; e) Upper-level Requirement ; f) General Degree Requirements ."
+      }
+    ],
+    "4": [
+      {
+        "code": "NSCI 400",
+        "credits": 6,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "*List A (Behavioural/Cognitive Neuroscience): NSCI 401, NSCI 486 , PSYC 361, PSYC 363, PSYC 365, PSYC 367, PSYC 368, PSYC 409, PSYC 460, PSYC 461, PSYC 462, PSYC 472",
+        "credits": 0,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "*List B (Cellular/Molecular Neuroscience): NSCI 401, BIOL 451, BIOL 458, BIOL 459, BIOL 460, CAPS 421, CAPS 426 , NSCI 487",
+        "credits": 0,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "Electives",
+        "credits": 12,
+        "title": "",
+        "notes": "Elective credits together with required courses must fulfill the Faculty of Science’s: a) Foundational Requirement ; b) Laboratory Science Requirement ; c) Science Breadth Requirement ; d) Science and Arts Requirements ; e) Upper-level Requirement ; f) General Degree Requirements ."
+      }
+    ]
+  }
+}

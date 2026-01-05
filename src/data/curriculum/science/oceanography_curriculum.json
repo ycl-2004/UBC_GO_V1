@@ -1,0 +1,168 @@
+{
+  "Oceanography": {
+    "1": [
+      {
+        "code": "SCIE 113",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "PHYS 100-level",
+        "credits": 3,
+        "title": "",
+        "notes": "Chosen from 100-level PHYS_V courses, excluding PHYS_V 100 and PHYS_V 170. Students without credit for Physics 12 must take PHYS_V 100 prior to taking any other 100-level PHYS_V course. PHYS_V 100 will count as an elective. Students requiring PHYS_V 100 or MATH_V 110 may delay PHYS_V 106/117/131 until second year. Qualified students are encouraged to take PHYS_V 106."
+      },
+      {
+        "code": "CHEM 121 (or 111 or 141)",
+        "credits": 4,
+        "title": "",
+        "notes": "Students who do not have B.C. High School Chemistry 12 (or its equivalent) must write the UBC Chemistry Basic Skills Test and may be required to take CHEM_V 100. CHEM_V 110 and 115 may substitute for CHEM_V 111, CHEM_V 120 and 115 may substitute for CHEM_V 121, CHEM_V 130 and 135 may substitute for CHEM_V 123."
+      },
+      {
+        "code": "CHEM 123",
+        "credits": 4,
+        "title": "",
+        "notes": "Students who do not have B.C. High School Chemistry 12 (or its equivalent) must write the UBC Chemistry Basic Skills Test and may be required to take CHEM_V 100. CHEM_V 110 and 115 may substitute for CHEM_V 111, CHEM_V 120 and 115 may substitute for CHEM_V 121, CHEM_V 130 and 135 may substitute for CHEM_V 123."
+      },
+      {
+        "code": "EOSC 112",
+        "credits": 3,
+        "title": "",
+        "notes": "Students who enter the specialization after second year may substitute EOSC_V 340."
+      },
+      {
+        "code": "BIOL 112, 121",
+        "credits": 6,
+        "title": "",
+        "notes": "Students without one of Biology 11 or Biology 12 must take BIOL_V 111 before attempting BIOL_V 112 or BIOL_V 121 or BIOL_V 180. Students who do not have B.C. High School Chemistry 12 (or its equivalent) must take CHEM_V 111 before taking BIOL_V 112."
+      },
+      {
+        "code": "BIOL 180",
+        "credits": 2,
+        "title": "",
+        "notes": "Students without one of Biology 11 or Biology 12 must take BIOL_V 111 before attempting BIOL_V 112 or BIOL_V 121 or BIOL_V 180. Students who do not have B.C. High School Chemistry 12 (or its equivalent) must take CHEM_V 111 before taking BIOL_V 112."
+      },
+      {
+        "code": "MATH 100 or 102 or 104",
+        "credits": 3,
+        "title": "",
+        "notes": "MATH_V 180 or 184 or 120 may substitute for any of the specified differential calculus courses listed by decreasing the electives by 1 credit. MATH_V 110 may substitute for any of the specified differential calculus courses listed by decreasing the electives by 3 credits."
+      },
+      {
+        "code": "MATH 101 or 103 or 105",
+        "credits": 3,
+        "title": "",
+        "notes": "MATH_V 121 may substitute for any of the specified integral calculus courses listed by decreasing the electives by 1 credit."
+      }
+    ],
+    "2": [
+      {
+        "code": "Additional Communication Requirement",
+        "credits": 3,
+        "title": "",
+        "notes": "SCIE 113, ENGL 110, ENGL 111, ENGL 112, ENGL 120, ENGL 121, WRDS 150"
+      },
+      {
+        "code": "BIOL 200, 230, 233 (or 234), 260",
+        "credits": 12,
+        "title": "",
+        "notes": "Up to 3 credits of BIOL_V 200, 230, 233, 234, and 260 may be deferred until third year to allow space for additional electives."
+      },
+      {
+        "code": "One of BIOL 203, 204, 205, 209 or MICB 201, 211",
+        "credits": 3,
+        "title": "",
+        "notes": "Students who take 4 credits of organismal diversity courses (BIOL_V 203, 204, 205, 209) should take 2 credits of electives. Students who take 3 credits of organismal diversity courses (MICB_V 211 or 201) should take 3 credits of electives."
+      },
+      {
+        "code": "EOSC 211, 270",
+        "credits": 6,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "CHEM 233",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "Electives",
+        "credits": 3,
+        "title": "",
+        "notes": "Up to 3 credits of BIOL_V 200, 230, 233, 234, and 260 may be deferred until third year to allow space for additional electives. Students who take 4 credits of organismal diversity courses (BIOL_V 203, 204, 205, 209) should take 2 credits of electives. Students who take 3 credits of organismal diversity courses (MICB_V 211 or 201) should take 3 credits of electives. Elective credits together with required courses must fulfill the Faculty of Science’s: a) Foundational Requirement ; b) Laboratory Science Requirement ; c) Science Breadth Requirement ; d) Science and Arts Requirements ; e) Upper-level Requirement ; f) General Degree Requirements . Students are permitted to move elective credits between years. Students interested in fisheries oceanography should consider ECON_V 101 (Arts credit) and LAW_V 356 as electives."
+      }
+    ],
+    "3": [
+      {
+        "code": "BIOL 300 , 336",
+        "credits": 6,
+        "title": "",
+        "notes": "STAT_V 200 can replace BIOL_V 300 with permission of an advisor. However, students who take STAT_V 200 must complete an additional 3 credits of BIOL_V numbered higher than 300."
+      },
+      {
+        "code": "BIOL 351 (or 320)",
+        "credits": 4,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "EOSC 372, 373",
+        "credits": 6,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "One of BIOL 340, 341, 363",
+        "credits": 2,
+        "title": "",
+        "notes": "BIOL_V 363 is a 2-credt course, whereas BIOL_V 340 and BIOL_V 341 are both 3-credit courses. T he elective credits will be reduced by one if BIOL_V 340 or BIOL_V 341 is taken."
+      },
+      {
+        "code": "Electives",
+        "credits": 11,
+        "title": "",
+        "notes": "Up to 3 credits of BIOL_V 200, 230, 233, 234, and 260 may be deferred until third year to allow space for additional electives. Students who take 4 credits of organismal diversity courses (BIOL_V 203, 204, 205, 209) should take 2 credits of electives. Students who take 3 credits of organismal diversity courses (MICB_V 211 or 201) should take 3 credits of electives. Elective credits together with required courses must fulfill the Faculty of Science’s: a) Foundational Requirement ; b) Laboratory Science Requirement ; c) Science Breadth Requirement ; d) Science and Arts Requirements ; e) Upper-level Requirement ; f) General Degree Requirements . Students are permitted to move elective credits between years. Students interested in fisheries oceanography should consider ECON_V 101 (Arts credit) and LAW_V 356 as electives."
+      }
+    ],
+    "4": [
+      {
+        "code": "BIOL 402 (or FRST 386)",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "EOSC 470",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "One of EOSC 471, 472",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "One of EOSC 426, 475, 478",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "One of EOSC 448, 473, BIOL 420, 421, 432, 436",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "Electives",
+        "credits": 15,
+        "title": "",
+        "notes": "Up to 3 credits of BIOL_V 200, 230, 233, 234, and 260 may be deferred until third year to allow space for additional electives. Students who take 4 credits of organismal diversity courses (BIOL_V 203, 204, 205, 209) should take 2 credits of electives. Students who take 3 credits of organismal diversity courses (MICB_V 211 or 201) should take 3 credits of electives. Elective credits together with required courses must fulfill the Faculty of Science’s: a) Foundational Requirement ; b) Laboratory Science Requirement ; c) Science Breadth Requirement ; d) Science and Arts Requirements ; e) Upper-level Requirement ; f) General Degree Requirements . Students are permitted to move elective credits between years. Students interested in fisheries oceanography should consider ECON_V 101 (Arts credit) and LAW_V 356 as electives."
+      }
+    ]
+  }
+}

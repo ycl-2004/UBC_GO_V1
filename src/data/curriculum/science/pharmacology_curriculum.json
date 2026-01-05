@@ -1,0 +1,234 @@
+{
+  "Pharmacology": {
+    "1": [
+      {
+        "code": "SCIE 113",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "Additional Communication Requirement",
+        "credits": 3,
+        "title": "",
+        "notes": "SCIE 113, ENGL 110, ENGL 111, ENGL 112, ENGL 120, ENGL 121, WRDS 150"
+      },
+      {
+        "code": "BIOL 112, 121",
+        "credits": 6,
+        "title": "",
+        "notes": "Students without one of Biology 11 or Biology 12 must take BIOL_V 111 before taking BIOL_V 112 or BIOL_V 121. Students without Chemistry 12 must take CHEM_V 100 or CHEM_V 111 before taking BIOL_V 112."
+      },
+      {
+        "code": "CHEM 121 or 141 (or 111)",
+        "credits": 4,
+        "title": "",
+        "notes": "Students who do not have BC high school Chemistry 12 (or its equivalent) must write the UBC Chemistry Basic Skills Test and may be required to take CHEM_V 100."
+      },
+      {
+        "code": "CHEM 123",
+        "credits": 4,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "MATH 100 or 102 or 104",
+        "credits": 3,
+        "title": "",
+        "notes": "MATH_V 110, 120, 180 or 184 may substitute for any of the specified calculus courses. The extra credit for these courses with more than 3 credits would count as part of the elective credit in later years."
+      },
+      {
+        "code": "MATH 101 or 103 or 105",
+        "credits": 3,
+        "title": "",
+        "notes": "MATH_V 121 may substitute for any of the specified integral calculus courses."
+      },
+      {
+        "code": "PHYS 100 level",
+        "credits": 3,
+        "title": "",
+        "notes": "Chosen from PHYS_V courses excluding PHYS_V 100. Students lacking Physics 12 must take PHYS_V 100 as an elective before taking other PHYS_V courses."
+      }
+    ],
+    "2": [
+      {
+        "code": "BIOL 200",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "BIOL 201 or BIOC 202 (or 203)",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "CAPS 205",
+        "credits": 3,
+        "title": "",
+        "notes": "CAPS_V 301 may be taken instead of CAPS_V 205 and CAPS_V 206; in the year where this requirement is not completed, increase the number of elective credits by 6."
+      },
+      {
+        "code": "CAPS 206",
+        "credits": 3,
+        "title": "",
+        "notes": "CAPS_V 301 may be taken instead of CAPS_V 205 and CAPS_V 206; in the year where this requirement is not completed, increase the number of elective credits by 6."
+      },
+      {
+        "code": "CHEM 205 or CHEM 211",
+        "credits": 3,
+        "title": "",
+        "notes": "Students who take CHEM_V 211 reduce the number of elective credits by 1."
+      },
+      {
+        "code": "CHEM 233, 235",
+        "credits": 4,
+        "title": "",
+        "notes": "The combination of CHEM_V 203 and 213 are accepted as a substitute for CHEM_V 233 and 235 if students have credit for CHEM_V 203 and 213."
+      },
+      {
+        "code": "MICB 211",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "PCTH 201",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "Electives",
+        "credits": 6,
+        "title": "",
+        "notes": "Elective credits together with required courses must fulfill the Faculty of Science’s: a) Foundational Requirement ; b) Laboratory Science Requirement ; c) Science Breadth Requirement ; d) Science and Arts Requirements ; e) Upper-level Requirement ; f) General Degree Requirements ."
+      }
+    ],
+    "3": [
+      {
+        "code": "BIOC 301",
+        "credits": 3,
+        "title": "",
+        "notes": "Must be taken in third year."
+      },
+      {
+        "code": "BIOC 302",
+        "credits": 3,
+        "title": "",
+        "notes": "Must be taken in third year."
+      },
+      {
+        "code": "BIOL 300 or STAT 200",
+        "credits": 3,
+        "title": "",
+        "notes": "Must be taken prior to fourth year."
+      },
+      {
+        "code": "CAPS 301",
+        "credits": 6,
+        "title": "",
+        "notes": "CAPS_V 301 may be taken instead of CAPS_V 205 and CAPS_V 206; in the year where this requirement is not completed, increase the number of elective credits by 6."
+      },
+      {
+        "code": "PCTH 301",
+        "credits": 3,
+        "title": "",
+        "notes": "PCTH_V 300 may be taken in place of PCTH_V 301 and PCTH_V 303."
+      },
+      {
+        "code": "PCTH 302",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "PCTH 303",
+        "credits": 3,
+        "title": "",
+        "notes": "PCTH_V 300 may be taken in place of PCTH_V 301 and PCTH_V 303."
+      },
+      {
+        "code": "PCTH 400",
+        "credits": 6,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "PCTH 404",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "Electives",
+        "credits": 27,
+        "title": "",
+        "notes": "Elective credits together with required courses must fulfill the Faculty of Science’s: a) Foundational Requirement ; b) Laboratory Science Requirement ; c) Science Breadth Requirement ; d) Science and Arts Requirements ; e) Upper-level Requirement ; f) General Degree Requirements ."
+      }
+    ],
+    "4": [
+      {
+        "code": "BIOC 301",
+        "credits": 3,
+        "title": "",
+        "notes": "Must be taken in third year."
+      },
+      {
+        "code": "BIOC 302",
+        "credits": 3,
+        "title": "",
+        "notes": "Must be taken in third year."
+      },
+      {
+        "code": "BIOL 300 or STAT 200",
+        "credits": 3,
+        "title": "",
+        "notes": "Must be taken prior to fourth year."
+      },
+      {
+        "code": "CAPS 301",
+        "credits": 6,
+        "title": "",
+        "notes": "CAPS_V 301 may be taken instead of CAPS_V 205 and CAPS_V 206; in the year where this requirement is not completed, increase the number of elective credits by 6."
+      },
+      {
+        "code": "PCTH 301",
+        "credits": 3,
+        "title": "",
+        "notes": "PCTH_V 300 may be taken in place of PCTH_V 301 and PCTH_V 303."
+      },
+      {
+        "code": "PCTH 302",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "PCTH 303",
+        "credits": 3,
+        "title": "",
+        "notes": "PCTH_V 300 may be taken in place of PCTH_V 301 and PCTH_V 303."
+      },
+      {
+        "code": "PCTH 400",
+        "credits": 6,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "PCTH 404",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "Electives",
+        "credits": 27,
+        "title": "",
+        "notes": "Elective credits together with required courses must fulfill the Faculty of Science’s: a) Foundational Requirement ; b) Laboratory Science Requirement ; c) Science Breadth Requirement ; d) Science and Arts Requirements ; e) Upper-level Requirement ; f) General Degree Requirements ."
+      }
+    ]
+  }
+}

@@ -1,0 +1,186 @@
+{
+  "Atmospheric Science": {
+    "1": [
+      {
+        "code": "SCIE 113",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "DSCI 100",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "CHEM 121 (or 111 or 141), 123",
+        "credits": 8,
+        "title": "",
+        "notes": "Students who do not have B.C. High School Chemistry 12 (or its equivalent) must write the UBC Chemistry Basic Skills Test and may be required to take CHEM_V 100. CHEM_V 110 and 115 may substitute for CHEM_V 111, CHEM_V 120 and 115 may substitute for CHEM_V 121, CHEM_V 130 and 135 may substitute for CHEM_V 123."
+      },
+      {
+        "code": "MATH 100 or 102 or 104",
+        "credits": 3,
+        "title": "",
+        "notes": "MATH_V 180 or 184 or 120 may substitute for any of the specified differential calculus courses listed by decreasing the electives by 1 credit. MATH_V 110 may substitute for any of the specified differential calculus courses listed by decreasing the electives by 3 credits."
+      },
+      {
+        "code": "MATH 101 or 103 or 105",
+        "credits": 3,
+        "title": "",
+        "notes": "MATH_V 121 may substitute for any of the specified integral calculus courses listed by decreasing the electives by 1 credit."
+      },
+      {
+        "code": "PHYS 117 (or 101 or 106 or 107 or 131)",
+        "credits": 3,
+        "title": "",
+        "notes": "Students without Physics 12 must take PHYS_V 100 prior to other physics courses. PHYS_V 100 will be counted as an elective. Qualified students are encouraged to take PHYS_V 106 and 108."
+      },
+      {
+        "code": "PHYS 118 (or 108)",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "PHYS 119 (or 109)",
+        "credits": 1,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "Electives",
+        "credits": 3,
+        "title": "",
+        "notes": "Students are permitted to move elective credits between years. Elective credits together with required courses must fulfill the Faculty of Science’s: a) Foundational Requirement ; b) Laboratory Science Requirement ; c) Science Breadth Requirement ; d) Science and Arts Requirements ; e) Upper-level Requirement ; f) General Degree Requirements . Students wishing to pursue a career in weather forecasting or meteorology to prepare for graduate study in Atmospheric Science should consult with an ATSC advisor regarding choices of electives, including additional courses in Physics, Chemistry, Mathematics, Statistics or Computer Science."
+      }
+    ],
+    "2": [
+      {
+        "code": "Additional Communication Requirement",
+        "credits": 3,
+        "title": "",
+        "notes": "SCIE 113, ENGL 110, ENGL 111, ENGL 112, ENGL 120, ENGL 121, WRDS 150"
+      },
+      {
+        "code": "One of ATSC 201, GEOS (or GEOB ) 200",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "EOSC 211 (or CPSC 103 or 110)",
+        "credits": 3,
+        "title": "",
+        "notes": "If choosing CPSC_V 110, reduce electives by 1 credit."
+      },
+      {
+        "code": "MATH 200",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "STAT 201 (or 200 or 251)",
+        "credits": 3,
+        "title": "",
+        "notes": "STAT_V 201 is recommended for students who wish to pursue a minor in data science. STAT_V 200 or 251 plus STAT_V 302 are recommended for students interested in taking further courses in statistics."
+      },
+      {
+        "code": "Electives",
+        "credits": 15,
+        "title": "",
+        "notes": "Students are permitted to move elective credits between years. Elective credits together with required courses must fulfill the Faculty of Science’s: a) Foundational Requirement ; b) Laboratory Science Requirement ; c) Science Breadth Requirement ; d) Science and Arts Requirements ; e) Upper-level Requirement ; f) General Degree Requirements . Students wishing to pursue a career in weather forecasting or meteorology to prepare for graduate study in Atmospheric Science should consult with an ATSC advisor regarding choices of electives, including additional courses in Physics, Chemistry, Mathematics, Statistics or Computer Science."
+      }
+    ],
+    "3": [
+      {
+        "code": "ATSC 301 , GEOS (or GEOB ) 300",
+        "credits": 6,
+        "title": "",
+        "notes": "Usually only offered every other year. Check timing with the advisor and plan accordingly."
+      },
+      {
+        "code": "ENVR 300",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "Three of ATSC 303 , 413, 409 , GEOS (or GEOB ) 309, 370, 373, EOSC 352, 354, 410",
+        "credits": 9,
+        "title": "",
+        "notes": "Usually only offered every other year. Check timing with the advisor and plan accordingly. Usually only offered every other year. Check timing with the advisor and plan accordingly."
+      },
+      {
+        "code": "One of EOSC 340, ENVR 410, GEOG 312",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "Four of ATSC 313, 405, CHEM 302, GEOS (or GEOB ) 400, 401, 402, EOSC 440, 471, MECH 411",
+        "credits": 12,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "One of ATSC 448, GEOS (or GEOB ) 448",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "Electives",
+        "credits": 24,
+        "title": "",
+        "notes": "Students are permitted to move elective credits between years. Elective credits together with required courses must fulfill the Faculty of Science’s: a) Foundational Requirement ; b) Laboratory Science Requirement ; c) Science Breadth Requirement ; d) Science and Arts Requirements ; e) Upper-level Requirement ; f) General Degree Requirements . Students wishing to pursue a career in weather forecasting or meteorology to prepare for graduate study in Atmospheric Science should consult with an ATSC advisor regarding choices of electives, including additional courses in Physics, Chemistry, Mathematics, Statistics or Computer Science."
+      }
+    ],
+    "4": [
+      {
+        "code": "ATSC 301 , GEOS (or GEOB ) 300",
+        "credits": 6,
+        "title": "",
+        "notes": "Usually only offered every other year. Check timing with the advisor and plan accordingly."
+      },
+      {
+        "code": "ENVR 300",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "Three of ATSC 303 , 413, 409 , GEOS (or GEOB ) 309, 370, 373, EOSC 352, 354, 410",
+        "credits": 9,
+        "title": "",
+        "notes": "Usually only offered every other year. Check timing with the advisor and plan accordingly. Usually only offered every other year. Check timing with the advisor and plan accordingly."
+      },
+      {
+        "code": "One of EOSC 340, ENVR 410, GEOG 312",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "Four of ATSC 313, 405, CHEM 302, GEOS (or GEOB ) 400, 401, 402, EOSC 440, 471, MECH 411",
+        "credits": 12,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "One of ATSC 448, GEOS (or GEOB ) 448",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "Electives",
+        "credits": 24,
+        "title": "",
+        "notes": "Students are permitted to move elective credits between years. Elective credits together with required courses must fulfill the Faculty of Science’s: a) Foundational Requirement ; b) Laboratory Science Requirement ; c) Science Breadth Requirement ; d) Science and Arts Requirements ; e) Upper-level Requirement ; f) General Degree Requirements . Students wishing to pursue a career in weather forecasting or meteorology to prepare for graduate study in Atmospheric Science should consult with an ATSC advisor regarding choices of electives, including additional courses in Physics, Chemistry, Mathematics, Statistics or Computer Science."
+      }
+    ]
+  }
+}

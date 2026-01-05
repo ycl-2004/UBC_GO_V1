@@ -1,0 +1,168 @@
+{
+  "Environmental Sciences": {
+    "1": [
+      {
+        "code": "BIOL 121",
+        "credits": 3,
+        "title": "",
+        "notes": "Students without one of Biology 11 or Biology 12 must take BIOL_V 111 before attempting BIOL_V 121."
+      },
+      {
+        "code": "ENVR 100",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "CHEM 121 (or 111 or 141)",
+        "credits": 4,
+        "title": "",
+        "notes": "Students who do not have BC High School Chemistry 12 (or its equivalent) must write the UBC Chemistry Basic Skills Test and may be required to take CHEM_V 100. CHEM_V 110 and 115 may substitute for CHEM_V 111, CHEM_V 120 and 115 may substitute for CHEM_V 121, CHEM_V 130 and 135 may substitute for CHEM_V 123."
+      },
+      {
+        "code": "SCIE 113",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "DSCI 100",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "MATH 100 or 102 or 104 or 180 or 184 or 120",
+        "credits": 3,
+        "title": "",
+        "notes": "MATH_V 110 may substitute for any of the specified differential calculus courses listed by decreasing the electives by 3 credits. Choosing a 4 credit MATH_V course lowers the electives by 1 credit. All of the differential calculus courses are suitable prerequisites for later MATH_V courses. They differ in the expected student background and the types of examples used in the problems."
+      },
+      {
+        "code": "MATH 101 or 103 or 105 or 121",
+        "credits": 3,
+        "title": "",
+        "notes": "MATH_V 110 may substitute for any of the specified differential calculus courses listed by decreasing the electives by 3 credits. Choosing a 4 credit MATH_V course lowers the electives by 1 credit. All of the differential calculus courses are suitable prerequisites for later MATH_V courses. They differ in the expected student background and the types of examples used in the problems."
+      },
+      {
+        "code": "PHYS 100-level",
+        "credits": 3,
+        "title": "",
+        "notes": "Chosen from 100-level PHYS_V courses, excluding PHYS_V 100 and PHYS_V 170. Students without Physics 12 must replace 3 credits of electives with PHYS_V 100 before taking any other 100-level PHYS_V course. Students may defer taking any other 100-level PHYS_V course to second year."
+      },
+      {
+        "code": "Electives",
+        "credits": 5,
+        "title": "",
+        "notes": "Elective credits together with required courses must fulfill the Faculty of Science’s: a) Foundational Requirement ; b) Laboratory Science Requirement ; c) Science Breadth Requirement ; d) Science and Arts Requirements ; e) Upper-level Requirement ; f) General Degree Requirements . Students interested in elective options in environmental, social and economic aspects of sustainability see: www.sustain.ubc.ca/courses-degrees/courses ."
+      }
+    ],
+    "2": [
+      {
+        "code": "ENVR 200 , 205, 240",
+        "credits": 7,
+        "title": "",
+        "notes": "ENVR_V 200 satisfies the Additional Communication Requirement ."
+      },
+      {
+        "code": "EOSC 340",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "Electives",
+        "credits": 3,
+        "title": "",
+        "notes": "Tools Elective: One of ATSC_V 303, CHEM_V 211, 311, EOSC_V 211, GEOS_V 270, 309, 370, 373, NRES_V 241, 340, 341. Must be completed before fourth year."
+      },
+      {
+        "code": "Area of Concentration",
+        "credits": 6,
+        "title": "",
+        "notes": "The Areas of Concentration are: Land Air Water Ecology and Conservation Environmental Impacts on Human Health Environmental Analytics Energy Transitions and Sustainability Courses that are used to meet the Area of Concentration requirements cannot be used to fulfill any other requirements of the specialization. Students must take a minimum of 21 credits for Energy Transitions and Sustainability, Environmental Analytics, and Ecology and Conservation. Students must take a minimum of 22 credits for Land Air Water and Environmental Impacts on Human Health. For students completing Land Air Water or Environmental Impacts on Human health, electives credits will be reduced by 1 for a total of 7 in 2 year."
+      },
+      {
+        "code": "ENVR 200",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "One of STAT 200, 201, BIOL 300",
+        "credits": 3,
+        "title": "",
+        "notes": "STAT_V 201 is recommended for students interested in data science; STAT_V 200 or BIOL_V 300 are recommended for students interested in field ecology."
+      },
+      {
+        "code": "Electives",
+        "credits": 8,
+        "title": "",
+        "notes": "Elective credits together with required courses must fulfill the Faculty of Science’s: a) Foundational Requirement ; b) Laboratory Science Requirement ; c) Science Breadth Requirement ; d) Science and Arts Requirements ; e) Upper-level Requirement ; f) General Degree Requirements . Students interested in elective options in environmental, social and economic aspects of sustainability see: www.sustain.ubc.ca/courses-degrees/courses ."
+      }
+    ],
+    "3": [
+      {
+        "code": "ENVR 300, 305, 350, 400, 450",
+        "credits": 16,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "EOSC 345",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "Complementary Studies",
+        "credits": 9,
+        "title": "",
+        "notes": "Complementary Studies courses should be chosen from approved courses listed on the ENSC website ."
+      },
+      {
+        "code": "Electives",
+        "credits": 17,
+        "title": "",
+        "notes": "Elective credits together with required courses must fulfill the Faculty of Science’s: a) Foundational Requirement ; b) Laboratory Science Requirement ; c) Science Breadth Requirement ; d) Science and Arts Requirements ; e) Upper-level Requirement ; f) General Degree Requirements . Students interested in elective options in environmental, social and economic aspects of sustainability see: www.sustain.ubc.ca/courses-degrees/courses ."
+      },
+      {
+        "code": "Area of Concentration",
+        "credits": 17,
+        "title": "",
+        "notes": "The Areas of Concentration are: Land Air Water Ecology and Conservation Environmental Impacts on Human Health Environmental Analytics Energy Transitions and Sustainability Courses that are used to meet the Area of Concentration requirements cannot be used to fulfill any other requirements of the specialization."
+      }
+    ],
+    "4": [
+      {
+        "code": "ENVR 300, 305, 350, 400, 450",
+        "credits": 16,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "EOSC 345",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "Complementary Studies",
+        "credits": 9,
+        "title": "",
+        "notes": "Complementary Studies courses should be chosen from approved courses listed on the ENSC website ."
+      },
+      {
+        "code": "Electives",
+        "credits": 17,
+        "title": "",
+        "notes": "Elective credits together with required courses must fulfill the Faculty of Science’s: a) Foundational Requirement ; b) Laboratory Science Requirement ; c) Science Breadth Requirement ; d) Science and Arts Requirements ; e) Upper-level Requirement ; f) General Degree Requirements . Students interested in elective options in environmental, social and economic aspects of sustainability see: www.sustain.ubc.ca/courses-degrees/courses ."
+      },
+      {
+        "code": "Area of Concentration",
+        "credits": 17,
+        "title": "",
+        "notes": "The Areas of Concentration are: Land Air Water Ecology and Conservation Environmental Impacts on Human Health Environmental Analytics Energy Transitions and Sustainability Courses that are used to meet the Area of Concentration requirements cannot be used to fulfill any other requirements of the specialization."
+      }
+    ]
+  }
+}

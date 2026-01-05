@@ -1,0 +1,174 @@
+{
+  "Cellular and Physiological Sciences": {
+    "1": [
+      {
+        "code": "SCIE 113",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "Additional Communication Requirement",
+        "credits": 3,
+        "title": "",
+        "notes": "SCIE 113, ENGL 110, ENGL 111, ENGL 112, ENGL 120, ENGL 121, WRDS 150"
+      },
+      {
+        "code": "BIOL 112",
+        "credits": 3,
+        "title": "",
+        "notes": "Students without one of B.C. High School Biology 11 or Biology 12 (or their equivalents) must take BIOL_V 111 before taking BIOL_V 112 or 121. Students without Chemistry 12 must take CHEM_V 100, CHEM_V 110 or CHEM_V 111 before taking BIOL_V 112."
+      },
+      {
+        "code": "BIOL 121",
+        "credits": 3,
+        "title": "",
+        "notes": "Students without one of B.C. High School Biology 11 or Biology 12 (or their equivalents) must take BIOL_V 111 before taking BIOL_V 112 or 121. Students without Chemistry 12 must take CHEM_V 100, CHEM_V 110 or CHEM_V 111 before taking BIOL_V 112."
+      },
+      {
+        "code": "CHEM 121 or 141 or 111",
+        "credits": 4,
+        "title": "",
+        "notes": "Students without B.C. High School Chemistry 12 (or its equivalent) must write the UBC Chemistry Basic Skills Test and may be required to take CHEM_V 100."
+      },
+      {
+        "code": "CHEM 123",
+        "credits": 4,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "MATH 100",
+        "credits": 3,
+        "title": "",
+        "notes": "Students may take MATH_V 120, 180 or 184 (4 credits) instead of MATH_V 100 (3) and reduce the number of required elective credits by 1 credit. Students may take MATH_V 110 (6) instead of MATH_V 100 and reduce the number of required elective credits by 3 credits."
+      },
+      {
+        "code": "MATH 101",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "PHYS 100-level beyond PHYS 100",
+        "credits": 3,
+        "title": "",
+        "notes": "Students without B.C. High School Physics 12 (or its equivalent) must take PHYS_V 100 before any other PHYS_V courses."
+      }
+    ],
+    "2": [
+      {
+        "code": "BIOL 200",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "BIOL 234",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "BIOL 201 or BIOC 202",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "BIOL 300 or STAT 200",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "CAPS 205",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "CAPS 206",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "CHEM 233 and CHEM 235 (or CHEM 203)",
+        "credits": 4,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "CHEM 205",
+        "credits": 3,
+        "title": "",
+        "notes": "Students may take CHEM_V 211 (4) in lieu of CHEM_V 205 (3), and reduce the number of required elective credits by 1 credit."
+      },
+      {
+        "code": "Electives",
+        "credits": 6,
+        "title": "",
+        "notes": "The schedule for electives is a suggestion. Students are free to take any number of electives, in any year, as long as the total number of electives required for the specialization is achieved. Elective credits together with required courses must fulfill the Faculty of Science’s: a) Foundational Requirement b) Laboratory Science Requirement c) Science Breadth Requirement d) Science and Arts Requirements e) Upper-level Requirement f) General Degree Requirements"
+      }
+    ],
+    "3": [
+      {
+        "code": "BIOC 302",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "CAPS 303",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "CAPS 305",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "CAPS 306",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "CAPS 310",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "CAPS 391",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "Electives",
+        "credits": 12,
+        "title": "",
+        "notes": "The schedule for electives is a suggestion. Students are free to take any number of electives, in any year, as long as the total number of electives required for the specialization is achieved. Elective credits together with required courses must fulfill the Faculty of Science’s: a) Foundational Requirement b) Laboratory Science Requirement c) Science Breadth Requirement d) Science and Arts Requirements e) Upper-level Requirement f) General Degree Requirements"
+      }
+    ],
+    "4": [
+      {
+        "code": "Three of the following: CAPS 420, 421, 422, 424, 426, 427, 431 or 448",
+        "credits": 9,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "Electives",
+        "credits": 21,
+        "title": "",
+        "notes": "The schedule for electives is a suggestion. Students are free to take any number of electives, in any year, as long as the total number of electives required for the specialization is achieved. Elective credits together with required courses must fulfill the Faculty of Science’s: a) Foundational Requirement b) Laboratory Science Requirement c) Science Breadth Requirement d) Science and Arts Requirements e) Upper-level Requirement f) General Degree Requirements"
+      }
+    ]
+  }
+}

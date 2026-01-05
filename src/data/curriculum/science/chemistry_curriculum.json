@@ -1,0 +1,222 @@
+{
+  "Chemistry": {
+    "1": [
+      {
+        "code": "SCIE 113",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "CHEM 121 (or 111 or 141)",
+        "credits": 4,
+        "title": "",
+        "notes": "Students who do not have B.C. High School Chemistry 12 (or its equivalent) must write the UBC Chemistry Basic Skills Test and may be required to take CHEM_V 100. CHEM_V 110 and 115 may substitute for CHEM_V 111. CHEM_V 120 and CHEM_V 115 may substitute for CHEM_V 121. CHEM_V 141 is suggested for students interested in lab-focused sciences such as Chemistry."
+      },
+      {
+        "code": "CHEM 123",
+        "credits": 4,
+        "title": "",
+        "notes": "CHEM_V 130 and CHEM_V 135 may substitute for CHEM_V 123."
+      },
+      {
+        "code": "MATH 100 or 102 or 104",
+        "credits": 3,
+        "title": "",
+        "notes": "MATH_V 180 or 184 or 120 may substitute for any of the specified differential calculus courses listed by decreasing the electives by 1 credit. MATH_V 110 may substitute for any of the specified differential calculus courses listed by decreasing the electives by 3 credits."
+      },
+      {
+        "code": "MATH 101 or 103 or 105",
+        "credits": 3,
+        "title": "",
+        "notes": "MATH_V 121 may substitute for any of the specified integral calculus courses listed by decreasing the electives by 1 credit."
+      },
+      {
+        "code": "PHYS 100-level",
+        "credits": 6,
+        "title": "",
+        "notes": "Chosen from 100-level PHYS_V courses, excluding PHYS_V 100. PHYS_V 109 or 119 are recommended. Students without Physics 12 must take PHYS_V 100 before taking other 100-level PHYS_V courses."
+      },
+      {
+        "code": "Electives",
+        "credits": 7,
+        "title": "",
+        "notes": "Elective credits together with required courses must fulfill the Faculty of Science’s: a) Foundational Requirement ; b) Laboratory Science Requirement ; c) Science Breadth Requirement ; d) Science and Arts Requirements ; e) Upper-level Requirement ; f) General Degree Requirements . Elective credits may be redistributed among the years in this specialization, provided the total number remains the same. The year level of an elective does not need to correspond to the year level of the specialization. Students may elect to apply elective credits towards a Specific Focus Area in Chemistry."
+      }
+    ],
+    "2": [
+      {
+        "code": "CHEM 203",
+        "credits": 4,
+        "title": "",
+        "notes": "CHEM_V 223 and 225 may substitute for CHEM_V 203. Students with CHEM_V 235 and a score of 76% or higher in CHEM_V 233 may apply for admission to this specialization and will be allowed to use CHEM_V 233 and 235 in place of CHEM_V 203."
+      },
+      {
+        "code": "CHEM 208",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "CHEM 211",
+        "credits": 4,
+        "title": "",
+        "notes": "CHEM_V 210 and 215 may substitute for CHEM_V 211."
+      },
+      {
+        "code": "CHEM 213, 245",
+        "credits": 4,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "CHEM 218",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "MATH 200",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "MATH 221 or STAT 200",
+        "credits": 3,
+        "title": "",
+        "notes": "Note that8 MATH_V 221 is a prerequisite for some 400- level CHEM_V courses that cannot be replaced by STAT_V 200."
+      },
+      {
+        "code": "Electives",
+        "credits": 6,
+        "title": "",
+        "notes": "Elective credits together with required courses must fulfill the Faculty of Science’s: a) Foundational Requirement ; b) Laboratory Science Requirement ; c) Science Breadth Requirement ; d) Science and Arts Requirements ; e) Upper-level Requirement ; f) General Degree Requirements . Elective credits may be redistributed among the years in this specialization, provided the total number remains the same. The year level of an elective does not need to correspond to the year level of the specialization. Students may elect to apply elective credits towards a Specific Focus Area in Chemistry."
+      }
+    ],
+    "3": [
+      {
+        "code": "BIOL 201 (or BIOC 202)",
+        "credits": 3,
+        "title": "",
+        "notes": "BIOC_V 203 is a suitable substitute for this requirement. For students without credit for BIOL_V 200, selecting BIOL_V 201 requires either CHEM_V 313 or CHEM_V 330."
+      },
+      {
+        "code": "CHEM 300",
+        "credits": 3,
+        "title": "",
+        "notes": "CHEM_V 300 taken in third year satisfies the Additional Communication Requirements ."
+      },
+      {
+        "code": "CHEM 304",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "CHEM 311",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "CHEM 312",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "CHEM 325, 345",
+        "credits": 4,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "Two of CHEM 305, 313, 318, 327, 330, 412",
+        "credits": 6,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "CHEM 445",
+        "credits": 3,
+        "title": "",
+        "notes": "With permission, CHEM_V 449 or 6 credits of CHEM_V 445 may be substituted for 3 credits of CHEM_V 445 and 3 credits of 400-level CHEM_V lecture electives."
+      },
+      {
+        "code": "Electives",
+        "credits": 12,
+        "title": "",
+        "notes": "Students may elect to apply elective credits towards a Specific Focus Area in Chemistry. With permission, CHEM_V 449 or 6 credits of CHEM_V 445 may be substituted for 3 credits of CHEM_V 445 and 3 credits of 400-level CHEM_V lecture electives. Chosen from 300- and 400- level CHEM_V lecture courses. At least 3 credits must be chosen from 400-level CHEM_V lecture courses, excluding the credits associated with substitutions involving CHEM_V 445 or CHEM_V 449, as detailed in footnote 12."
+      },
+      {
+        "code": "Electives",
+        "credits": 20,
+        "title": "",
+        "notes": "Elective credits together with required courses must fulfill the Faculty of Science’s: a) Foundational Requirement ; b) Laboratory Science Requirement ; c) Science Breadth Requirement ; d) Science and Arts Requirements ; e) Upper-level Requirement ; f) General Degree Requirements . Elective credits may be redistributed among the years in this specialization, provided the total number remains the same. The year level of an elective does not need to correspond to the year level of the specialization. Students may elect to apply elective credits towards a Specific Focus Area in Chemistry."
+      }
+    ],
+    "4": [
+      {
+        "code": "BIOL 201 (or BIOC 202)",
+        "credits": 3,
+        "title": "",
+        "notes": "BIOC_V 203 is a suitable substitute for this requirement. For students without credit for BIOL_V 200, selecting BIOL_V 201 requires either CHEM_V 313 or CHEM_V 330."
+      },
+      {
+        "code": "CHEM 300",
+        "credits": 3,
+        "title": "",
+        "notes": "CHEM_V 300 taken in third year satisfies the Additional Communication Requirements ."
+      },
+      {
+        "code": "CHEM 304",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "CHEM 311",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "CHEM 312",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "CHEM 325, 345",
+        "credits": 4,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "Two of CHEM 305, 313, 318, 327, 330, 412",
+        "credits": 6,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "CHEM 445",
+        "credits": 3,
+        "title": "",
+        "notes": "With permission, CHEM_V 449 or 6 credits of CHEM_V 445 may be substituted for 3 credits of CHEM_V 445 and 3 credits of 400-level CHEM_V lecture electives."
+      },
+      {
+        "code": "Electives",
+        "credits": 12,
+        "title": "",
+        "notes": "Students may elect to apply elective credits towards a Specific Focus Area in Chemistry. With permission, CHEM_V 449 or 6 credits of CHEM_V 445 may be substituted for 3 credits of CHEM_V 445 and 3 credits of 400-level CHEM_V lecture electives. Chosen from 300- and 400- level CHEM_V lecture courses. At least 3 credits must be chosen from 400-level CHEM_V lecture courses, excluding the credits associated with substitutions involving CHEM_V 445 or CHEM_V 449, as detailed in footnote 12."
+      },
+      {
+        "code": "Electives",
+        "credits": 20,
+        "title": "",
+        "notes": "Elective credits together with required courses must fulfill the Faculty of Science’s: a) Foundational Requirement ; b) Laboratory Science Requirement ; c) Science Breadth Requirement ; d) Science and Arts Requirements ; e) Upper-level Requirement ; f) General Degree Requirements . Elective credits may be redistributed among the years in this specialization, provided the total number remains the same. The year level of an elective does not need to correspond to the year level of the specialization. Students may elect to apply elective credits towards a Specific Focus Area in Chemistry."
+      }
+    ]
+  }
+}

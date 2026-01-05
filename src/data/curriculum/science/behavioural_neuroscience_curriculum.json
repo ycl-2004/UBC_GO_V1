@@ -1,0 +1,150 @@
+{
+  "Behavioural Neuroscience": {
+    "1": [
+      {
+        "code": "Communication Requirement",
+        "credits": 6,
+        "title": "",
+        "notes": "SCIE 113, ENGL 110, ENGL 111, ENGL 112, ENGL 120, ENGL 121, WRDS 150"
+      },
+      {
+        "code": "BIOL 111 or 112",
+        "credits": 3,
+        "title": "",
+        "notes": "Students without Biology 11 or Biology 12 must take BIOL_V 111 as a prerequisite for BIOL_V 121. Students without Biology 11 or Biology 12 must take BIOL_V 111 as a prerequisite for BIOL_V 121."
+      },
+      {
+        "code": "BIOL 121 , 140",
+        "credits": 5,
+        "title": "",
+        "notes": "Students without Biology 11 or Biology 12 must take BIOL_V 111 as a prerequisite for BIOL_V 121."
+      },
+      {
+        "code": "CHEM 110 or 111 or 120 or 121",
+        "credits": 4,
+        "title": "",
+        "notes": "Students who do not have B.C. High School Chemistry 12 (or its equivalent) must write the UBC Chemistry Basic Skills Test and may be required to take CHEM_V 100. If a student takes either CHEM_V 100 or CHEM_V 120, they will have one additional elective credit."
+      },
+      {
+        "code": "CHEM 123 or 130",
+        "credits": 4,
+        "title": "",
+        "notes": "If a student takes CHEM_V 130, they will have one additional elective credit."
+      },
+      {
+        "code": "MATH 100 or 102 or 104 (or 120 or 180 or 184 )",
+        "credits": 3,
+        "title": "",
+        "notes": "Students taking more than 6 credits of first year MATH_V or more than 6 credits of second year BIOL should count these extra credits as electives and reduce the number of second year elective credits accordingly. MATH_V 110 may substitute for any of the specified differential calculus courses listed by reducing the number of elective credits by 3."
+      },
+      {
+        "code": "MATH 101 or 103 or 105 (or 121 )",
+        "credits": 3,
+        "title": "",
+        "notes": "Students taking more than 6 credits of first year MATH_V or more than 6 credits of second year BIOL should count these extra credits as electives and reduce the number of second year elective credits accordingly."
+      },
+      {
+        "code": "PHYS 106 or PHYS 107 or PHYS 117 or 131",
+        "credits": 3,
+        "title": "",
+        "notes": "Students without Physics 12 must take PHYS_V 100 before taking PHYS_V 106, 107, 117 or 131."
+      }
+    ],
+    "2": [
+      {
+        "code": "CHEM 233, 235",
+        "credits": 4,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "PSYC 101, 102",
+        "credits": 6,
+        "title": "",
+        "notes": "PSYC_V 101 and 102 are recommended in first year if a student has credit for Biology 12 and Chemistry 12."
+      },
+      {
+        "code": "PSYC 270",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "PSYC 277, 278",
+        "credits": 8,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "Two from: BIOL 200, BIOL 201 (or BIOC 202), BIOL 204, BIOL 205",
+        "credits": 6,
+        "title": "",
+        "notes": "The preferred prerequisite for this course is BIOL_V 112, but students in the Behavioural Neuroscience specialization are allowed to register without it. Students taking more than 6 credits of first year MATH_V or more than 6 credits of second year BIOL should count these extra credits as electives and reduce the number of second year elective credits accordingly."
+      },
+      {
+        "code": "Electives",
+        "credits": 3,
+        "title": "",
+        "notes": "Students who do not have B.C. High School Chemistry 12 (or its equivalent) must write the UBC Chemistry Basic Skills Test and may be required to take CHEM_V 100. If a student takes either CHEM_V 100 or CHEM_V 120, they will have one additional elective credit. MATH_V 110 may substitute for any of the specified differential calculus courses listed by reducing the number of elective credits by 3. Elective credits together with required courses must fulfill the Faculty of Science’s: a) Foundational Requirement ; b) Laboratory Science Requirement ; c) Science Breadth Requirement ; d) Science and Arts Requirements ; e) Upper-level Requirement ; f) General Degree Requirements ."
+      }
+    ],
+    "3": [
+      {
+        "code": "PSYC 300 or 301",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "PSYC 370, 371",
+        "credits": 6,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "6 credits from one of the following three lists:",
+        "credits": 6,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "PSYC 302, 315, 319, 320, 322, 325, 412, 413, 414",
+        "credits": 0,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "PSYC 305, 307, 308, 321, 358, 403, 407, 408, 415, 418",
+        "credits": 0,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "PSYC 311, 314, 331, 350, 401, 402, 420",
+        "credits": 0,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "Electives",
+        "credits": 14,
+        "title": "",
+        "notes": "Elective credits together with required courses must fulfill the Faculty of Science’s: a) Foundational Requirement ; b) Laboratory Science Requirement ; c) Science Breadth Requirement ; d) Science and Arts Requirements ; e) Upper-level Requirement ; f) General Degree Requirements ."
+      }
+    ],
+    "4": [
+      {
+        "code": "12 credits from PSYC 348, 361, 363, 364, 365, 367, 368, 388, 448, 460, 461, 462, 463, 466, 469, 472, 488",
+        "credits": 12,
+        "title": "",
+        "notes": "Elective credits together with required courses must fulfill the Faculty of Science’s: a) Foundational Requirement ; b) Laboratory Science Requirement ; c) Science Breadth Requirement ; d) Science and Arts Requirements ; e) Upper-level Requirement ; f) General Degree Requirements ."
+      },
+      {
+        "code": "Electives",
+        "credits": 18,
+        "title": "",
+        "notes": "The preferred prerequisite for this course is BIOL_V 112, but students in the Behavioural Neuroscience specialization are allowed to register without it."
+      }
+    ]
+  }
+}

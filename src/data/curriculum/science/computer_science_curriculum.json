@@ -1,0 +1,51 @@
+{
+  "Computer Science": {
+    "1": [
+      {
+        "code": "SCIE 113",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "Additional Communication Requirement",
+        "credits": 3,
+        "title": "",
+        "notes": "SCIE 113, ENGL 110, ENGL 111, ENGL 112, ENGL 120, ENGL 121, WRDS 150"
+      },
+      {
+        "code": "CPSC 110 (or 103 and 107)",
+        "credits": 4,
+        "title": "",
+        "notes": "While CPSC_V 110 is the recommended route for students pursuing a specialization in Computer Science, CPSC_V 103, 107 may be taken in its place using 2 credits of electives."
+      },
+      {
+        "code": "CPSC 121",
+        "credits": 4,
+        "title": "",
+        "notes": "Students pursuing a Co-op option in Computer Science are advised to also take CPSC_V 210 in their first year or in the summer following their first year. Co-op students will then be in a position to take one or both of CPSC_V 221 and CPSC_V 213 in term 1 of second year before going out on a Co-op work term."
+      },
+      {
+        "code": "MATH 100 or 102 or 104 (or 180 or 184 or 120 or 110)",
+        "credits": 3,
+        "title": "",
+        "notes": "Students are permitted to move elective credits between years. Students who take courses in MATH_V with extra credits will require fewer elective credits in later years. Elective credits together with required courses must fulfill the Faculty of Science’s: a) Foundational Requirement ; b) Laboratory Science Requirement ; c) Science Breadth Requirement ; d) Science and Arts Requirements ; e) Upper-level Requirement ; f) General Degree Requirements ."
+      },
+      {
+        "code": "MATH 101 or 103 or 105 (or 121)",
+        "credits": 3,
+        "title": "",
+        "notes": "Students are permitted to move elective credits between years. Students who take courses in MATH_V with extra credits will require fewer elective credits in later years. Elective credits together with required courses must fulfill the Faculty of Science’s: a) Foundational Requirement ; b) Laboratory Science Requirement ; c) Science Breadth Requirement ; d) Science and Arts Requirements ; e) Upper-level Requirement ; f) General Degree Requirements ."
+      },
+      {
+        "code": "Electives",
+        "credits": 10,
+        "title": "",
+        "notes": "Students are permitted to move elective credits between years. Students who take courses in MATH_V with extra credits will require fewer elective credits in later years. Elective credits together with required courses must fulfill the Faculty of Science’s: a) Foundational Requirement ; b) Laboratory Science Requirement ; c) Science Breadth Requirement ; d) Science and Arts Requirements ; e) Upper-level Requirement ; f) General Degree Requirements ."
+      }
+    ],
+    "2": [],
+    "3": [],
+    "4": []
+  }
+}

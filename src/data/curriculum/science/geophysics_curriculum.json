@@ -1,0 +1,180 @@
+{
+  "Geophysics": {
+    "1": [
+      {
+        "code": "SCIE 113",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "CHEM 121 (or 111 or 141)",
+        "credits": 4,
+        "title": "",
+        "notes": "Students who do not have B.C. High School Chemistry 12 (or its equivalent) must write the UBC Chemistry Basic Skills Test and may be required to take CHEM_V 100. CHEM_V 110 and 115 may substitute for CHEM_V 111, CHEM_V 120 and 115 may substitute for CHEM_V 121, CHEM_V 130 and 135 may substitute for CHEM_V 123."
+      },
+      {
+        "code": "CHEM 123",
+        "credits": 4,
+        "title": "",
+        "notes": "Students who do not have B.C. High School Chemistry 12 (or its equivalent) must write the UBC Chemistry Basic Skills Test and may be required to take CHEM_V 100. CHEM_V 110 and 115 may substitute for CHEM_V 111, CHEM_V 120 and 115 may substitute for CHEM_V 121, CHEM_V 130 and 135 may substitute for CHEM_V 123."
+      },
+      {
+        "code": "MATH 100 or 102 or 104 (or 120 or 180 or 184)",
+        "credits": 3,
+        "title": "",
+        "notes": "MATH_V 110 may substitute for the specified differential calculus courses listed by decreasing the electives by 3 credits. For each 4 credit MATH_V 100-level course chosen, electives credits must be decreased by 1."
+      },
+      {
+        "code": "MATH 101 or 103 or 105 (or 121)",
+        "credits": 3,
+        "title": "",
+        "notes": "MATH_V 110 may substitute for the specified differential calculus courses listed by decreasing the electives by 3 credits. For each 4 credit MATH_V 100-level course chosen, electives credits must be decreased by 1."
+      },
+      {
+        "code": "PHYS 106 or 107 or 117 (or 101 or 131)",
+        "credits": 3,
+        "title": "",
+        "notes": "Students without Physics 12 must take PHYS_V 100 before any other PHYS_V 100-level course. PHYS_V 100 will count as an elective. Qualified students are encouraged to take PHYS_V 106/108 or PHYS_V 117/108."
+      },
+      {
+        "code": "PHYS 108 (or 118)",
+        "credits": 3,
+        "title": "",
+        "notes": "Students without Physics 12 must take PHYS_V 100 before any other PHYS_V 100-level course. PHYS_V 100 will count as an elective. Qualified students are encouraged to take PHYS_V 106/108 or PHYS_V 117/108."
+      },
+      {
+        "code": "PHYS 119 (or 109)",
+        "credits": 1,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "DSCI 100",
+        "credits": 3,
+        "title": "",
+        "notes": "DSCI_V 100 may be taken in second year. With the approval of the geophysics program adviser, a 200-level or higher course in statistics or data analysis may substitute for DSCI_V 100."
+      },
+      {
+        "code": "Electives",
+        "credits": 3,
+        "title": "",
+        "notes": "DSCI_V 100 may be taken in second year. With the approval of the geophysics program adviser, a 200-level or higher course in statistics or data analysis may substitute for DSCI_V 100. Elective credits together with required courses must fulfill the Faculty of Science’s: a) Foundational Requirement ; b) Laboratory Science Requirement ; c) Science Breadth Requirement ; d) Science and Arts Requirements ; e) Upper-level Requirement ; f) General Degree Requirements ."
+      }
+    ],
+    "2": [
+      {
+        "code": "Additional Communication Requirement",
+        "credits": 3,
+        "title": "",
+        "notes": "SCIE 113, ENGL 110, ENGL 111, ENGL 112, ENGL 120, ENGL 121, WRDS 150"
+      },
+      {
+        "code": "EOSC 212 or (EOSC 111 and one of EOSC 110, 112, 114, 116, 118)",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "EOSC 211, 250",
+        "credits": 6,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "MATH 200, 215, 221",
+        "credits": 9,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "CHEM 205 or PHYS 203",
+        "credits": 3,
+        "title": "",
+        "notes": "A 300-level or higher course in thermodynamics, electromagnetism, or mechanics (solid or fluid), offered by the Faculty of Science or the Faculty of Applied Science, may satisfy this requirement. See the geophysics undergraduate advisor for course approval. If PHYS_V 203 is selected, the number of elective credits is decreased by 1."
+      },
+      {
+        "code": "Electives",
+        "credits": 6,
+        "title": "",
+        "notes": "Elective credits together with required courses must fulfill the Faculty of Science’s: a) Foundational Requirement ; b) Laboratory Science Requirement ; c) Science Breadth Requirement ; d) Science and Arts Requirements ; e) Upper-level Requirement ; f) General Degree Requirements ."
+      }
+    ],
+    "3": [
+      {
+        "code": "EOSC 352, 354",
+        "credits": 6,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "EOSC 410 , 453",
+        "credits": 6,
+        "title": "",
+        "notes": "Students are recommended to check the prerequisites for EOSC_V 410, and aim to satisfy these in third year. Alternate courses may be acceptable. See an advisor for information."
+      },
+      {
+        "code": "MATH 316 (or PHYS 312)",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "MATH 317",
+        "credits": 3,
+        "title": "",
+        "notes": "A course in numerical analysis at the third-year level or higher, and offered by the Faculty of Science or the Faculty of Applied Science, will also satisfy this requirement. See the geophysics undergraduate advisor for course approval."
+      },
+      {
+        "code": "Four of EOSC 353, 429, 440, 450, 454, ATSC 404 or (three of EOSC 353, 429, 440, 450, 454, ATSC 404 and one of EOSC 329, 350, PHYS 301, MATH 345)",
+        "credits": 12,
+        "title": "",
+        "notes": "Students are encouraged to consult an advisor regarding their course selections, particularly regarding registration requirements for Engineers and Geoscientists BC."
+      },
+      {
+        "code": "Electives",
+        "credits": 30,
+        "title": "",
+        "notes": "Elective credits together with required courses must fulfill the Faculty of Science’s: a) Foundational Requirement ; b) Laboratory Science Requirement ; c) Science Breadth Requirement ; d) Science and Arts Requirements ; e) Upper-level Requirement ; f) General Degree Requirements ."
+      }
+    ],
+    "4": [
+      {
+        "code": "EOSC 352, 354",
+        "credits": 6,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "EOSC 410 , 453",
+        "credits": 6,
+        "title": "",
+        "notes": "Students are recommended to check the prerequisites for EOSC_V 410, and aim to satisfy these in third year. Alternate courses may be acceptable. See an advisor for information."
+      },
+      {
+        "code": "MATH 316 (or PHYS 312)",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "MATH 317",
+        "credits": 3,
+        "title": "",
+        "notes": "A course in numerical analysis at the third-year level or higher, and offered by the Faculty of Science or the Faculty of Applied Science, will also satisfy this requirement. See the geophysics undergraduate advisor for course approval."
+      },
+      {
+        "code": "Four of EOSC 353, 429, 440, 450, 454, ATSC 404 or (three of EOSC 353, 429, 440, 450, 454, ATSC 404 and one of EOSC 329, 350, PHYS 301, MATH 345)",
+        "credits": 12,
+        "title": "",
+        "notes": "Students are encouraged to consult an advisor regarding their course selections, particularly regarding registration requirements for Engineers and Geoscientists BC."
+      },
+      {
+        "code": "Electives",
+        "credits": 30,
+        "title": "",
+        "notes": "Elective credits together with required courses must fulfill the Faculty of Science’s: a) Foundational Requirement ; b) Laboratory Science Requirement ; c) Science Breadth Requirement ; d) Science and Arts Requirements ; e) Upper-level Requirement ; f) General Degree Requirements ."
+      }
+    ]
+  }
+}

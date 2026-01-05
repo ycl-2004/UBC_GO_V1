@@ -1,0 +1,162 @@
+{
+  "Statistics": {
+    "1": [
+      {
+        "code": "SCIE 113",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "Additional Communication Requirement",
+        "credits": 3,
+        "title": "",
+        "notes": "SCIE 113, ENGL 110, ENGL 111, ENGL 112, ENGL 120, ENGL 121, WRDS 150"
+      },
+      {
+        "code": "CPSC 110 (or 103 and 107)",
+        "credits": 4,
+        "title": "",
+        "notes": "A 6-credit combination of two courses may substitute for a 4-credit course to satisfy the specified requirement by decreasing the electives in any year by 2 credits."
+      },
+      {
+        "code": "DSCI 100",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "MATH 100 or 102 or 104 (or 120 or 180 or 184)",
+        "credits": 3,
+        "title": "",
+        "notes": "MATH_V 180 or 184 or 120 may substitute for any of the specified differential calculus courses listed and elective credits reduced by 1. MATH_V 110 may substitute for any of the specified differential calculus courses listed and the elective credits decreased by 3."
+      },
+      {
+        "code": "MATH 101 or 103 or 105 (or 121)",
+        "credits": 3,
+        "title": "",
+        "notes": "MATH_V 121 may substitute for any of the specified integral calculus courses listed and the elective credits decreased by 1."
+      },
+      {
+        "code": "Electives",
+        "credits": 11,
+        "title": "",
+        "notes": "Elective credits together with required courses must fulfill the Faculty of Science’s: a) Foundational Requirement ; b) Laboratory Science Requirement ; c) Science Breadth Requirement ; d) Science and Arts Requirements ; e) Upper-level Requirement ; f) General Degree Requirements ."
+      }
+    ],
+    "2": [
+      {
+        "code": "CPSC 210 or MATH 210",
+        "credits": 4,
+        "title": "",
+        "notes": "Note that MATH_V 210 may not be offered every year. Students taking MATH_V 210 require an additional credit toward elective requirements."
+      },
+      {
+        "code": "MATH 200, 220, 221",
+        "credits": 9,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "STAT 200",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "STAT 201",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "STAT /MATH 302",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "Electives",
+        "credits": 8,
+        "title": "",
+        "notes": "Elective credits together with required courses must fulfill the Faculty of Science’s: a) Foundational Requirement ; b) Laboratory Science Requirement ; c) Science Breadth Requirement ; d) Science and Arts Requirements ; e) Upper-level Requirement ; f) General Degree Requirements ."
+      }
+    ],
+    "3": [
+      {
+        "code": "MATH 303",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "STAT courses numbered 300 or above",
+        "credits": 6,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "STAT courses numbered 400 or above",
+        "credits": 6,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "MATH courses numbered 300 or above",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "Thematic concentration courses numbered 300 or above",
+        "credits": 9,
+        "title": "",
+        "notes": "More information about the thematic concentration, including some examples of course choices, can be found at Statistics ( www.stat.ubc.ca )."
+      },
+      {
+        "code": "Electives",
+        "credits": 18,
+        "title": "",
+        "notes": "Elective credits together with required courses must fulfill the Faculty of Science’s: a) Foundational Requirement ; b) Laboratory Science Requirement ; c) Science Breadth Requirement ; d) Science and Arts Requirements ; e) Upper-level Requirement ; f) General Degree Requirements ."
+      }
+    ],
+    "4": [
+      {
+        "code": "MATH 303",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "STAT courses numbered 300 or above",
+        "credits": 6,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "STAT courses numbered 400 or above",
+        "credits": 6,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "MATH courses numbered 300 or above",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "Thematic concentration courses numbered 300 or above",
+        "credits": 9,
+        "title": "",
+        "notes": "More information about the thematic concentration, including some examples of course choices, can be found at Statistics ( www.stat.ubc.ca )."
+      },
+      {
+        "code": "Electives",
+        "credits": 18,
+        "title": "",
+        "notes": "Elective credits together with required courses must fulfill the Faculty of Science’s: a) Foundational Requirement ; b) Laboratory Science Requirement ; c) Science Breadth Requirement ; d) Science and Arts Requirements ; e) Upper-level Requirement ; f) General Degree Requirements ."
+      }
+    ]
+  }
+}

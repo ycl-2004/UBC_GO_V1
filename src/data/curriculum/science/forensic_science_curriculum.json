@@ -1,0 +1,174 @@
+{
+  "Forensic Science": {
+    "1": [
+      {
+        "code": "SCIE 113",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "Additional Communication Requirement",
+        "credits": 3,
+        "title": "",
+        "notes": "SCIE 113, ENGL 110, ENGL 111, ENGL 112, ENGL 120, ENGL 121, WRDS 150"
+      },
+      {
+        "code": "BIOL 112",
+        "credits": 3,
+        "title": "",
+        "notes": "Students without one of Biology 11 or Biology 12 must take BIOL_V 111 before taking BIOL_V 112."
+      },
+      {
+        "code": "CHEM 121 (or 111 or 141)",
+        "credits": 4,
+        "title": "",
+        "notes": "Students who do not have B.C. High School Chemistry 12 (or its equivalent) must write the UBC Chemistry Basic Skills Test and may be required to take CHEM_V 100. CHEM_V 110 and 115 may substitute for CHEM_V 111. CHEM_V 120 and CHEM_V 115 may substitute for CHEM_V 121."
+      },
+      {
+        "code": "CHEM 123",
+        "credits": 4,
+        "title": "",
+        "notes": "CHEM_V 130 and CHEM_V 135 may substitute for CHEM_V 123."
+      },
+      {
+        "code": "MATH 100 or 102 or 104",
+        "credits": 3,
+        "title": "",
+        "notes": "MATH_V 180 or 184 or 120 may substitute for any of the specified differential calculus courses listed by decreasing the electives in a later year by 1 credit. MATH_V 110 may substitute for any of the specified differential calculus courses listed by decreasing the electives in a later year by 3 credits."
+      },
+      {
+        "code": "DSCI 100 or CPSC 103",
+        "credits": 3,
+        "title": "",
+        "notes": "Students taking DSCI_V 100 should take STAT_V 201 in year 2. Students taking CPSC_V 103 should take CPSC_V 203 in year 2. CPSC_V 110 may substitute for CPSC_V 103 and CPSC_V 210 may substitute for CPSC_V 203."
+      },
+      {
+        "code": "PHYS 100-level",
+        "credits": 3,
+        "title": "",
+        "notes": "Students require 3 credits of 100-level physics beyond PHYS_V 100. Students lacking Physics 12 must take PHYS_V 100 before taking any other 100-level PHYS_V course, using PHYS_V 100 as an elective. Students are encouraged to complete this specialization requirement in their first year."
+      },
+      {
+        "code": "Electives",
+        "credits": 8,
+        "title": "",
+        "notes": "Elective credits together with required courses must fulfill the Faculty of Science’s: a) Foundational Requirement ; b) Laboratory Science Requirement ; c) Science Breadth Requirement ; d) Science and Arts Requirements ; e) Upper-level Requirement ; f) General Degree Requirements . Any extra elective credit taken in the first, second, or third years can be applied to later elective credit requirements. See Faculty of Science Honours requirements . For this specialization, BCIT’s COMM 7200 and LIBS 7002 count as arts electives.  Please see FSCT_V 280 and 290."
+      }
+    ],
+    "2": [
+      {
+        "code": "BIOC 203",
+        "credits": 3,
+        "title": "",
+        "notes": "Students with a mark of 76% or higher in BIOL_V 201 or BIOC_V 202 may apply for admission to the Biochemistry specialization and will be allowed to use these courses in place of BIOC_V 203. However, BIOC_V 203 is the preferred route into biochemistry specializations."
+      },
+      {
+        "code": "BIOL 200",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "BIOL 234",
+        "credits": 3,
+        "title": "",
+        "notes": "Students with a mark of 70% or higher in BIOL_V 233 may use BIOL_V 233 in place of BIOL_V 234."
+      },
+      {
+        "code": "CHEM 203",
+        "credits": 4,
+        "title": "",
+        "notes": "CHEM_V 223 and 225 may substitute for CHEM_V 203. Students with CHEM_V 235 and a score of 76% or higher in CHEM_V 233 may apply for admission to this specialization and will be allowed to use CHEM_V 233 and 235 in place of CHEM_V 203."
+      },
+      {
+        "code": "CHEM 213, 245",
+        "credits": 4,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "CHEM 211",
+        "credits": 4,
+        "title": "",
+        "notes": "CHEM_V 210 and 215 may substitute for CHEM_V 211."
+      },
+      {
+        "code": "STAT 201 or CPSC 203",
+        "credits": 3,
+        "title": "",
+        "notes": "Students taking DSCI_V 100 should take STAT_V 201 in year 2. Students taking CPSC_V 103 should take CPSC_V 203 in year 2. CPSC_V 110 may substitute for CPSC_V 103 and CPSC_V 210 may substitute for CPSC_V 203."
+      },
+      {
+        "code": "FSCT 280, 290",
+        "credits": 9,
+        "title": "",
+        "notes": ""
+      }
+    ],
+    "3": [
+      {
+        "code": "BIOC 303",
+        "credits": 6,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "BIOC 301",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "BIOL 335",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "Electives",
+        "credits": 3,
+        "title": "",
+        "notes": "Elective credits together with required courses must fulfill the Faculty of Science’s: a) Foundational Requirement ; b) Laboratory Science Requirement ; c) Science Breadth Requirement ; d) Science and Arts Requirements ; e) Upper-level Requirement ; f) General Degree Requirements . Any extra elective credit taken in the first, second, or third years can be applied to later elective credit requirements. See Faculty of Science Honours requirements . For this specialization, BCIT’s COMM 7200 and LIBS 7002 count as arts electives.  Please see FSCT_V 280 and 290."
+      },
+      {
+        "code": "FSCT 380, 390",
+        "credits": 18,
+        "title": "",
+        "notes": ""
+      }
+    ],
+    "4": [
+      {
+        "code": "BIOC 402, 410",
+        "credits": 6,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "One of BIOC 403, 421, 430, 440, 450, 460, 470",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "BIOC research option",
+        "credits": 6,
+        "title": "",
+        "notes": "Students may choose from either a) BIOC_V 449 or b) BIOC_V 420 and ONE of BIOC_V 403, 421, 430, 440, 450, 460, or 470. Please note that BIOC_V 403, 421, 430, 440, 450, 460, or 470 cannot be double counted. If a student uses one of these courses to complete their specialization requirements, they cannot use the same course to fulfill their biochemistry research option."
+      },
+      {
+        "code": "Electives",
+        "credits": 3,
+        "title": "",
+        "notes": "Elective credits together with required courses must fulfill the Faculty of Science’s: a) Foundational Requirement ; b) Laboratory Science Requirement ; c) Science Breadth Requirement ; d) Science and Arts Requirements ; e) Upper-level Requirement ; f) General Degree Requirements . Any extra elective credit taken in the first, second, or third years can be applied to later elective credit requirements. See Faculty of Science Honours requirements . For this specialization, BCIT’s COMM 7200 and LIBS 7002 count as arts electives.  Please see FSCT_V 280 and 290."
+      },
+      {
+        "code": "FSCT 480, 490",
+        "credits": 11,
+        "title": "",
+        "notes": ""
+      }
+    ]
+  }
+}

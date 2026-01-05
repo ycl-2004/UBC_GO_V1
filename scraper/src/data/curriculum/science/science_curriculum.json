@@ -1,0 +1,132 @@
+{
+  "Computer Science": {
+    "1": [
+      {
+        "code": "SCIE 113",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "Communication Requirement",
+        "credits": 3,
+        "title": "",
+        "notes": "SCIE 113, ENGL 110, ENGL 111, ENGL 112, ENGL 120, ENGL 121, WRDS 150"
+      },
+      {
+        "code": "CPSC 110 (or 103 and 107)2",
+        "credits": 4,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "CPSC 121",
+        "credits": 4,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "MATH 100 or 102 or 104 (or 180 or 184 or 120 or 110)4",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "MATH 101 or 103 or 105 (or 121)4",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "Electives",
+        "credits": 10,
+        "title": "",
+        "notes": ""
+      }
+    ],
+    "2": [
+      {
+        "code": "CPSC 210",
+        "credits": 4,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "CPSC 213, 221",
+        "credits": 8,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "MATH 200, 221",
+        "credits": 6,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "STAT 241 or 2512",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "Electives",
+        "credits": 9,
+        "title": "",
+        "notes": ""
+      }
+    ],
+    "3": [
+      {
+        "code": "CPSC 310, 313, 320",
+        "credits": 10,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "CPSC courses numbered 300 or higher4",
+        "credits": 9,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "CPSC courses numbered 400 or higher4,5",
+        "credits": 9,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "Electives",
+        "credits": 32,
+        "title": "",
+        "notes": ""
+      }
+    ],
+    "4": [
+      {
+        "code": "CPSC 310, 313, 320",
+        "credits": 10,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "CPSC courses numbered 300 or higher4",
+        "credits": 9,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "CPSC courses numbered 400 or higher4,5",
+        "credits": 9,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "Electives",
+        "credits": 32,
+        "title": "",
+        "notes": ""
+      }
+    ]
+  }
+}

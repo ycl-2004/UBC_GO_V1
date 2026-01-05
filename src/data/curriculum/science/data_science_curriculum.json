@@ -1,0 +1,162 @@
+{
+  "Data Science": {
+    "1": [
+      {
+        "code": "CPSC 103",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "DSCI 100",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "MATH 100 (or 180 or 120 or 110)",
+        "credits": 3,
+        "title": "",
+        "notes": "Students are permitted to move elective credits between years. Students who take courses in MATH_V with extra credits will require fewer elective credits in later years. Elective credits together with required courses must fulfill the Faculty of Science’s: a) Foundational Requirement ; b) Laboratory Science Requirement ; c) Science Breadth Requirement ; d) Science and Arts Requirements ; e) Upper-level Requirement ; f) General Degree Requirements ."
+      },
+      {
+        "code": "MATH 101 (or 121)",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "SCIE 113",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "Additional Communications Requirement",
+        "credits": 3,
+        "title": "",
+        "notes": "For a full list of acceptable courses see Communication Requirement ."
+      },
+      {
+        "code": "Electives",
+        "credits": 12,
+        "title": "",
+        "notes": "Students are permitted to move elective credits between years. Students who take courses in MATH_V with extra credits will require fewer elective credits in later years. Elective credits together with required courses must fulfill the Faculty of Science’s: a) Foundational Requirement ; b) Laboratory Science Requirement ; c) Science Breadth Requirement ; d) Science and Arts Requirements ; e) Upper-level Requirement ; f) General Degree Requirements ."
+      }
+    ],
+    "2": [
+      {
+        "code": "DSCI 200, 220, 221",
+        "credits": 11,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "MATH 200, 221",
+        "credits": 6,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "STAT 201",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "Electives",
+        "credits": 10,
+        "title": "",
+        "notes": "Students are permitted to move elective credits between years. Students who take courses in MATH_V with extra credits will require fewer elective credits in later years. Elective credits together with required courses must fulfill the Faculty of Science’s: a) Foundational Requirement ; b) Laboratory Science Requirement ; c) Science Breadth Requirement ; d) Science and Arts Requirements ; e) Upper-level Requirement ; f) General Degree Requirements ."
+      }
+    ],
+    "3": [
+      {
+        "code": "CPSC 330 or 340",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "CPSC 368",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "DSCI 310, 320, 430",
+        "credits": 9,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "STAT 301, 302, 305, 443",
+        "credits": 12,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "Any Upper level MATH , STAT , CPSC or DSCI",
+        "credits": 12,
+        "title": "",
+        "notes": "At least 6 credits must be 400-level or higher."
+      },
+      {
+        "code": "Data Science Depth Requirement",
+        "credits": 6,
+        "title": "",
+        "notes": "Students must choose from a list of courses. See the Data Science website for more detail."
+      },
+      {
+        "code": "Electives",
+        "credits": 15,
+        "title": "",
+        "notes": ""
+      }
+    ],
+    "4": [
+      {
+        "code": "CPSC 330 or 340",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "CPSC 368",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "DSCI 310, 320, 430",
+        "credits": 9,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "STAT 301, 302, 305, 443",
+        "credits": 12,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "Any Upper level MATH , STAT , CPSC or DSCI",
+        "credits": 12,
+        "title": "",
+        "notes": "At least 6 credits must be 400-level or higher."
+      },
+      {
+        "code": "Data Science Depth Requirement",
+        "credits": 6,
+        "title": "",
+        "notes": "Students must choose from a list of courses. See the Data Science website for more detail."
+      },
+      {
+        "code": "Electives",
+        "credits": 15,
+        "title": "",
+        "notes": ""
+      }
+    ]
+  }
+}

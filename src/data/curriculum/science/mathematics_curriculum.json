@@ -1,0 +1,120 @@
+{
+  "Mathematics": {
+    "1": [
+      {
+        "code": "SCIE 113",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "Additional Communication Requirement",
+        "credits": 3,
+        "title": "",
+        "notes": "SCIE 113, ENGL 110, ENGL 111, ENGL 112, ENGL 120, ENGL 121, WRDS 150"
+      },
+      {
+        "code": "MATH 100 or 102 or 104 (or 120 or 180 or 184)",
+        "credits": 3,
+        "title": "",
+        "notes": "See UBC-SFU-UVIC-UNBC Calculus Examination Certificate . Also, MATH_V 110 may substitute for any of the specified courses by decreasing the electives in any year by 3 credits. A 4-credit course may substitute for a 3-credit course to satisfy a specified requirement by decreasing the electives in any year by 1 credit."
+      },
+      {
+        "code": "MATH 101 or 103 or 105 (or 121)",
+        "credits": 3,
+        "title": "",
+        "notes": "A 4-credit course may substitute for a 3-credit course to satisfy a specified requirement by decreasing the electives in any year by 1 credit."
+      },
+      {
+        "code": "PHYS 100-level",
+        "credits": 3,
+        "title": "",
+        "notes": "Chosen from 100-level PHYS_V courses, excluding PHYS_V 100. Students who do not have B.C. High School Physics 12 (or equivalent) must take PHYS_V 100 before taking other 100-level PHYS_V courses. Qualified students are encouraged to take PHYS_V 107."
+      },
+      {
+        "code": "CPSC 110 (or 103 and 107)",
+        "credits": 4,
+        "title": "",
+        "notes": "A 6-credit combination of two courses may substitute for a 4-credit course to satisfy the specified requirement by decreasing the electives in any year by 2 credits."
+      },
+      {
+        "code": "Electives",
+        "credits": 11,
+        "title": "",
+        "notes": "Students are permitted to move elective credits between years. Elective credits together with required courses must fulfill the Faculty of Science’s: a) Foundational Requirement ; b) Laboratory Science Requirement ; c) Science Breadth Requirement ; d) Science and Arts Requirements ; e) Upper-level Requirement ; f) General Degree Requirements ."
+      }
+    ],
+    "2": [
+      {
+        "code": "MATH 200 (or 226)",
+        "credits": 3,
+        "title": "",
+        "notes": "Students obtaining 68% or higher in MATH_V 226 may replace MATH_V 220 with 3 credits of electives. In order to be promoted to third year, students must complete one of MATH_V 220, 226."
+      },
+      {
+        "code": "MATH 220",
+        "credits": 3,
+        "title": "",
+        "notes": "Students obtaining 68% or higher in MATH_V 226 may replace MATH_V 220 with 3 credits of electives. In order to be promoted to third year, students must complete one of MATH_V 220, 226."
+      },
+      {
+        "code": "MATH 221 (or 223), 215",
+        "credits": 6,
+        "title": "",
+        "notes": "MATH_V 215 may be deferred until third year."
+      },
+      {
+        "code": "CPSC 210 or MATH 210",
+        "credits": 3,
+        "title": "",
+        "notes": "A 4-credit course may substitute for a 3-credit course to satisfy a specified requirement by decreasing the electives in any year by 1 credit. MATH_V 210 may not be offered every year."
+      },
+      {
+        "code": "Electives",
+        "credits": 15,
+        "title": "",
+        "notes": "Students are permitted to move elective credits between years. Elective credits together with required courses must fulfill the Faculty of Science’s: a) Foundational Requirement ; b) Laboratory Science Requirement ; c) Science Breadth Requirement ; d) Science and Arts Requirements ; e) Upper-level Requirement ; f) General Degree Requirements ."
+      }
+    ],
+    "3": [
+      {
+        "code": "MATH courses numbered 300 or higher",
+        "credits": 24,
+        "title": "",
+        "notes": "STAT_V 302 can substitute for MATH_V 302."
+      },
+      {
+        "code": "MATH , STAT , or CPSC courses numbered 300 or higher",
+        "credits": 6,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "Electives",
+        "credits": 30,
+        "title": "",
+        "notes": "Students are permitted to move elective credits between years. Elective credits together with required courses must fulfill the Faculty of Science’s: a) Foundational Requirement ; b) Laboratory Science Requirement ; c) Science Breadth Requirement ; d) Science and Arts Requirements ; e) Upper-level Requirement ; f) General Degree Requirements ."
+      }
+    ],
+    "4": [
+      {
+        "code": "MATH courses numbered 300 or higher",
+        "credits": 24,
+        "title": "",
+        "notes": "STAT_V 302 can substitute for MATH_V 302."
+      },
+      {
+        "code": "MATH , STAT , or CPSC courses numbered 300 or higher",
+        "credits": 6,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "Electives",
+        "credits": 30,
+        "title": "",
+        "notes": "Students are permitted to move elective credits between years. Elective credits together with required courses must fulfill the Faculty of Science’s: a) Foundational Requirement ; b) Laboratory Science Requirement ; c) Science Breadth Requirement ; d) Science and Arts Requirements ; e) Upper-level Requirement ; f) General Degree Requirements ."
+      }
+    ]
+  }
+}
