@@ -298,7 +298,50 @@
         "notes": ""
       }
     ],
-    "4": []
+    "4": [
+      {
+        "code": "ATSC 30111, GEOS (or GEOB ) 300",
+        "credits": 6,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "ENVR 300",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "Three of ATSC 30311, 413, 40911, GEOS (or GEOB ) 309, 370, 373, EOSC 352, 354, 410",
+        "credits": 9,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "One of EOSC 340, ENVR 410, GEOG 312",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "Four of ATSC 313, 405, CHEM 302, GEOS (or GEOB ) 400, 401, 402, EOSC 440, 471, MECH 411",
+        "credits": 12,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "One of ATSC 448, GEOS (or GEOB ) 448",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "Electives",
+        "credits": 24,
+        "title": "",
+        "notes": ""
+      }
+    ]
   },
   "Behavioural Neuroscience": {
     "1": [
@@ -599,7 +642,68 @@
         "notes": ""
       }
     ],
-    "4": []
+    "4": [
+      {
+        "code": "BIOL 201 (or BIOC 202)11",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "CHEM 300",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "CHEM 304",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "CHEM 311",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "CHEM 312",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "CHEM 325, 345",
+        "credits": 4,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "Two of CHEM 305, 313, 318, 327, 330, 412",
+        "credits": 6,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "CHEM 445",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "Electives",
+        "credits": 12,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "Electives",
+        "credits": 20,
+        "title": "",
+        "notes": ""
+      }
+    ]
   },
   "Biology": {
     "1": [
@@ -820,7 +924,62 @@
         "notes": ""
       }
     ],
-    "3": [],
+    "3": [
+      {
+        "code": "Biotechnology selection list:",
+        "credits": 0,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "Five of BIOC 402, 403, 410, 440, 450, 460, BIOL 421, 436, 440, 458, 462, 463, MEDG 420, 421, MICB 301, 306, 308, 402, 407, 408, 418, 425",
+        "credits": 15,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "One of MICB 404, 406, 412, 413, 43010",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "MICB 405",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "CHBE 419",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "One of MICB 305, 421, 447, 448, 471,47510,11",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "Two of COMR 383, 388, 457, 465",
+        "credits": 6,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "MICB 398, 399, 498, 4998",
+        "credits": 6,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "Electives",
+        "credits": 9,
+        "title": "",
+        "notes": ""
+      }
+    ],
     "4": [
       {
         "code": "Biotechnology selection list:",
@@ -1330,7 +1489,50 @@
         "notes": ""
       }
     ],
-    "4": []
+    "4": [
+      {
+        "code": "CPSC 330 or 340",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "CPSC 368",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "DSCI 310, 320, 430",
+        "credits": 9,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "STAT 301, 302, 305, 443",
+        "credits": 12,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "Any Upper level MATH , STAT , CPSC or DSCI 3",
+        "credits": 12,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "Data Science Depth Requirement4",
+        "credits": 6,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "Electives",
+        "credits": 15,
+        "title": "",
+        "notes": ""
+      }
+    ]
   },
   "Earth and Ocean Sciences": {
     "1": [
@@ -1441,7 +1643,26 @@
         "notes": ""
       }
     ],
-    "4": []
+    "4": [
+      {
+        "code": "EOSC , ENVR , or ATSC courses numbered 300 or above9",
+        "credits": 24,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "EOSC , ENVR , or ATSC 400-level",
+        "credits": 6,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "Electives",
+        "credits": 30,
+        "title": "",
+        "notes": ""
+      }
+    ]
   },
   "Environmental Sciences": {
     "1": [
@@ -1576,7 +1797,38 @@
         "notes": ""
       }
     ],
-    "4": []
+    "4": [
+      {
+        "code": "ENVR 300, 305, 350, 400, 450",
+        "credits": 16,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "EOSC 345",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "Complementary Studies12",
+        "credits": 9,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "Electives",
+        "credits": 17,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "Area of Concentration9",
+        "credits": 17,
+        "title": "",
+        "notes": ""
+      }
+    ]
   },
   "Forensic Science": {
     "1": [
@@ -1907,7 +2159,50 @@
         "notes": ""
       }
     ],
-    "4": []
+    "4": [
+      {
+        "code": "Selections from Geographical Sciences11",
+        "credits": 18,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "GEOS 309",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "One of GEOG 374, BIOL 300, FRST 231, STAT 200",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "One of GEOS 370, 373, 409, ATSC 303",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "One of GEOG 310, 311, ISCI 3608",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "One of GEOG 312, 315, 316, 318, 319, ENVR 4108",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "Electives",
+        "credits": 27,
+        "title": "",
+        "notes": ""
+      }
+    ]
   },
   "Geological Sciences": {
     "1": [
@@ -2054,7 +2349,62 @@
         "notes": ""
       }
     ],
-    "4": []
+    "4": [
+      {
+        "code": "EOSC 320, 321, 322",
+        "credits": 9,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "EOSC 323",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "EOSC 325, 3289, 330, 332",
+        "credits": 12,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "EOSC 333 or 35010",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "EOSC courses numbered 420-439",
+        "credits": 6,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "EOSC / ATSC / ENVR 300-level or higher",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "Electives",
+        "credits": 24,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "1Students who do not have B.C. High School Chemistry 12 (or its equivalent) must write the UBC Chemistry Basic Skills Test and may be required to take CHEM 100. CHEM 110 and 115 may substitute for CHEM 111, CHEM 120 and 115 may substitute for CHEM 121, CHEM 130 and 135 may substitute for CHEM 123.",
+        "credits": 0,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "10Students may substitute EOSC 250, but EOSC 350 is recommended.",
+        "credits": 0,
+        "title": "",
+        "notes": ""
+      }
+    ]
   },
   "Geophysics": {
     "1": [
@@ -2325,7 +2675,26 @@
         "notes": ""
       }
     ],
-    "4": []
+    "4": [
+      {
+        "code": "MATH courses numbered 300 or higher10",
+        "credits": 24,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "MATH , STAT , or CPSC courses numbered 300 or higher",
+        "credits": 6,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "Electives",
+        "credits": 30,
+        "title": "",
+        "notes": ""
+      }
+    ]
   },
   "Oceanography": {
     "1": [
@@ -2662,7 +3031,68 @@
         "notes": ""
       }
     ],
-    "4": []
+    "4": [
+      {
+        "code": "BIOC 301",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "BIOC 302",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "BIOL 300 or STAT 20013",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "CAPS 301",
+        "credits": 6,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "PCTH 301",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "PCTH 302",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "PCTH 303",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "PCTH 400",
+        "credits": 6,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "PCTH 404",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "Electives",
+        "credits": 27,
+        "title": "",
+        "notes": ""
+      }
+    ]
   },
   "Statistics": {
     "1": [
@@ -2747,7 +3177,44 @@
         "notes": ""
       }
     ],
-    "3": [],
+    "3": [
+      {
+        "code": "MATH 303",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "STAT courses numbered 300 or above",
+        "credits": 6,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "STAT courses numbered 400 or above",
+        "credits": 6,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "MATH courses numbered 300 or above",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "Thematic concentration courses numbered 300 or above7",
+        "credits": 9,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "Electives",
+        "credits": 18,
+        "title": "",
+        "notes": ""
+      }
+    ],
     "4": [
       {
         "code": "MATH 303",

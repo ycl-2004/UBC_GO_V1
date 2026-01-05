@@ -328,6 +328,37 @@ class UBCScienceCurriculumScraper:
 
         return years_data
     
+    def normalize_curriculum_years(self, all_data: Dict) -> Dict:
+        """
+        Normalize curriculum years by filling missing years based on adjacent years.
+        Handles cases where majors combine years (e.g., "Third and Fourth Years").
+        """
+        for major, years in all_data.items():
+            y1 = years.get("1", [])
+            y2 = years.get("2", [])
+            y3 = years.get("3", [])
+            y4 = years.get("4", [])
+            
+            # Case 1: 1, 2, and 4 exist -> Copy Year 4 to Year 3
+            # (This happens when "Third and Fourth Years" was saved as Year 4)
+            if y1 and y2 and y4 and not y3:
+                years["3"] = y4.copy()
+                print(f"  [{major}] Duplicated Year 4 into Year 3")
+
+            # Case 2: 1, 2, and 3 exist -> Copy Year 3 to Year 4
+            # (This happens when "Third and Fourth Years" was saved as Year 3)
+            elif y1 and y2 and y3 and not y4:
+                years["4"] = y3.copy()
+                print(f"  [{major}] Duplicated Year 3 into Year 4")
+
+            # Case 3: 1, 3, and 4 exist -> Copy Year 3 to Year 2
+            # (Edge case: missing Year 2)
+            elif y1 and y3 and y4 and not y2:
+                years["2"] = y3.copy()
+                print(f"  [{major}] Duplicated Year 3 into Year 2")
+            
+        return all_data
+    
     def scrape_major_curriculum(self, major_name: str, url_slug: str) -> Optional[Dict]:
         """
         Scrape curriculum for a specific Science major.
@@ -461,9 +492,15 @@ class UBCScienceCurriculumScraper:
             if i < len(major_links):
                 time.sleep(2)  # 2 second delay between requests
         
-        # Step 3: Save results
+        # Step 3: Normalize curriculum years (fill missing years)
         print(f"\n{'='*70}")
-        print("Step 3: Saving results...")
+        print("Step 3: Normalizing curriculum years...")
+        print(f"{'='*70}")
+        all_curriculum = self.normalize_curriculum_years(all_curriculum)
+        
+        # Step 4: Save results
+        print(f"\n{'='*70}")
+        print("Step 4: Saving results...")
         print(f"{'='*70}")
         
         output_file = os.path.join(self.output_dir, 'science_curriculum.json')

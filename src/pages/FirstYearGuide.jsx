@@ -62,9 +62,23 @@ const FirstYearGuide = () => {
   }, [scienceMajors, scienceMajorSearch])
   
   // Get courses for selected Science major and year
-  const scienceYearCourses = selectedScienceMajor 
-    ? getScienceMajorYearCourses(selectedScienceMajor, selectedYearTab)
-    : []
+  // If Year 3 and 4 are identical, show Year 3 data when Year 4 is selected
+  const getDisplayedCourses = () => {
+    if (!selectedScienceMajor) return []
+    
+    const year3Courses = getScienceMajorYearCourses(selectedScienceMajor, 3)
+    const year4Courses = getScienceMajorYearCourses(selectedScienceMajor, 4)
+    const areMerged = JSON.stringify(year3Courses) === JSON.stringify(year4Courses) && year3Courses.length > 0
+    
+    if (selectedYearTab === 4 && areMerged) {
+      // Year 3 and 4 are identical, show Year 3 data
+      return year3Courses
+    }
+    
+    return getScienceMajorYearCourses(selectedScienceMajor, selectedYearTab)
+  }
+  
+  const scienceYearCourses = getDisplayedCourses()
 
   const faculties = [
     { id: 'Applied Science', name: 'Applied Science', icon: '🔧', available: true },
@@ -292,15 +306,25 @@ const FirstYearGuide = () => {
               <CollapsibleSection title={`${selectedScienceMajor} - Degree Requirements`} defaultOpen={true}>
                 {/* Year Tabs */}
                 <div className="year-tabs-container">
-                  {[1, 2, 3, 4].map((year) => (
-                    <button
-                      key={year}
-                      className={`year-tab ${selectedYearTab === year ? 'active' : ''}`}
-                      onClick={() => setSelectedYearTab(year)}
-                    >
-                      Year {year}
-                    </button>
-                  ))}
+                  {[1, 2, 3, 4].map((year) => {
+                    // Check if this year should be merged with the next year
+                    const majorData = getScienceMajorYearCourses(selectedScienceMajor, year)
+                    const nextYearData = year < 4 ? getScienceMajorYearCourses(selectedScienceMajor, year + 1) : []
+                    const isMerged = year === 3 && JSON.stringify(majorData) === JSON.stringify(nextYearData) && majorData.length > 0
+                    const shouldHide = year === 4 && JSON.stringify(getScienceMajorYearCourses(selectedScienceMajor, 3)) === JSON.stringify(getScienceMajorYearCourses(selectedScienceMajor, 4)) && getScienceMajorYearCourses(selectedScienceMajor, 3).length > 0
+                    
+                    if (shouldHide) return null
+                    
+                    return (
+                      <button
+                        key={year}
+                        className={`year-tab ${selectedYearTab === year ? 'active' : ''}`}
+                        onClick={() => setSelectedYearTab(year)}
+                      >
+                        {isMerged ? `Year ${year} & ${year + 1}` : `Year ${year}`}
+                      </button>
+                    )
+                  })}
                 </div>
 
                 {/* Curriculum Table */}
