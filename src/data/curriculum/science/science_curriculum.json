@@ -1370,9 +1370,90 @@
         "notes": ""
       }
     ],
-    "2": [],
-    "3": [],
-    "4": []
+    "2": [
+      {
+        "code": "CPSC 210",
+        "credits": 4,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "CPSC 213, 221",
+        "credits": 8,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "MATH 200, 221",
+        "credits": 6,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "STAT 241 or 2512",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "Electives",
+        "credits": 9,
+        "title": "",
+        "notes": ""
+      }
+    ],
+    "3": [
+      {
+        "code": "CPSC 310, 313, 320",
+        "credits": 10,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "CPSC courses numbered 300 or higher4",
+        "credits": 9,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "CPSC courses numbered 400 or higher4,5",
+        "credits": 9,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "Electives",
+        "credits": 32,
+        "title": "",
+        "notes": ""
+      }
+    ],
+    "4": [
+      {
+        "code": "CPSC 310, 313, 320",
+        "credits": 10,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "CPSC courses numbered 300 or higher4",
+        "credits": 9,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "CPSC courses numbered 400 or higher4,5",
+        "credits": 9,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "Electives",
+        "credits": 32,
+        "title": "",
+        "notes": ""
+      }
+    ]
   },
   "Data Science": {
     "1": [
