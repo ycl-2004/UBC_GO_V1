@@ -444,25 +444,6 @@ const FirstYearGuide = () => {
                           <tr key={index} className="science-course-row">
                             <td className="course-code">
                               {course.code}
-                              {course.code === 'Communication Requirement' || 
-                               course.code === 'Additional Communication Requirement' ? (
-                                <span 
-                                  className="comm-req-info-icon"
-                                  onMouseEnter={() => setShowCommRequirementTooltip(index)}
-                                  onMouseLeave={() => setShowCommRequirementTooltip(null)}
-                                >
-                                  ℹ️
-                                  {showCommRequirementTooltip === index && course.notes && (
-                                    <div className="comm-req-tooltip">
-                                      <div className="tooltip-arrow"></div>
-                                      <div className="tooltip-content">
-                                        <strong>Acceptable Courses:</strong>
-                                        <div className="tooltip-courses">{course.notes}</div>
-                                      </div>
-                                    </div>
-                                  )}
-                                </span>
-                              ) : null}
                               {course.code === 'Electives' && course.notes && (
                                 <span 
                                   className="elective-info-icon"
@@ -475,8 +456,7 @@ const FirstYearGuide = () => {
                             <td className="course-credits">{course.credits} cr</td>
                             <td className="course-title">
                               {course.title && <span className="course-title-text">{course.title}</span>}
-                              {course.notes && course.code !== 'Communication Requirement' && 
-                               course.code !== 'Additional Communication Requirement' && (
+                              {course.notes && (
                                 <span className="course-notes">{course.notes}</span>
                               )}
                             </td>
