@@ -1,0 +1,64 @@
+SCRAPER DIRECTORY ORGANIZATION
+==============================
+
+This directory contains all web scraping scripts for the UBC PathFinder application.
+Files are organized into logical folders by their purpose.
+
+Directory Structure:
+--------------------
+
+1. curriculum/
+   - Scrapers for curriculum and prerequisite data
+   - Science majors, Computer Science, Engineering prerequisites
+   - See: curriculum/README.txt
+
+2. admission/
+   - Scrapers for admission requirements
+   - Canadian high school requirements by province
+   - See: admission/README.txt
+
+3. courses/
+   - Scrapers for individual course data
+   - Course catalog information
+   - See: courses/README.txt
+
+4. data_processing/
+   - Scripts to process, clean, and fix scraped data
+   - Data transformation for frontend use
+   - See: data_processing/README.txt
+
+5. verification/
+   - Testing and validation scripts
+   - Data quality checks
+   - See: verification/README.txt
+
+6. utils/
+   - Utility and inspection scripts
+   - Development and debugging tools
+   - See: utils/README.txt
+
+7. data/
+   - Output directory for scraped data
+   - Contains JSON files and HTML snapshots
+
+Root Files:
+-----------
+
+- requirements.txt: Python dependencies for all scrapers
+- README.md: General documentation
+- RUN_FULL_SCRAPE.sh: Script to run all scrapers
+- province_course_mappings.json: Province course code mappings
+
+Usage:
+------
+
+1. Install dependencies: pip install -r requirements.txt
+2. Run individual scrapers from their respective folders
+3. Process data using scripts in data_processing/
+4. Verify data quality using scripts in verification/
+
+Note:
+-----
+Some scrapers require Selenium and ChromeDriver for dynamic content.
+Check individual README.txt files in each folder for specific usage instructions.
+

@@ -47,6 +47,7 @@ const FirstYearGuide = () => {
   const [selectedYearTab, setSelectedYearTab] = useState(1)
   const [scienceMajorSearch, setScienceMajorSearch] = useState('')
   const [showCommRequirementTooltip, setShowCommRequirementTooltip] = useState(null)
+  const [isMajorSelectorExpanded, setIsMajorSelectorExpanded] = useState(true)
   
   const scienceMajors = getAllScienceMajors()
   
@@ -92,12 +93,18 @@ const FirstYearGuide = () => {
     setSelectedScienceMajor(null)
     setScienceMajorSearch('')
     setSelectedYearTab(1)
+    setIsMajorSelectorExpanded(true) // Reset to expanded when going back
   }
   
   const handleScienceMajorSelect = (majorName) => {
     setSelectedScienceMajor(majorName)
     setScienceMajorSearch('')
     setSelectedYearTab(1) // Reset to Year 1 when selecting a new major
+    setIsMajorSelectorExpanded(false) // Collapse the grid when a major is selected
+  }
+  
+  const handleChangeMajor = () => {
+    setIsMajorSelectorExpanded(true) // Expand the grid to allow changing major
   }
 
   return (
@@ -268,36 +275,53 @@ const FirstYearGuide = () => {
             </button>
 
             {/* Major Selector */}
-            <section className="science-major-selector-section">
-              <h2>Select Your Science Major</h2>
-              <p className="section-description">
-                Choose a specialization to view the curriculum requirements for each year.
-              </p>
-              
-              <div className="science-major-search-wrapper">
-                <input
-                  type="text"
-                  className="science-major-search"
-                  placeholder="Search for a major (e.g., Computer Science, Biology)..."
-                  value={scienceMajorSearch}
-                  onChange={(e) => setScienceMajorSearch(e.target.value)}
-                />
+            <section className={`science-major-selector-section ${!isMajorSelectorExpanded ? 'collapsed' : ''}`}>
+              <div className="science-major-header">
+                <div className="science-major-header-content">
+                  <h2>
+                    {selectedScienceMajor ? `Selected: ${selectedScienceMajor}` : 'Select Your Science Major'}
+                  </h2>
+                  {selectedScienceMajor && (
+                    <button 
+                      className="change-major-button"
+                      onClick={handleChangeMajor}
+                    >
+                      {isMajorSelectorExpanded ? 'Hide List' : 'Change Major'}
+                    </button>
+                  )}
+                </div>
               </div>
 
-              {scienceMajorSearch && filteredScienceMajors.length === 0 && (
-                <p className="no-results-message">No majors found matching "{scienceMajorSearch}"</p>
-              )}
+              <div className={`science-major-selector-content ${isMajorSelectorExpanded ? 'expanded' : 'collapsed'}`}>
+                <p className="section-description">
+                  Choose a specialization to view the curriculum requirements for each year.
+                </p>
+                
+                <div className="science-major-search-wrapper">
+                  <input
+                    type="text"
+                    className="science-major-search"
+                    placeholder="Search for a major (e.g., Computer Science, Biology)..."
+                    value={scienceMajorSearch}
+                    onChange={(e) => setScienceMajorSearch(e.target.value)}
+                  />
+                </div>
 
-              <div className="science-major-grid">
-                {filteredScienceMajors.map((major) => (
-                  <button
-                    key={major}
-                    className={`science-major-button ${selectedScienceMajor === major ? 'selected' : ''}`}
-                    onClick={() => handleScienceMajorSelect(major)}
-                  >
-                    {major}
-                  </button>
-                ))}
+                {scienceMajorSearch && filteredScienceMajors.length === 0 && (
+                  <p className="no-results-message">No majors found matching "{scienceMajorSearch}"</p>
+                )}
+
+                <div className="science-major-grid">
+                  {filteredScienceMajors.map((major) => (
+                    <button
+                      key={major}
+                      className={`science-major-button ${selectedScienceMajor === major ? 'selected' : ''}`}
+                      onClick={() => handleScienceMajorSelect(major)}
+                    >
+                      {major}
+                    </button>
+                  ))}
+                </div>
               </div>
             </section>
 
