@@ -4,7 +4,7 @@ Special scraper for CPSC that handles the edge case where Year 1 is in a separat
 from Years 2-4.
 
 Usage:
-    python scraper/scrape_cpsc_curriculum.py
+    python scraper/curriculum/scrape_cpsc_curriculum.py
 """
 
 import requests
@@ -25,8 +25,8 @@ class UBCCPSCCurriculumScraper:
             'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
         })
         
-        # Output directory
-        script_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+        # Output directory - write to the main science_curriculum.json file that the frontend uses
+        script_dir = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
         self.output_dir = os.path.join(script_dir, 'src', 'data', 'curriculum', 'science')
         os.makedirs(self.output_dir, exist_ok=True)
     
@@ -45,26 +45,44 @@ class UBCCPSCCurriculumScraper:
             return int(match.group(1))
         return 3  # Default to 3 credits
     
+    def extract_sup_ids_and_remove(self, cell) -> List[str]:
+        """Extract numeric footnote ids from <sup> (supports '8,9' and '10'), then remove <sup> tags."""
+        ids = []
+        for sup in cell.find_all("sup"):
+            txt = sup.get_text(" ", strip=True)
+            ids += re.findall(r"\d+", txt)  # grabs 8,9,10,11,12...
+            sup.decompose()
+        return ids
+
+    def is_table_footnote_row(self, tds) -> bool:
+        """
+        Footnote rows in UBC tables are often:
+        - colspan=2 with <sup>n</sup> at start, OR
+        - 2 columns where second column is blank/&nbsp; and first starts with <sup>.
+        """
+        if not tds:
+            return False
+
+        first = tds[0]
+        if first.get("colspan") == "2" and first.find("sup"):
+            return True
+
+        if len(tds) >= 2:
+            second_text = tds[1].get_text(" ", strip=True).replace("\xa0", "").strip()
+            if (second_text == "") and first.find("sup"):
+                # common pattern: <td><sup>2</sup> ...</td><td>&nbsp;</td>
+                return True
+
+        return False
+
     def extract_footnotes(self, soup: BeautifulSoup, table_element) -> Dict[str, str]:
         """
-        Extract footnotes from the page, typically found after tables or within table rows.
-        Returns a dictionary mapping footnote symbols to their text.
+        Extract footnotes from the page, typically found after tables.
+        Returns a dictionary mapping footnote IDs (numeric strings) to their text.
         """
         footnotes = {}
         
-        # Look for footnote text within the table (rows with colspan="2" or starting with superscript)
-        rows = table_element.find_all('tr')
-        for row in rows:
-            cells = row.find_all('td')
-            if len(cells) == 1 or (len(cells) > 0 and cells[0].get('colspan') == "2"):
-                text = cells[0].get_text(strip=True)
-                # Match superscript at start: e.g., "¹ Students without..."
-                match = re.match(r'^([¹²³⁴⁵⁶⁷⁸⁹⁰])\s*(.*)', text)
-                if match:
-                    symbol, note_content = match.groups()
-                    footnotes[symbol] = note_content
-        
-        # Also look for footnotes after the table
+        # Look for footnote text after the table
         current = table_element
         for _ in range(10):  # Check up to 10 siblings
             current = current.find_next_sibling()
@@ -74,22 +92,23 @@ class UBCCPSCCurriculumScraper:
             # Look for text containing footnote symbols
             text = current.get_text()
             
-            # Match patterns like "¹ Text", "² Text", etc.
+            # Match patterns like "¹ Text", "² Text", etc. (Unicode superscripts)
+            # Map them to numeric IDs
+            unicode_to_num = {'¹': '1', '²': '2', '³': '3', '⁴': '4', '⁵': '5',
+                            '⁶': '6', '⁷': '7', '⁸': '8', '⁹': '9', '⁰': '0'}
             footnote_pattern = r'([¹²³⁴⁵⁶⁷⁸⁹⁰])\s+(.+)'
             matches = re.findall(footnote_pattern, text)
             
             for symbol, note_text in matches:
-                footnotes[symbol] = note_text.strip()
+                if symbol in unicode_to_num:
+                    footnotes[unicode_to_num[symbol]] = note_text.strip()
             
-            # Also check for numbered footnotes like "1. Text", "2. Text"
+            # Also check for numbered footnotes like "1. Text", "2. Text" (direct numeric)
             numbered_pattern = r'(\d+)\.\s+(.+)'
             numbered_matches = re.findall(numbered_pattern, text)
             
             for num, note_text in numbered_matches:
-                # Map numbers to superscript symbols
-                symbol_map = {'1': '¹', '2': '²', '3': '³', '4': '⁴', '5': '⁵'}
-                if num in symbol_map:
-                    footnotes[symbol_map[num]] = note_text.strip()
+                footnotes[num] = note_text.strip()
         
         return footnotes
     
@@ -126,7 +145,8 @@ class UBCCPSCCurriculumScraper:
         """
         Separates the course text from superscript footnotes.
         Example: 'BIOL_V 112¹' -> Code: 'BIOL 112', Note: 'Students without...'
-        Also handles trailing digits: 'MATH 2007' -> 'MATH 200'
+        Note: This method is kept for backward compatibility, but superscripts are now
+        extracted before text parsing in parse_table_for_courses.
         """
         # 1. Identify superscripts
         superscripts = "".join(re.findall(r'[¹²³⁴⁵⁶⁷⁸⁹⁰]', raw_text))
@@ -135,21 +155,7 @@ class UBCCPSCCurriculumScraper:
         clean_text = re.sub(r'[¹²³⁴⁵⁶⁷⁸⁹⁰]', '', raw_text)
         clean_text = self.clean_course_code(clean_text)
         
-        # 3. Fix trailing digits in course codes (e.g., "MATH 2007" -> "MATH 200")
-        # Pattern: Course code followed by digits that are too long (4+ digits after space)
-        course_code_pattern = r'^([A-Z]{2,4})\s+(\d{3})(\d+)(?:\s|$)'
-        match = re.match(course_code_pattern, clean_text)
-        if match:
-            dept = match.group(1)
-            course_num = match.group(2)  # Take only first 3 digits
-            # Check if the trailing digits are likely superscripts (single digit 1-9)
-            trailing = match.group(3)
-            if len(trailing) == 1 and trailing in '123456789':
-                # Likely a superscript that was parsed as a digit, remove it
-                clean_text = re.sub(rf'^{re.escape(dept)}\s+{re.escape(course_num)}{re.escape(trailing)}', 
-                                  f'{dept} {course_num}', clean_text)
-        
-        # 4. Map superscripts to actual footnote text
+        # 3. Map superscripts to actual footnote text
         found_notes = []
         for char in superscripts:
             if char in footnotes_dict:
@@ -162,7 +168,6 @@ class UBCCPSCCurriculumScraper:
         """
         Parse a table element using sticky headers and an early-exit stopping condition.
         Handles superscript footnotes correctly and extracts footnotes from within the table.
-        The method automatically detects year headers (<strong>First Year</strong>, etc.) within the table.
         """
         if footnotes is None:
             footnotes = {}
@@ -173,22 +178,24 @@ class UBCCPSCCurriculumScraper:
             "3": [],
             "4": []
         }
-        current_year_key = None  # Will be set when we encounter a year header
+        current_year_key = None
+        is_combined_years = False
         
-        # --- Step 1: Pre-parse footnotes inside the table ---
-        # These are usually rows with colspan or rows that start with a superscript
+        # --- Step 1: Extract footnotes inside the SAME table ---
         internal_footnotes = {}
-        rows = table.find_all('tr')
-        
+        rows = table.find_all("tr")
+
         for row in rows:
-            cells = row.find_all('td')
-            if len(cells) == 1 or (len(cells) > 0 and cells[0].get('colspan') == "2"):
-                text = cells[0].get_text(strip=True)
-                # Match superscript at start: e.g., "¹ Students without..."
-                match = re.match(r'^([¹²³⁴⁵⁶⁷⁸⁹⁰])\s*(.*)', text)
-                if match:
-                    symbol, note_content = match.groups()
-                    internal_footnotes[symbol] = note_content
+            tds = row.find_all("td")
+            if not tds:
+                continue
+
+            if self.is_table_footnote_row(tds):
+                first_cell = tds[0]
+                ids = self.extract_sup_ids_and_remove(first_cell)
+                note_text = first_cell.get_text(" ", strip=True)
+                for fid in ids:
+                    internal_footnotes[fid] = note_text
         
         # Merge external footnotes with internal ones (internal takes precedence)
         all_footnotes = {**footnotes, **internal_footnotes}
@@ -210,6 +217,7 @@ class UBCCPSCCurriculumScraper:
                 header_text = first_cell_lower
             
             if "year" in header_text or "year" in first_cell_lower:
+                is_combined_years = False
                 if "first" in header_text or "first" in first_cell_lower:
                     current_year_key = "1"
                 elif "second" in header_text or "second" in first_cell_lower:
@@ -217,34 +225,55 @@ class UBCCPSCCurriculumScraper:
                 elif "third" in header_text or "third" in first_cell_lower:
                     if "fourth" in header_text or "fourth" in first_cell_lower or "four" in header_text or "four" in first_cell_lower:
                         current_year_key = "3"
+                        is_combined_years = True
+                        print(f"  Detected combined 'Third and Fourth Years' - adding to both Year 3 and Year 4")
                     else:
                         current_year_key = "3"
                 elif "fourth" in header_text or "fourth" in first_cell_lower or "four" in header_text or "four" in first_cell_lower:
                     current_year_key = "4"
+                
+                if current_year_key:
+                    print(f"  Processing Year {current_year_key}")
+                continue
+
+            # Skip footnote rows (already processed in Step 1)
+            tds = row.find_all("td")
+            if self.is_table_footnote_row(tds):
                 continue
 
             # Early exit if we hit the end
             if "total credits for degree" in first_cell_lower or "credits for degree" in first_cell_lower:
                 break
                 
-            # Skip total rows and the footnote rows we already parsed
-            if "total credits" in first_cell_lower or re.match(r'^[¹²³⁴⁵⁶⁷⁸⁹⁰]', first_cell_text):
+            # Skip total credits rows
+            if "total credits" in first_cell_lower:
                 continue
 
             if current_year_key and len(cells) >= 2:
-                # Extract Credits from the second column
-                credit_text = cells[1].get_text(strip=True)
+                # --- course row parse ---
+                first_cell = cells[0]
+                footnote_ids = self.extract_sup_ids_and_remove(first_cell)  # removes <sup> so code won't become 33510
+                first_cell_text = first_cell.get_text(" ", strip=True).replace("\xa0", " ").strip()
+                first_cell_lower = first_cell_text.lower()
+
+                credit_text = cells[1].get_text(" ", strip=True)
                 credits = self.extract_credits(credit_text) if credit_text else 0
+
+                clean_code = self.clean_course_code(first_cell_text)
+
+                # attach notes
+                found_notes = [all_footnotes[fid] for fid in footnote_ids if fid in all_footnotes]
+                note = " ".join(found_notes)
                 
                 # Skip empty rows (0 credits and empty/whitespace code)
-                if credits == 0 and (not first_cell_text or not first_cell_text.strip()):
+                if credits == 0 and (not clean_code or not clean_code.strip()):
                     continue
                 
-                # Clean course code and attach notes
-                clean_code, note = self.clean_text_and_extract_notes(first_cell_text, all_footnotes)
-                
                 # Special case for Communication Requirement
-                if "communication requirement" in first_cell_lower or "additional communication requirement" in first_cell_lower:
+                if "additional communication requirement" in first_cell_lower:
+                    note = comm_requirement_courses
+                    clean_code = "Additional Communication Requirement"
+                elif "communication requirement" in first_cell_lower:
                     note = comm_requirement_courses
                     clean_code = "Communication Requirement"
                 elif "elective" in first_cell_lower:
@@ -256,12 +285,19 @@ class UBCCPSCCurriculumScraper:
                         else:
                             note = "At least some credits must be from the Faculty of Arts"
                 
-                years_data[current_year_key].append({
+                # Determine target years (both 3 and 4 if combined, otherwise just current)
+                target_years = ["3", "4"] if is_combined_years else [current_year_key]
+                
+                # Add course to all target years
+                course_data = {
                     "code": clean_code,
                     "credits": credits,
                     "title": "",
                     "notes": note
-                })
+                }
+                
+                for year_key in target_years:
+                    years_data[year_key].append(course_data)
 
         return years_data
     
@@ -393,22 +429,48 @@ class UBCCPSCCurriculumScraper:
             # Normalize years
             curriculum = self.normalize_curriculum_years(curriculum)
             
-            # Load existing science curriculum data
-            existing_file = os.path.join(self.output_dir, 'science_curriculum.json')
-            all_curriculum = {}
+            # Merge into main science_curriculum.json file (same format as scrape_single_science_major.py)
+            main_file = os.path.join(self.output_dir, 'science_curriculum.json')
             
-            if os.path.exists(existing_file):
-                with open(existing_file, 'r', encoding='utf-8') as f:
+            # Load existing data if file exists
+            if os.path.exists(main_file):
+                with open(main_file, 'r', encoding='utf-8') as f:
                     all_curriculum = json.load(f)
+            else:
+                all_curriculum = {}
             
-            # Update or add Computer Science data
-            all_curriculum["Computer Science"] = curriculum
+            # Find the correct key (case-insensitive match) or use capitalized version
+            major_name = "Computer Science"
+            existing_key = None
+            for key in all_curriculum.keys():
+                if key.lower() == major_name.lower():
+                    existing_key = key
+                    break
+            
+            # Use existing key if found, otherwise use the capitalized version
+            if existing_key:
+                major_key = existing_key
+                print(f"  Found existing key: {major_key}")
+            else:
+                major_key = major_name
+                print(f"  Using new key: {major_key}")
+            
+            # Remove any duplicate entries
+            keys_to_remove = [k for k in all_curriculum.keys() if k.lower() == major_name.lower() and k != major_key]
+            for key in keys_to_remove:
+                del all_curriculum[key]
+                print(f"  Removed duplicate entry: {key}")
+            
+            # Update the Computer Science data
+            all_curriculum[major_key] = curriculum
             
             # Save updated data
-            with open(existing_file, 'w', encoding='utf-8') as f:
+            with open(main_file, 'w', encoding='utf-8') as f:
                 json.dump(all_curriculum, f, indent=2, ensure_ascii=False)
             
-            print(f"\n  Updated: {existing_file}")
+            print(f"\n  Updated: {main_file}")
+            print(f"  Updated major: {major_key}")
+            print(f"  Total courses: {sum(len(courses) for courses in curriculum.values())}")
             print(f"  Computer Science courses extracted:")
             for year in ["1", "2", "3", "4"]:
                 count = len(curriculum.get(year, []))

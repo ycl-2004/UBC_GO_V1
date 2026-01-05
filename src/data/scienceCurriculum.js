@@ -31,7 +31,7 @@ export const getAllScienceMajors = () => {
 /**
  * Get courses for a specific major and year
  * @param {string} majorName - The name of the major
- * @param {number} year - The year (1, 2, 3, or 4)
+ * @param {number} year - The year (1, 2, 3, 4, or 5 for Biotechnology)
  * @returns {Array} - Array of course objects for that year
  */
 export const getScienceMajorYearCourses = (majorName, year) => {

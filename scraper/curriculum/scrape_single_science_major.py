@@ -292,6 +292,13 @@ class UBCSingleScienceMajorScraper:
                         else:
                             note = "At least some credits must be from the Faculty of Arts"
                 
+                # Special case for Forensic Science: Add "at BCIT campus" to FSCT courses
+                if self.major_name.lower() == "forensic science" and "fsct" in clean_code.lower():
+                    if note:
+                        note += ". " + "at BCIT campus"
+                    else:
+                        note = "at BCIT campus"
+                
                 # Determine target years (both 3 and 4 if combined, otherwise just current)
                 target_years = ["3", "4"] if is_combined_years else [current_year_key]
                 
@@ -312,7 +319,32 @@ class UBCSingleScienceMajorScraper:
         """
         Normalize curriculum years by filling missing years based on adjacent years.
         Handles cases where majors combine years (e.g., "Third and Fourth Years").
+        Special handling for Biotechnology: Year 2 & 3 at BCIT, Year 4 & 5.
         """
+        # Special case: Biotechnology has a 5-year structure
+        if self.major_name.lower() == "biotechnology":
+            y1 = years_data.get("1", [])
+            y2 = years_data.get("2", [])
+            y3 = years_data.get("3", [])
+            y4 = years_data.get("4", [])
+            
+            # Biotechnology structure: Year 1, Year 2 & 3 (at BCIT), Year 4 & 5
+            # Merge Year 2 and Year 3 into Year 2 (Year 2 & 3 at BCIT campus)
+            if y2 and y3:
+                # Combine Year 2 and Year 3 courses into Year 2
+                years_data["2"] = y2 + y3
+                print(f"  [Biotechnology] Merged Year 2 and Year 3 into Year 2 (BCIT campus)")
+                # Clear Year 3
+                years_data["3"] = []
+            
+            # Move Year 4 data to both Year 4 and Year 5
+            if y4:
+                years_data["5"] = y4.copy()
+                print(f"  [Biotechnology] Created Year 5 from Year 4 data")
+            
+            return years_data
+        
+        # Standard normalization for other majors
         y1 = years_data.get("1", [])
         y2 = years_data.get("2", [])
         y3 = years_data.get("3", [])

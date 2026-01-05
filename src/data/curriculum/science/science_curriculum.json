@@ -1346,9 +1346,90 @@
         "notes": "Students are permitted to move elective credits between years. Students who take courses in MATH_V with extra credits will require fewer elective credits in later years. Elective credits together with required courses must fulfill the Faculty of Science’s: a) Foundational Requirement ; b) Laboratory Science Requirement ; c) Science Breadth Requirement ; d) Science and Arts Requirements ; e) Upper-level Requirement ; f) General Degree Requirements ."
       }
     ],
-    "2": [],
-    "3": [],
-    "4": []
+    "2": [
+      {
+        "code": "CPSC 210",
+        "credits": 4,
+        "title": "",
+        "notes": "Students pursuing a Co-op option in Computer Science are advised to also take CPSC_V 210 in their first year or in the summer following their first year. Co-op students will then be in a position to take one or both of CPSC_V 221 and CPSC_V 213 in term 1 of second year before going out on a Co-op work term."
+      },
+      {
+        "code": "CPSC 213, 221",
+        "credits": 8,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "MATH 200, 221",
+        "credits": 6,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "STAT 241 or 251",
+        "credits": 3,
+        "title": "",
+        "notes": "May be replaced by STAT_V 200 or STAT_V 201 provided MATH_V/STAT_V 302 is taken as an elective in third or fourth year. STAT_V 200 is recommended for students with an interest in further STAT_V courses. STAT_V 201 is recommended for students with an interest in the Minor in Data Science ."
+      },
+      {
+        "code": "Electives",
+        "credits": 9,
+        "title": "",
+        "notes": "Students are permitted to move elective credits between years. Elective credits together with required courses must fulfill the Faculty of Science’s: a) Foundational Requirement ; b) Laboratory Science Requirement ; c) Science Breadth Requirement ; d) Science and Arts Requirements ; e) Upper-level Requirement ; f) General Degree Requirements ."
+      }
+    ],
+    "3": [
+      {
+        "code": "CPSC 310, 313, 320",
+        "credits": 10,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "CPSC courses numbered 300 or higher",
+        "credits": 9,
+        "title": "",
+        "notes": "Credits gained from undergraduate Student-Directed Seminars (CPSC_V 490) can not be used to fulfill this requirement."
+      },
+      {
+        "code": "CPSC courses numbered 400 or higher",
+        "credits": 9,
+        "title": "",
+        "notes": "Credits gained from undergraduate Student-Directed Seminars (CPSC_V 490) can not be used to fulfill this requirement. At least 3 credits must come from lecture based course(s) ."
+      },
+      {
+        "code": "Electives",
+        "credits": 32,
+        "title": "",
+        "notes": "Students are permitted to move elective credits between years. Elective credits together with required courses must fulfill the Faculty of Science’s: a) Foundational Requirement ; b) Laboratory Science Requirement ; c) Science Breadth Requirement ; d) Science and Arts Requirements ; e) Upper-level Requirement ; f) General Degree Requirements ."
+      }
+    ],
+    "4": [
+      {
+        "code": "CPSC 310, 313, 320",
+        "credits": 10,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "CPSC courses numbered 300 or higher",
+        "credits": 9,
+        "title": "",
+        "notes": "Credits gained from undergraduate Student-Directed Seminars (CPSC_V 490) can not be used to fulfill this requirement."
+      },
+      {
+        "code": "CPSC courses numbered 400 or higher",
+        "credits": 9,
+        "title": "",
+        "notes": "Credits gained from undergraduate Student-Directed Seminars (CPSC_V 490) can not be used to fulfill this requirement. At least 3 credits must come from lecture based course(s) ."
+      },
+      {
+        "code": "Electives",
+        "credits": 32,
+        "title": "",
+        "notes": "Students are permitted to move elective credits between years. Elective credits together with required courses must fulfill the Faculty of Science’s: a) Foundational Requirement ; b) Laboratory Science Requirement ; c) Science Breadth Requirement ; d) Science and Arts Requirements ; e) Upper-level Requirement ; f) General Degree Requirements ."
+      }
+    ]
   },
   "Data Science": {
     "1": [
@@ -1910,7 +1991,7 @@
         "code": "FSCT 280, 290",
         "credits": 9,
         "title": "",
-        "notes": ""
+        "notes": "at BCIT campus"
       }
     ],
     "3": [
@@ -1942,7 +2023,7 @@
         "code": "FSCT 380, 390",
         "credits": 18,
         "title": "",
-        "notes": ""
+        "notes": "at BCIT campus"
       }
     ],
     "4": [
@@ -1974,7 +2055,7 @@
         "code": "FSCT 480, 490",
         "credits": 11,
         "title": "",
-        "notes": ""
+        "notes": "at BCIT campus"
       }
     ]
   },
