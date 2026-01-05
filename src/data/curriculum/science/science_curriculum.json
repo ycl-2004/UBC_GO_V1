@@ -1,0 +1,2796 @@
+{
+  "Astronomy": {
+    "1": [
+      {
+        "code": "SCIE 113",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "Communication Requirement",
+        "credits": 3,
+        "title": "",
+        "notes": "SCIE 113, ENGL 110, ENGL 111, ENGL 112, ENGL 120, ENGL 121, WRDS 150"
+      },
+      {
+        "code": "CHEM 121 (or 111)2",
+        "credits": 4,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "MATH 100 (or 102 or 104 or 110 or 180 or 184 or 120)3",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "MATH 101 (or 103 or 105 or 121)3",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "PHYS 117 (or 106 or 107)4",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "PHYS 118 (or 108)4",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "PHYS 119 (or 109)",
+        "credits": 1,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "Electives",
+        "credits": 7,
+        "title": "",
+        "notes": ""
+      }
+    ],
+    "2": [
+      {
+        "code": "ASTR 200, 205",
+        "credits": 6,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "MATH 200, 3178",
+        "credits": 6,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "MATH 221 (or 223)9, 215",
+        "credits": 6,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "PHYS 200, 219, 229",
+        "credits": 7,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "PHYS 210",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "Electives",
+        "credits": 2,
+        "title": "",
+        "notes": ""
+      }
+    ],
+    "3": [
+      {
+        "code": "ASTR 300",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "MATH 316 or PHYS 312",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "PHYS 203",
+        "credits": 4,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "PHYS 301, 216",
+        "credits": 6,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "PHYS 408",
+        "credits": 4,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "Electives",
+        "credits": 10,
+        "title": "",
+        "notes": ""
+      }
+    ],
+    "4": [
+      {
+        "code": "ASTR 406 or ASTR 407",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "ASTR 404, 405",
+        "credits": 6,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "PHYS 304, 403",
+        "credits": 6,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "Electives",
+        "credits": 15,
+        "title": "",
+        "notes": ""
+      }
+    ]
+  },
+  "Atmospheric Science": {
+    "1": [
+      {
+        "code": "SCIE 113",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "DSCI 100",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "CHEM 121 (or 111 or 141), 1231",
+        "credits": 8,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "MATH 100 or 102 or 1042",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "MATH 101 or 103 or 1053",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "PHYS 117 (or 101 or 106 or 107 or 131)4",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "PHYS 118 (or 108)",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "PHYS 119 (or 109)",
+        "credits": 1,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "Electives",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      }
+    ],
+    "2": [
+      {
+        "code": "Communication Requirement",
+        "credits": 3,
+        "title": "",
+        "notes": "SCIE 113, ENGL 110, ENGL 111, ENGL 112, ENGL 120, ENGL 121, WRDS 150"
+      },
+      {
+        "code": "One of ATSC 201, GEOS (or GEOB ) 200",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "EOSC 211 (or CPSC 103 or 110)9",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "MATH 200",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "STAT 201 (or 200 or 251)10",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "Electives",
+        "credits": 15,
+        "title": "",
+        "notes": ""
+      }
+    ],
+    "3": [
+      {
+        "code": "ATSC 30111, GEOS (or GEOB ) 300",
+        "credits": 6,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "ENVR 300",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "Three of ATSC 30311, 413, 40911, GEOS (or GEOB ) 309, 370, 373, EOSC 352, 354, 410",
+        "credits": 9,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "One of EOSC 340, ENVR 410, GEOG 312",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "Four of ATSC 313, 405, CHEM 302, GEOS (or GEOB ) 400, 401, 402, EOSC 440, 471, MECH 411",
+        "credits": 12,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "One of ATSC 448, GEOS (or GEOB ) 448",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "Electives",
+        "credits": 24,
+        "title": "",
+        "notes": ""
+      }
+    ],
+    "4": []
+  },
+  "Behavioural Neuroscience": {
+    "1": [
+      {
+        "code": "SCIE 113",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "Communication Requirement",
+        "credits": 3,
+        "title": "",
+        "notes": "SCIE 113, ENGL 110, ENGL 111, ENGL 112, ENGL 120, ENGL 121, WRDS 150"
+      },
+      {
+        "code": "BIOL 112, 1212",
+        "credits": 6,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "CHEM 110 or 111 or 120 or 121 or 1413",
+        "credits": 4,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "CHEM 123 or 1303",
+        "credits": 4,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "CPSC 103 (or 110)",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "MATH 100 or 102 or 104 (or 120 or 180 or 184)4",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "PHYS 106 or 117 or 1315",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      }
+    ],
+    "2": [
+      {
+        "code": "STAT 200",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "NSCI 210",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "NSCI 200, 201",
+        "credits": 6,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "BIOL 200, 234",
+        "credits": 6,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "BIOL 201 or BIOC 202",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "CHEM 233",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "Electives",
+        "credits": 7,
+        "title": "",
+        "notes": ""
+      }
+    ],
+    "3": [
+      {
+        "code": "NSCI 300, 301, 302, 303, 311",
+        "credits": 15,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "BIOL 371, 372 or PSYC 370, 3717",
+        "credits": 6,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "Electives",
+        "credits": 9,
+        "title": "",
+        "notes": ""
+      }
+    ],
+    "4": [
+      {
+        "code": "NSCI 400",
+        "credits": 6,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "*List A (Behavioural/Cognitive Neuroscience): NSCI 401, NSCI 4869, PSYC 361, PSYC 363, PSYC 365, PSYC 367, PSYC 368, PSYC 409, PSYC 460, PSYC 461, PSYC 462, PSYC 472",
+        "credits": 0,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "*List B (Cellular/Molecular Neuroscience): NSCI 401, BIOL 451, BIOL 458, BIOL 459, BIOL 460, CAPS 421, CAPS 426,NSCI 4879",
+        "credits": 0,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "Electives",
+        "credits": 12,
+        "title": "",
+        "notes": ""
+      }
+    ]
+  },
+  "Biochemistry": {
+    "1": [
+      {
+        "code": "SCIE 113",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "CHEM 121 (or 111 or 141)1",
+        "credits": 4,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "CHEM 123",
+        "credits": 4,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "MATH 100 or 102 or 1043",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "MATH 101 or 103 or 1054",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "PHYS 100-level5",
+        "credits": 6,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "Electives",
+        "credits": 7,
+        "title": "",
+        "notes": ""
+      }
+    ],
+    "2": [
+      {
+        "code": "CHEM 203",
+        "credits": 4,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "CHEM 208",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "CHEM 211",
+        "credits": 4,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "CHEM 213, 245",
+        "credits": 4,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "CHEM 218",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "MATH 200",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "MATH 221 or STAT 20010",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "Electives",
+        "credits": 6,
+        "title": "",
+        "notes": ""
+      }
+    ],
+    "3": [
+      {
+        "code": "BIOL 201 (or BIOC 202)11",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "CHEM 300",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "CHEM 304",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "CHEM 311",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "CHEM 312",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "CHEM 325, 345",
+        "credits": 4,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "Two of CHEM 305, 313, 318, 327, 330, 412",
+        "credits": 6,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "CHEM 445",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "Electives",
+        "credits": 12,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "Electives",
+        "credits": 20,
+        "title": "",
+        "notes": ""
+      }
+    ],
+    "4": []
+  },
+  "Biology": {
+    "1": [
+      {
+        "code": "BIOL 112",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "One of BIOL 111, 1211",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "CHEM 121 (or 111, 141)2",
+        "credits": 4,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "CHEM 123",
+        "credits": 4,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "One of MATH 100, 102, 1043",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "PHYS 100-level4",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "SCIE 113",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "DSCI 100",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "Electives",
+        "credits": 4,
+        "title": "",
+        "notes": ""
+      }
+    ],
+    "2": [
+      {
+        "code": "MICB 205, 211 (or 201), 212 (or 202)",
+        "credits": 9,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "BIOL 200, 2016",
+        "credits": 6,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "CHEM 233, 2357",
+        "credits": 4,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "Electives",
+        "credits": 8,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "Communication Requirement",
+        "credits": 3,
+        "title": "",
+        "notes": "SCIE 113, ENGL 110, ENGL 111, ENGL 112, ENGL 120, ENGL 121, WRDS 150"
+      }
+    ],
+    "3": [
+      {
+        "code": "MICB 301, 302, 322, 323",
+        "credits": 12,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "At least one of MICB 325, BIOL 33510",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "BIOC 302",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "Additional MICB selections",
+        "credits": 9,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "Another MICB selection or a selection from BIOC 402, 410, 421, BIOL 328, 421, CHBE 381, MEDG 421, EOSC 475",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "Electives",
+        "credits": 24,
+        "title": "",
+        "notes": ""
+      }
+    ],
+    "4": [
+      {
+        "code": "MICB 471 (or 421 or 447)12",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "MICB 305 (or 401 or 475)12",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      }
+    ]
+  },
+  "Biotechnology": {
+    "1": [
+      {
+        "code": "Two of BIOL 111, 112, 1211",
+        "credits": 6,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "CHEM 121 (or 111, 141)2",
+        "credits": 4,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "CHEM 123",
+        "credits": 4,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "SCIE 113",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "Communication Requirement",
+        "credits": 3,
+        "title": "",
+        "notes": "SCIE 113, ENGL 110, ENGL 111, ENGL 112, ENGL 120, ENGL 121, WRDS 150"
+      },
+      {
+        "code": "MATH 102 (or 100 or 104)4",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "PHYS 100-level5",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "Electives",
+        "credits": 4,
+        "title": "",
+        "notes": ""
+      }
+    ],
+    "2": [
+      {
+        "code": "BIOT 280",
+        "credits": 0,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "BIOT 380",
+        "credits": 0,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "BIOT 398",
+        "credits": 0,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "BIOT 399",
+        "credits": 0,
+        "title": "",
+        "notes": ""
+      }
+    ],
+    "3": [],
+    "4": [
+      {
+        "code": "Biotechnology selection list:",
+        "credits": 0,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "Five of BIOC 402, 403, 410, 440, 450, 460, BIOL 421, 436, 440, 458, 462, 463, MEDG 420, 421, MICB 301, 306, 308, 402, 407, 408, 418, 425",
+        "credits": 15,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "One of MICB 404, 406, 412, 413, 43010",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "MICB 405",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "CHBE 419",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "One of MICB 305, 421, 447, 448, 471,47510,11",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "Two of COMR 383, 388, 457, 465",
+        "credits": 6,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "MICB 398, 399, 498, 4998",
+        "credits": 6,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "Electives",
+        "credits": 9,
+        "title": "",
+        "notes": ""
+      }
+    ]
+  },
+  "Botany": {
+    "1": [],
+    "2": [],
+    "3": [],
+    "4": []
+  },
+  "Cellular and Physiological Sciences": {
+    "1": [
+      {
+        "code": "SCIE 113",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "Communication Requirement",
+        "credits": 3,
+        "title": "",
+        "notes": "SCIE 113, ENGL 110, ENGL 111, ENGL 112, ENGL 120, ENGL 121, WRDS 150"
+      },
+      {
+        "code": "BIOL 112",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "BIOL 121",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "CHEM 1213or 141 or 111",
+        "credits": 4,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "CHEM 123",
+        "credits": 4,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "MATH 100",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "MATH 101",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "PHYS 100-level beyond PHYS 1005",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      }
+    ],
+    "2": [
+      {
+        "code": "BIOL 200",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "BIOL 234",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "BIOL 201 or BIOC 202",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "BIOL 300 or STAT 200",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "CAPS 205",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "CAPS 206",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "CHEM 233 and CHEM 235 (or CHEM 203)",
+        "credits": 4,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "CHEM 205",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "Electives",
+        "credits": 6,
+        "title": "",
+        "notes": ""
+      }
+    ],
+    "3": [
+      {
+        "code": "BIOC 302",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "CAPS 303",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "CAPS 305",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "CAPS 306",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "CAPS 310",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "CAPS 391",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "Electives",
+        "credits": 12,
+        "title": "",
+        "notes": ""
+      }
+    ],
+    "4": [
+      {
+        "code": "Three of the following: CAPS 420, 421, 422, 424, 426, 427, 431 or 448",
+        "credits": 9,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "Electives",
+        "credits": 21,
+        "title": "",
+        "notes": ""
+      }
+    ]
+  },
+  "Cognitive Systems": {
+    "1": [],
+    "2": [],
+    "3": [],
+    "4": []
+  },
+  "Combined Major in Science": {
+    "1": [
+      {
+        "code": "MATH 100 (or 102, 104, 120, 180, 184)2",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "MATH 101 (or 103, 105, 121)",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "Prerequisites for CMS Package courses2,3,4,5,6",
+        "credits": 9,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "SCIE 113",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "Electives",
+        "credits": 3,
+        "title": "",
+        "notes": "At least some credits must be from the Faculty of Arts"
+      },
+      {
+        "code": "Electives",
+        "credits": 0,
+        "title": "",
+        "notes": ""
+      }
+    ],
+    "2": [
+      {
+        "code": "STAT 200",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "Prerequisites for CMS Package courses5,6",
+        "credits": 6,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "Computing Requirement9",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "SCIE 300",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "First CMS Package5",
+        "credits": 12,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "Second CMS Package5",
+        "credits": 12,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "Third CMS Package5",
+        "credits": 12,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "Two of: BIOL 342, EOSC 442, PHYS 309, CHEM 355",
+        "credits": 2,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "Electives",
+        "credits": 9,
+        "title": "",
+        "notes": "At least some credits must be from the Faculty of Arts"
+      },
+      {
+        "code": "Electives",
+        "credits": 11,
+        "title": "",
+        "notes": ""
+      }
+    ],
+    "3": [],
+    "4": []
+  },
+  "Computer Science": {
+    "1": [
+      {
+        "code": "SCIE 113",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "Communication Requirement",
+        "credits": 3,
+        "title": "",
+        "notes": "SCIE 113, ENGL 110, ENGL 111, ENGL 112, ENGL 120, ENGL 121, WRDS 150"
+      },
+      {
+        "code": "CPSC 110 (or 103 and 107)2",
+        "credits": 4,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "CPSC 121",
+        "credits": 4,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "MATH 100 or 102 or 104 (or 180 or 184 or 120 or 110)4",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "MATH 101 or 103 or 105 (or 121)4",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "Electives",
+        "credits": 10,
+        "title": "",
+        "notes": ""
+      }
+    ],
+    "2": [],
+    "3": [],
+    "4": []
+  },
+  "Data Science": {
+    "1": [
+      {
+        "code": "CPSC 103",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "DSCI 100",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "MATH 100 (or 180 or 120 or 110)1",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "MATH 101 (or 121)",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "SCIE 113",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "Additional Communications Requirement2",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "Electives",
+        "credits": 12,
+        "title": "",
+        "notes": ""
+      }
+    ],
+    "2": [
+      {
+        "code": "DSCI 200, 220, 221",
+        "credits": 11,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "MATH 200, 221",
+        "credits": 6,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "STAT 201",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "Electives",
+        "credits": 10,
+        "title": "",
+        "notes": ""
+      }
+    ],
+    "3": [
+      {
+        "code": "CPSC 330 or 340",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "CPSC 368",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "DSCI 310, 320, 430",
+        "credits": 9,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "STAT 301, 302, 305, 443",
+        "credits": 12,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "Any Upper level MATH , STAT , CPSC or DSCI 3",
+        "credits": 12,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "Data Science Depth Requirement4",
+        "credits": 6,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "Electives",
+        "credits": 15,
+        "title": "",
+        "notes": ""
+      }
+    ],
+    "4": []
+  },
+  "Earth and Ocean Sciences": {
+    "1": [
+      {
+        "code": "SCIE 113",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "CHEM 121 (or 111 or 141)1",
+        "credits": 4,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "CHEM 123",
+        "credits": 4,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "EOSC or ATSC 100-level2",
+        "credits": 6,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "EOSC 111",
+        "credits": 1,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "MATH 100 or 102 or 1043",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "MATH 101 or 103 or 1054",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "PHYS 100-level5",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "Electives",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      }
+    ],
+    "2": [
+      {
+        "code": "Communication Requirement",
+        "credits": 3,
+        "title": "",
+        "notes": "SCIE 113, ENGL 110, ENGL 111, ENGL 112, ENGL 120, ENGL 121, WRDS 150"
+      },
+      {
+        "code": "EOSC 211 or GEOS (or GEOB ) 270",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "EOSC 212",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "EOSC , ENVR , or ATSC courses numbered 200 or above8",
+        "credits": 6,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "Electives",
+        "credits": 15,
+        "title": "",
+        "notes": ""
+      }
+    ],
+    "3": [
+      {
+        "code": "EOSC , ENVR , or ATSC courses numbered 300 or above9",
+        "credits": 24,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "EOSC , ENVR , or ATSC 400-level",
+        "credits": 6,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "Electives",
+        "credits": 30,
+        "title": "",
+        "notes": ""
+      }
+    ],
+    "4": []
+  },
+  "Environmental Sciences": {
+    "1": [
+      {
+        "code": "BIOL 121",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "ENVR 100",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "CHEM 121 (or 111 or 141)2",
+        "credits": 4,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "SCIE 113",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "DSCI 100",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "MATH 100 or 102 or 104 or 180 or 184 or 1203",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "MATH 101 or 103 or 105 or 1213",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "PHYS 100-level4",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "Electives",
+        "credits": 5,
+        "title": "",
+        "notes": ""
+      }
+    ],
+    "2": [
+      {
+        "code": "ENVR 2007, 205, 240",
+        "credits": 7,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "EOSC 340",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "Electives",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "Area of Concentration9,10",
+        "credits": 6,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "ENVR 200",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "One of STAT 200, 201, BIOL 30011",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "Electives",
+        "credits": 8,
+        "title": "",
+        "notes": ""
+      }
+    ],
+    "3": [
+      {
+        "code": "ENVR 300, 305, 350, 400, 450",
+        "credits": 16,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "EOSC 345",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "Complementary Studies12",
+        "credits": 9,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "Electives",
+        "credits": 17,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "Area of Concentration9",
+        "credits": 17,
+        "title": "",
+        "notes": ""
+      }
+    ],
+    "4": []
+  },
+  "Forensic Science": {
+    "1": [
+      {
+        "code": "SCIE 113",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "Communication Requirement",
+        "credits": 3,
+        "title": "",
+        "notes": "SCIE 113, ENGL 110, ENGL 111, ENGL 112, ENGL 120, ENGL 121, WRDS 150"
+      },
+      {
+        "code": "BIOL 112",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "CHEM 121 (or 111 or 141)3",
+        "credits": 4,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "CHEM 123",
+        "credits": 4,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "MATH 100 or 102 or 1045",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "DSCI 100 or CPSC 1036",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "PHYS 100-level7",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "Electives",
+        "credits": 8,
+        "title": "",
+        "notes": ""
+      }
+    ],
+    "2": [
+      {
+        "code": "BIOC 203",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "BIOL 200",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "BIOL 234",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "CHEM 203",
+        "credits": 4,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "CHEM 213, 245",
+        "credits": 4,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "CHEM 211",
+        "credits": 4,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "STAT 201 or CPSC 2036",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "FSCT 280, 290",
+        "credits": 9,
+        "title": "",
+        "notes": ""
+      }
+    ],
+    "3": [
+      {
+        "code": "BIOC 303",
+        "credits": 6,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "BIOC 301",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "BIOL 335",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "Electives",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "FSCT 380, 390",
+        "credits": 18,
+        "title": "",
+        "notes": ""
+      }
+    ],
+    "4": [
+      {
+        "code": "BIOC 402, 410",
+        "credits": 6,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "One of BIOC 403, 421, 430, 440, 450, 460, 470",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "BIOC research option13",
+        "credits": 6,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "Electives",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "FSCT 480, 490",
+        "credits": 11,
+        "title": "",
+        "notes": ""
+      }
+    ]
+  },
+  "General Science": {
+    "1": [],
+    "2": [],
+    "3": [],
+    "4": []
+  },
+  "Geographical Sciences": {
+    "1": [
+      {
+        "code": "SCIE 113",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "Communication Requirement",
+        "credits": 3,
+        "title": "",
+        "notes": "SCIE 113, ENGL 110, ENGL 111, ENGL 112, ENGL 120, ENGL 121, WRDS 150"
+      },
+      {
+        "code": "GEOS 102 (or BIOL 1213)",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "GEOS 103",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "CHEM 121, (or 111 or 141)4",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "One of CHEM 123, PHYS 100-level4",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "MATH 100 or 102 or 1045",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "MATH 101 or 103 or 1056",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "DSCI 100 OR CPSC 1037",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "Electives",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      }
+    ],
+    "2": [
+      {
+        "code": "GEOS 2009(or 204)",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "GEOS 206 (or EOSC 222)",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "GEOS 207 (or BIOL 230)",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "GEOS 270",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "One of CHEM 205, EOSC 211, CPSC 301, MATH 200, 22110",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "GEOG 211 or ASIC 220",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "Electives",
+        "credits": 12,
+        "title": "",
+        "notes": ""
+      }
+    ],
+    "3": [
+      {
+        "code": "Selections from Geographical Sciences11",
+        "credits": 18,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "GEOS 309",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "One of GEOG 374, BIOL 300, FRST 231, STAT 200",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "One of GEOS 370, 373, 409, ATSC 303",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "One of GEOG 310, 311, ISCI 3608",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "One of GEOG 312, 315, 316, 318, 319, ENVR 4108",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "Electives",
+        "credits": 27,
+        "title": "",
+        "notes": ""
+      }
+    ],
+    "4": []
+  },
+  "Geological Sciences": {
+    "1": [
+      {
+        "code": "SCIE 113",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "CHEM 121 (or 111 or 141)1",
+        "credits": 4,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "CHEM 123",
+        "credits": 4,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "EOSC 110, 111, 1162",
+        "credits": 7,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "MATH 100 or 102 or 1043",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "MATH 101 or 103 or 1054",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "PHYS 117 (or 101 or 106 or 107 or 131)5",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "PHYS 118 (or 108)5",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      }
+    ],
+    "2": [
+      {
+        "code": "Communication Requirement",
+        "credits": 3,
+        "title": "",
+        "notes": "SCIE 113, ENGL 110, ENGL 111, ENGL 112, ENGL 120, ENGL 121, WRDS 150"
+      },
+      {
+        "code": "EOSC 211 or GEOS (or GEOB ) 270",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "EOSC 212",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "EOSC 220, 221, 222",
+        "credits": 9,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "EOSC 223",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "Electives",
+        "credits": 9,
+        "title": "",
+        "notes": ""
+      }
+    ],
+    "3": [
+      {
+        "code": "EOSC 320, 321, 322",
+        "credits": 9,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "EOSC 323",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "EOSC 325, 3289, 330, 332",
+        "credits": 12,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "EOSC 333 or 35010",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "EOSC courses numbered 420-439",
+        "credits": 6,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "EOSC / ATSC / ENVR 300-level or higher",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "Electives",
+        "credits": 24,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "1Students who do not have B.C. High School Chemistry 12 (or its equivalent) must write the UBC Chemistry Basic Skills Test and may be required to take CHEM 100. CHEM 110 and 115 may substitute for CHEM 111, CHEM 120 and 115 may substitute for CHEM 121, CHEM 130 and 135 may substitute for CHEM 123.",
+        "credits": 0,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "10Students may substitute EOSC 250, but EOSC 350 is recommended.",
+        "credits": 0,
+        "title": "",
+        "notes": ""
+      }
+    ],
+    "4": []
+  },
+  "Geophysics": {
+    "1": [
+      {
+        "code": "SCIE 113",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "Communication Requirement",
+        "credits": 3,
+        "title": "",
+        "notes": "SCIE 113, ENGL 110, ENGL 111, ENGL 112, ENGL 120, ENGL 121, WRDS 150"
+      },
+      {
+        "code": "CHEM 121 (or 111)2",
+        "credits": 4,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "MATH 100 (or 102 or 104 or 110 or 120 or 180 or 184)3",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "MATH 101 (or 103 or 105 or 121)3",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "PHYS 117 (or 106 or 107)4",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "PHYS 118 (or 108)4",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "PHYS 119 (or 109)",
+        "credits": 1,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "Electives",
+        "credits": 7,
+        "title": "",
+        "notes": ""
+      }
+    ],
+    "2": [
+      {
+        "code": "MATH 200",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "MATH 215, 221",
+        "credits": 6,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "PHYS 2009, 2169",
+        "credits": 7,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "PHYS 219, 229",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "PHYS 210",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "Electives",
+        "credits": 8,
+        "title": "",
+        "notes": ""
+      }
+    ],
+    "3": [
+      {
+        "code": "MATH 317",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "PHYS 203",
+        "credits": 4,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "PHYS 309 or 319",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "PHYS 312 or MATH 316",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "PHYS 304",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "PHYS /ASTR 300-level and above12",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "Electives",
+        "credits": 11,
+        "title": "",
+        "notes": ""
+      }
+    ],
+    "4": [
+      {
+        "code": "PHYS 301",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "3 credits from PHYS 348, 409, and 42013",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "PHYS /ASTR 300-level and above13",
+        "credits": 9,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "Electives",
+        "credits": 15,
+        "title": "",
+        "notes": ""
+      }
+    ]
+  },
+  "Integrated Sciences": {
+    "1": [],
+    "2": [],
+    "3": [],
+    "4": []
+  },
+  "Mathematics": {
+    "1": [
+      {
+        "code": "SCIE 113",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "Communication Requirement",
+        "credits": 3,
+        "title": "",
+        "notes": "SCIE 113, ENGL 110, ENGL 111, ENGL 112, ENGL 120, ENGL 121, WRDS 150"
+      },
+      {
+        "code": "MATH 100 or 102 or 104 (or 120 or 180 or 184)2,3",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "MATH 101 or 103 or 105 (or 121)3",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "PHYS 100-level4",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "CPSC 110 (or 103 and 107)5",
+        "credits": 4,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "Electives",
+        "credits": 11,
+        "title": "",
+        "notes": ""
+      }
+    ],
+    "2": [
+      {
+        "code": "MATH 200 (or 226)7",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "MATH 220",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "MATH 221 (or 223), 2158",
+        "credits": 6,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "CPSC 210 or MATH 2103,9",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "Electives",
+        "credits": 15,
+        "title": "",
+        "notes": ""
+      }
+    ],
+    "3": [
+      {
+        "code": "MATH courses numbered 300 or higher10",
+        "credits": 24,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "MATH , STAT , or CPSC courses numbered 300 or higher",
+        "credits": 6,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "Electives",
+        "credits": 30,
+        "title": "",
+        "notes": ""
+      }
+    ],
+    "4": []
+  },
+  "Oceanography": {
+    "1": [
+      {
+        "code": "SCIE 113",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "PHYS 100-level1",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "CHEM 121 (or 111 or 141)2",
+        "credits": 4,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "CHEM 123",
+        "credits": 4,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "EOSC 112",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "BIOL 112, 1214",
+        "credits": 6,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "BIOL 180",
+        "credits": 2,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "MATH 100 or 102 or 1045",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "MATH 101 or 103 or 1056",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      }
+    ],
+    "2": [
+      {
+        "code": "Communication Requirement",
+        "credits": 3,
+        "title": "",
+        "notes": "SCIE 113, ENGL 110, ENGL 111, ENGL 112, ENGL 120, ENGL 121, WRDS 150"
+      },
+      {
+        "code": "BIOL 200, 230, 233 (or 234), 2608",
+        "credits": 12,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "One of BIOL 203, 204, 205, 209 or MICB 201, 2119",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "EOSC 211, 270",
+        "credits": 6,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "CHEM 233",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "Electives",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      }
+    ],
+    "3": [
+      {
+        "code": "BIOL 30013, 336",
+        "credits": 6,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "BIOL 351 (or 320)",
+        "credits": 4,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "EOSC 372, 373",
+        "credits": 6,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "One of BIOL 340, 341, 36314",
+        "credits": 2,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "Electives",
+        "credits": 11,
+        "title": "",
+        "notes": ""
+      }
+    ],
+    "4": [
+      {
+        "code": "BIOL 402 (or FRST 386)",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "EOSC 470",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "One of EOSC 471, 472",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "One of EOSC 426, 475, 478",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "One of EOSC 448, 473, BIOL 420, 421, 432, 436",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "Electives",
+        "credits": 15,
+        "title": "",
+        "notes": ""
+      }
+    ]
+  },
+  "Pharmacology": {
+    "1": [
+      {
+        "code": "SCIE 113",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "Communication Requirement",
+        "credits": 3,
+        "title": "",
+        "notes": "SCIE 113, ENGL 110, ENGL 111, ENGL 112, ENGL 120, ENGL 121, WRDS 150"
+      },
+      {
+        "code": "BIOL 112, 1212",
+        "credits": 6,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "CHEM 121 or 141 (or 111)3",
+        "credits": 4,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "CHEM 123",
+        "credits": 4,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "MATH 100 or 102 or 1044",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "MATH 101 or 103 or 1055",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "PHYS 100 level6",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      }
+    ],
+    "2": [
+      {
+        "code": "BIOL 200",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "BIOL 201 or BIOC 202 (or 203)",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "CAPS 205",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "CAPS 206",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "CHEM 205 or CHEM 2118",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "CHEM 233, 2359",
+        "credits": 4,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "MICB 211",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "PCTH 201",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "Electives",
+        "credits": 6,
+        "title": "",
+        "notes": ""
+      }
+    ],
+    "3": [
+      {
+        "code": "BIOC 301",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "BIOC 302",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "BIOL 300 or STAT 20013",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "CAPS 301",
+        "credits": 6,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "PCTH 301",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "PCTH 302",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "PCTH 303",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "PCTH 400",
+        "credits": 6,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "PCTH 404",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "Electives",
+        "credits": 27,
+        "title": "",
+        "notes": ""
+      }
+    ],
+    "4": []
+  },
+  "Statistics": {
+    "1": [
+      {
+        "code": "SCIE 113",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "Communication Requirement",
+        "credits": 3,
+        "title": "",
+        "notes": "SCIE 113, ENGL 110, ENGL 111, ENGL 112, ENGL 120, ENGL 121, WRDS 150"
+      },
+      {
+        "code": "CPSC 110 (or 103 and 107)2",
+        "credits": 4,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "DSCI 100",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "MATH 100 or 102 or 104 (or 120 or 180 or 184)3",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "MATH 101 or 103 or 105 (or 121)4",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "Electives",
+        "credits": 11,
+        "title": "",
+        "notes": ""
+      }
+    ],
+    "2": [
+      {
+        "code": "CPSC 210 or MATH 2106",
+        "credits": 4,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "MATH 200, 220, 221",
+        "credits": 9,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "STAT 200",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "STAT 201",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "STAT /MATH 302",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "Electives",
+        "credits": 8,
+        "title": "",
+        "notes": ""
+      }
+    ],
+    "3": [],
+    "4": [
+      {
+        "code": "MATH 303",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "STAT courses numbered 300 or above",
+        "credits": 6,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "STAT courses numbered 400 or above",
+        "credits": 6,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "MATH courses numbered 300 or above",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "Thematic concentration courses numbered 300 or above7",
+        "credits": 9,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "Electives",
+        "credits": 18,
+        "title": "",
+        "notes": ""
+      }
+    ]
+  },
+  "Zoology": {
+    "1": [],
+    "2": [],
+    "3": [],
+    "4": []
+  }
+}

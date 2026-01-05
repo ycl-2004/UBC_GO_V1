@@ -1,6 +1,7 @@
-import React, { useState } from 'react'
+import React, { useState, useMemo } from 'react'
 import Navigation from '../components/Navigation'
 import { standardFirstYearCourses, getAllMajors, getMajorByCode } from '../data/firstYearRequirements'
+import { getAllScienceMajors, getScienceMajorYearCourses } from '../data/scienceCurriculum'
 import './FirstYearGuide.css'
 
 // CollapsibleSection Component
@@ -40,16 +41,49 @@ const FirstYearGuide = () => {
   const [selectedMajor, setSelectedMajor] = useState('CIVL')
   const majors = getAllMajors()
   const selectedMajorData = getMajorByCode(selectedMajor)
+  
+  // Science faculty state
+  const [selectedScienceMajor, setSelectedScienceMajor] = useState(null)
+  const [selectedYearTab, setSelectedYearTab] = useState(1)
+  const [scienceMajorSearch, setScienceMajorSearch] = useState('')
+  const [showCommRequirementTooltip, setShowCommRequirementTooltip] = useState(null)
+  
+  const scienceMajors = getAllScienceMajors()
+  
+  // Filter Science majors based on search
+  const filteredScienceMajors = useMemo(() => {
+    if (!scienceMajorSearch.trim()) {
+      return scienceMajors
+    }
+    const searchLower = scienceMajorSearch.toLowerCase()
+    return scienceMajors.filter(major => 
+      major.toLowerCase().includes(searchLower)
+    )
+  }, [scienceMajors, scienceMajorSearch])
+  
+  // Get courses for selected Science major and year
+  const scienceYearCourses = selectedScienceMajor 
+    ? getScienceMajorYearCourses(selectedScienceMajor, selectedYearTab)
+    : []
 
   const faculties = [
     { id: 'Applied Science', name: 'Applied Science', icon: '🔧', available: true },
-    { id: 'Science', name: 'Science', icon: '🔬', available: false },
+    { id: 'Science', name: 'Science', icon: '🔬', available: true },
     { id: 'Arts', name: 'Arts', icon: 'palette', available: false },
     { id: 'Commerce', name: 'Commerce', icon: '💼', available: false },
   ]
 
   const handleBackToFaculties = () => {
     setSelectedFaculty(null)
+    setSelectedScienceMajor(null)
+    setScienceMajorSearch('')
+    setSelectedYearTab(1)
+  }
+  
+  const handleScienceMajorSelect = (majorName) => {
+    setSelectedScienceMajor(majorName)
+    setScienceMajorSearch('')
+    setSelectedYearTab(1) // Reset to Year 1 when selecting a new major
   }
 
   return (
@@ -209,6 +243,139 @@ const FirstYearGuide = () => {
                 </div>
               )}
             </CollapsibleSection>
+          </>
+        )}
+
+        {/* Science Faculty View */}
+        {selectedFaculty === 'Science' && (
+          <>
+            <button className="back-to-faculties-btn" onClick={handleBackToFaculties}>
+              ← Back to Faculties
+            </button>
+
+            {/* Major Selector */}
+            <section className="science-major-selector-section">
+              <h2>Select Your Science Major</h2>
+              <p className="section-description">
+                Choose a specialization to view the curriculum requirements for each year.
+              </p>
+              
+              <div className="science-major-search-wrapper">
+                <input
+                  type="text"
+                  className="science-major-search"
+                  placeholder="Search for a major (e.g., Computer Science, Biology)..."
+                  value={scienceMajorSearch}
+                  onChange={(e) => setScienceMajorSearch(e.target.value)}
+                />
+              </div>
+
+              {scienceMajorSearch && filteredScienceMajors.length === 0 && (
+                <p className="no-results-message">No majors found matching "{scienceMajorSearch}"</p>
+              )}
+
+              <div className="science-major-grid">
+                {filteredScienceMajors.map((major) => (
+                  <button
+                    key={major}
+                    className={`science-major-button ${selectedScienceMajor === major ? 'selected' : ''}`}
+                    onClick={() => handleScienceMajorSelect(major)}
+                  >
+                    {major}
+                  </button>
+                ))}
+              </div>
+            </section>
+
+            {/* Curriculum Display */}
+            {selectedScienceMajor ? (
+              <CollapsibleSection title={`${selectedScienceMajor} - Degree Requirements`} defaultOpen={true}>
+                {/* Year Tabs */}
+                <div className="year-tabs-container">
+                  {[1, 2, 3, 4].map((year) => (
+                    <button
+                      key={year}
+                      className={`year-tab ${selectedYearTab === year ? 'active' : ''}`}
+                      onClick={() => setSelectedYearTab(year)}
+                    >
+                      Year {year}
+                    </button>
+                  ))}
+                </div>
+
+                {/* Curriculum Table */}
+                <div className="curriculum-table-wrapper science-curriculum-table">
+                  {scienceYearCourses.length > 0 ? (
+                    <table className="curriculum-table">
+                      <thead>
+                        <tr>
+                          <th>Course Code</th>
+                          <th>Credits</th>
+                          <th>Title / Notes</th>
+                        </tr>
+                      </thead>
+                      <tbody 
+                        key={`year-${selectedYearTab}`}
+                        className="science-curriculum-tbody"
+                      >
+                        {scienceYearCourses.map((course, index) => (
+                          <tr key={index} className="science-course-row">
+                            <td className="course-code">
+                              {course.code}
+                              {course.code === 'Communication Requirement' || 
+                               course.code === 'Additional Communication Requirement' ? (
+                                <span 
+                                  className="comm-req-info-icon"
+                                  onMouseEnter={() => setShowCommRequirementTooltip(index)}
+                                  onMouseLeave={() => setShowCommRequirementTooltip(null)}
+                                >
+                                  ℹ️
+                                  {showCommRequirementTooltip === index && course.notes && (
+                                    <div className="comm-req-tooltip">
+                                      <div className="tooltip-arrow"></div>
+                                      <div className="tooltip-content">
+                                        <strong>Acceptable Courses:</strong>
+                                        <div className="tooltip-courses">{course.notes}</div>
+                                      </div>
+                                    </div>
+                                  )}
+                                </span>
+                              ) : null}
+                              {course.code === 'Electives' && course.notes && (
+                                <span 
+                                  className="elective-info-icon"
+                                  title={course.notes}
+                                >
+                                  ℹ️
+                                </span>
+                              )}
+                            </td>
+                            <td className="course-credits">{course.credits} cr</td>
+                            <td className="course-title">
+                              {course.title && <span className="course-title-text">{course.title}</span>}
+                              {course.notes && course.code !== 'Communication Requirement' && 
+                               course.code !== 'Additional Communication Requirement' && (
+                                <span className="course-notes">{course.notes}</span>
+                              )}
+                            </td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  ) : (
+                    <div className="no-courses-message">
+                      <p>No courses found for Year {selectedYearTab} of {selectedScienceMajor}.</p>
+                    </div>
+                  )}
+                </div>
+              </CollapsibleSection>
+            ) : (
+              <section className="empty-state-section">
+                <div className="empty-state-message">
+                  <p>Select a specialization to view your path.</p>
+                </div>
+              </section>
+            )}
           </>
         )}
       </div>
