@@ -299,14 +299,22 @@ const FirstYearGuide = () => {
                   <h2>
                     {selectedScienceMajor ? `Selected: ${selectedScienceMajor}` : 'Select Your Science Major'}
                   </h2>
-                  {selectedScienceMajor && (
+                  <div className="science-major-header-buttons">
+                    {selectedScienceMajor && (
+                      <button 
+                        className="change-major-button"
+                        onClick={handleChangeMajor}
+                      >
+                        Change Major
+                      </button>
+                    )}
                     <button 
-                      className="change-major-button"
-                      onClick={handleChangeMajor}
+                      className="toggle-selector-button"
+                      onClick={() => setIsMajorSelectorExpanded(!isMajorSelectorExpanded)}
                     >
-                      {isMajorSelectorExpanded ? 'Hide List' : 'Change Major'}
+                      {isMajorSelectorExpanded ? 'Hide' : 'Show'}
                     </button>
-                  )}
+                  </div>
                 </div>
               </div>
 

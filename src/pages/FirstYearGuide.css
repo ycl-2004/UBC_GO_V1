@@ -704,6 +704,12 @@ section h2 {
   color: #002145;
 }
 
+.science-major-header-buttons {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+}
+
 .change-major-button {
   padding: 0.5rem 1rem;
   background: transparent;
@@ -718,6 +724,26 @@ section h2 {
 }
 
 .change-major-button:hover {
+  background: #002145;
+  color: white;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(0, 33, 69, 0.2);
+}
+
+.toggle-selector-button {
+  padding: 0.5rem 1rem;
+  background: transparent;
+  border: 2px solid #002145;
+  border-radius: 6px;
+  color: #002145;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.toggle-selector-button:hover {
   background: #002145;
   color: white;
   transform: translateY(-1px);
