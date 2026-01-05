@@ -2391,19 +2391,7 @@
         "code": "Electives",
         "credits": 24,
         "title": "",
-        "notes": "Elective credits together with required courses must fulfill the Faculty of Science’s: a) Foundational Requirement ; b) Laboratory Science Requirement ; c) Science Breadth Requirement ; d) Science and Arts Requirements ; e) Upper-level Requirement ; f) General Degree Requirements ."
-      },
-      {
-        "code": "Students who do not have B.C. High School Chemistry 12 (or its equivalent) must write the UBC Chemistry Basic Skills Test and may be required to take CHEM 100. CHEM 110 and 115 may substitute for CHEM 111, CHEM 120 and 115 may substitute for CHEM 121, CHEM 130 and 135 may substitute for CHEM 123.",
-        "credits": 0,
-        "title": "",
-        "notes": ""
-      },
-      {
-        "code": "Students may substitute EOSC 250, but EOSC 350 is recommended.",
-        "credits": 0,
-        "title": "",
-        "notes": ""
+        "notes": "Elective credits together with required courses must fulfill the Faculty of Science's: a) Foundational Requirement ; b) Laboratory Science Requirement ; c) Science Breadth Requirement ; d) Science and Arts Requirements ; e) Upper-level Requirement ; f) General Degree Requirements ."
       }
     ],
     "4": [
@@ -2447,13 +2435,7 @@
         "code": "Electives",
         "credits": 24,
         "title": "",
-        "notes": "Elective credits together with required courses must fulfill the Faculty of Science’s: a) Foundational Requirement ; b) Laboratory Science Requirement ; c) Science Breadth Requirement ; d) Science and Arts Requirements ; e) Upper-level Requirement ; f) General Degree Requirements ."
-      },
-      {
-        "code": "Students who do not have B.C. High School Chemistry 12 (or its equivalent) must write the UBC Chemistry Basic Skills Test and may be required to take CHEM 100. CHEM 110 and 115 may substitute for CHEM 111, CHEM 120 and 115 may substitute for CHEM 121, CHEM 130 and 135 may substitute for CHEM 123.",
-        "credits": 0,
-        "title": "",
-        "notes": ""
+        "notes": "Elective credits together with required courses must fulfill the Faculty of Science's: a) Foundational Requirement ; b) Laboratory Science Requirement ; c) Science Breadth Requirement ; d) Science and Arts Requirements ; e) Upper-level Requirement ; f) General Degree Requirements ."
       }
     ]
   },
@@ -3242,6 +3224,18 @@
     ],
     "3": [
       {
+        "code": "In third year: STAT 301, 305, 306 and MATH 307",
+        "credits": 12,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "In fourth year: STAT 404",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
+      {
         "code": "MATH 303",
         "credits": 3,
         "title": "",
@@ -3279,6 +3273,18 @@
       }
     ],
     "4": [
+      {
+        "code": "In third year: STAT 301, 305, 306 and MATH 307",
+        "credits": 12,
+        "title": "",
+        "notes": ""
+      },
+      {
+        "code": "In fourth year: STAT 404",
+        "credits": 3,
+        "title": "",
+        "notes": ""
+      },
       {
         "code": "MATH 303",
         "credits": 3,
