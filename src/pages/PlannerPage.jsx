@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback, useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { Book, Check, Clock } from 'lucide-react'
+import { Book, Check, Clock, GraduationCap, Plus, Sparkles } from 'lucide-react'
 import Navigation from '../components/Navigation'
 import CourseDetailModal from '../components/CourseDetailModal'
 import { useAuth } from '../context/AuthContext'
@@ -794,17 +794,43 @@ const PlannerPage = () => {
         {showEmptyState && (
           <div className="empty-state-container">
             <div className="empty-state-content">
-              <div className="empty-state-icon">
-                <Book size={48} />
+              <div className="empty-state-decoration">
+                <div className="empty-state-icon-wrapper">
+                  <GraduationCap className="empty-state-main-icon" size={64} />
+                  <div className="empty-state-icon-glow"></div>
+                </div>
+                <div className="empty-state-sparkles">
+                  <Sparkles className="sparkle sparkle-1" size={24} />
+                  <Sparkles className="sparkle sparkle-2" size={20} />
+                  <Sparkles className="sparkle sparkle-3" size={18} />
+                </div>
               </div>
-              <h2>No Plan Active</h2>
-              <p>You haven't created a degree plan yet.</p>
-              <p>Click "Manage Plans" to create your first plan and start tracking your courses.</p>
+              <div className="empty-state-text">
+                <h2>Start Your Academic Journey</h2>
+                <p className="empty-state-description">
+                  Create your first degree plan to track courses, monitor progress, and stay on top of your academic requirements.
+                </p>
+                <div className="empty-state-features">
+                  <div className="empty-state-feature">
+                    <Check size={20} />
+                    <span>Track your course progress</span>
+                  </div>
+                  <div className="empty-state-feature">
+                    <Check size={20} />
+                    <span>Plan your academic path</span>
+                  </div>
+                  <div className="empty-state-feature">
+                    <Check size={20} />
+                    <span>Stay organized and focused</span>
+                  </div>
+                </div>
+              </div>
               <button 
                 className="btn-create-first-plan"
                 onClick={openCreateModal}
               >
-                Create Your First Plan
+                <Plus size={20} />
+                <span>Create Your First Plan</span>
               </button>
             </div>
           </div>

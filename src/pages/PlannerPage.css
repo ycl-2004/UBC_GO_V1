@@ -689,31 +689,202 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 60vh;
+  min-height: 70vh;
   padding: 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.empty-state-container::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at 30% 30%, rgba(0, 33, 69, 0.05) 0%, transparent 50%);
+  pointer-events: none;
+  animation: float 20s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  50% {
+    transform: translate(-20px, -20px) rotate(180deg);
+  }
 }
 
 .empty-state-content {
   text-align: center;
-  max-width: 400px;
-  padding: 3rem;
-  background: #fff;
-  border-radius: 16px;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  padding: 4rem 3rem;
+  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+  border-radius: 24px;
+  box-shadow: 
+    0 20px 60px rgba(0, 33, 69, 0.1),
+    0 0 0 1px rgba(0, 33, 69, 0.05);
+  position: relative;
+  z-index: 1;
+  animation: fadeInUp 0.6s ease-out;
 }
 
-.empty-state-icon {
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.empty-state-decoration {
+  position: relative;
+  margin-bottom: 2.5rem;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 1.5rem;
+}
+
+.empty-state-icon-wrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 120px;
+  height: 120px;
+  margin: 0 auto;
+}
+
+.empty-state-main-icon {
   color: #002145;
+  z-index: 2;
+  position: relative;
+  animation: iconFloat 3s ease-in-out infinite;
+}
+
+@keyframes iconFloat {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-10px) scale(1.05);
+  }
+}
+
+.empty-state-icon-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 140px;
+  height: 140px;
+  background: radial-gradient(circle, rgba(0, 33, 69, 0.15) 0%, transparent 70%);
+  border-radius: 50%;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 0.5;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: translate(-50%, -50%) scale(1.1);
+  }
+}
+
+.empty-state-sparkles {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+}
+
+.empty-state-sparkles .sparkle {
+  position: absolute;
+  color: #002145;
+  opacity: 0.4;
+  animation: sparkleFloat 4s ease-in-out infinite;
+}
+
+.empty-state-sparkles .sparkle-1 {
+  top: 10%;
+  left: 20%;
+  animation-delay: 0s;
+}
+
+.empty-state-sparkles .sparkle-2 {
+  top: 60%;
+  right: 15%;
+  animation-delay: 1.3s;
+}
+
+.empty-state-sparkles .sparkle-3 {
+  bottom: 20%;
+  left: 10%;
+  animation-delay: 2.6s;
+}
+
+@keyframes sparkleFloat {
+  0%, 100% {
+    opacity: 0.2;
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    opacity: 0.6;
+    transform: translateY(-15px) rotate(180deg);
+  }
+}
+
+.empty-state-text {
+  margin-bottom: 2.5rem;
 }
 
 .empty-state-content h2 {
   color: #002145;
   margin-bottom: 1rem;
-  font-size: 1.75rem;
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+.empty-state-description {
+  color: #475569;
+  margin-bottom: 2rem;
+  line-height: 1.7;
+  font-size: 1.1rem;
+}
+
+.empty-state-features {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 2rem;
+  padding: 1.5rem;
+  background: rgba(0, 33, 69, 0.03);
+  border-radius: 12px;
+  text-align: left;
+}
+
+.empty-state-feature {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: #334155;
+  font-size: 0.95rem;
+}
+
+.empty-state-feature svg {
+  color: #22c55e;
+  flex-shrink: 0;
 }
 
 .empty-state-content p {
@@ -723,20 +894,145 @@
 }
 
 .btn-create-first-plan {
-  background: #002145;
+  background: linear-gradient(135deg, #002145 0%, #003d7a 100%);
   color: #fff;
-  padding: 1rem 2rem;
+  padding: 1rem 2.5rem;
   border: none;
-  border-radius: 8px;
+  border-radius: 12px;
   font-weight: 600;
-  font-size: 1rem;
+  font-size: 1.1rem;
   cursor: pointer;
-  transition: background 0.3s ease;
+  transition: all 0.3s ease;
   margin-top: 1.5rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  box-shadow: 
+    0 4px 12px rgba(0, 33, 69, 0.2),
+    0 0 0 0 rgba(0, 33, 69, 0);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-create-first-plan::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.btn-create-first-plan:hover::before {
+  left: 100%;
 }
 
 .btn-create-first-plan:hover {
-  background: #003d7a;
+  background: linear-gradient(135deg, #003d7a 0%, #002145 100%);
+  box-shadow: 
+    0 8px 24px rgba(0, 33, 69, 0.3),
+    0 0 0 4px rgba(0, 33, 69, 0.1);
+  transform: translateY(-2px);
+}
+
+.btn-create-first-plan:active {
+  transform: translateY(0);
+  box-shadow: 
+    0 4px 12px rgba(0, 33, 69, 0.2),
+    0 0 0 2px rgba(0, 33, 69, 0.1);
+}
+
+.btn-create-first-plan:focus {
+  outline: none;
+  box-shadow: 
+    0 8px 24px rgba(0, 33, 69, 0.3),
+    0 0 0 4px rgba(0, 33, 69, 0.2);
+}
+
+.btn-create-first-plan svg {
+  transition: transform 0.3s ease;
+}
+
+.btn-create-first-plan:hover svg {
+  transform: rotate(90deg) scale(1.1);
+}
+
+/* Responsive adjustments for empty state */
+@media (max-width: 768px) {
+  .empty-state-container {
+    min-height: 60vh;
+    padding: 1rem;
+  }
+
+  .empty-state-content {
+    padding: 2.5rem 1.5rem;
+    max-width: 100%;
+  }
+
+  .empty-state-content h2 {
+    font-size: 1.5rem;
+  }
+
+  .empty-state-description {
+    font-size: 1rem;
+  }
+
+  .empty-state-icon-wrapper {
+    width: 100px;
+    height: 100px;
+  }
+
+  .empty-state-main-icon {
+    width: 48px;
+    height: 48px;
+  }
+
+  .empty-state-icon-glow {
+    width: 120px;
+    height: 120px;
+  }
+
+  .empty-state-features {
+    padding: 1rem;
+    gap: 0.75rem;
+  }
+
+  .empty-state-feature {
+    font-size: 0.9rem;
+  }
+
+  .btn-create-first-plan {
+    width: 100%;
+    justify-content: center;
+    padding: 1rem 2rem;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 425px) {
+  .empty-state-content {
+    padding: 2rem 1.25rem;
+  }
+
+  .empty-state-content h2 {
+    font-size: 1.35rem;
+  }
+
+  .empty-state-description {
+    font-size: 0.95rem;
+  }
+
+  .empty-state-icon-wrapper {
+    width: 90px;
+    height: 90px;
+  }
+
+  .empty-state-main-icon {
+    width: 40px;
+    height: 40px;
+  }
 }
 
 /* Plan Name Editor Improvements */
