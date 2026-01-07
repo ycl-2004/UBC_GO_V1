@@ -5,7 +5,9 @@ import Navigation from "../components/Navigation";
 import StepByStepRequirements from "../components/StepByStepRequirements";
 import ScenarioComparator from "../components/ScenarioComparator";
 import MultiSelect from "../components/MultiSelect";
+import ProfileActivitiesForm from "../components/ProfileActivitiesForm";
 import { useAdmissionScenarios } from "../hooks/useAdmissionScenarios";
+import { calculateProfileScoreV2 } from "../utils/profileScoringV2";
 import "./ApplyInfoPage.css";
 import {
   facultyAdmissionData,
@@ -103,8 +105,11 @@ const ApplyInfoPage = () => {
     // New: Role Depth
     roleDepth: "member", // "founder", "executive", "member"
     
-    // New: AP Exams (array of AP exam names with score of 5)
-    apExams: [], // Array of AP exam names with score of 5, e.g., ['AP Calculus BC', 'AP Chemistry']
+    // AP Exams: Structured array with name and score (only score=5 provides insurance)
+    apExams: [], // Array of { name: string, score: number }, e.g., [{ name: 'AP Calculus BC', score: 5 }]
+    
+    // New: Profile V2 - Structured activities (up to 8)
+    activities: [], // Array of activity objects: { category, years, hoursPerWeek, role, relevance, impactEvidence }
     
     // Course completion tracking with status
     courseStatus: {
@@ -145,14 +150,20 @@ const ApplyInfoPage = () => {
 
   // ==================== 4-LAYER MODEL ====================
   
-  // LAYER 1: Gate Check (Hard Threshold) - Enhanced
-  const checkGateRequirements = (admissionData, courseStatus, coreSubjectScores) => {
+  // Helper function: Normalize AP exam name (trim + collapse spaces)
+  // Used for robust matching against UI formatting variations
+  const normalizeName = (name) => {
+    if (!name || typeof name !== 'string') return '';
+    return name.trim().replace(/\s+/g, ' ');
+  };
+  
+  // LAYER 1: Gate Check (Hard Threshold) - Refactored to use caps and multipliers instead of score penalties
+  const checkGateRequirements = (admissionData, courseStatus, coreSubjectScores, apExams = []) => {
     const gates = admissionData.gates || {};
     const requiredCourses = gates.requiredCourses || admissionData.requiredCourses?.gate || [];
-    const courseStatusPenalty = gates.courseStatus || { completed: 0, inProgress: -5, notTaken: -30 };
     
-    let totalPenalty = 0;
     const missingCourses = [];
+    const inProgressCourses = [];
     const warnings = [];
     
     // Check required courses and their status
@@ -165,33 +176,99 @@ const ApplyInfoPage = () => {
         
         if (completedCount + inProgressCount < 2) {
           missingCourses.push("At least 2 Grade 12 Science courses");
-          totalPenalty += courseStatusPenalty.notTaken;
         } else if (completedCount < 2) {
-          totalPenalty += courseStatusPenalty.inProgress * (2 - completedCount);
+          // Track in-progress courses for cap reduction
+          const needed = 2 - completedCount;
+          inProgressCourses.push(`At least ${needed} more Grade 12 Science course(s) in progress`);
         }
       } else {
         const status = courseStatus[course] || "notTaken";
         if (status === "notTaken") {
           missingCourses.push(course);
-          totalPenalty += courseStatusPenalty.notTaken;
         } else if (status === "inProgress") {
-          totalPenalty += courseStatusPenalty.inProgress;
+          inProgressCourses.push(course);
         }
       }
     }
     
-    // Check core subject minimum scores
+    // AP subject mapping: Maps core subjects to relevant AP exams (strict matching)
+    const apSubjectMap = {
+      'Math12': ['AP Calculus AB', 'AP Calculus BC', 'AP Statistics'],
+      'Physics12': ['AP Physics 1', 'AP Physics 2', 'AP Physics C: Mechanics', 'AP Physics C: Electricity and Magnetism'],
+      'Chemistry12': ['AP Chemistry'],
+      'Biology12': ['AP Biology'],
+      'English12': ['AP English Language and Composition', 'AP English Literature and Composition']
+    };
+    
+    // Check core subject minimum scores - calculate effective deficit with AP insurance
     const coreSubjects = gates.coreSubjects || [];
     const coreMinScore = gates.coreMinScore || 75;
-    let corePenalty = 0;
+    let totalCoreDeficit = 0;
+    let effectiveDeficit = 0;
+    const insuredSubjects = []; // Track which subjects have AP insurance
+    const uninsuredSubjects = []; // Track which subjects lack AP insurance
     
     for (const subject of coreSubjects) {
       const score = parseFloat(coreSubjectScores[subject]);
       if (score && score < coreMinScore) {
         const deficit = coreMinScore - score;
-        corePenalty += Math.min(deficit * 0.5, 15); // Max 15 penalty per subject
+        totalCoreDeficit += deficit;
+        
+        // Check if this subject has AP insurance (strict: AP name matches AND score === 5)
+        const relevantAPs = apSubjectMap[subject] || [];
+        // Handle both old format (string[]) and new format (Array<{name, score}>)
+        const apExamsArray = Array.isArray(apExams) ? apExams : [];
+        const hasInsurance = relevantAPs.some(apName => {
+          if (apExamsArray.length === 0) return false;
+          const normalizedAPName = normalizeName(apName);
+          // Check if old format (strings) or new format (objects)
+          if (typeof apExamsArray[0] === 'string') {
+            return apExamsArray.some(ap => normalizeName(ap) === normalizedAPName); // Old format: all assumed score 5
+          } else {
+            const apExam = apExamsArray.find(ap => ap && normalizeName(ap.name) === normalizedAPName && ap.score === 5);
+            return apExam !== undefined;
+          }
+        });
+        
+        if (hasInsurance) {
+          // Insured deficit: 50% reduction
+          effectiveDeficit += deficit * 0.5;
+          // Find the matching AP exam for display
+          let matchingAP = null;
+          if (typeof apExamsArray[0] === 'string') {
+            const matchedAPName = relevantAPs.find(ap => apExamsArray.some(exam => normalizeName(exam) === normalizeName(ap)));
+            matchingAP = matchedAPName ? { name: matchedAPName, score: 5 } : null;
+          } else {
+            matchingAP = apExamsArray.find(ap => ap && relevantAPs.some(apName => normalizeName(ap.name) === normalizeName(apName)) && ap.score === 5);
+          }
+          if (matchingAP) {
+            insuredSubjects.push({ subject, deficit, apExam: matchingAP });
+          }
+        } else {
+          // Uninsured deficit: full penalty
+          effectiveDeficit += deficit;
+          uninsuredSubjects.push({ subject, deficit });
+        }
+        
         warnings.push(`${subject} score (${score}%) is below recommended minimum (${coreMinScore}%)`);
       }
+    }
+    
+    // Calculate gate cap reduction for in-progress courses (soft uncertainty)
+    // If any required course is in progress, reduce cap to 70%
+    // Note: 70% cap still allows Safety category (>=70 = Safety threshold)
+    let gateCapMaxProb = null;
+    if (inProgressCourses.length > 0) {
+      gateCapMaxProb = 70;
+      warnings.push(`Some required courses are in progress. Maximum probability capped at ${gateCapMaxProb}% due to uncertainty. Final category is determined by standard thresholds (>=70 = Safety).`);
+    }
+    
+    // Calculate gate multiplier for core subject deficits (soft penalty)
+    // Uses effective deficit (with AP insurance applied per subject)
+    // multiplier = 1 - min(effectiveDeficit * 0.008, 0.25)  // max 25% reduction
+    let gateMultiplier = 1.0;
+    if (effectiveDeficit > 0) {
+      gateMultiplier = 1 - Math.min(effectiveDeficit * 0.008, 0.25);
     }
     
     // Check supplement requirement
@@ -204,15 +281,26 @@ const ApplyInfoPage = () => {
         `⚠️ This program requires ${supplementType || "supplement material"} submission. Without it, accurate estimation is not possible.`;
     }
     
+    // Gate passed if no missing courses (hard failure)
+    const passed = missingCourses.length === 0;
+    
     return {
-      passed: missingCourses.length === 0 && corePenalty === 0,
-      penalty: totalPenalty + corePenalty,
+      passed,
       missingCourses,
+      inProgressCourses,
       warnings,
       supplementRequired,
       supplementType,
       supplementWarning,
-      gateWarning: admissionData.gateWarning || null
+      gateWarning: admissionData.gateWarning || null,
+      // New: Gate probability modifiers (instead of score penalty)
+      gateCapMaxProb,  // Cap reduction for in-progress courses
+      gateMultiplier,  // Multiplier for core subject deficits (uses effectiveDeficit)
+      totalCoreDeficit,  // Total deficit (for display)
+      effectiveDeficit,  // Effective deficit (with AP insurance applied)
+      insuredSubjects,  // Subjects with AP insurance (for explanation)
+      uninsuredSubjects,  // Subjects without AP insurance (for explanation)
+      apSubjectMap  // AP mapping (for explanation)
     };
   };
   
@@ -246,30 +334,59 @@ const ApplyInfoPage = () => {
     
     // AP Rigor Bonus: For each AP exam with score of 5, add 0.75% to academicScore
     // This allows slight "rigor overage" up to 100.5% to recognize university-level achievement
-    const apExamsCount = (formData.apExams || []).length;
-    const apRigorBonus = apExamsCount * 0.75; // 0.75% per AP score of 5
+    // Note: apExams is now structured Array<{ name: string, score: number }>
+    // Backward compatibility: Handle old string[] format or apExamsCount
+    const apExamsArray = formData.apExams || [];
+    const apExamsWithScore5 = Array.isArray(apExamsArray) && apExamsArray.length > 0
+      ? (typeof apExamsArray[0] === 'string' 
+          ? apExamsArray.length  // Old format: string[] (all assumed score 5)
+          : apExamsArray.filter(ap => ap.score === 5).length)  // New format: count score=5
+      : 0;
+    const apRigorBonus = apExamsWithScore5 * 0.75; // 0.75% per AP score of 5
     academicScore = Math.min(100.5, academicScore + apRigorBonus); // Cap at 100.5%
     
-    // Profile Score (0-100)
-    const ec = parseInt(formData.extracurriculars) || 3;
-    const leadership = parseInt(formData.leadership) || 3;
-    const volunteering = parseInt(formData.volunteering) || 3;
-    let profileScore = ((ec + leadership + volunteering) / 3 / 5) * 100;
+    // Profile Score (0-100) - Use Profile V2 if activities provided, else fallback to V1
+    let profileScore;
+    let profileMethod = 'v1';
     
-    // Small factors adjustments
-    // Grade trend
-    const trendBonus = smallFactors.gradeTrend || { rising: 3, stable: 0, declining: -4 };
-    profileScore += trendBonus[formData.gradeTrend] || 0;
-    
-    // Activity relevance
-    const relevanceBonus = smallFactors.activityRelevance || { high: 3, medium: 1, low: -1 };
-    profileScore += relevanceBonus[formData.activityRelevance] || 0;
-    
-    // Role depth multiplier
-    const depthMultiplier = smallFactors.depthMultiplier || { founder: 1.2, executive: 1.1, member: 1.0 };
-    profileScore *= depthMultiplier[formData.roleDepth] || 1.0;
-    
-    profileScore = Math.min(100, Math.max(0, profileScore));
+    // Check if Profile V2 activities are provided
+    if (formData.activities && formData.activities.length > 0) {
+      // Use Profile V2: Evidence-based activity scoring
+      const legacyRatings = {
+        extracurriculars: formData.extracurriculars,
+        leadership: formData.leadership,
+        volunteering: formData.volunteering
+      };
+      const profileResult = calculateProfileScoreV2(formData.activities, legacyRatings);
+      profileScore = profileResult.score;
+      profileMethod = profileResult.method;
+      
+      // Apply grade trend adjustment (still applies in V2)
+      const trendBonus = smallFactors.gradeTrend || { rising: 3, stable: 0, declining: -4 };
+      profileScore += trendBonus[formData.gradeTrend] || 0;
+      profileScore = Math.min(100, Math.max(0, profileScore));
+    } else {
+      // Fallback to Profile V1: Legacy 1-5 self-ratings
+      const ec = parseInt(formData.extracurriculars) || 3;
+      const leadership = parseInt(formData.leadership) || 3;
+      const volunteering = parseInt(formData.volunteering) || 3;
+      profileScore = ((ec + leadership + volunteering) / 3 / 5) * 100;
+      
+      // Small factors adjustments
+      // Grade trend
+      const trendBonus = smallFactors.gradeTrend || { rising: 3, stable: 0, declining: -4 };
+      profileScore += trendBonus[formData.gradeTrend] || 0;
+      
+      // Activity relevance
+      const relevanceBonus = smallFactors.activityRelevance || { high: 3, medium: 1, low: -1 };
+      profileScore += relevanceBonus[formData.activityRelevance] || 0;
+      
+      // Role depth multiplier
+      const depthMultiplier = smallFactors.depthMultiplier || { founder: 1.2, executive: 1.1, member: 1.0 };
+      profileScore *= depthMultiplier[formData.roleDepth] || 1.0;
+      
+      profileScore = Math.min(100, Math.max(0, profileScore));
+    }
     
     // Supplement Score (0-100) - only for programs that require it
     const supplementScore = parseFloat(formData.supplementScore) || 50;
@@ -277,7 +394,8 @@ const ApplyInfoPage = () => {
     return {
       academicScore: Math.round(academicScore * 100) / 100,
       profileScore: Math.round(profileScore * 100) / 100,
-      supplementScore: Math.round(supplementScore * 100) / 100
+      supplementScore: Math.round(supplementScore * 100) / 100,
+      profileMethod: profileMethod // Track which method was used
     };
   };
   
@@ -306,7 +424,7 @@ const ApplyInfoPage = () => {
   };
 
   // LAYER 3: Probability Calculation - Enhanced with academic primacy and Linear-Sigmoid Hybrid
-  const calculateProbability = (scores, gateCheck, admissionData, applicantType, coreSubjectScores = {}, apExams = []) => {
+  const calculateProbability = (scores, gateCheck, admissionData, applicantType, coreSubjectScores = {}, apExams = [], activities = [], supplementScore = null) => {
     const weights = admissionData.weights || {
       academic: admissionData.gpaWeight || 0.75,
       profile: admissionData.personalProfileWeight || 0.25,
@@ -333,12 +451,11 @@ const ApplyInfoPage = () => {
       }
     }
     
-    // Calculate weighted final score
+    // Calculate weighted final score (NO gate penalties - gates affect probability via caps/multipliers)
     let finalScore = 
       scores.academicScore * weights.academic +
       scores.profileScore * weights.profile +
-      scores.supplementScore * weights.supplement +
-      gateCheck.penalty;
+      scores.supplementScore * weights.supplement;
     
     // Adjust for international applicants
     const intlAdjust = admissionData.internationalAdjustment || { targetBonus: 1, capReduction: 2 };
@@ -349,6 +466,12 @@ const ApplyInfoPage = () => {
     if (applicantType === "international") {
       target += intlAdjust.targetBonus;
       capMaxProb -= intlAdjust.capReduction;
+    }
+    
+    // Apply gate cap reduction (for in-progress courses - soft uncertainty)
+    // Note: 70% cap still allows Safety category (>=70 = Safety threshold)
+    if (gateCheck.gateCapMaxProb !== null) {
+      capMaxProb = Math.min(capMaxProb, gateCheck.gateCapMaxProb);
     }
     
     // Calculate raw probability using Linear-Sigmoid Hybrid
@@ -363,59 +486,90 @@ const ApplyInfoPage = () => {
       adjustedProbability = rawProbability * 0.85;
     }
     
-    // 2. Core Subject Dampening with AP Insurance: Check if any core subject is below minimum
-    // Penalize students with weak core subjects even if overall GPA is high
-    // However, if student has AP exam with score of 5 in relevant subject, reduce penalty by 50%
-    const gates = admissionData.gates || {};
-    const coreSubjects = gates.coreSubjects || [];
-    const coreMinScore = gates.coreMinScore || 85;
-    let hasWeakCoreSubject = false;
-    let insuranceApplies = false;
-    
-    // AP subject mapping: Maps core subjects to relevant AP exams
-    // If student has AP 5 in any of these subjects, insurance applies
-    const apSubjectMap = {
-      'Math12': ['AP Calculus AB', 'AP Calculus BC', 'AP Statistics'],
-      'Physics12': ['AP Physics 1', 'AP Physics 2', 'AP Physics C: Mechanics', 'AP Physics C: Electricity and Magnetism'],
-      'Chemistry12': ['AP Chemistry'],
-      'Biology12': ['AP Biology'],
-      'English12': ['AP English Language and Composition', 'AP English Literature and Composition']
-    };
-    
-    // Check if student has AP 5 in the SPECIFIC weak subject (subject-specific matching)
-    for (const subject of coreSubjects) {
-      const score = parseFloat(coreSubjectScores[subject]);
-      if (score && score < coreMinScore) {
-        hasWeakCoreSubject = true;
-        // Check if AP insurance applies for THIS specific subject
-        const relevantAPs = apSubjectMap[subject] || [];
-        const hasMatchingAP = relevantAPs.some(apName => 
-          (apExams || []).includes(apName)
-        );
-        if (hasMatchingAP) {
-          insuranceApplies = true; // Student has AP 5 in the exact weak subject
-        }
-        break;
-      }
-    }
-    
-    // Apply penalty: 30% reduction normally, but only 15% reduction if AP insurance applies (50% penalty reduction)
-    if (hasWeakCoreSubject) {
-      const penaltyMultiplier = insuranceApplies ? 0.85 : 0.7; // 50% reduction in penalty (from 30% to 15%)
-      adjustedProbability = adjustedProbability * penaltyMultiplier;
+    // 2. Gate Multiplier: Apply core subject deficit multiplier (from gateCheck)
+    // Uses effective deficit calculated in gateCheck with per-subject AP insurance
+    // multiplier = 1 - min(effectiveDeficit * 0.008, 0.25) - max 25% reduction
+    // AP insurance is already applied per-subject in gateCheck (50% reduction per insured subject)
+    if (gateCheck.gateMultiplier !== undefined && gateCheck.gateMultiplier < 1.0) {
+      adjustedProbability = adjustedProbability * gateCheck.gateMultiplier;
     }
     
     // Apply cap (already handled in calculateFinalProbability, but keep for safety)
     const cappedProbability = Math.min(adjustedProbability, capMaxProb);
     
-    // Calculate confidence interval based on data completeness
-    let confidenceWidth = 8;
-    if (gateCheck.warnings.length > 0) confidenceWidth += 3;
-    if (gateCheck.supplementRequired && weights.supplement > 0.2) confidenceWidth += 5;
+    // Calculate uncertainty-driven confidence interval width
+    // Base width: 6
+    let confidenceWidth = 6;
+    const uncertaintyFactors = [];
     
-    const percentageLow = Math.max(5, Math.round(cappedProbability - confidenceWidth));
-    const percentageHigh = Math.min(capMaxProb, Math.round(cappedProbability + confidenceWidth));
+    // 1. In-progress required courses: +1.0 per course
+    if (gateCheck.inProgressCourses && gateCheck.inProgressCourses.length > 0) {
+      const inProgressCount = gateCheck.inProgressCourses.length;
+      confidenceWidth += inProgressCount * 1.0;
+      if (inProgressCount === 1) {
+        uncertaintyFactors.push('1 in-progress course');
+      } else {
+        uncertaintyFactors.push(`${inProgressCount} in-progress courses`);
+      }
+    }
+    
+    // 2. Missing core subject scores: +1.5 per missing score
+    // Use strict empty/NaN detection: raw === null || raw === undefined || String(raw).trim()==='' || isNaN(Number(raw))
+    const gates = admissionData.gates || {};
+    const coreSubjects = gates.coreSubjects || [];
+    let missingCoreScores = 0;
+    for (const subject of coreSubjects) {
+      const raw = coreSubjectScores[subject];
+      if (raw === null || raw === undefined || String(raw).trim() === '' || isNaN(Number(raw))) {
+        missingCoreScores++;
+      }
+    }
+    if (missingCoreScores > 0) {
+      confidenceWidth += missingCoreScores * 1.5;
+      const missingSubjects = coreSubjects.filter(subject => {
+        const raw = coreSubjectScores[subject];
+        return raw === null || raw === undefined || String(raw).trim() === '' || isNaN(Number(raw));
+      });
+      if (missingSubjects.length === 1) {
+        uncertaintyFactors.push(`missing ${missingSubjects[0]} score`);
+      } else {
+        uncertaintyFactors.push(`missing ${missingSubjects.length} core subject scores`);
+      }
+    }
+    
+    // 3. Supplement uncertainty: +3.0 if required but not provided
+    // Use strict empty/NaN detection: raw === null || raw === undefined || String(raw).trim()==='' || isNaN(Number(raw))
+    if (gateCheck.supplementRequired) {
+      const raw = supplementScore;
+      if (raw === null || raw === undefined || String(raw).trim() === '' || isNaN(Number(raw))) {
+        confidenceWidth += 3.0;
+        uncertaintyFactors.push('supplement material not provided');
+      }
+    }
+    
+    // 4. Profile input uncertainty
+    if (!activities || activities.length === 0) {
+      confidenceWidth += 2.0;
+      uncertaintyFactors.push('no activities provided');
+    } else {
+      confidenceWidth += 0.5;
+      // Don't add to factors list for activities present (minor uncertainty)
+    }
+    
+    // Clamp confidence width between 6 and 14
+    confidenceWidth = Math.max(6, Math.min(14, confidenceWidth));
+    
+    // Calculate confidence interval
+    // Note: capMaxProb here is the FINAL value after all gate caps (international adjustment + gate cap reduction)
     const percentageMid = Math.round(cappedProbability);
+    const percentageLow = Math.max(5, Math.round(percentageMid - confidenceWidth));
+    const percentageHigh = Math.min(capMaxProb, Math.round(percentageMid + confidenceWidth));
+    
+    // Generate uncertainty explanation
+    let uncertaintyExplanation = null;
+    if (uncertaintyFactors.length > 0) {
+      uncertaintyExplanation = `Wider range due to: ${uncertaintyFactors.join(', ')}.`;
+    }
     
     // Determine chance level and Safety/Match/Reach
     let chance, color, category;
@@ -434,9 +588,8 @@ const ApplyInfoPage = () => {
       category = "Reach";
     }
     
-    // If gate is not passed, visually downgrade results
+    // Hard gate failure override: If missing required courses, force Reach + Low + cap <= 40%
     if (!gateCheck.passed) {
-      // Cap displayed percentages to reflect the gate failure
       const gateCap = Math.min(40, percentageMid);
       return {
         finalScore: Math.round(finalScore * 100) / 100,
@@ -449,7 +602,9 @@ const ApplyInfoPage = () => {
         chance: "Low",
         color: "#dc3545",
         category: "Reach",
-        confidenceWidth
+        confidenceWidth: 8, // Fixed width for gate failure
+        uncertaintyExplanation: null, // No uncertainty explanation for hard gate failure
+        gateFailure: true  // Flag for explanation generation
       };
     }
     
@@ -461,12 +616,13 @@ const ApplyInfoPage = () => {
       chance,
       color,
       category, // Safety/Match/Reach
-      confidenceWidth
+      confidenceWidth,
+      uncertaintyExplanation  // Explanation for wider CI
     };
   };
   
   // LAYER 4: Explanation Generation
-  const generateExplanation = (gateCheck, scores, probability, admissionData) => {
+  const generateExplanation = (gateCheck, scores, probability, admissionData, apExams = []) => {
     const explanations = [];
     
     // Gate issues (most critical)
@@ -475,7 +631,50 @@ const ApplyInfoPage = () => {
         type: "gate",
         severity: "critical",
         message: `🚫 Missing Courses: ${gateCheck.missingCourses.join(", ")}`,
-        advice: admissionData.gateWarning
+        advice: admissionData.gateWarning || "Complete all required courses to improve admission chances."
+      });
+    }
+    
+    // In-progress courses (soft uncertainty - cap reduction)
+    // Note: 70% cap still allows Safety category (>=70 = Safety threshold)
+    if (gateCheck.inProgressCourses && gateCheck.inProgressCourses.length > 0) {
+      explanations.push({
+        type: "gate",
+        severity: "warning",
+        message: `⏳ In-Progress Courses: ${gateCheck.inProgressCourses.join(", ")}`,
+        advice: `Maximum probability capped at ${gateCheck.gateCapMaxProb}% due to in-progress course uncertainty. Final category is determined by standard thresholds (>=70 = Safety). Complete these courses to remove the cap.`
+      });
+    }
+    
+    // Core subject deficits (soft penalty - multiplier)
+    if (gateCheck.totalCoreDeficit && gateCheck.totalCoreDeficit > 0) {
+      const reductionPercent = Math.round((1 - gateCheck.gateMultiplier) * 100);
+      let adviceMessage = `Probability reduced by ${reductionPercent}% due to core subject scores below minimum.`;
+      
+      // Show AP insurance details if applicable
+      if (gateCheck.insuredSubjects && gateCheck.insuredSubjects.length > 0) {
+        const insuredDetails = gateCheck.insuredSubjects.map(item => 
+          `${item.subject} (${item.apExam.name} score 5)`
+        ).join(', ');
+        adviceMessage += ` AP insurance applied for: ${insuredDetails}.`;
+      }
+      
+      // Show uninsured subjects if any
+      if (gateCheck.uninsuredSubjects && gateCheck.uninsuredSubjects.length > 0) {
+        const uninsuredDetails = gateCheck.uninsuredSubjects.map(item => item.subject).join(', ');
+        adviceMessage += ` Uninsured subjects: ${uninsuredDetails}.`;
+      }
+      
+      // Check if user has AP exams but none match weak subjects
+      if (apExams && apExams.length > 0 && gateCheck.insuredSubjects && gateCheck.insuredSubjects.length === 0 && gateCheck.uninsuredSubjects && gateCheck.uninsuredSubjects.length > 0) {
+        adviceMessage += ` AP exams provided, but none match the weak core subject(s).`;
+      }
+      
+      explanations.push({
+        type: "gate",
+        severity: "warning",
+        message: `⚠️ Core Subject Deficits: Total deficit of ${gateCheck.totalCoreDeficit.toFixed(1)}%`,
+        advice: adviceMessage + ' Improve core subject grades to remove this penalty.'
       });
     }
     
@@ -580,7 +779,8 @@ const ApplyInfoPage = () => {
     const gateCheck = checkGateRequirements(
       admissionData, 
       formData.courseStatus, 
-      formData.coreSubjectScores
+      formData.coreSubjectScores,
+      formData.apExams || []
     );
     
     // LAYER 2: Score Calculation
@@ -593,11 +793,13 @@ const ApplyInfoPage = () => {
       admissionData, 
       formData.applicantType,
       formData.coreSubjectScores,
-      formData.apExams || []
+      formData.apExams || [],
+      formData.activities || [],
+      formData.supplementScore
     );
     
     // LAYER 4: Explanation Generation
-    const explanation = generateExplanation(gateCheck, scores, probability, admissionData);
+    const explanation = generateExplanation(gateCheck, scores, probability, admissionData, formData.apExams || []);
     
     // Get weights for display
     const weights = admissionData.weights || {
@@ -957,6 +1159,8 @@ const ApplyInfoPage = () => {
       gradeTrend: "stable",
       activityRelevance: "medium",
       roleDepth: "member",
+      apExams: [], // Structured: Array<{ name: string, score: number }>
+      activities: [], // Profile V2 activities
       courseStatus: {
         Math12: "completed",
         English12: "completed",
@@ -1018,6 +1222,8 @@ const ApplyInfoPage = () => {
         leadership: formData.leadership,
         volunteering: formData.volunteering,
         supplementScore: formData.supplementScore,
+        apExams: formData.apExams || [], // Structured format
+        activities: formData.activities || [], // Profile V2 activities
       };
 
       // Prepare results JSON
@@ -1062,6 +1268,20 @@ const ApplyInfoPage = () => {
       leadership: inputs.leadership || 3,
       volunteering: inputs.volunteering || 3,
       supplementScore: inputs.supplementScore || 50,
+      apExams: (() => {
+        // Backward compatibility: Handle old string[] format
+        const apExamsInput = inputs.apExams || [];
+        if (Array.isArray(apExamsInput) && apExamsInput.length > 0) {
+          if (typeof apExamsInput[0] === 'string') {
+            // Old format: convert string[] to structured format
+            return apExamsInput.map(name => ({ name, score: 5 }));
+          }
+          // New format: already structured
+          return apExamsInput;
+        }
+        return [];
+      })(),
+      activities: inputs.activities || [], // Profile V2 activities
     }));
     setShowScenariosList(false);
   };
@@ -1180,6 +1400,10 @@ const ApplyInfoPage = () => {
                 </div>
 
                 <div className="form-group" style={{ marginTop: '1rem' }}>
+                  <label htmlFor="apExams">
+                    <span className="input-icon">📚</span>
+                    AP Exams (Score of 5)
+                  </label>
                   <MultiSelect
                     options={[
                       'AP Calculus AB',
@@ -1194,12 +1418,16 @@ const ApplyInfoPage = () => {
                       'AP English Language and Composition',
                       'AP English Literature and Composition'
                     ]}
-                    value={formData.apExams || []}
-                    onChange={(apExams) => setFormData(prev => ({ ...prev, apExams }))}
+                    value={(formData.apExams || []).map(ap => typeof ap === 'string' ? ap : ap.name)}
+                    onChange={(selectedNames) => {
+                      // Convert to structured format: all selected are assumed score 5
+                      const structured = selectedNames.map(name => ({ name, score: 5 }));
+                      setFormData(prev => ({ ...prev, apExams: structured }));
+                    }}
                     placeholder="Select AP exams with score of 5..."
                   />
                   <small style={{ display: 'block', marginTop: '0.5rem', color: '#666', fontSize: '0.875rem' }}>
-                    Each selected AP score of 5 adds 0.75% to your academic score and can reduce core subject penalties.
+                    Each selected AP exam (score of 5) adds 0.75% to your academic score and can reduce core subject penalties for matching subjects.
                   </small>
                 </div>
                 
@@ -1345,105 +1573,17 @@ const ApplyInfoPage = () => {
               <div className="form-section">
                 <h3 className="section-title">Personal Profile</h3>
 
-                <div className="form-group">
-              <label htmlFor="extracurriculars">
-                Extracurricular Activities (1-5)
-                <span className="rating-value">
-                  {formData.extracurriculars}
-                </span>
-              </label>
-              <input
-                type="range"
-                id="extracurriculars"
-                name="extracurriculars"
-                value={formData.extracurriculars}
-                onChange={handleInputChange}
-                min="1"
-                max="5"
-                step="1"
-              />
-              <div className="rating-labels">
-                <span>Minimal</span>
-                <span>Excellent</span>
-              </div>
-            </div>
-
-            <div className="form-group">
-              <label htmlFor="leadership">
-                Leadership Experience (1-5)
-                <span className="rating-value">{formData.leadership}</span>
-              </label>
-              <input
-                type="range"
-                id="leadership"
-                name="leadership"
-                value={formData.leadership}
-                onChange={handleInputChange}
-                min="1"
-                max="5"
-                step="1"
-              />
-              <div className="rating-labels">
-                <span>Minimal</span>
-                <span>Excellent</span>
-              </div>
-            </div>
-
-            <div className="form-group">
-              <label htmlFor="volunteering">
-                Volunteering / Community Service (1-5)
-                <span className="rating-value">{formData.volunteering}</span>
-              </label>
-              <input
-                type="range"
-                id="volunteering"
-                name="volunteering"
-                value={formData.volunteering}
-                onChange={handleInputChange}
-                min="1"
-                max="5"
-                step="1"
-              />
-              <div className="rating-labels">
-                <span>Minimal</span>
-                <span>Excellent</span>
-              </div>
-            </div>
-            
-            <div className="form-group">
-              <label htmlFor="activityRelevance">
-                <span className="input-icon">🎯</span>
-                Activity Relevance
-              </label>
-              <select
-                id="activityRelevance"
-                name="activityRelevance"
-                value={formData.activityRelevance}
-                onChange={handleInputChange}
-              >
-                <option value="high">High - Highly relevant to the program</option>
-                <option value="medium">Medium - Partially relevant</option>
-                <option value="low">Low - Not very relevant</option>
-              </select>
-            </div>
-            
-            <div className="form-group">
-              <label htmlFor="roleDepth">
-                <span className="input-icon">👑</span>
-                Role Depth
-              </label>
-              <select
-                id="roleDepth"
-                name="roleDepth"
-                value={formData.roleDepth}
-                onChange={handleInputChange}
-              >
-                <option value="founder">Founder / President</option>
-                <option value="executive">Executive / Leader</option>
-                <option value="member">Member / Participant</option>
-              </select>
-            </div>
-
+                {/* Activities Form */}
+                <ProfileActivitiesForm
+                  activities={formData.activities || []}
+                  onChange={(activities) => setFormData(prev => ({ ...prev, activities }))}
+                  legacyRatings={{
+                    extracurriculars: formData.extracurriculars,
+                    leadership: formData.leadership,
+                    volunteering: formData.volunteering
+                  }}
+                  gradeTrend={formData.gradeTrend}
+                />
               </div>
               
               {/* Supplement Section - only for programs that require it */}
@@ -1544,6 +1684,11 @@ const ApplyInfoPage = () => {
                             {realTimeResult.percentageRange.low}% - {realTimeResult.percentageRange.high}%
                           </div>
                         )}
+                        {realTimeResult.uncertaintyExplanation && (
+                          <div className="uncertainty-explanation" style={{ fontSize: '0.75rem', color: '#666', marginTop: '0.5rem', fontStyle: 'italic' }}>
+                            {realTimeResult.uncertaintyExplanation}
+                          </div>
+                        )}
                       </div>
                     </div>
                     {/* Badges moved outside circle for better mobile layout */}
@@ -1562,6 +1707,21 @@ const ApplyInfoPage = () => {
                     </div>
                   </div>
                   
+                  {/* Disclaimer: Official data vs estimation */}
+                  <div className="admission-disclaimer">
+                    <p className="disclaimer-main">
+                      Requirements and course mappings are based on UBC public information (2025–2026).
+                      <br />
+                      Your admission chance is an estimate designed to help with planning and comparison.
+                      It is generated from historical trends and your inputs, is not affiliated with UBC, and does not guarantee admission.
+                    </p>
+                    {realTimeResult.percentageRange && (
+                      <p className="disclaimer-ci">
+                        The probability range reflects uncertainty based on incomplete or in-progress information.
+                      </p>
+                    )}
+                  </div>
+                  
                   <div className="result-details">
                     <div className="detail-item">
                       <span className="detail-label">Final Score:</span>
@@ -1576,7 +1736,50 @@ const ApplyInfoPage = () => {
                           <strong>Missing Required Courses:</strong>
                           {realTimeResult.gateCheck.missingCourses.join(", ")}
                           <br />
-                          <small>Applied {Math.abs(realTimeResult.gateCheck.penalty)} point penalty</small>
+                          <small>Hard gate failure: Probability capped at 40%, category forced to Reach</small>
+                        </div>
+                      </div>
+                    )}
+                    
+                    {/* In-Progress Courses Warning */}
+                    {realTimeResult.gateCheck && realTimeResult.gateCheck.inProgressCourses && realTimeResult.gateCheck.inProgressCourses.length > 0 && (
+                      <div className="gate-warning" style={{ background: '#fff3e0', borderColor: '#ff9800' }}>
+                        <span className="warning-icon">⏳</span>
+                        <div className="warning-content">
+                          <strong>In-Progress Courses:</strong>
+                          {realTimeResult.gateCheck.inProgressCourses.join(", ")}
+                          <br />
+                          <small>Maximum probability capped at {realTimeResult.gateCheck.gateCapMaxProb}% due to uncertainty. Final category determined by standard thresholds (≥70 = Safety).</small>
+                        </div>
+                      </div>
+                    )}
+                    
+                    {/* Core Subject Deficit Warning */}
+                    {realTimeResult.gateCheck && realTimeResult.gateCheck.totalCoreDeficit && realTimeResult.gateCheck.totalCoreDeficit > 0 && (
+                      <div className="gate-warning" style={{ background: '#fff3e0', borderColor: '#ff9800' }}>
+                        <span className="warning-icon">📉</span>
+                        <div className="warning-content">
+                          <strong>Core Subject Deficits:</strong>
+                          Total deficit of {realTimeResult.gateCheck.totalCoreDeficit.toFixed(1)}%
+                          <br />
+                          <small>
+                            Probability reduced by {Math.round((1 - realTimeResult.gateCheck.gateMultiplier) * 100)}% (multiplier: {realTimeResult.gateCheck.gateMultiplier.toFixed(3)})
+                            {realTimeResult.gateCheck.insuredSubjects && realTimeResult.gateCheck.insuredSubjects.length > 0 && (
+                              <span style={{ display: 'block', marginTop: '0.25rem', color: '#2e7d32' }}>
+                                ✓ AP insurance applied: {realTimeResult.gateCheck.insuredSubjects.map(item => `${item.subject} (${item.apExam.name})`).join(', ')}
+                              </span>
+                            )}
+                            {realTimeResult.gateCheck.uninsuredSubjects && realTimeResult.gateCheck.uninsuredSubjects.length > 0 && (
+                              <span style={{ display: 'block', marginTop: '0.25rem', color: '#c62828' }}>
+                                ⚠ Uninsured: {realTimeResult.gateCheck.uninsuredSubjects.map(item => item.subject).join(', ')}
+                              </span>
+                            )}
+                            {formData.apExams && formData.apExams.length > 0 && realTimeResult.gateCheck.insuredSubjects && realTimeResult.gateCheck.insuredSubjects.length === 0 && (
+                              <span style={{ display: 'block', marginTop: '0.25rem', color: '#666', fontStyle: 'italic' }}>
+                                Note: AP exams provided, but none match the weak core subject(s).
+                              </span>
+                            )}
+                          </small>
                         </div>
                       </div>
                     )}

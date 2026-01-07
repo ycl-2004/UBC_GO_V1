@@ -1,5 +1,11 @@
 # UBC Admission Calculator - Complete Operation Details
 
+**Last Updated**: January 2025  
+**Version**: 4.1  
+**Status**: Production
+
+---
+
 ## Overview
 
 The UBC PathFinder admission calculator uses a sophisticated **4-layer evaluation model** to calculate admission probability. This document provides complete technical details of how the calculator operates.
@@ -9,56 +15,129 @@ The UBC PathFinder admission calculator uses a sophisticated **4-layer evaluatio
 ## **4-Layer Model Overview**
 
 ```
-LAYER 1: Gate Check (Hard Thresholds)
+LAYER 1: Gate Check (Hard Thresholds + Soft Adjustments)
     ↓
 LAYER 2: Score Calculation (Academic + Profile + Supplement)
     ↓
-LAYER 3: Probability Calculation (Sigmoid Function + Adjustments)
+LAYER 3: Probability Calculation (Linear-Sigmoid Hybrid + Caps + Multipliers)
     ↓
-LAYER 4: Explanation Generation (Warnings + Recommendations)
+LAYER 4: Explanation & Confidence Interval (Uncertainty-Driven CI)
 ```
 
 ---
 
-## **LAYER 1: Gate Check (Hard Thresholds)**
+## **LAYER 1: Gate Check (Hard Thresholds + Soft Adjustments)**
 
-**Purpose**: Verify if minimum requirements are met before calculating probability.
+**Purpose**: Verify if minimum requirements are met and apply soft adjustments for uncertainty/deficits.
 
 ### **1.1 Required Course Check**
 
 - Checks course completion status for all required courses
 - Status options: `completed`, `inProgress`, `notTaken`
-- Penalties applied:
-  - `completed`: 0 penalty
-  - `inProgress`: -5 points
-  - `notTaken`: -30 points per missing course
+- **No score penalties** - gates affect probability via caps/multipliers only
 
 **Special Case: Science12_2** (need 2 science courses)
 - Counts completed + in-progress science courses
-- If < 2 completed, applies penalty
+- If < 2 completed, tracks missing courses
 
-### **1.2 Core Subject Minimum Score Check**
+### **1.2 Hard Gate Failure (Missing Required Courses)**
 
-- Checks core subject scores (Math12, English12, etc.)
-- Default minimum: 75% (configurable per program)
-- Penalty calculation:
-  ```
-  deficit = coreMinScore - actualScore
-  penalty = min(deficit × 0.5, 15) per subject
-  ```
-- Maximum penalty: 15 points per subject
+**Rule**: Any required course status = `notTaken`
 
-### **1.3 Supplement Material Check**
+**Effect**:
+- `gateCheck.passed = false`
+- Hard gate failure override applies
+- Probability capped at ≤ 40%
+- Category forced to "Reach"
+- Chance forced to "Low"
+- Display shows warning message
+
+**Example**:
+- Missing: Math12
+- Result: Probability = 40% (capped), Category = Reach, Chance = Low
+
+### **1.3 Soft Uncertainty: In-Progress Required Courses**
+
+**Rule**: Course status = `inProgress`
+
+**Effect**:
+- No hard failure (gate still passes)
+- `gateCapMaxProb = 70%` (cap reduction for uncertainty)
+- Warning message added
+- **70% cap still allows Safety category** (>=70 = Safety threshold)
+- Final category determined by standard thresholds
+
+**Example**:
+- In Progress: Physics12
+- Base probability: 75% (would be Safety)
+- After cap: 70% (still Safety, capped at threshold)
+- Message: "Maximum probability capped at 70% due to in-progress course uncertainty. Final category is determined by standard thresholds (>=70 = Safety)."
+
+### **1.4 Soft Penalty: Core Subject Deficits**
+
+**Rule**: Core subject score < coreMinScore (default: 75%, configurable per program)
+
+**Calculation**:
+```javascript
+// Calculate total deficit across all weak core subjects
+totalDeficit = Σ max(0, coreMinScore - score)
+
+// Calculate effective deficit with AP insurance (per subject)
+effectiveDeficit = Σ (deficit × (hasAPInsurance ? 0.5 : 1.0))
+
+// Gate multiplier (max 25% reduction)
+gateMultiplier = 1 - min(effectiveDeficit * 0.008, 0.25)
+```
+
+**AP Insurance** (strict, subject-specific):
+- AP exam name must exactly match subject mapping
+- AP score must be exactly 5
+- Insurance applies per weak subject (50% deficit reduction for that subject)
+- See Layer 3 for detailed AP insurance logic
+
+**Effect**:
+- Probability multiplier applied (max 25% reduction)
+- Applied AFTER raw probability but BEFORE final cap
+- AP insurance reduces penalty by 50% per insured subject
+
+**Example**:
+- Core subjects: Math12 (min 85%), Physics12 (min 85%)
+- Scores: Math12 = 80%, Physics12 = 82%
+- Deficit: (85-80) + (85-82) = 5 + 3 = 8%
+- Multiplier: 1 - min(8 * 0.008, 0.25) = 1 - 0.064 = 0.936
+- Raw probability: 70%
+- Adjusted: 70% × 0.936 = **65.5%** (4.5% reduction)
+
+**With AP Insurance**:
+- If student has AP Calculus BC (score 5) matching Math12:
+- Math12 deficit: 5% × 0.5 = 2.5% (insured)
+- Physics12 deficit: 3% (uninsured)
+- Effective deficit: 2.5 + 3 = 5.5%
+- Multiplier: 1 - min(5.5 * 0.008, 0.25) = 0.956
+- Adjusted: 70% × 0.956 = **66.9%** (3.1% reduction, 50% penalty reduction for Math12)
+
+### **1.5 Supplement Material Check**
 
 - Flags if program requires portfolio/audition/interview
 - Adds warning if supplement is required but not submitted
+- Used for confidence interval calculation (see Layer 4)
 
 **Output**: `gateCheck` object with:
-- `passed`: boolean
-- `penalty`: total penalty points
+- `passed`: boolean (false if missing required courses)
 - `missingCourses`: array
+- `inProgressCourses`: array
+- `gateCapMaxProb`: number | null (70 if in-progress courses exist)
+- `gateMultiplier`: number (0.75-1.0, based on core deficits)
+- `totalCoreDeficit`: number (for display)
+- `effectiveDeficit`: number (with AP insurance applied)
+- `insuredSubjects`: array (subjects with AP insurance)
+- `uninsuredSubjects`: array (subjects without AP insurance)
 - `warnings`: array
 - `supplementRequired`: boolean
+
+**Key Change**: Gates no longer add penalties to `finalScore`. All gate effects are applied via caps and multipliers in Layer 3.
+
+*(Source: TASK2_GATE_REFACTOR.md, TASK2.1_WORDING_ALIGNMENT.md)*
 
 ---
 
@@ -97,36 +176,83 @@ academicScore = min(100.5, max(0, GPA + rigorBonus + coreBoost + apRigorBonus))
 
 ### **2.2 Profile Score (0-100)**
 
-**Base Calculation:**
+**Primary Method: Activities-Based Scoring**
+
+The calculator uses evidence-based activity scoring as the primary method. Users add structured activities (up to 8), and each activity is scored individually (max 20 points per activity).
+
+**Activity Scoring Components** (per activity, max 20 points):
+1. **Category Base** (0-4 points)
+   - EC: 2 points
+   - Work: 3 points
+   - Volunteer: 2 points
+   - Award: 4 points
+   - Research: 4 points
+
+2. **Years of Involvement** (0-5 points)
+   - Linear: 0-4 years = 0-5 points
+
+3. **Hours Per Week** (0-6 points, diminishing returns after 12)
+   - ≤12 hours: `hours / 2` (max 6 points)
+   - >12 hours: `6 + (hours-12)/6` (capped at 6 points)
+
+4. **Role Depth** (0-3 points)
+   - member: 0 points
+   - executive: 2 points
+   - founder: 3 points
+
+5. **Relevance** (0-2 points)
+   - high: 2 points
+   - medium: 1 point
+   - low: 0 points
+
+6. **Impact Evidence** (0-2 points, optional)
+   - If `impactEvidence === true`: +2 points
+
+**Total per activity: Max 20 points**
+
+**Calculation**:
+```javascript
+// Sum all activity scores (capped at 100)
+baseProfileScore = min(100, Σ scoreActivity(activity))
+
+// Legacy adjustment (±3 points from old 1-5 ratings)
+legacyAdjustment = (avg(extracurriculars, leadership, volunteering) - 3) × 1.5
+// Range: -3 to +3 points
+
+// Grade trend adjustment
+trendBonus = { rising: +3, stable: 0, declining: -4 }
+
+// Final profile score
+profileScore = min(100, max(0, baseProfileScore + legacyAdjustment + trendBonus))
+```
+
+**Fallback Method: Legacy 1-5 Ratings**
+
+If no activities are provided (`activities.length === 0`), the calculator falls back to legacy 1-5 self-ratings:
+
 ```javascript
 ec = extracurriculars (1-5)
 leadership = leadership (1-5)
 volunteering = volunteering (1-5)
 
-profileScore = ((ec + leadership + volunteering) / 3 / 5) × 100
+baseProfileScore = ((ec + leadership + volunteering) / 3 / 5) × 100
+
+// Small factors adjustments
+trendBonus = { rising: +3, stable: 0, declining: -4 }
+relevanceBonus = { high: +3, medium: +1, low: -1 }
+depthMultiplier = { founder: ×1.2, executive: ×1.1, member: ×1.0 }
+
+profileScore = min(100, max(0, (baseProfileScore + trendBonus + relevanceBonus) × depthMultiplier))
 ```
 
-**Small Factors Adjustments:**
+**UI Notes**:
+- Personal Profile section shows "Activities" form (no "V2" wording in UI)
+- Legacy 1-5 sliders removed from UI
+- Legacy ratings still stored internally for backward compatibility
+- Legacy ratings used as ±3 adjustment when activities are present
+- Fallback to legacy calculation when no activities provided
 
-1. **Grade Trend:**
-   - `rising`: +3 points
-   - `stable`: +0 points
-   - `declining`: -4 points
-
-2. **Activity Relevance:**
-   - `high`: +3 points
-   - `medium`: +1 point
-   - `low`: -1 point
-
-3. **Role Depth Multiplier:**
-   - `founder`: ×1.2
-   - `executive`: ×1.1
-   - `member`: ×1.0
-
-**Final Profile Score:**
-```javascript
-profileScore = min(100, max(0, baseProfileScore + trendBonus + relevanceBonus)) × depthMultiplier
-```
+*(Source: TASK1_PROFILE_V2_SUMMARY.md, TASK1.5_UI_IMPLEMENTATION.md, UI_CLEANUP_LEGACY_SLIDERS.md, PROFILE_V2_EXAMPLES.md)*
 
 ### **2.3 Supplement Score (0-100)**
 
@@ -138,7 +264,7 @@ profileScore = min(100, max(0, baseProfileScore + trendBonus + relevanceBonus)) 
 
 ## **LAYER 3: Probability Calculation**
 
-**Purpose**: Convert scores into admission probability percentage with academic primacy, granular sensitivity, and penalty factors for realistic 2025/2026 admission standards.
+**Purpose**: Convert scores into admission probability percentage with academic primacy, granular sensitivity, and gate adjustments.
 
 ### **3.1 Academic Primacy with Weight Rebalancing**
 
@@ -160,7 +286,7 @@ if (scores.academicScore < academicThreshold) {
   weights.profile = reducedProfileWeight;
   weights.academic = weights.academic + weightDifference;
   
-  // Ensure weights still sum to 1.0
+  // Ensure weights still sum to 1.0 (accounting for supplement weight)
   const totalWeight = weights.academic + weights.profile + weights.supplement;
   if (Math.abs(totalWeight - 1.0) > 0.001) {
     const adjustment = (1.0 - totalWeight) / 2;
@@ -178,6 +304,8 @@ if (scores.academicScore < academicThreshold) {
 
 ### **3.2 Weighted Final Score**
 
+**Important**: `finalScore` contains ONLY weighted component scores. Gate effects are NOT added here.
+
 ```javascript
 weights = {
   academic: 0.75 (default, program-specific),
@@ -190,8 +318,8 @@ weights = {
 finalScore = 
   academicScore × weights.academic +
   profileScore × weights.profile +
-  supplementScore × weights.supplement +
-  gateCheck.penalty
+  supplementScore × weights.supplement
+  // NO gateCheck.penalty added here
 ```
 
 ### **3.3 International Applicant Adjustment**
@@ -267,11 +395,37 @@ calculateFinalProbability(finalScore, target, scale, capMaxProb) {
 
 **Result**: Every GPA point creates visible change (0.5-1% per point)
 
-### **3.6 Penalty Factors**
+### **3.6 Probability Adjustment Order**
 
-After calculating raw probability, three penalty factors are applied:
+**Critical**: The order of operations matters:
 
-#### **3.6.1 High-End Dampening**
+1. **Compute raw probability** using Linear-Sigmoid Hybrid
+2. **Apply High-End Dampening** (if academic score < 93)
+3. **Apply Gate Multiplier** (for core subject deficits)
+4. **Apply Caps** (gate cap for in-progress, international cap, program cap)
+
+```javascript
+// Step 1: Raw probability
+let rawProbability = calculateFinalProbability(finalScore, target, scale, capMaxProb);
+
+// Step 2: High-End Dampening
+let adjustedProbability = rawProbability;
+if (scores.academicScore < 93) {
+  adjustedProbability = rawProbability * 0.85; // 15% reduction
+}
+
+// Step 3: Gate Multiplier (for core deficits)
+if (gateCheck.gateMultiplier !== undefined && gateCheck.gateMultiplier < 1.0) {
+  adjustedProbability = adjustedProbability * gateCheck.gateMultiplier;
+}
+
+// Step 4: Apply caps (including gate cap for in-progress courses)
+// Note: capMaxProb already adjusted for international and gate cap
+const cappedProbability = Math.min(adjustedProbability, capMaxProb);
+```
+
+### **3.7 High-End Dampening**
+
 **Purpose**: Prevent scores below 93 from reaching "Safety" category too easily
 
 ```javascript
@@ -282,82 +436,63 @@ if (scores.academicScore < 93) {
 
 **Effect**: Scores below 93 are pushed down, making it harder to reach "Safety" (70%+)
 
-#### **3.6.2 Core Subject Dampening with AP Insurance**
-**Purpose**: Penalize students with weak core subjects even if overall GPA is high, but reduce penalty if student has AP exam with score of 5
+### **3.8 Gate Multiplier (Core Subject Deficits)**
 
+**Purpose**: Penalize students with weak core subjects even if overall GPA is high
+
+**Calculation**:
+- Uses `effectiveDeficit` from Layer 1 (with AP insurance already applied per subject)
+- Multiplier: `1 - min(effectiveDeficit * 0.008, 0.25)` (max 25% reduction)
+- Applied AFTER raw probability but BEFORE final cap
+
+**AP Insurance** (strict, subject-specific):
+- AP exam name must exactly match subject mapping (normalized comparison)
+- AP score must be exactly 5
+- Insurance applies per weak subject (50% deficit reduction for that subject)
+- Multiple subjects can have different insurance status
+
+**AP Subject Mapping**:
 ```javascript
-// AP subject mapping: Maps core subjects to relevant AP exams
 const apSubjectMap = {
   'Math12': ['AP Calculus AB', 'AP Calculus BC', 'AP Statistics'],
-  'Physics12': ['AP Physics 1', 'AP Physics 2', 'AP Physics C'],
+  'Physics12': ['AP Physics 1', 'AP Physics 2', 'AP Physics C: Mechanics', 'AP Physics C: Electricity and Magnetism'],
   'Chemistry12': ['AP Chemistry'],
   'Biology12': ['AP Biology'],
-  'English12': ['AP English Language', 'AP English Literature']
+  'English12': ['AP English Language and Composition', 'AP English Literature and Composition']
 };
-
-// Check if student has AP exams (if apExamsCount > 0, insurance may apply)
-const hasAPInsurance = apExamsCount > 0;
-
-// Check if any core subject is below minimum
-for (const subject of coreSubjects) {
-  const score = parseFloat(coreSubjectScores[subject]);
-  if (score && score < coreMinScore) {
-    hasWeakCoreSubject = true;
-    // Check if AP insurance applies for this subject
-    if (hasAPInsurance && apSubjectMap[subject]) {
-      insuranceApplies = true; // Student has AP 5 in relevant area
-    }
-    break;
-  }
-}
-
-// Apply penalty: 30% reduction normally, but only 15% reduction if AP insurance applies
-if (hasWeakCoreSubject) {
-  const penaltyMultiplier = insuranceApplies ? 0.85 : 0.7; // 50% reduction in penalty
-  adjustedProbability = adjustedProbability * penaltyMultiplier;
-}
 ```
 
-**Effect**: 
-- Students with weak core subjects normally get 30% probability reduction
-- If student has AP exam with score of 5 in relevant subject, penalty is reduced to 15% (50% penalty reduction)
-- This reflects how high standardized test scores can "insure" a lower GPA
+**Name Normalization**: AP names are normalized (trim + collapse spaces) for robust matching against UI formatting variations.
 
-#### **3.6.3 International Student Penalty**
-**Purpose**: Adjust target score before calculation for international applicants
+**Example**:
+- Math12 score: 80% (min 85%, deficit = 5%)
+- Physics12 score: 82% (min 85%, deficit = 3%)
+- Total deficit: 8%
+- Without AP: Multiplier = 0.936, reduction = 6.4%
+- With AP Calculus BC (score 5) matching Math12:
+  - Math12 deficit: 5% × 0.5 = 2.5% (insured)
+  - Physics12 deficit: 3% (uninsured)
+  - Effective deficit: 5.5%
+  - Multiplier = 0.956, reduction = 4.4% (50% penalty reduction for Math12)
+
+*(Source: TASK3_AP_INSURANCE_STRICT.md)*
+
+### **3.9 Probability Cap**
 
 ```javascript
-if (applicantType === "international") {
-  target += intlAdjust.targetBonus; // Applied BEFORE calculateFinalProbability
-  capMaxProb -= intlAdjust.capReduction;
-}
+cappedProbability = min(adjustedProbability, capMaxProb)
 ```
 
-**Effect**: International applicants face higher target scores, reflecting increased competition
+**Cap Sources** (applied in order):
+1. Program default: 90% (88% for international)
+2. International adjustment: -2% if international
+3. Gate cap: 70% if in-progress courses exist
 
-### **3.7 Probability Cap**
+**Final capMaxProb**: Minimum of all applicable caps
 
-```javascript
-cappedProbability = min(rawProbability, capMaxProb)
-```
+Default `capMaxProb`: 90% (88% for international, 70% if in-progress courses)
 
-Default `capMaxProb`: 90% (88% for international)
-
-### **3.8 Confidence Interval**
-
-**Base width**: 8%
-
-**Adjustments:**
-- If gate warnings exist: +3%
-- If supplement required and weight > 0.2: +5%
-
-```javascript
-percentageLow = max(5, round(cappedProbability - confidenceWidth))
-percentageHigh = min(capMaxProb, round(cappedProbability + confidenceWidth))
-percentageMid = round(cappedProbability)
-```
-
-### **3.9 Category Classification**
+### **3.10 Category Classification**
 
 ```javascript
 if (percentageMid >= 70) {
@@ -375,7 +510,7 @@ if (percentageMid >= 70) {
 }
 ```
 
-### **3.10 Gate Failure Override**
+### **3.11 Hard Gate Failure Override**
 
 If `gateCheck.passed === false`:
 - Cap displayed percentage at 40%
@@ -385,20 +520,100 @@ If `gateCheck.passed === false`:
 
 ---
 
-## **LAYER 4: Explanation Generation**
+## **LAYER 4: Explanation & Confidence Interval**
 
-**Purpose**: Generate warnings, insights, and recommendations.
+**Purpose**: Generate warnings, insights, recommendations, and uncertainty-driven confidence intervals.
 
-### **4.1 Gate Issues (Critical)**
+### **4.1 Uncertainty-Driven Confidence Interval**
+
+**Base Width**: 6%
+
+**Uncertainty Factors** (additive):
+
+1. **In-Progress Required Courses**: +1.0 per course
+   - Example: 2 in-progress courses → +2.0
+
+2. **Missing Core Subject Scores**: +1.5 per missing score
+   - Uses strict empty/NaN detection: `raw === null || raw === undefined || String(raw).trim() === '' || isNaN(Number(raw))`
+   - Example: Math12 and Physics12 not provided → +3.0
+
+3. **Supplement Uncertainty**: +3.0 if required but not provided
+   - Uses strict empty/NaN detection (same pattern as core scores)
+   - Example: Portfolio required but score not entered → +3.0
+
+4. **Profile Input Uncertainty**:
+   - No activities: +2.0
+   - Activities present: +0.5 (minor uncertainty, not shown in explanation)
+
+**Clamp**: 6 to 14
+
+**Calculation**:
+```javascript
+let confidenceWidth = 6; // Base
+const uncertaintyFactors = [];
+
+// 1. In-progress courses
+if (gateCheck.inProgressCourses.length > 0) {
+  confidenceWidth += gateCheck.inProgressCourses.length * 1.0;
+  uncertaintyFactors.push(`${count} in-progress course(s)`);
+}
+
+// 2. Missing core scores (strict detection)
+for (const subject of coreSubjects) {
+  const raw = coreSubjectScores[subject];
+  if (raw === null || raw === undefined || String(raw).trim() === '' || isNaN(Number(raw))) {
+    confidenceWidth += 1.5;
+    // Add to factors list
+  }
+}
+
+// 3. Supplement uncertainty (strict detection)
+if (gateCheck.supplementRequired) {
+  const raw = supplementScore;
+  if (raw === null || raw === undefined || String(raw).trim() === '' || isNaN(Number(raw))) {
+    confidenceWidth += 3.0;
+    uncertaintyFactors.push('supplement material not provided');
+  }
+}
+
+// 4. Profile uncertainty
+if (!activities || activities.length === 0) {
+  confidenceWidth += 2.0;
+  uncertaintyFactors.push('no activities provided');
+} else {
+  confidenceWidth += 0.5; // Minor uncertainty, NOT added to factors list
+}
+
+// Clamp
+confidenceWidth = Math.max(6, Math.min(14, confidenceWidth));
+
+// Calculate CI
+const percentageMid = Math.round(cappedProbability);
+const percentageLow = Math.max(5, Math.round(percentageMid - confidenceWidth));
+const percentageHigh = Math.min(capMaxProb, Math.round(percentageMid + confidenceWidth));
+// Note: capMaxProb here is FINAL value after all gate caps
+```
+
+**Uncertainty Explanation**:
+- Only shows meaningful factors: in-progress courses, missing core scores, supplement missing, no activities
+- Does NOT include "activities present" in explanation (only adds +0.5 width internally)
+- Format: "Wider range due to: [factors]. "
+
+*(Source: TASK4_UNCERTAINTY_CI.md)*
+
+### **4.2 Gate Issues (Critical)**
+
 - Missing courses warning
-- Core subject below minimum warning
+- In-progress courses warning (cap reduction)
+- Core subject below minimum warning (multiplier effect)
 - Supplement required warning
 
-### **4.2 Score-Based Insights**
+### **4.3 Score-Based Insights**
+
 - Academic score too low (if weight > 0.5 and score < 85)
 - Profile score too low (if weight > 0.35 and score < 80)
 
-### **4.3 Top 2 Improvement Actions**
+### **4.4 Top 2 Improvement Actions**
 
 Priority order:
 1. Take missing required courses
@@ -414,17 +629,28 @@ Priority order:
 |-----------|------|-------|-------------|
 | `gpa` | number | 0-100 | Grade point average |
 | `courseDifficulty` | string | regular/ap/ib | Course rigor level |
-| `extracurriculars` | number | 1-5 | Extracurricular rating |
-| `leadership` | number | 1-5 | Leadership rating |
-| `volunteering` | number | 1-5 | Volunteer rating |
+| `activities` | array | 0-8 items | Structured activity objects (primary profile method) |
+| `extracurriculars` | number | 1-5 | Legacy rating (used as ±3 adjustment, UI removed) |
+| `leadership` | number | 1-5 | Legacy rating (used as ±3 adjustment, UI removed) |
+| `volunteering` | number | 1-5 | Legacy rating (used as ±3 adjustment, UI removed) |
 | `supplementScore` | number | 0-100 | Portfolio/audition score |
 | `applicantType` | string | domestic/international | Applicant type |
 | `gradeTrend` | string | rising/stable/declining | Grade trend |
-| `activityRelevance` | string | high/medium/low | Activity relevance |
-| `roleDepth` | string | founder/executive/member | Role depth |
 | `courseStatus` | object | completed/inProgress/notTaken | Course completion status |
 | `coreSubjectScores` | object | 0-100 | Individual subject scores |
-| `apExamsCount` | number | 0-10 | Number of AP exams with score of 5 |
+| `apExams` | array | 0-10 items | Array of `{ name: string, score: number }` (only score=5 provides insurance) |
+
+**Activity Object Structure**:
+```javascript
+{
+  category: 'EC' | 'Work' | 'Volunteer' | 'Award' | 'Research',
+  years: 0-4,
+  hoursPerWeek: 0-30,
+  role: 'member' | 'executive' | 'founder',
+  relevance: 'high' | 'medium' | 'low',
+  impactEvidence: boolean
+}
+```
 
 ---
 
@@ -440,10 +666,12 @@ Priority order:
   chance: "Medium",                  // High/Medium/Low
   category: "Match",                  // Safety/Match/Reach
   color: "#ffc107",                   // Display color
-  finalScore: 78.5,                  // Weighted final score
+  finalScore: 78.5,                  // Weighted final score (no gate penalties)
   academicScore: 85.2,               // Academic component
   profileScore: 72.8,                // Profile component
   supplementScore: null,              // Supplement (if applicable)
+  confidenceWidth: 8,                 // CI width (6-14)
+  uncertaintyExplanation: "Wider range due to: 1 in-progress course, missing Math12 score.", // Optional
   gateCheck: { ... },                // Gate check results
   explanation: {                      // Explanations and advice
     explanations: [...],
@@ -470,8 +698,8 @@ Each program has custom settings in `src/data/facultiesData.js`:
 
 - `medianGPA`: Median GPA of admitted students (2025/2026 statistics)
 - `competitivenessLevel`: Competition level (1-5), used by ParameterCalculator
-- `gpaWeight`: Academic weight (default: 0.75, updated from 0.8)
-- `personalProfileWeight`: Profile weight (default: 0.25, updated from 0.2)
+- `gpaWeight`: Academic weight (default: 0.75)
+- `personalProfileWeight`: Profile weight (default: 0.25)
 - `supplementWeight`: Supplement weight (if required)
 - `targetScore`: **Automatically calculated** by ParameterCalculator from medianGPA and competitivenessLevel
 - `scale`: **Automatically calculated** by ParameterCalculator (hard-capped at 6.0 for Level 5)
@@ -500,9 +728,12 @@ Each program has custom settings in `src/data/facultiesData.js`:
 - `calculateScores()` - Layer 2
 - `calculateProbability()` - Layer 3
 - `generateExplanation()` - Layer 4
-- `sigmoid()` - Helper function
+- `normalizeName()` - AP name normalization helper
+- `calculateFinalProbability()` - Linear-Sigmoid Hybrid helper
 
 **Data Source**: `src/data/facultiesData.js`
+
+**Profile Scoring**: `src/utils/profileScoringV2.js`
 
 ---
 
@@ -559,43 +790,58 @@ if (academicScore < 85):
 ```
 finalScore = (academicScore × academicWeight) + 
              (profileScore × profileWeight) + 
-             (supplementScore × supplementWeight) + 
-             gatePenalty
+             (supplementScore × supplementWeight)
+// NO gate penalties added here
 ```
 
-### Profile Score Base
+### Profile Score (Activities-Based)
 ```
-profileScore = ((extracurriculars + leadership + volunteering) / 3 / 5) × 100
+// Per activity (max 20 points)
+activityScore = categoryBase + yearsPoints + hoursPoints + rolePoints + relevancePoints + impactPoints
+
+// Total
+baseProfileScore = min(100, Σ activityScore)
+
+// Legacy adjustment (±3 points)
+legacyAdjustment = (avg(extracurriculars, leadership, volunteering) - 3) × 1.5
+
+// Grade trend
+trendBonus = { rising: +3, stable: 0, declining: -4 }
+
+profileScore = min(100, max(0, baseProfileScore + legacyAdjustment + trendBonus))
 ```
 
-### Core Subject Penalty
+### Gate Multiplier (Core Deficits)
 ```
-penalty = min((coreMinScore - actualScore) × 0.5, 15)
+// Calculate effective deficit with AP insurance (per subject)
+effectiveDeficit = Σ (deficit × (hasAPInsurance ? 0.5 : 1.0))
+
+// Multiplier (max 25% reduction)
+gateMultiplier = 1 - min(effectiveDeficit * 0.008, 0.25)
+
+// Apply to probability
+adjustedProbability = rawProbability × gateMultiplier
 ```
 
 ### AP Rigor Bonus
 ```
-apRigorBonus = apExamsCount * 0.75  // 0.75% per AP score of 5
+apRigorBonus = apExamsWithScore5 * 0.75  // 0.75% per AP score of 5
 academicScore = min(100.5, academicScore + apRigorBonus)  // Cap at 100.5%
 ```
 
-### Penalty Factors
+### Confidence Interval (Uncertainty-Driven)
 ```
-// High-End Dampening
-if (academicScore < 93):
-  adjustedProbability = rawProbability * 0.85
+baseWidth = 6
+width = baseWidth + 
+        (inProgressCount × 1.0) +
+        (missingCoreScores × 1.5) +
+        (supplementMissing ? 3.0 : 0) +
+        (noActivities ? 2.0 : 0.5)
 
-// Core Subject Dampening with AP Insurance
-if (any coreSubject < coreMinScore):
-  if (hasAPInsurance && apSubjectMap[subject]):
-    penaltyMultiplier = 0.85  // 15% reduction (50% penalty reduction)
-  else:
-    penaltyMultiplier = 0.7   // 30% reduction
-  adjustedProbability = adjustedProbability * penaltyMultiplier
+confidenceWidth = max(6, min(14, width))
 
-// International Penalty
-if (applicantType === "international"):
-  target = target + targetBonus  // Applied before calculation
+percentageLow = max(5, round(percentageMid - confidenceWidth))
+percentageHigh = min(capMaxProb, round(percentageMid + confidenceWidth))
 ```
 
 ### Safety Limit
@@ -606,125 +852,91 @@ This is naturally maintained by the 0.7 scale multiplier and 0.5 linear bonus co
 
 ---
 
-## **Example Calculation**
+## **Appendix**
 
-### Example 1: Arts Program (2025/2026 Statistics)
+### Example Calculation
 
 **Input:**
-- Program: Arts (medianGPA: 92%, competitivenessLevel: 4)
-- GPA: 90
+- Program: Science (medianGPA: 96%, competitivenessLevel: 5)
+- GPA: 92
 - Course Difficulty: AP
-- Extracurriculars: 4
-- Leadership: 4
-- Volunteering: 3
+- Activities: 3 activities (total 35 points)
+- Legacy ratings: extracurriculars=4, leadership=4, volunteering=3
 - Grade Trend: Rising
-- Activity Relevance: High
-- Role Depth: Executive
 - All required courses: Completed
-- Core subjects: English12 = 88 (above minimum 80)
+- Core subjects: Math12 = 88% (min 85%), Physics12 = 90% (min 85%)
+- AP Exams: [{ name: 'AP Calculus BC', score: 5 }]
 - Applicant Type: Domestic
 
 **Calculation Steps:**
 
 1. **ParameterCalculator**:
-   - medianGPA: 92, competitivenessLevel: 4
-   - targetOffset: 3.0 → targetScore = 92 - 3.0 = **89**
-   - scale: 8.5 - (4 × 0.6) = 6.1
+   - medianGPA: 96, competitivenessLevel: 5
+   - targetOffset: 2.5 → targetScore = 96 - 2.5 = **93.5**
+   - scale: min(8.5 - (5 × 0.6), 6.0) = **6.0**
 
 2. **Academic Score:**
-   - Base: 90
+   - Base: 92
    - AP bonus: +3
-   - Core boost: +2
-   - **Result: 95**
+   - Core boost: +2 (Math12 ≥ 90)
+   - AP rigor bonus: +0.75 (1 AP with score 5)
+   - **Result: 97.75** (capped at 100.5)
 
 3. **Profile Score:**
-   - Base: ((4+4+3)/3/5) × 100 = 73.3
-   - Rising trend: +2
-   - High relevance: +3
-   - Executive multiplier: ×1.1
-   - **Result: 86.1**
+   - Base: 35 (from activities)
+   - Legacy adjustment: (4+4+3)/3 = 3.67 → (3.67-3)×1.5 = **+1**
+   - Rising trend: **+3**
+   - **Result: 39**
 
 4. **Academic Primacy Check:**
-   - Academic Score: 95 ≥ 85 ✓
+   - Academic Score: 97.75 ≥ 85 ✓
    - No weight adjustment needed
    - **Weights: 0.75 academic, 0.25 profile**
 
 5. **Final Score:**
-   - (95 × 0.75) + (86.1 × 0.25) = 71.25 + 21.525 = **92.775**
+   - (97.75 × 0.75) + (39 × 0.25) = 73.31 + 9.75 = **83.06**
 
 6. **Probability (Linear-Sigmoid Hybrid):**
-   - Base: sigmoid(92.775, 89, 6.1×0.7) = sigmoid(92.775, 89, 4.27) = 0.82
-   - Since 92.775 > 89: Linear bonus = (92.775 - 89) × 0.5 = 1.89%
-   - Raw probability: 82% + 1.89% = 83.89%
+   - Base: sigmoid(83.06, 93.5, 6.0×0.7) = sigmoid(83.06, 93.5, 4.2) ≈ 0.40
+   - Since 83.06 < 93.5: No linear bonus
+   - Raw probability: 40%
 
 7. **Penalty Factors:**
-   - High-End Dampening: 95 ≥ 93 ✓ (no penalty)
-   - Core Subject Dampening: English12 = 88 ≥ 80 ✓ (no penalty)
-   - International Penalty: N/A (domestic)
-   - **Adjusted: 83.89%**
+   - High-End Dampening: 97.75 ≥ 93 ✓ (no penalty)
+   - Gate Multiplier: All core subjects ≥ minimum ✓ (no penalty)
+   - **Adjusted: 40%**
 
 8. **Category:**
-   - 84% ≥ 70 → **Safety** (High chance)
+   - 40% < 45 → **Reach** (Low chance)
 
-### Example 2: Engineering Program (2025/2026 Statistics) - 90% GPA
+**Result**: 92% GPA for Science correctly classified as "Reach"
 
-**Input:**
-- Program: Engineering (medianGPA: 97%, competitivenessLevel: 5)
-- GPA: 90
-- Core subjects: Math12 = 88, Physics12 = 85, Chemistry12 = 87
-- Applicant Type: Domestic
+For more detailed examples, see `PROFILE_V2_EXAMPLES.md`.
 
-**Calculation Steps:**
+### Change Log
 
-1. **ParameterCalculator**:
-   - medianGPA: 97, competitivenessLevel: 5
-   - targetOffset: 2.5 → targetScore = 97 - 2.5 = **94.5**
-   - scale: min(8.5 - (5 × 0.6), 6.0) = **6.0** (hard-capped)
+**Version 4.1** (January 2025):
+- Task 3.1: Added AP name normalization (trim + collapse spaces) for robust matching
+- Task 4.1: Fixed CI edge cases (strict empty/NaN detection, explanation filtering, final capMaxProb)
 
-2. **Academic Score:** ~90 (simplified)
+**Version 4.0** (January 2025):
+- Task 4: Implemented uncertainty-driven confidence interval (base 6, factors: in-progress, missing scores, supplement, activities)
 
-3. **Final Score:** ~90 (simplified)
+**Version 3.0** (January 2025):
+- Task 3: Implemented strict AP insurance (subject-specific, exact name match + score===5)
 
-4. **Probability:**
-   - Base: sigmoid(90, 94.5, 6.0×0.7) = sigmoid(90, 94.5, 4.2) = 0.15
-   - Since 90 < 94.5: No linear bonus
-   - Raw probability: 15%
+**Version 2.1** (January 2025):
+- Task 2.1: Aligned wording for in-progress cap (70% cap still allows Safety category)
 
-5. **Penalty Factors:**
-   - High-End Dampening: 90 < 93 → 15% × 0.85 = **12.75%**
-   - Core Subject Dampening: Math12 = 88 < 85? No, but Physics12 = 85 = 85? Check coreMinScore
-   - **Adjusted: ~12-13%**
+**Version 2.0** (January 2025):
+- Task 2: Refactored gate logic (removed score penalties, added caps + multipliers)
 
-6. **Category:**
-   - 13% < 45 → **Reach** (Low chance) ✓
+**Version 1.5** (January 2025):
+- Task 1.5: Added Activities UI (ProfileActivitiesForm component)
+- UI Cleanup: Removed legacy 1-5 sliders from UI (kept internal logic for backward compatibility)
 
-**Result**: 90% GPA for Engineering correctly classified as "Reach", not "Safety"
-
-**Example with Academic Primacy (Academic Score < 85):**
-
-**Input:**
-- GPA: 82
-- Academic Score: 82 (after adjustments)
-- Profile Score: 85
-
-**Calculation:**
-1. **Academic Primacy Check:**
-   - Academic Score: 82 < 85 ✗
-   - Original weights: 0.75/0.25
-   - Reduced profile: 0.25 × 0.5 = 0.125
-   - Weight difference: 0.25 - 0.125 = 0.125
-   - **Adjusted weights: 0.875 academic, 0.125 profile**
-
-2. **Final Score:**
-   - (82 × 0.9) + (85 × 0.1) = 73.8 + 8.5 = **82.3**
-
-3. **Probability:**
-   - Base: sigmoid(82.3, 80, 5.6) = 0.66
-   - Linear bonus: (82.3 - 80) × 0.5 = 1.15%
-   - Raw: 66% + 1.15% = 67.15%
-   - **Result: 67%**
-
-**Impact**: Profile score has minimal impact when academic score is below threshold, emphasizing the importance of grades.
+**Version 1.0** (January 2025):
+- Task 1: Implemented Profile V2 (activities-based scoring, up to 8 activities, max 20 points each)
 
 ---
 
@@ -733,22 +945,24 @@ This is naturally maintained by the 0.7 scale multiplier and 0.5 linear bonus co
 - All calculations are performed in real-time as user inputs change
 - The model prioritizes academic scores (default 0.75/0.25 weights)
 - **ParameterCalculator**: Automatically derives targetScore and scale from medianGPA and competitivenessLevel
-- **2025/2026 Statistics**: Updated with official UBC Vancouver admission data (Engineering 97%, Science 96%, Arts 92%)
+- **2025/2026 Statistics**: Updated with official UBC Vancouver admission data
 - **Academic Primacy**: Academic scores below 85% reduce profile impact by 50%
 - **Weight Rebalancing**: Weights always sum to 1.0, even after academic primacy adjustment
 - **Linear-Sigmoid Hybrid**: Provides granular, visible changes (0.5-1% per GPA point)
 - **High-End Dampening**: Scores below 93% get 15% probability reduction
-- **Core Subject Dampening**: Weak core subjects result in 30% probability reduction
-- **International Penalty**: Target score increased before calculation for international applicants
+- **Gate Multiplier**: Weak core subjects result in probability multiplier (max 25% reduction)
+- **AP Insurance**: Strict subject-specific matching with name normalization
+- **International Adjustment**: Target score increased before calculation for international applicants
 - **Safety Limit**: Maximum probability change per GPA point ≤ 2%
 - The model is designed to be conservative (caps at 90%)
 - Gate failures significantly reduce displayed probability (capped at 40%)
-- The system provides confidence intervals to account for uncertainty
+- **Uncertainty-Driven CI**: Confidence interval width reflects data completeness (6-14 range)
+- **Activities-Based Profile**: Primary scoring method uses structured activities (up to 8)
+- **Backward Compatibility**: Legacy 1-5 ratings still work internally as ±3 adjustment and fallback
 - **Special Case**: Sauder (Commerce) maintains custom gpaWeight: 0.55 due to high Personal Profile importance
 
 ---
 
 **Last Updated**: January 2025  
-**Version**: 1.0  
+**Version**: 4.1  
 **Status**: Production
-

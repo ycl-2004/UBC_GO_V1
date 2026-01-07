@@ -17,7 +17,24 @@ This folder contains additional project documentation and planning materials for
 
 | File | Purpose |
 |------|---------|
-| `CALCULATOR_OPERATION.md` | Complete technical details of how the admission probability calculator operates |
+| `CALCULATOR_OPERATION.md` | **Primary technical reference** — Complete operational details of the 4-layer admission probability calculator (v4.1) |
+| `PROFILE_V2_EXAMPLES.md` | Supplementary calculation examples for activities-based profile scoring |
+
+### Historical Task Documentation (Archived)
+
+The following files document the evolution of the calculator implementation. They are preserved for historical reference but are **superseded by CALCULATOR_OPERATION.md**:
+
+| File | Task Summary |
+|------|-------------|
+| `TASK1_PROFILE_V2_SUMMARY.md` | Profile V2 implementation (activities-based scoring) |
+| `TASK1.5_UI_IMPLEMENTATION.md` | Activities UI component implementation |
+| `UI_CLEANUP_LEGACY_SLIDERS.md` | Removal of legacy 1-5 sliders from UI |
+| `TASK2_GATE_REFACTOR.md` | Gate logic refactor (caps + multipliers instead of score penalties) |
+| `TASK2.1_WORDING_ALIGNMENT.md` | In-progress cap wording clarification |
+| `TASK3_AP_INSURANCE_STRICT.md` | Strict AP insurance implementation (subject-specific) |
+| `TASK4_UNCERTAINTY_CI.md` | Uncertainty-driven confidence interval implementation |
+
+**Note**: All operational rules are now consolidated in `CALCULATOR_OPERATION.md`. The archived task files contain summaries and historical context only.
 
 ## 📁 Structure
 
@@ -26,7 +43,10 @@ docs/
 ├── planning/                    # Planning documents and goals
 │   ├── goal_tmr.txt            # Tomorrow's goals
 │   └── Goal.txt                # Overall project goals
-├── CALCULATOR_OPERATION.md     # Calculator technical documentation
+├── CALCULATOR_OPERATION.md     # ⭐ Primary technical reference (v4.1)
+├── PROFILE_V2_EXAMPLES.md     # Supplementary examples
+├── TASK*.md                     # Archived task documentation (historical)
+├── UI_CLEANUP_*.md              # Archived UI cleanup docs (historical)
 └── README.md                    # This file
 ```
 
@@ -120,13 +140,20 @@ UBC_GO_V1/
 #### For New Developers
 1. First read **README.md** to understand the project
 2. Read **PROJECT_DESCRIPTION.md** to understand all features
-3. View **.project-structure.md** to understand code organization
-4. Use **FEATURES.md** to quickly find features
+3. **Read `CALCULATOR_OPERATION.md`** for complete calculator technical details
+4. View **.project-structure.md** to understand code organization
+5. Use **FEATURES.md** to quickly find features
+
+#### For Calculator Implementation
+- **Primary Reference**: `CALCULATOR_OPERATION.md` — Contains all operational rules, formulas, and implementation details
+- **Examples**: `PROFILE_V2_EXAMPLES.md` — Detailed calculation examples
+- **Historical Context**: `TASK*.md` files — Document evolution of features (archived)
 
 #### For Project Maintainers
-1. When updating features, synchronously update **PROJECT_DESCRIPTION.md** and **FEATURES.md**
-2. When planning new features, add documents in `docs/planning/`
-3. Record important changes in `Summary/01-Project-Status/`
+1. When updating calculator logic, update **CALCULATOR_OPERATION.md** as the single source of truth
+2. When updating features, synchronously update **PROJECT_DESCRIPTION.md** and **FEATURES.md**
+3. When planning new features, add documents in `docs/planning/`
+4. Record important changes in `Summary/01-Project-Status/`
 
 ### Future Suggestions
 
