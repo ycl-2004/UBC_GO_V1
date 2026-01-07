@@ -1,7 +1,7 @@
 # UBC Admission Calculator - Complete Operation Details
 
 **Last Updated**: January 2025  
-**Version**: 4.1  
+**Version**: 4.2  
 **Status**: Production
 
 ---
@@ -264,43 +264,56 @@ profileScore = min(100, max(0, (baseProfileScore + trendBonus + relevanceBonus) 
 
 ## **LAYER 3: Probability Calculation**
 
-**Purpose**: Convert scores into admission probability percentage with academic primacy, granular sensitivity, and gate adjustments.
+**Purpose**: Convert scores into admission probability percentage with academic risk escalation, granular sensitivity, and gate adjustments.
 
-### **3.1 Academic Primacy with Weight Rebalancing**
+### **3.1 Academic Risk Escalation (Weight Adjustment)**
 
-**Academic Threshold**: 85%
+**Purpose**: When academic risk exists, increase profile weight (capped at 35%) to allow holistic differentiation for borderline cases.
 
-If `academicScore < 85%`:
-- Reduce profile weight by 50%
-- Move the weight difference to academic weight
-- Re-normalize weights to ensure they sum to 1.0
+**Academic Risk Definition**:
+`academicRisk` is `true` if ANY of the following holds:
+1. `gateCheck.totalCoreDeficit > 0` (any core subject below recommended minimum)
+2. `gateCheck.inProgressCourses.length > 0` (any required course in-progress)
+3. `academicScore < 85`
 
+**Weight Adjustment (Plan A)**:
 ```javascript
-const academicThreshold = 85;
-if (scores.academicScore < academicThreshold) {
-  // Reduce profile impact by 50%
-  const reducedProfileWeight = weights.profile * 0.5;
-  const weightDifference = weights.profile - reducedProfileWeight;
+const baseWeights = {
+  academic: 0.75,  // default, program-specific
+  profile: 0.25,   // default, program-specific
+  supplement: 0.0  // program-specific (only if required)
+};
+
+if (academicRisk === true) {
+  // Increase profile weight by +0.10, capped at 0.35
+  profileWeight = Math.min(0.35, baseWeights.profile + 0.10);
   
-  // Re-normalize: Move the difference back to academic weight
-  weights.profile = reducedProfileWeight;
-  weights.academic = weights.academic + weightDifference;
+  // Reduce academic weight accordingly to maintain sum = 1.0
+  academicWeight = 1.0 - profileWeight - baseWeights.supplement;
   
-  // Ensure weights still sum to 1.0 (accounting for supplement weight)
-  const totalWeight = weights.academic + weights.profile + weights.supplement;
+  // Ensure weights still sum to 1.0
+  const totalWeight = academicWeight + profileWeight + baseWeights.supplement;
   if (Math.abs(totalWeight - 1.0) > 0.001) {
     const adjustment = (1.0 - totalWeight) / 2;
-    weights.academic += adjustment;
-    weights.profile += adjustment;
+    academicWeight += adjustment;
+    profileWeight += adjustment;
   }
 }
 ```
 
-**Example**: If default weights are 0.75/0.25 and academic score < 85:
-- Profile weight: 0.25 × 0.5 = 0.125
-- Weight difference: 0.25 - 0.125 = 0.125
-- Academic weight: 0.75 + 0.125 = 0.875
-- Final weights: 0.875 academic, 0.125 profile (sums to 1.0)
+**Rationale**: When academic performance shows risk (low scores, core deficits, or in-progress courses), the profile becomes more important for holistic differentiation. This allows strong extracurricular achievements to compensate for academic weaknesses, reflecting UBC's holistic admission approach.
+
+**Example 1**: If base weights are 0.75/0.25 and `academicRisk === true`:
+- Profile weight: min(0.35, 0.25 + 0.10) = **0.35**
+- Academic weight: 1.0 - 0.35 - 0.0 = **0.65**
+- Final weights: 0.65 academic, 0.35 profile (sums to 1.0)
+
+**Example 2**: If base weights are 0.55/0.45 (Sauder) and `academicRisk === true`:
+- Profile weight: min(0.35, 0.45 + 0.10) = **0.35** (capped)
+- Academic weight: 1.0 - 0.35 - 0.0 = **0.65**
+- Final weights: 0.65 academic, 0.35 profile (sums to 1.0)
+
+**Note**: This applies only to weights used in `finalScore` calculation. Gate effects (caps/multipliers) and AP insurance remain unchanged.
 
 ### **3.2 Weighted Final Score**
 
@@ -313,7 +326,7 @@ weights = {
   supplement: 0.0 (only if required)
 }
 
-// Weights may be adjusted by academic primacy logic above
+// Weights may be adjusted by academic risk escalation logic above
 
 finalScore = 
   academicScore × weights.academic +
@@ -771,19 +784,22 @@ else:
 finalProbability = min(rawProb, capMaxProb)
 ```
 
-### Academic Primacy Weight Rebalancing
+### Academic Risk Escalation Weight Adjustment
 ```
-if (academicScore < 85):
-  reducedProfileWeight = profileWeight × 0.5
-  weightDifference = profileWeight - reducedProfileWeight
-  academicWeight = academicWeight + weightDifference
-  profileWeight = reducedProfileWeight
+if (academicRisk === true):
+  academicRisk = (totalCoreDeficit > 0) OR 
+                 (inProgressCourses.length > 0) OR 
+                 (academicScore < 85)
   
-  // Re-normalize to ensure sum = 1.0
-  if (totalWeight ≠ 1.0):
-    adjustment = (1.0 - totalWeight) / 2
-    academicWeight += adjustment
-    profileWeight += adjustment
+  if (academicRisk):
+    profileWeight = min(0.35, baseProfileWeight + 0.10)
+    academicWeight = 1.0 - profileWeight - supplementWeight
+    
+    // Re-normalize to ensure sum = 1.0
+    if (totalWeight ≠ 1.0):
+      adjustment = (1.0 - totalWeight) / 2
+      academicWeight += adjustment
+      profileWeight += adjustment
 ```
 
 ### Weighted Final Score
@@ -888,8 +904,11 @@ This is naturally maintained by the 0.7 scale multiplier and 0.5 linear bonus co
    - Rising trend: **+3**
    - **Result: 39**
 
-4. **Academic Primacy Check:**
+4. **Academic Risk Escalation Check:**
    - Academic Score: 97.75 ≥ 85 ✓
+   - Core subjects: All ≥ minimum ✓
+   - In-progress courses: None ✓
+   - academicRisk: false (no risk factors)
    - No weight adjustment needed
    - **Weights: 0.75 academic, 0.25 profile**
 
@@ -911,9 +930,58 @@ This is naturally maintained by the 0.7 scale multiplier and 0.5 linear bonus co
 
 **Result**: 92% GPA for Science correctly classified as "Reach"
 
+### Example 2: With Academic Risk Escalation
+
+**Input:**
+- Program: Arts (medianGPA: 92%, competitivenessLevel: 4)
+- GPA: 82
+- Academic Score: 82 (after adjustments)
+- Profile Score: 85
+- Core subjects: Math12 = 80% (min 85%, deficit = 5%)
+- All required courses: Completed
+- Applicant Type: Domestic
+
+**Calculation Steps:**
+
+1. **Academic Risk Check:**
+   - Academic Score: 82 < 85 ✓ (risk factor)
+   - Core deficit: 5% > 0 ✓ (risk factor)
+   - In-progress courses: None
+   - **academicRisk: true**
+
+2. **Weight Adjustment:**
+   - Base weights: 0.75 academic, 0.25 profile
+   - Profile weight: min(0.35, 0.25 + 0.10) = **0.35**
+   - Academic weight: 1.0 - 0.35 = **0.65**
+   - **Adjusted weights: 0.65 academic, 0.35 profile**
+
+3. **Final Score:**
+   - (82 × 0.65) + (85 × 0.35) = 53.3 + 29.75 = **83.05**
+
+4. **Probability:**
+   - Base: sigmoid(83.05, 89, 6.1×0.7) ≈ 0.72
+   - Linear bonus: (83.05 - 89) < 0, no bonus
+   - Raw probability: 72%
+
+5. **Penalty Factors:**
+   - High-End Dampening: 82 < 93 → 72% × 0.85 = **61.2%**
+   - Gate Multiplier: Core deficit exists → multiplier applies
+   - **Adjusted: ~55-60%**
+
+6. **Category:**
+   - 55-60% → **Match** (Medium chance)
+
+**Result**: With academic risk, profile weight increased to 35%, allowing strong profile (85) to partially compensate for weaker academic score (82).
+
 For more detailed examples, see `PROFILE_V2_EXAMPLES.md`.
 
 ### Change Log
+
+**Version 4.2** (January 2025):
+- Spec: Academic Risk Escalation replaces Academic Primacy (Plan A: cap profile at 35%)
+  - academicRisk triggers: core deficit > 0, in-progress courses, or academicScore < 85
+  - Profile weight increases by +0.10 (capped at 35%) when risk exists
+  - Rationale: Holistic differentiation for borderline academic cases
 
 **Version 4.1** (January 2025):
 - Task 3.1: Added AP name normalization (trim + collapse spaces) for robust matching
@@ -946,8 +1014,8 @@ For more detailed examples, see `PROFILE_V2_EXAMPLES.md`.
 - The model prioritizes academic scores (default 0.75/0.25 weights)
 - **ParameterCalculator**: Automatically derives targetScore and scale from medianGPA and competitivenessLevel
 - **2025/2026 Statistics**: Updated with official UBC Vancouver admission data
-- **Academic Primacy**: Academic scores below 85% reduce profile impact by 50%
-- **Weight Rebalancing**: Weights always sum to 1.0, even after academic primacy adjustment
+- **Academic Risk Escalation**: When academic risk exists (low scores, core deficits, or in-progress courses), profile weight increases (capped at 35%) to allow holistic differentiation
+- **Weight Rebalancing**: Weights always sum to 1.0, even after academic risk escalation adjustment
 - **Linear-Sigmoid Hybrid**: Provides granular, visible changes (0.5-1% per GPA point)
 - **High-End Dampening**: Scores below 93% get 15% probability reduction
 - **Gate Multiplier**: Weak core subjects result in probability multiplier (max 25% reduction)
@@ -964,5 +1032,5 @@ For more detailed examples, see `PROFILE_V2_EXAMPLES.md`.
 ---
 
 **Last Updated**: January 2025  
-**Version**: 4.1  
+**Version**: 4.2  
 **Status**: Production

@@ -423,33 +423,55 @@ const ApplyInfoPage = () => {
     return Math.min(rawProb, capMaxProb);
   };
 
-  // LAYER 3: Probability Calculation - Enhanced with academic primacy and Linear-Sigmoid Hybrid
+  // LAYER 3: Probability Calculation - Enhanced with Academic Risk Escalation (Plan A) and Linear-Sigmoid Hybrid
   const calculateProbability = (scores, gateCheck, admissionData, applicantType, coreSubjectScores = {}, apExams = [], activities = [], supplementScore = null) => {
-    const weights = admissionData.weights || {
+    // Get base program weights
+    const baseWeights = admissionData.weights || {
       academic: admissionData.gpaWeight || 0.75,
       profile: admissionData.personalProfileWeight || 0.25,
       supplement: admissionData.supplementWeight || 0.0
     };
     
-    // Academic Primacy: If academic score is below threshold, reduce profile impact
-    const academicThreshold = 85;
-    if (scores.academicScore < academicThreshold) {
-      // Reduce profile impact by 50%
-      const reducedProfileWeight = weights.profile * 0.5;
-      const weightDifference = weights.profile - reducedProfileWeight;
+    // Academic Risk Escalation (Plan A) — increases profile weight up to 35% when academic risk exists.
+    // academicRisk is true if ANY: totalCoreDeficit > 0, inProgressCourses.length > 0, or academicScore < 85
+    const academicRisk = 
+      (gateCheck.totalCoreDeficit > 0) ||
+      (gateCheck.inProgressCourses && gateCheck.inProgressCourses.length > 0) ||
+      (scores.academicScore < 85);
+    
+    let academicWeight = baseWeights.academic;
+    let profileWeight = baseWeights.profile;
+    const supplementWeight = baseWeights.supplement; // Unchanged
+    
+    if (academicRisk) {
+      // Increase profile weight by +0.10, capped at 0.35
+      profileWeight = Math.min(0.35, baseWeights.profile + 0.10);
       
-      // Re-normalize: Move the difference back to academic weight
-      weights.profile = reducedProfileWeight;
-      weights.academic = weights.academic + weightDifference;
+      // Reduce academic weight accordingly to maintain sum = 1.0
+      academicWeight = 1.0 - profileWeight - supplementWeight;
       
-      // Ensure weights still sum to 1.0 (accounting for supplement weight)
-      const totalWeight = weights.academic + weights.profile + weights.supplement;
+      // Guardrail: If academicWeight < 0.0, clamp it and adjust profileWeight
+      if (academicWeight < 0.0) {
+        academicWeight = 0.0;
+        profileWeight = 1.0 - supplementWeight;
+      }
+      
+      // Ensure weights sum to 1.0 within epsilon (renormalize if needed)
+      const totalWeight = academicWeight + profileWeight + supplementWeight;
       if (Math.abs(totalWeight - 1.0) > 0.001) {
-        const adjustment = (1.0 - totalWeight) / 2;
-        weights.academic += adjustment;
-        weights.profile += adjustment;
+        const normalizationFactor = 1.0 / totalWeight;
+        academicWeight *= normalizationFactor;
+        profileWeight *= normalizationFactor;
+        // supplementWeight remains unchanged conceptually, but we'll recalculate to ensure precision
       }
     }
+    
+    // Final weights object for use in calculation
+    const weights = {
+      academic: academicWeight,
+      profile: profileWeight,
+      supplement: supplementWeight
+    };
     
     // Calculate weighted final score (NO gate penalties - gates affect probability via caps/multipliers)
     let finalScore = 
@@ -604,7 +626,8 @@ const ApplyInfoPage = () => {
         category: "Reach",
         confidenceWidth: 8, // Fixed width for gate failure
         uncertaintyExplanation: null, // No uncertainty explanation for hard gate failure
-        gateFailure: true  // Flag for explanation generation
+        gateFailure: true,  // Flag for explanation generation
+        weightsUsed: weights  // Return adjusted weights
       };
     }
     
@@ -617,7 +640,8 @@ const ApplyInfoPage = () => {
       color,
       category, // Safety/Match/Reach
       confidenceWidth,
-      uncertaintyExplanation  // Explanation for wider CI
+      uncertaintyExplanation,  // Explanation for wider CI
+      weightsUsed: weights  // Return adjusted weights (may be modified by Plan A)
     };
   };
   
@@ -801,8 +825,8 @@ const ApplyInfoPage = () => {
     // LAYER 4: Explanation Generation
     const explanation = generateExplanation(gateCheck, scores, probability, admissionData, formData.apExams || []);
     
-    // Get weights for display
-    const weights = admissionData.weights || {
+    // Get weights for display (use adjusted weights from probability calculation if available)
+    const weightsUsed = probability.weightsUsed || admissionData.weights || {
       academic: admissionData.gpaWeight || 0.75,
       profile: admissionData.personalProfileWeight || 0.25,
       supplement: admissionData.supplementWeight || 0.0
@@ -821,7 +845,7 @@ const ApplyInfoPage = () => {
       finalScore: probability.finalScore,
       academicScore: scores.academicScore,
       profileScore: scores.profileScore,
-      supplementScore: weights.supplement > 0 ? scores.supplementScore : null,
+      supplementScore: weightsUsed.supplement > 0 ? scores.supplementScore : null,
       
       // Gate check results
       gateCheck,
@@ -831,7 +855,7 @@ const ApplyInfoPage = () => {
       
       // Admission data for display
       admissionData,
-      weights
+      weights: weightsUsed  // Use adjusted weights (may be modified by Plan A)
     };
   }, [formData, selectedMajor]);
 
@@ -1791,14 +1815,14 @@ const ApplyInfoPage = () => {
                         <span className="score-label">Academic Score:</span>
                         <span className="score-value">{realTimeResult.academicScore}/100</span>
                         <span className="score-weight">
-                          ({Math.round((realTimeResult.admissionData.weights?.academic || 0.75) * 100)}%)
+                          ({Math.round((realTimeResult.weights?.academic || 0.75) * 100)}%)
                         </span>
                       </div>
                       <div className="score-item">
                         <span className="score-label">Personal Profile:</span>
                         <span className="score-value">{realTimeResult.profileScore}/100</span>
                         <span className="score-weight">
-                          ({Math.round((realTimeResult.admissionData.weights?.profile || 0.25) * 100)}%)
+                          ({Math.round((realTimeResult.weights?.profile || 0.25) * 100)}%)
                         </span>
                       </div>
                       {realTimeResult.supplementScore !== null && (
@@ -1806,7 +1830,7 @@ const ApplyInfoPage = () => {
                           <span className="score-label">Supplement Material:</span>
                           <span className="score-value">{realTimeResult.supplementScore}/100</span>
                           <span className="score-weight">
-                            ({Math.round((realTimeResult.admissionData.weights?.supplement || 0) * 100)}%)
+                            ({Math.round((realTimeResult.weights?.supplement || 0) * 100)}%)
                           </span>
                         </div>
                       )}
