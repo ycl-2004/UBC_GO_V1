@@ -408,19 +408,28 @@ const ApplyInfoPage = () => {
   const calculateFinalProbability = (finalScore, target, scale, capMaxProb) => {
     // 1. Base probability with narrower scale (0.7 multiplier) for higher sensitivity
     const adjustedScale = scale * 0.7;
-    let rawProb = 1 / (1 + Math.exp(-(finalScore - target) / adjustedScale)) * 100;
+    const baseProb = 1 / (1 + Math.exp(-(finalScore - target) / adjustedScale)) * 100;
     
     // 2. Linear polish for high scores (ensures 95 vs 97 vs 100 feels different)
+    let linearBonus = 0;
     if (finalScore > target) {
-      const bonus = (finalScore - target) * 0.5; // Every point above target adds 0.5%
-      rawProb += bonus;
+      linearBonus = (finalScore - target) * 0.5; // Every point above target adds 0.5%
     }
+    const rawProb = baseProb + linearBonus;
     
     // 3. Safety Limit: Maximum probability change per GPA point ≤ 2%
     // The combination of 0.7 scale multiplier and 0.5% linear bonus ensures
     // that even at the steepest part of the curve, changes remain realistic
     
-    return Math.min(rawProb, capMaxProb);
+    const cappedProb = Math.min(rawProb, capMaxProb);
+    
+    // Return both the final probability and intermediate values for formula display
+    return {
+      probability: cappedProb,
+      baseProb,
+      linearBonus,
+      rawProb
+    };
   };
 
   // LAYER 3: Probability Calculation - Enhanced with Academic Risk Escalation (Plan A) and Linear-Sigmoid Hybrid
@@ -497,27 +506,59 @@ const ApplyInfoPage = () => {
     }
     
     // Calculate raw probability using Linear-Sigmoid Hybrid
-    let rawProbability = calculateFinalProbability(finalScore, target, scale, capMaxProb);
+    const probResult = calculateFinalProbability(finalScore, target, scale, capMaxProb);
+    const { probability: rawProbabilityFromFunc, baseProb, linearBonus, rawProb } = probResult;
+    
+    // Note: rawProbabilityFromFunc is already capped, but we need the uncapped rawProb for tracking
+    // So we use rawProb (before cap) as our rawProbability
+    let rawProbability = rawProb;
     
     // Apply penalty factors
     let adjustedProbability = rawProbability;
+    let afterDampening = rawProbability;
+    const dampeningApplied = scores.academicScore < 93;
     
     // 1. High-End Dampening: If academic score < 93, reduce probability by 15%
     // This prevents scores below 93 from reaching "Safety" category too easily
-    if (scores.academicScore < 93) {
-      adjustedProbability = rawProbability * 0.85;
+    if (dampeningApplied) {
+      afterDampening = rawProbability * 0.85;
+      adjustedProbability = afterDampening;
     }
     
     // 2. Gate Multiplier: Apply core subject deficit multiplier (from gateCheck)
     // Uses effective deficit calculated in gateCheck with per-subject AP insurance
     // multiplier = 1 - min(effectiveDeficit * 0.008, 0.25) - max 25% reduction
     // AP insurance is already applied per-subject in gateCheck (50% reduction per insured subject)
-    if (gateCheck.gateMultiplier !== undefined && gateCheck.gateMultiplier < 1.0) {
-      adjustedProbability = adjustedProbability * gateCheck.gateMultiplier;
+    const gateMultiplierApplied = gateCheck.gateMultiplier !== undefined && gateCheck.gateMultiplier < 1.0;
+    const gateMultiplierValue = gateCheck.gateMultiplier !== undefined ? gateCheck.gateMultiplier : 1.0;
+    let afterGateMultiplier = adjustedProbability; // Default: no change if multiplier not applied
+    
+    if (gateMultiplierApplied) {
+      afterGateMultiplier = adjustedProbability * gateCheck.gateMultiplier;
+      adjustedProbability = afterGateMultiplier;
     }
     
-    // Apply cap (already handled in calculateFinalProbability, but keep for safety)
+    // Apply cap (final step)
     const cappedProbability = Math.min(adjustedProbability, capMaxProb);
+    
+    // Prepare formula details for display
+    const adjustedScale = scale * 0.7;
+    const formulaDetails = {
+      finalScore,
+      target,
+      scale,
+      adjustedScale,
+      capMaxProb,
+      baseProb,
+      linearBonus,
+      rawProbability,
+      afterDampening,
+      afterGateMultiplier,
+      cappedProbability,
+      dampeningApplied,
+      gateMultiplierApplied,
+      gateMultiplierValue
+    };
     
     // Calculate uncertainty-driven confidence interval width
     // Base width: 6
@@ -613,6 +654,8 @@ const ApplyInfoPage = () => {
     // Hard gate failure override: If missing required courses, force Reach + Low + cap <= 40%
     if (!gateCheck.passed) {
       const gateCap = Math.min(40, percentageMid);
+      // Update formulaDetails for gate failure case
+      formulaDetails.cappedProbability = gateCap;
       return {
         finalScore: Math.round(finalScore * 100) / 100,
         rawProbability: Math.round(rawProbability * 100) / 100,
@@ -627,7 +670,8 @@ const ApplyInfoPage = () => {
         confidenceWidth: 8, // Fixed width for gate failure
         uncertaintyExplanation: null, // No uncertainty explanation for hard gate failure
         gateFailure: true,  // Flag for explanation generation
-        weightsUsed: weights  // Return adjusted weights
+        weightsUsed: weights,  // Return adjusted weights
+        formulaDetails  // Return formula details for display
       };
     }
     
@@ -641,7 +685,8 @@ const ApplyInfoPage = () => {
       category, // Safety/Match/Reach
       confidenceWidth,
       uncertaintyExplanation,  // Explanation for wider CI
-      weightsUsed: weights  // Return adjusted weights (may be modified by Plan A)
+      weightsUsed: weights,  // Return adjusted weights (may be modified by Plan A)
+      formulaDetails  // Return formula details for display
     };
   };
   
@@ -855,7 +900,10 @@ const ApplyInfoPage = () => {
       
       // Admission data for display
       admissionData,
-      weights: weightsUsed  // Use adjusted weights (may be modified by Plan A)
+      weights: weightsUsed,  // Use adjusted weights (may be modified by Plan A)
+      
+      // Formula details for display
+      formulaDetails: probability.formulaDetails
     };
   }, [formData, selectedMajor]);
 
@@ -1342,6 +1390,314 @@ const ApplyInfoPage = () => {
     }
   };
 
+  // Helper function to extract primary uncertainty factor
+  const extractPrimaryUncertainty = (uncertaintyExplanation) => {
+    if (!uncertaintyExplanation) {
+      return "Based on historical GPA volatility";
+    }
+    // Extract first factor from "Wider range due to: [factors]."
+    const match = uncertaintyExplanation.match(/Wider range due to:\s*(.+?)\./);
+    if (match && match[1]) {
+      const factors = match[1].split(',').map(f => f.trim());
+      return `Based on ${factors[0]}`;
+    }
+    return "Based on historical GPA volatility";
+  };
+
+  // Component for Formula Display with Progressive Disclosure
+  const FormulaDisplay = ({ formulaData }) => {
+    const [activeTab, setActiveTab] = useState('summary');
+
+    return (
+      <details className="formula-details-section" style={{
+        marginTop: '1.5rem',
+        marginBottom: '1.5rem',
+        padding: '0.75rem',
+        backgroundColor: '#f9f9f9',
+        borderRadius: '4px',
+        border: '1px solid #e0e0e0'
+      }}>
+        <summary style={{
+          cursor: 'pointer',
+          fontSize: '0.9rem',
+          fontWeight: '500',
+          color: '#333',
+          userSelect: 'none'
+        }}>
+          Show the exact formula
+        </summary>
+        <div style={{
+          marginTop: '1rem'
+        }}>
+          {/* Tab Navigation */}
+          <div style={{
+            display: 'flex',
+            marginBottom: '0.75rem',
+            borderBottom: '1px solid #e0e0e0'
+          }}>
+            {['summary', 'steps', 'exact'].map((tab) => (
+              <button
+                key={tab}
+                onClick={() => setActiveTab(tab)}
+                style={{
+                  flex: 1,
+                  padding: '0.5rem',
+                  backgroundColor: 'transparent',
+                  border: 'none',
+                  borderBottom: activeTab === tab ? '2px solid #007bff' : '2px solid transparent',
+                  cursor: 'pointer',
+                  fontSize: '0.85rem',
+                  fontWeight: activeTab === tab ? '600' : '400',
+                  color: activeTab === tab ? '#007bff' : '#666',
+                  transition: 'all 0.2s'
+                }}
+              >
+                {tab === 'summary' ? 'Summary' : tab === 'steps' ? 'Steps' : 'Exact Formula'}
+              </button>
+            ))}
+          </div>
+
+          {/* Compact Summary (default visible) */}
+          {activeTab === 'summary' && (
+            <div style={{
+              padding: '1rem',
+              backgroundColor: '#fafafa',
+              border: '1px solid #e8e8e8',
+              borderRadius: '4px',
+              fontSize: '0.875rem',
+              lineHeight: '1.8'
+            }}>
+              <div style={{ marginBottom: '0.75rem', color: '#333' }}>
+                {formulaData.summary.baseCalculation}
+              </div>
+              {formulaData.summary.adjustments.length > 0 && (
+                <div style={{ marginBottom: '0.75rem' }}>
+                  <div style={{ color: '#555', marginBottom: '0.5rem', fontWeight: '500' }}>
+                    Adjustments Applied:
+                  </div>
+                  {formulaData.summary.adjustments.map((adj, idx) => (
+                    <div key={idx} style={{ marginLeft: '1rem', color: '#666', marginBottom: '0.25rem' }}>
+                      <span style={{ color: '#28a745', marginRight: '0.25rem' }}>✓</span>
+                      {adj.name}: {adj.from}% → {adj.to}%
+                    </div>
+                  ))}
+                </div>
+              )}
+              <div style={{ marginBottom: '0.75rem', color: '#333' }}>
+                {formulaData.summary.finalConstraints}
+              </div>
+              <div style={{ color: '#333' }}>
+                {formulaData.summary.confidence}
+              </div>
+            </div>
+          )}
+
+          {/* Steps View */}
+          {activeTab === 'steps' && (
+            <div style={{
+              padding: '1rem',
+              backgroundColor: '#fafafa',
+              border: '1px solid #e8e8e8',
+              borderRadius: '4px',
+              fontSize: '0.875rem',
+              lineHeight: '1.8',
+              fontFamily: 'monospace'
+            }}>
+              {formulaData.steps.map((step, idx) => (
+                <div key={idx} style={{
+                  marginBottom: idx < formulaData.steps.length - 1 ? '0.5rem' : '0',
+                  color: '#666'
+                }}>
+                  <span style={{ 
+                    color: step.applied ? '#28a745' : '#999',
+                    marginRight: '0.5rem',
+                    fontSize: '0.9rem'
+                  }}>
+                    {step.applied ? '✓' : 'ø'}
+                  </span>
+                  <span style={{ fontWeight: '500' }}>{step.step}:</span> {step.result}
+                </div>
+              ))}
+            </div>
+          )}
+
+          {/* Exact Formula View */}
+          {activeTab === 'exact' && (
+            <div style={{
+              padding: '1rem',
+              backgroundColor: '#fafafa',
+              border: '1px solid #e8e8e8',
+              borderRadius: '4px',
+              fontSize: '0.875rem',
+              lineHeight: '1.8',
+              fontFamily: 'monospace',
+              whiteSpace: 'pre-wrap',
+              wordBreak: 'break-word',
+              overflowWrap: 'break-word'
+            }}>
+              {formulaData.exactFormula.map((item, idx) => (
+                <div key={idx} style={{
+                  marginBottom: idx < formulaData.exactFormula.length - 1 ? '0.75rem' : '0',
+                  color: '#666'
+                }}>
+                  <span style={{ 
+                    color: item.applied ? '#28a745' : '#999',
+                    marginRight: '0.5rem',
+                    fontSize: '0.9rem'
+                  }}>
+                    {item.applied ? '✓' : 'ø'}
+                  </span>
+                  <span style={{ fontWeight: '500' }}>{item.step}:</span> {item.formula} = {item.result}
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
+      </details>
+    );
+  };
+
+  // Helper function to format formula display
+  const formatFormulaDisplay = (formulaDetails, academicScore, percentageRange, uncertaintyExplanation) => {
+    if (!formulaDetails) return null;
+
+    const formatNum = (num, decimals = 2) => {
+      return Number(num.toFixed(decimals));
+    };
+
+    const {
+      finalScore,
+      target,
+      scale,
+      adjustedScale,
+      capMaxProb,
+      baseProb,
+      linearBonus,
+      rawProbability,
+      afterDampening,
+      afterGateMultiplier,
+      cappedProbability,
+      dampeningApplied,
+      gateMultiplierApplied,
+      gateMultiplierValue
+    } = formulaDetails;
+
+    const beforeCap = gateMultiplierApplied ? afterGateMultiplier : (dampeningApplied ? afterDampening : rawProbability);
+    const capApplied = cappedProbability < beforeCap;
+
+    // Build Summary View
+    const summary = {
+      baseCalculation: `Base Calculation: ${formatNum(rawProbability, 2)}% (before adjustments)`,
+      adjustments: [],
+      finalConstraints: capApplied 
+        ? `Final Constraints: min(${formatNum(beforeCap, 2)}%, ${formatNum(capMaxProb, 1)}%) = ${formatNum(cappedProbability, 2)}%`
+        : `Final Constraints: No cap applied (${formatNum(cappedProbability, 2)}% < ${formatNum(capMaxProb, 1)}%)`,
+      confidence: percentageRange
+        ? `Confidence: CI: ${percentageRange.low}% - ${percentageRange.high}% (${extractPrimaryUncertainty(uncertaintyExplanation)})`
+        : `Confidence: ${extractPrimaryUncertainty(uncertaintyExplanation)}`
+    };
+
+    // Add adjustments (only if applied)
+    if (dampeningApplied) {
+      summary.adjustments.push({
+        name: "High-End Dampening",
+        from: formatNum(rawProbability, 2),
+        to: formatNum(afterDampening, 2),
+        applied: true
+      });
+    }
+
+    if (gateMultiplierApplied) {
+      const fromValue = dampeningApplied ? afterDampening : rawProbability;
+      summary.adjustments.push({
+        name: "Gate Multiplier",
+        from: formatNum(fromValue, 2),
+        to: formatNum(afterGateMultiplier, 2),
+        applied: true
+      });
+    }
+
+    // Build Steps View (compact numeric results)
+    const steps = [
+      {
+        step: "Step 1 (Sigmoid Base)",
+        result: `${formatNum(baseProb, 2)}%`,
+        applied: true
+      },
+      {
+        step: "Step 2 (Linear Bonus)",
+        result: linearBonus > 0 ? `+${formatNum(linearBonus, 2)}%` : `+0% (not applied)`,
+        applied: linearBonus > 0
+      },
+      {
+        step: "Step 3 (Raw Probability)",
+        result: `${formatNum(rawProbability, 2)}%`,
+        applied: true
+      },
+      {
+        step: "Step 4 (High-End Dampening)",
+        result: `${formatNum(dampeningApplied ? afterDampening : rawProbability, 2)}%`,
+        applied: dampeningApplied
+      },
+      {
+        step: "Step 5 (Gate Multiplier)",
+        result: `${formatNum(gateMultiplierApplied ? afterGateMultiplier : (dampeningApplied ? afterDampening : rawProbability), 2)}%`,
+        applied: gateMultiplierApplied
+      },
+      {
+        step: "Step 6 (Final Cap)",
+        result: `${formatNum(cappedProbability, 2)}%`,
+        applied: true
+      }
+    ];
+
+    // Build Exact Formula View (single-line substituted equations, no intermediate exp() steps)
+    const exactFormula = [
+      {
+        step: "Step 1",
+        formula: `baseProb = 1 / (1 + exp(-(${formatNum(finalScore, 2)} - ${formatNum(target, 1)}) / ${formatNum(adjustedScale, 2)})) × 100`,
+        result: `${formatNum(baseProb, 2)}%`,
+        applied: true
+      },
+      {
+        step: "Step 2",
+        formula: `linearBonus = (${formatNum(finalScore, 2)} - ${formatNum(target, 1)}) × 0.5`,
+        result: linearBonus > 0 ? `${formatNum(linearBonus, 2)}%` : `0% (not applied)`,
+        applied: linearBonus > 0
+      },
+      {
+        step: "Step 3",
+        formula: `rawProb = ${formatNum(baseProb, 2)}% + ${formatNum(linearBonus, 2)}%`,
+        result: `${formatNum(rawProbability, 2)}%`,
+        applied: true
+      },
+      {
+        step: "Step 4",
+        formula: `afterDampening = ${formatNum(rawProbability, 2)}% × 0.85`,
+        result: dampeningApplied ? `${formatNum(afterDampening, 2)}%` : `Not applied (academicScore ${formatNum(academicScore, 2)} >= 93)`,
+        applied: dampeningApplied
+      },
+      {
+        step: "Step 5",
+        formula: `afterGateMultiplier = ${formatNum(dampeningApplied ? afterDampening : rawProbability, 2)}% × ${formatNum(gateMultiplierValue, 3)}`,
+        result: gateMultiplierApplied ? `${formatNum(afterGateMultiplier, 2)}%` : `Not applied (Multiplier = 1.0)`,
+        applied: gateMultiplierApplied
+      },
+      {
+        step: "Step 6",
+        formula: `cappedProbability = min(${formatNum(beforeCap, 2)}%, ${formatNum(capMaxProb, 1)}%)`,
+        result: `${formatNum(cappedProbability, 2)}%`,
+        applied: true
+      }
+    ];
+
+    return {
+      summary,
+      steps,
+      exactFormula
+    };
+  };
+
   return (
     <div className="applyinfo-page">
       <Navigation />
@@ -1745,6 +2101,20 @@ const ApplyInfoPage = () => {
                       </p>
                     )}
                   </div>
+                  
+                  {/* Show Exact Formula Section */}
+                  {realTimeResult.formulaDetails && (() => {
+                    const formulaData = formatFormulaDisplay(
+                      realTimeResult.formulaDetails,
+                      realTimeResult.academicScore,
+                      realTimeResult.percentageRange,
+                      realTimeResult.uncertaintyExplanation
+                    );
+                    
+                    if (!formulaData) return null;
+                    
+                    return <FormulaDisplay formulaData={formulaData} />;
+                  })()}
                   
                   <div className="result-details">
                     <div className="detail-item">
