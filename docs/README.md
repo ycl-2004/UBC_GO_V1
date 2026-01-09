@@ -17,24 +17,12 @@ This folder contains additional project documentation and planning materials for
 
 | File | Purpose |
 |------|---------|
-| `CALCULATOR_OPERATION.md` | **Primary technical reference** — Complete operational details of the 4-layer admission probability calculator (v4.1) |
+| `CALCULATOR_OPERATION.md` | **Primary technical reference** — Complete operational details of the 4-layer admission probability calculator (v4.3) |
 | `PROFILE_V2_EXAMPLES.md` | Supplementary calculation examples for activities-based profile scoring |
 
-### Historical Task Documentation (Archived)
+### Historical Task Documentation
 
-The following files document the evolution of the calculator implementation. They are preserved for historical reference but are **superseded by CALCULATOR_OPERATION.md**:
-
-| File | Task Summary |
-|------|-------------|
-| `TASK1_PROFILE_V2_SUMMARY.md` | Profile V2 implementation (activities-based scoring) |
-| `TASK1.5_UI_IMPLEMENTATION.md` | Activities UI component implementation |
-| `UI_CLEANUP_LEGACY_SLIDERS.md` | Removal of legacy 1-5 sliders from UI |
-| `TASK2_GATE_REFACTOR.md` | Gate logic refactor (caps + multipliers instead of score penalties) |
-| `TASK2.1_WORDING_ALIGNMENT.md` | In-progress cap wording clarification |
-| `TASK3_AP_INSURANCE_STRICT.md` | Strict AP insurance implementation (subject-specific) |
-| `TASK4_UNCERTAINTY_CI.md` | Uncertainty-driven confidence interval implementation |
-
-**Note**: All operational rules are now consolidated in `CALCULATOR_OPERATION.md`. The archived task files contain summaries and historical context only.
+All historical task documentation has been consolidated into `CALCULATOR_OPERATION.md` (v4.3, January 2025). Previous task files (TASK1, TASK2, TASK3, TASK4, etc.) have been removed as their content is now fully integrated into the primary technical reference.
 
 ## 📁 Structure
 
@@ -43,10 +31,8 @@ docs/
 ├── planning/                    # Planning documents and goals
 │   ├── goal_tmr.txt            # Tomorrow's goals
 │   └── Goal.txt                # Overall project goals
-├── CALCULATOR_OPERATION.md     # ⭐ Primary technical reference (v4.1)
+├── CALCULATOR_OPERATION.md     # ⭐ Primary technical reference (v4.3)
 ├── PROFILE_V2_EXAMPLES.md     # Supplementary examples
-├── TASK*.md                     # Archived task documentation (historical)
-├── UI_CLEANUP_*.md              # Archived UI cleanup docs (historical)
 └── README.md                    # This file
 ```
 
@@ -145,9 +131,8 @@ UBC_GO_V1/
 5. Use **FEATURES.md** to quickly find features
 
 #### For Calculator Implementation
-- **Primary Reference**: `CALCULATOR_OPERATION.md` — Contains all operational rules, formulas, and implementation details
+- **Primary Reference**: `CALCULATOR_OPERATION.md` — Contains all operational rules, formulas, and implementation details (v4.3, January 2025)
 - **Examples**: `PROFILE_V2_EXAMPLES.md` — Detailed calculation examples
-- **Historical Context**: `TASK*.md` files — Document evolution of features (archived)
 
 #### For Project Maintainers
 1. When updating calculator logic, update **CALCULATOR_OPERATION.md** as the single source of truth
