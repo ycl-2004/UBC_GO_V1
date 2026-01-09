@@ -6,8 +6,8 @@
  * 
  * Scoring Components (per activity, max 20 points):
  * - Category base (EC/Work/Volunteer/Award/Research)
- * - Years of involvement (0-4)
- * - Hours per week (0-30, diminishing returns after 12)
+ * - Years of involvement (0-5+)
+ * - Hours per week (0-15, linear scale)
  * - Role depth (member/executive/founder)
  * - Relevance (high/medium/low)
  * - Impact evidence bonus (optional)
@@ -52,7 +52,7 @@ export function calculateProfileScoreV2(activities = [], legacyRatings = null) {
     });
   });
 
-  // Cap at 100 (even if 8 activities × 20 = 160 theoretical max)
+  // Cap at 100 (even if 5 activities × 20 = 100 theoretical max)
   totalScore = Math.min(100, totalScore);
 
   // Apply legacy adjustment if provided (±3 points)
@@ -84,52 +84,70 @@ function scoreActivity(activity) {
   let points = 0;
   const breakdown = {};
 
-  // 1. Category Base Points (0-4 points)
+  // 1. Category Base Points (Fixed Points)
   const categoryBase = {
-    'EC': 2,           // Extracurricular
-    'Work': 3,         // Work experience (more valuable)
-    'Volunteer': 2,    // Volunteer work
-    'Award': 4,        // Awards/achievements (high value)
-    'Research': 4      // Research experience (high value)
+    'Work': 4.0,       // Work experience
+    'Award': 4.0,      // Awards/achievements
+    'Research': 3.5,   // Research experience
+    'EC': 3.5,         // Extracurricular
+    'Volunteer': 3.0   // Volunteer work
   };
   const basePoints = categoryBase[activity.category] || 1;
   points += basePoints;
   breakdown.categoryBase = basePoints;
 
-  // 2. Years of Involvement (0-5 points)
-  // More years = more commitment and depth
-  const yearsPoints = Math.min(5, activity.years || 0);
+  // 2. Years of Involvement (Lookup Table: 3.0 to 5.0 points)
+  // Use lookup table/switch statement, NOT a formula
+  const years = activity.years || 0;
+  let yearsPoints;
+  if (years >= 4) {
+    yearsPoints = 5.0; // 4+ years = 5.0 points
+  } else {
+    const yearsInt = Math.floor(years);
+    switch (yearsInt) {
+      case 0:
+        yearsPoints = 3.0;
+        break;
+      case 1:
+        yearsPoints = 3.5;
+        break;
+      case 2:
+        yearsPoints = 4.0;
+        break;
+      case 3:
+        yearsPoints = 4.5;
+        break;
+      default:
+        yearsPoints = 5.0;
+        break;
+    }
+  }
   points += yearsPoints;
   breakdown.years = yearsPoints;
 
-  // 3. Hours Per Week (0-6 points, diminishing returns after 12 hours)
-  // Formula: min(6, hours/2) for hours ≤ 12, then 6 + (hours-12)/6 for hours > 12
-  const hours = Math.min(30, Math.max(0, activity.hoursPerWeek || 0));
-  let hoursPoints;
-  if (hours <= 12) {
-    hoursPoints = hours / 2; // Linear up to 12 hours (max 6 points)
-  } else {
-    hoursPoints = 6 + (hours - 12) / 6; // Diminishing returns after 12
-    hoursPoints = Math.min(6, hoursPoints); // Cap at 6 points
-  }
+  // 3. Hours Per Week (Linear scale, capped at 15 hours)
+  // Formula: Math.min(hours, 15) * 0.4
+  // Verification: 15 hours × 0.4 = 6.0 points (max)
+  const hours = Math.max(0, activity.hoursPerWeek || 0);
+  const hoursPoints = Math.min(hours, 15) * 0.4;
   points += hoursPoints;
   breakdown.hours = Math.round(hoursPoints * 100) / 100;
 
-  // 4. Role Depth (0-3 points)
+  // 4. Role Depth (1.5 to 3.0 points)
   const rolePoints = {
-    'member': 0,
-    'executive': 2,
-    'founder': 3
+    'member': 1.5,
+    'executive': 2.0,
+    'founder': 3.0
   };
   const roleScore = rolePoints[activity.role] || 0;
   points += roleScore;
   breakdown.role = roleScore;
 
-  // 5. Relevance (0-2 points)
+  // 5. Relevance (1.0 to 2.0 points)
   const relevancePoints = {
-    'high': 2,
-    'medium': 1,
-    'low': 0
+    'low': 1.0,
+    'medium': 1.5,
+    'high': 2.0
   };
   const relevanceScore = relevancePoints[activity.relevance] || 0;
   points += relevanceScore;
@@ -231,12 +249,12 @@ export function validateActivity(activity) {
     errors.push('Invalid category. Must be: EC, Work, Volunteer, Award, or Research');
   }
   
-  if (typeof activity.years !== 'number' || activity.years < 0 || activity.years > 4) {
-    errors.push('Years must be a number between 0 and 4');
+  if (typeof activity.years !== 'number' || activity.years < 0) {
+    errors.push('Years must be a number >= 0 (5+ years are accepted)');
   }
   
-  if (typeof activity.hoursPerWeek !== 'number' || activity.hoursPerWeek < 0 || activity.hoursPerWeek > 30) {
-    errors.push('Hours per week must be a number between 0 and 30');
+  if (typeof activity.hoursPerWeek !== 'number' || activity.hoursPerWeek < 0 || activity.hoursPerWeek > 15) {
+    errors.push('Hours per week must be a number between 0 and 15');
   }
   
   if (!activity.role || !['member', 'executive', 'founder'].includes(activity.role)) {

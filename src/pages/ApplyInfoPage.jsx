@@ -108,7 +108,7 @@ const ApplyInfoPage = () => {
     // AP Exams: Structured array with name and score (only score=5 provides insurance)
     apExams: [], // Array of { name: string, score: number }, e.g., [{ name: 'AP Calculus BC', score: 5 }]
     
-    // New: Profile V2 - Structured activities (up to 8)
+    // New: Profile V2 - Structured activities (up to 5)
     activities: [], // Array of activity objects: { category, years, hoursPerWeek, role, relevance, impactEvidence }
     
     // Course completion tracking with status

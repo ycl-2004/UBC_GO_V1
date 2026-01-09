@@ -3,7 +3,7 @@ import { calculateProfileScoreV2, validateActivity, createEmptyActivity } from '
 import './ProfileActivitiesForm.css';
 
 const ProfileActivitiesForm = ({ activities, onChange, legacyRatings, gradeTrend }) => {
-  const maxActivities = 8;
+  const maxActivities = 5;
 
   const handleAddActivity = () => {
     if (activities.length < maxActivities) {
@@ -36,7 +36,7 @@ const ProfileActivitiesForm = ({ activities, onChange, legacyRatings, gradeTrend
       </div>
 
       <p className="activities-description">
-        Add up to 8 structured activities for evidence-based scoring. Each activity is scored individually (max 20 points).
+        Add up to 5 structured activities for evidence-based scoring. Each activity is scored individually (max 20 points).
       </p>
 
       {previewScore && activities.length > 0 && (
@@ -81,22 +81,22 @@ const ProfileActivitiesForm = ({ activities, onChange, legacyRatings, gradeTrend
                 </div>
 
                 <div className="activity-field">
-                  <label>Years (0-4) *</label>
+                  <label>Years (0-5+) *</label>
                   <input
                     type="number"
                     min="0"
-                    max="4"
+                    max="5"
                     value={activity.years || 0}
                     onChange={(e) => handleActivityChange(index, 'years', e.target.value)}
                   />
                 </div>
 
                 <div className="activity-field">
-                  <label>Hours/Week (0-30) *</label>
+                  <label>Hours/Week (0-15) *</label>
                   <input
                     type="number"
                     min="0"
-                    max="30"
+                    max="15"
                     step="0.5"
                     value={activity.hoursPerWeek || 0}
                     onChange={(e) => handleActivityChange(index, 'hoursPerWeek', e.target.value)}
@@ -152,22 +152,54 @@ const ProfileActivitiesForm = ({ activities, onChange, legacyRatings, gradeTrend
                   <span className="score-label">Activity Score:</span>
                   <span className="score-value">
                     {(() => {
-                      const categoryBase = { 'EC': 2, 'Work': 3, 'Volunteer': 2, 'Award': 4, 'Research': 4 };
-                      const rolePoints = { 'member': 0, 'executive': 2, 'founder': 3 };
-                      const relevancePoints = { 'high': 2, 'medium': 1, 'low': 0 };
+                      // Exact same logic as scoreActivity in profileScoringV2.js
+                      // 1. Category Base (Fixed Points)
+                      const categoryBase = { 'Work': 4.0, 'Award': 4.0, 'Research': 3.5, 'EC': 3.5, 'Volunteer': 3.0 };
+                      const basePoints = categoryBase[activity.category] || 1;
                       
-                      const hours = Math.min(30, Math.max(0, activity.hoursPerWeek || 0));
-                      let hoursPoints = hours <= 12 ? hours / 2 : 6 + (hours - 12) / 6;
-                      hoursPoints = Math.min(6, hoursPoints);
+                      // 2. Years of Involvement (Lookup Table)
+                      const years = activity.years || 0;
+                      let yearsPoints;
+                      if (years >= 4) {
+                        yearsPoints = 5.0; // 4+ years = 5.0 points
+                      } else {
+                        const yearsInt = Math.floor(years);
+                        switch (yearsInt) {
+                          case 0:
+                            yearsPoints = 3.0;
+                            break;
+                          case 1:
+                            yearsPoints = 3.5;
+                            break;
+                          case 2:
+                            yearsPoints = 4.0;
+                            break;
+                          case 3:
+                            yearsPoints = 4.5;
+                            break;
+                          default:
+                            yearsPoints = 5.0;
+                            break;
+                        }
+                      }
                       
-                      const points = Math.min(20,
-                        (categoryBase[activity.category] || 1) +
-                        Math.min(5, activity.years || 0) +
-                        hoursPoints +
-                        (rolePoints[activity.role] || 0) +
-                        (relevancePoints[activity.relevance] || 0) +
-                        (activity.impactEvidence ? 2 : 0)
-                      );
+                      // 3. Hours Per Week (Linear scale, capped at 15)
+                      const hours = Math.max(0, activity.hoursPerWeek || 0);
+                      const hoursPoints = Math.min(hours, 15) * 0.4;
+                      
+                      // 4. Role Depth
+                      const rolePoints = { 'member': 1.5, 'executive': 2.0, 'founder': 3.0 };
+                      const roleScore = rolePoints[activity.role] || 0;
+                      
+                      // 5. Relevance
+                      const relevancePoints = { 'low': 1.0, 'medium': 1.5, 'high': 2.0 };
+                      const relevanceScore = relevancePoints[activity.relevance] || 0;
+                      
+                      // 6. Impact Evidence
+                      const impactScore = activity.impactEvidence ? 2 : 0;
+                      
+                      // Calculate total and cap at 20
+                      const points = Math.min(20, basePoints + yearsPoints + hoursPoints + roleScore + relevanceScore + impactScore);
                       return points.toFixed(1);
                     })()}/20
                   </span>

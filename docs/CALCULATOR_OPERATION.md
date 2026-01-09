@@ -1,7 +1,7 @@
 # UBC Admission Calculator - Complete Operation Details
 
 **Last Updated**: January 2025  
-**Version**: 4.2  
+**Version**: 4.3  
 **Status**: Production
 
 ---
@@ -178,32 +178,39 @@ academicScore = min(100.5, max(0, GPA + rigorBonus + coreBoost + apRigorBonus))
 
 **Primary Method: Activities-Based Scoring**
 
-The calculator uses evidence-based activity scoring as the primary method. Users add structured activities (up to 8), and each activity is scored individually (max 20 points per activity).
+The calculator uses evidence-based activity scoring as the primary method. Users add structured activities (up to 5), and each activity is scored individually (max 20 points per activity).
 
 **Activity Scoring Components** (per activity, max 20 points):
-1. **Category Base** (0-4 points)
-   - EC: 2 points
-   - Work: 3 points
-   - Volunteer: 2 points
-   - Award: 4 points
-   - Research: 4 points
+1. **Category Base** (Fixed Points, 3.0-4.0)
+   - Work: 4.0 points
+   - Award: 4.0 points
+   - Research: 3.5 points
+   - EC: 3.5 points
+   - Volunteer: 3.0 points
 
-2. **Years of Involvement** (0-5 points)
-   - Linear: 0-4 years = 0-5 points
+2. **Years of Involvement** (Lookup Table, 3.0-5.0 points)
+   - 0 years: 3.0 points
+   - 1 year: 3.5 points
+   - 2 years: 4.0 points
+   - 3 years: 4.5 points
+   - 4+ years: 5.0 points
+   - **Implementation**: Uses lookup table/switch statement (NOT a formula)
 
-3. **Hours Per Week** (0-6 points, diminishing returns after 12)
-   - ≤12 hours: `hours / 2` (max 6 points)
-   - >12 hours: `6 + (hours-12)/6` (capped at 6 points)
+3. **Hours Per Week** (Linear Scale, 0-6 points, capped at 15 hours)
+   - Formula: `Math.min(hours, 15) * 0.4`
+   - 0 hours = 0 points
+   - 15 hours = 6.0 points (max)
+   - Verification: 15 hours × 0.4 = 6.0 points
 
-4. **Role Depth** (0-3 points)
-   - member: 0 points
-   - executive: 2 points
-   - founder: 3 points
+4. **Role Depth** (1.5-3.0 points)
+   - member: 1.5 points
+   - executive: 2.0 points
+   - founder: 3.0 points
 
-5. **Relevance** (0-2 points)
-   - high: 2 points
-   - medium: 1 point
-   - low: 0 points
+5. **Relevance** (1.0-2.0 points)
+   - low: 1.0 point
+   - medium: 1.5 points
+   - high: 2.0 points
 
 6. **Impact Evidence** (0-2 points, optional)
    - If `impactEvidence === true`: +2 points
@@ -213,6 +220,7 @@ The calculator uses evidence-based activity scoring as the primary method. Users
 **Calculation**:
 ```javascript
 // Sum all activity scores (capped at 100)
+// Note: With 5 activities × 20 points max = 100 theoretical max
 baseProfileScore = min(100, Σ scoreActivity(activity))
 
 // Legacy adjustment (±3 points from old 1-5 ratings)
@@ -642,7 +650,7 @@ Priority order:
 |-----------|------|-------|-------------|
 | `gpa` | number | 0-100 | Grade point average |
 | `courseDifficulty` | string | regular/ap/ib | Course rigor level |
-| `activities` | array | 0-8 items | Structured activity objects (primary profile method) |
+| `activities` | array | 0-5 items | Structured activity objects (primary profile method) |
 | `extracurriculars` | number | 1-5 | Legacy rating (used as ±3 adjustment, UI removed) |
 | `leadership` | number | 1-5 | Legacy rating (used as ±3 adjustment, UI removed) |
 | `volunteering` | number | 1-5 | Legacy rating (used as ±3 adjustment, UI removed) |
@@ -657,8 +665,8 @@ Priority order:
 ```javascript
 {
   category: 'EC' | 'Work' | 'Volunteer' | 'Award' | 'Research',
-  years: 0-4,
-  hoursPerWeek: 0-30,
+  years: 0-5+ (4+ years = 5.0 points, scoring plateaus after year 4),
+  hoursPerWeek: 0-15 (capped at 15 hours for max 6.0 points),
   role: 'member' | 'executive' | 'founder',
   relevance: 'high' | 'medium' | 'low',
   impactEvidence: boolean
@@ -813,9 +821,51 @@ finalScore = (academicScore × academicWeight) +
 ### Profile Score (Activities-Based)
 ```
 // Per activity (max 20 points)
-activityScore = categoryBase + yearsPoints + hoursPoints + rolePoints + relevancePoints + impactPoints
+// Category Base (Fixed Points)
+categoryBase = {
+  'Work': 4.0,
+  'Award': 4.0,
+  'Research': 3.5,
+  'EC': 3.5,
+  'Volunteer': 3.0
+}
 
-// Total
+// Years of Involvement (Lookup Table, NOT formula)
+if (years >= 4):
+  yearsPoints = 5.0
+else:
+  yearsPoints = {
+    0: 3.0,
+    1: 3.5,
+    2: 4.0,
+    3: 4.5
+  }[Math.floor(years)]
+
+// Hours Per Week (Linear, capped at 15)
+hoursPoints = Math.min(hours, 15) * 0.4
+// Verification: 15 hours × 0.4 = 6.0 points (max)
+
+// Role Depth
+rolePoints = {
+  'member': 1.5,
+  'executive': 2.0,
+  'founder': 3.0
+}
+
+// Relevance
+relevancePoints = {
+  'low': 1.0,
+  'medium': 1.5,
+  'high': 2.0
+}
+
+// Impact Evidence
+impactPoints = impactEvidence ? 2.0 : 0.0
+
+// Per activity total (capped at 20)
+activityScore = min(20, categoryBase + yearsPoints + hoursPoints + rolePoints + relevancePoints + impactPoints)
+
+// Total (5 activities × 20 = 100 theoretical max)
 baseProfileScore = min(100, Σ activityScore)
 
 // Legacy adjustment (±3 points)
@@ -977,6 +1027,17 @@ For more detailed examples, see `PROFILE_V2_EXAMPLES.md`.
 
 ### Change Log
 
+**Version 4.3** (January 2025):
+- Activity Scoring Refactor: Updated activity scoring system with revised point values
+  - Activity limit: Reduced from 8 to 5 activities
+  - Category Base: Updated values (Work/Award=4.0, Research/EC=3.5, Volunteer=3.0)
+  - Involvement: Changed from linear scale to lookup table (0yr=3.0, 1yr=3.5, 2yr=4.0, 3yr=4.5, 4+yr=5.0)
+  - Hours Per Week: Changed from diminishing returns (0-30hrs) to linear scale (0-15hrs, formula: Math.min(hours, 15) * 0.4)
+  - Role Depth: Updated floors (member=1.5, executive=2.0, founder=3.0)
+  - Relevance: Updated floors (low=1.0, medium=1.5, high=2.0)
+  - UI: Updated input limits and labels to reflect new constraints (years: 0-5+, hours: 0-15)
+  - UI Preview: Synchronized preview calculation with backend logic for consistency
+
 **Version 4.2** (January 2025):
 - Spec: Academic Risk Escalation replaces Academic Primacy (Plan A: cap profile at 35%)
   - academicRisk triggers: core deficit > 0, in-progress courses, or academicScore < 85
@@ -1004,7 +1065,7 @@ For more detailed examples, see `PROFILE_V2_EXAMPLES.md`.
 - UI Cleanup: Removed legacy 1-5 sliders from UI (kept internal logic for backward compatibility)
 
 **Version 1.0** (January 2025):
-- Task 1: Implemented Profile V2 (activities-based scoring, up to 8 activities, max 20 points each)
+- Task 1: Implemented Profile V2 (activities-based scoring, up to 5 activities, max 20 points each)
 
 ---
 
@@ -1025,12 +1086,12 @@ For more detailed examples, see `PROFILE_V2_EXAMPLES.md`.
 - The model is designed to be conservative (caps at 90%)
 - Gate failures significantly reduce displayed probability (capped at 40%)
 - **Uncertainty-Driven CI**: Confidence interval width reflects data completeness (6-14 range)
-- **Activities-Based Profile**: Primary scoring method uses structured activities (up to 8)
+- **Activities-Based Profile**: Primary scoring method uses structured activities (up to 5, max 20 points each)
 - **Backward Compatibility**: Legacy 1-5 ratings still work internally as ±3 adjustment and fallback
 - **Special Case**: Sauder (Commerce) maintains custom gpaWeight: 0.55 due to high Personal Profile importance
 
 ---
 
 **Last Updated**: January 2025  
-**Version**: 4.2  
+**Version**: 4.3  
 **Status**: Production
