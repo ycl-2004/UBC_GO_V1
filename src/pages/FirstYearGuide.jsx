@@ -2,6 +2,7 @@ import React, { useState, useMemo } from 'react'
 import Navigation from '../components/Navigation'
 import { standardFirstYearCourses, getAllMajors, getMajorByCode } from '../data/firstYearRequirements'
 import { getAllScienceMajors, getScienceMajorYearCourses } from '../data/scienceCurriculum'
+import { getAllArtsMajors, getBAMajorsByCategory, baMajorsByCategory } from '../data/artsData'
 import './FirstYearGuide.css'
 
 // CollapsibleSection Component
@@ -48,6 +49,14 @@ const FirstYearGuide = () => {
   const [scienceMajorSearch, setScienceMajorSearch] = useState('')
   const [showCommRequirementTooltip, setShowCommRequirementTooltip] = useState(null)
   const [isMajorSelectorExpanded, setIsMajorSelectorExpanded] = useState(true)
+  
+  // Arts faculty state
+  const [selectedArtsCategory, setSelectedArtsCategory] = useState(null) // null | 'BA' | 'BFA'
+  const [selectedBACategory, setSelectedBACategory] = useState(null) // null | 'Social Sciences' | 'Humanities' | etc.
+  const [selectedArtsMajor, setSelectedArtsMajor] = useState(null)
+  const [artsMajorSearch, setArtsMajorSearch] = useState('')
+  const [isArtsCategorySelectorExpanded, setIsArtsCategorySelectorExpanded] = useState(true)
+  const [isArtsMajorSelectorExpanded, setIsArtsMajorSelectorExpanded] = useState(false)
   
   const scienceMajors = getAllScienceMajors()
   
@@ -102,7 +111,7 @@ const FirstYearGuide = () => {
   const faculties = [
     { id: 'Applied Science', name: 'Applied Science', icon: '🔧', available: true },
     { id: 'Science', name: 'Science', icon: '🔬', available: true },
-    { id: 'Arts', name: 'Arts', icon: 'palette', available: false },
+    { id: 'Arts', name: 'Arts', icon: 'palette', available: true },
     { id: 'Commerce', name: 'Commerce', icon: '💼', available: false },
   ]
 
@@ -112,6 +121,13 @@ const FirstYearGuide = () => {
     setScienceMajorSearch('')
     setSelectedYearTab(1)
     setIsMajorSelectorExpanded(true) // Reset to expanded when going back
+    // Reset Arts state
+    setSelectedArtsCategory(null)
+    setSelectedBACategory(null)
+    setSelectedArtsMajor(null)
+    setArtsMajorSearch('')
+    setIsArtsCategorySelectorExpanded(true)
+    setIsArtsMajorSelectorExpanded(false)
   }
   
   const handleScienceMajorSelect = (majorName) => {
@@ -124,6 +140,68 @@ const FirstYearGuide = () => {
   const handleChangeMajor = () => {
     setIsMajorSelectorExpanded(true) // Expand the grid to allow changing major
   }
+  
+  // Arts faculty handlers
+  const handleArtsCategorySelect = (category) => {
+    setSelectedArtsCategory(category)
+    setSelectedBACategory(null) // Reset BA category tab
+    setSelectedArtsMajor(null) // Reset major selection
+    setArtsMajorSearch('') // Reset search
+    setIsArtsCategorySelectorExpanded(false) // Hide category selector
+    setIsArtsMajorSelectorExpanded(true) // Show major selector
+  }
+  
+  const handleBACategoryTabSelect = (categoryName) => {
+    setSelectedBACategory(categoryName)
+    setSelectedArtsMajor(null) // Reset major selection
+    setArtsMajorSearch('') // Reset search
+  }
+  
+  const handleArtsMajorSelect = (majorName) => {
+    setSelectedArtsMajor(majorName)
+    setArtsMajorSearch('') // Reset search
+    setIsArtsMajorSelectorExpanded(false) // Collapse the grid when a major is selected
+  }
+  
+  const handleChangeArtsCategory = () => {
+    setSelectedArtsCategory(null) // Reset category
+    setSelectedBACategory(null) // Reset BA category tab
+    setSelectedArtsMajor(null) // Reset major
+    setArtsMajorSearch('') // Reset search
+    setIsArtsCategorySelectorExpanded(true) // Show category selector
+    setIsArtsMajorSelectorExpanded(false) // Hide major selector
+  }
+  
+  // Get Arts majors based on category and BA subcategory
+  const artsMajors = useMemo(() => {
+    if (!selectedArtsCategory) return []
+    
+    if (selectedArtsCategory === 'BA') {
+      // If BA category tab is selected, show majors from that category
+      if (selectedBACategory && baMajorsByCategory[selectedBACategory]) {
+        return baMajorsByCategory[selectedBACategory]
+      }
+      // If no BA category tab selected, return empty (user needs to pick a tab)
+      return []
+    } else if (selectedArtsCategory === 'BFA') {
+      return getAllArtsMajors('BFA')
+    }
+    return []
+  }, [selectedArtsCategory, selectedBACategory])
+  
+  // Filter Arts majors based on search
+  const filteredArtsMajors = useMemo(() => {
+    if (!artsMajorSearch.trim()) {
+      return artsMajors
+    }
+    const searchLower = artsMajorSearch.toLowerCase()
+    return artsMajors.filter(major => 
+      major.toLowerCase().includes(searchLower)
+    )
+  }, [artsMajors, artsMajorSearch])
+  
+  // Get BA category names for tabs
+  const baCategoryNames = Object.keys(baMajorsByCategory)
 
   return (
     <div className="first-year-guide-page">
@@ -486,6 +564,163 @@ const FirstYearGuide = () => {
                 </div>
               </section>
             )}
+          </>
+        )}
+
+        {/* Arts Faculty View */}
+        {selectedFaculty === 'Arts' && (
+          <>
+            <button className="back-to-faculties-btn" onClick={handleBackToFaculties}>
+              ← Back to Faculties
+            </button>
+
+            {/* Category Selection View */}
+            {!selectedArtsCategory && isArtsCategorySelectorExpanded && (
+              <section className="arts-category-selection-section">
+                <h2>Choose Your Degree Category</h2>
+                <p className="section-description">
+                  Select a degree category to view available majors.
+                </p>
+                <div className="arts-category-cards-grid">
+                  <div
+                    className="arts-category-card"
+                    onClick={() => handleArtsCategorySelect('BA')}
+                  >
+                    <div className="arts-category-icon">📚</div>
+                    <h3 className="arts-category-name">Bachelor of Arts (BA)</h3>
+                    <p className="arts-category-description">
+                      Explore a wide range of majors in social sciences, humanities, languages, and interdisciplinary studies.
+                    </p>
+                  </div>
+                  <div
+                    className="arts-category-card"
+                    onClick={() => handleArtsCategorySelect('BFA')}
+                  >
+                    <div className="arts-category-icon">🎨</div>
+                    <h3 className="arts-category-name">Bachelor of Fine Arts (BFA)</h3>
+                    <p className="arts-category-description">
+                      Focus on creative and performing arts with specialized programs in acting, film, theatre, and visual arts.
+                    </p>
+                  </div>
+                </div>
+              </section>
+            )}
+
+            {/* Major Selector */}
+            {selectedArtsCategory && (
+              <section className={`arts-major-selector-section ${!isArtsMajorSelectorExpanded ? 'collapsed' : ''}`}>
+                <div className="arts-major-header">
+                  <div className="arts-major-header-content">
+                    <h2>
+                      {selectedArtsMajor ? `Selected: ${selectedArtsMajor}` : `Select Your ${selectedArtsCategory === 'BA' ? 'BA' : 'BFA'} Major`}
+                    </h2>
+                    <div className="arts-major-header-buttons">
+                      {selectedArtsMajor && (
+                        <button 
+                          className="change-major-button"
+                          onClick={() => setIsArtsMajorSelectorExpanded(true)}
+                        >
+                          Change Major
+                        </button>
+                      )}
+                      <button 
+                        className="change-category-button"
+                        onClick={handleChangeArtsCategory}
+                      >
+                        Change Category
+                      </button>
+                      <button 
+                        className="toggle-selector-button"
+                        onClick={() => setIsArtsMajorSelectorExpanded(!isArtsMajorSelectorExpanded)}
+                      >
+                        {isArtsMajorSelectorExpanded ? 'Hide' : 'Show'}
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                <div className={`arts-major-selector-content ${isArtsMajorSelectorExpanded ? 'expanded' : 'collapsed'}`}>
+                  <p className="section-description">
+                    {selectedArtsCategory === 'BA' 
+                      ? 'Select a category below to view available majors, then choose a specialization.'
+                      : 'Choose a specialization to view the curriculum requirements.'}
+                  </p>
+                  
+                  {/* BA Category Tabs */}
+                  {selectedArtsCategory === 'BA' && (
+                    <div className="arts-ba-category-tabs">
+                      {baCategoryNames.map((categoryName) => (
+                        <button
+                          key={categoryName}
+                          className={`arts-ba-category-tab ${selectedBACategory === categoryName ? 'active' : ''}`}
+                          onClick={() => handleBACategoryTabSelect(categoryName)}
+                        >
+                          {categoryName}
+                          <span className="category-count">
+                            ({baMajorsByCategory[categoryName]?.length || 0})
+                          </span>
+                        </button>
+                      ))}
+                    </div>
+                  )}
+                  
+                  {/* Show majors only if BA category tab is selected (for BA) or always (for BFA) */}
+                  {(selectedArtsCategory === 'BFA' || (selectedArtsCategory === 'BA' && selectedBACategory)) && (
+                    <>
+                      <div className="arts-major-search-wrapper">
+                        <input
+                          type="text"
+                          className="arts-major-search"
+                          placeholder={`Search for a ${selectedArtsCategory === 'BA' ? selectedBACategory : 'BFA'} major...`}
+                          value={artsMajorSearch}
+                          onChange={(e) => setArtsMajorSearch(e.target.value)}
+                        />
+                      </div>
+
+                      {artsMajorSearch && filteredArtsMajors.length === 0 && (
+                        <p className="no-results-message">No majors found matching "{artsMajorSearch}"</p>
+                      )}
+
+                      {!selectedBACategory && selectedArtsCategory === 'BA' ? (
+                        <div className="arts-category-prompt">
+                          <p>Please select a category above to view available majors.</p>
+                        </div>
+                      ) : (
+                        <div className="arts-major-grid">
+                          {filteredArtsMajors.map((major) => (
+                            <button
+                              key={major}
+                              className={`arts-major-button ${selectedArtsMajor === major ? 'selected' : ''}`}
+                              onClick={() => handleArtsMajorSelect(major)}
+                            >
+                              {major}
+                            </button>
+                          ))}
+                        </div>
+                      )}
+                    </>
+                  )}
+                </div>
+              </section>
+            )}
+
+            {/* Curriculum Display Placeholder */}
+            {selectedArtsMajor ? (
+              <CollapsibleSection title={`${selectedArtsMajor} - Degree Requirements`} defaultOpen={true}>
+                <div className="curriculum-placeholder">
+                  <p>Curriculum information for {selectedArtsMajor} will be available soon.</p>
+                  <p className="placeholder-note">
+                    This section will display degree requirements and course information once the curriculum data is populated.
+                  </p>
+                </div>
+              </CollapsibleSection>
+            ) : selectedArtsCategory ? (
+              <section className="empty-state-section">
+                <div className="empty-state-message">
+                  <p>Select a specialization to view your path.</p>
+                </div>
+              </section>
+            ) : null}
           </>
         )}
       </div>

@@ -111,3 +111,145 @@ export const artsAdmissionData = {
     ib: 1.15,
   },
 };
+
+// BA Majors organized by category
+export const baMajorsByCategory = {
+  'Social Sciences': [
+    'Anthropology',
+    'Archaeology',
+    'Economics',
+    'Geography',
+    'Human Geography',
+    'International Relations',
+    'Law and Society',
+    'Linguistics',
+    'Political Science',
+    'Psychology',
+    'Sociology',
+    'Urban Studies',
+  ],
+  'Humanities': [
+    'African Studies',
+    'Ancient Mediterranean and Near Eastern Studies',
+    'Art History',
+    'Canadian Studies',
+    'Classical Studies',
+    'History',
+    'Indigenous Land-Based Studies',
+    'Jewish Studies',
+    'Medieval Studies',
+    'Middle East Studies',
+    'Modern European Studies',
+    'Museum Studies',
+    'Philosophy',
+    'Program in the Study of Religion',
+    'United States Studies',
+  ],
+  'Languages & Literatures': [
+    'Arabic',
+    'Chinese',
+    'Danish',
+    'English',
+    'French Language Literatures and Cultures',
+    'German Studies',
+    'Germanic Studies',
+    'Greek',
+    'Hebrew',
+    'Hindi',
+    'Indonesian',
+    'Italian and Italian Studies',
+    'Japanese',
+    'Korean',
+    'Latin',
+    'Nordic Studies',
+    'Portuguese',
+    'Punjabi',
+    'Romance Studies',
+    'Sanskrit',
+    'Spanish',
+    'Swedish',
+    'Urdu',
+  ],
+  'Creative & Performing Arts': [
+    'Art History Visual Art and Theory',
+    'Arts Studies',
+    'Cinema Studies',
+    'Creative Writing',
+    'Film Production',
+    'Music',
+    'Theatre',
+    'Visual Art',
+    'Writing and Communication',
+  ],
+  'Interdisciplinary': [
+    'Asian Canadian and Asian Migration Studies',
+    'Asian Studies',
+    'Cognitive Systems',
+    'Computer Science',
+    'Critical Studies in Sexuality',
+    'Environment and Society',
+    'Environment and Sustainability',
+    'Family Studies',
+    'First Nations and Endangered Languages',
+    'First Nations and Indigenous Studies',
+    'Gender Race Sexuality and Social Justice',
+    'Geographic Information Science and Geographical Computation',
+    'Health and Society',
+    'Informatics',
+    'Interdisciplinary Studies',
+    'Latin American Studies',
+    'Mathematics',
+    'Science Studies',
+    'Slavic and Eastern European Studies',
+    'South Asian Studies',
+    'Speech Sciences',
+  ],
+};
+
+// Flat array of all BA majors (alphabetically sorted for search/display)
+export const baMajors = Object.values(baMajorsByCategory)
+  .flat()
+  .sort();
+
+// BFA Majors
+export const bfaMajors = [
+  'Acting',
+  'Creative Writing (BFA)',
+  'Film Production',
+  'Theatre Design and Production',
+  'Visual Art (BFA)',
+].sort();
+
+/**
+ * Get all Arts majors for a specific category (BA or BFA)
+ * @param {string} category - 'BA' or 'BFA'
+ * @returns {Array<string>} - Array of major names
+ */
+export const getAllArtsMajors = (category) => {
+  if (category === 'BA') {
+    return baMajors;
+  } else if (category === 'BFA') {
+    return bfaMajors;
+  }
+  return [];
+};
+
+/**
+ * Get BA majors organized by category
+ * @returns {Object} - Object with category keys containing arrays of major names
+ */
+export const getBAMajorsByCategory = () => {
+  return baMajorsByCategory;
+};
+
+/**
+ * Get specific Arts major data (placeholder for future curriculum data)
+ * @param {string} category - 'BA' or 'BFA'
+ * @param {string} majorName - The name of the major
+ * @returns {Object|null} - Major data or null if not found
+ */
+export const getArtsMajor = (category, majorName) => {
+  // Placeholder for future implementation
+  // This will be populated when curriculum data is available
+  return null;
+};
