@@ -211,6 +211,65 @@ export const baMajors = Object.values(baMajorsByCategory)
   .flat()
   .sort();
 
+export const baCategoryNames = Object.keys(baMajorsByCategory);
+
+// Language Programs (usually part of Asian Studies or AMNE)
+export const languagePrograms = [
+  'Arabic',
+  'Chinese',
+  'Danish',
+  'Greek',
+  'Hebrew',
+  'Hindi',
+  'Indonesian',
+  'Italian and Italian Studies',
+  'Japanese',
+  'Korean',
+  'Latin',
+  'Portuguese',
+  'Punjabi',
+  'Sanskrit',
+  'Swedish',
+  'Urdu',
+];
+
+// Interdisciplinary & Studies Programs (usually Minors or Second Degrees)
+export const interdisciplinaryPrograms = [
+  'African Studies',
+  'Arts Studies',
+  'Asian Canadian and Asian Migration Studies',
+  'Health and Society',
+  'Law and Society',
+  'Middle East Studies',
+  'Museum Studies',
+  'Science Studies',
+  'United States Studies',
+  'Writing and Communication',
+];
+
+// Special cases that need different handling
+export const specialCaseMajors = {
+  'Archaeology': 'Requirements are listed as credit-based selections rather than year-by-year curriculum.',
+  'Informatics': 'A newer program that may have a different page structure.',
+  'Interdisciplinary Studies': 'Entirely customized by the student; there is no fixed year-by-year curriculum.',
+  'Slavic and Eastern European Studies': 'Requirements are listed by category (Literature, History, Language) rather than by year.',
+};
+
+// Check if a major is a language program
+export const isLanguageProgram = (majorName) => {
+  return languagePrograms.includes(majorName);
+};
+
+// Check if a major is an interdisciplinary program
+export const isInterdisciplinaryProgram = (majorName) => {
+  return interdisciplinaryPrograms.includes(majorName);
+};
+
+// Get special case message
+export const getSpecialCaseMessage = (majorName) => {
+  return specialCaseMajors[majorName] || null;
+};
+
 // BFA Majors
 export const bfaMajors = [
   'Acting',

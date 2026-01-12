@@ -967,6 +967,12 @@ section h2 {
   margin-top: 0.25rem;
 }
 
+/* Course notes with "or" options */
+.course-notes.or-option-note {
+  color: #002145;
+  font-weight: 500;
+}
+
 /* Empty State */
 .empty-state-section {
   background: white;
@@ -1169,68 +1175,85 @@ section h2 {
   box-shadow: 0 2px 4px rgba(0, 33, 69, 0.2);
 }
 
-/* BA Category Tabs */
+/* Arts Categories Container */
+/* BA Category Filter Tabs */
 .arts-ba-category-tabs {
   display: flex;
-  gap: 0.75rem;
-  margin: 1.5rem 0;
   flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
   border-bottom: 2px solid #e0e0e0;
-  padding-bottom: 0.5rem;
 }
 
-.arts-ba-category-tab {
-  padding: 0.75rem 1.25rem;
-  background: transparent;
-  border: none;
-  border-bottom: 3px solid transparent;
-  color: #666;
-  font-size: 0.95rem;
+.arts-category-tab {
+  padding: 0.6rem 1.2rem;
+  font-size: 0.9rem;
   font-weight: 500;
+  color: #555;
+  background: #f5f5f5;
+  border: 2px solid #ddd;
+  border-radius: 8px;
   cursor: pointer;
-  transition: all 0.3s ease;
-  margin-bottom: -0.5rem;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  white-space: nowrap;
+  transition: all 0.2s ease;
 }
 
-.arts-ba-category-tab:hover {
-  color: #002145;
-  background: #f8f9fa;
-  border-radius: 6px 6px 0 0;
+.arts-category-tab:hover {
+  background: #e8e8e8;
+  border-color: #bbb;
+  transform: translateY(-1px);
 }
 
-.arts-ba-category-tab.active {
-  color: #002145;
-  border-bottom-color: #002145;
+.arts-category-tab.active {
+  background: #002145;
+  color: white;
+  border-color: #002145;
   font-weight: 600;
 }
 
-.category-count {
-  font-size: 0.85rem;
-  color: #999;
-  font-weight: 400;
+.arts-category-tab.active:hover {
+  background: #003366;
+  border-color: #003366;
 }
 
-.arts-ba-category-tab.active .category-count {
-  color: #002145;
+.arts-categories-container {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
 }
 
-.arts-category-prompt {
-  padding: 2rem;
-  text-align: center;
+/* Category Section */
+.arts-category-section {
   background: #f8f9fa;
   border-radius: 8px;
-  border: 2px dashed #ddd;
-  margin-top: 1.5rem;
+  padding: 1.5rem;
+  border: 1px solid #e0e0e0;
 }
 
-.arts-category-prompt p {
-  margin: 0;
+.arts-category-header {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #002145;
+  margin: 0 0 1rem 0;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid #002145;
+}
+
+.arts-category-header .category-count {
+  font-size: 0.9rem;
+  font-weight: 400;
   color: #666;
-  font-size: 1rem;
+}
+
+/* Category Majors Grid */
+.arts-category-majors {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 0.75rem;
 }
 
 .arts-major-selector-content {
@@ -1331,10 +1354,25 @@ section h2 {
   font-size: 1rem;
 }
 
+.placeholder-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #002145;
+  margin-bottom: 1rem;
+  margin-top: 0;
+}
+
 .placeholder-note {
-  font-size: 0.9rem;
-  font-style: italic;
-  color: #999;
+  font-size: 0.95rem;
+  color: #555;
+  margin-top: 0.5rem;
+  line-height: 1.6;
+  font-style: normal;
+}
+
+.placeholder-note strong {
+  color: #002145;
+  font-weight: 600;
 }
 
 /* Responsive Design for Arts Faculty */
@@ -1348,13 +1386,17 @@ section h2 {
     padding: 2rem;
   }
 
-  .arts-ba-category-tabs {
-    gap: 0.5rem;
+  .arts-category-section {
+    padding: 1.25rem;
   }
 
-  .arts-ba-category-tab {
-    padding: 0.625rem 1rem;
-    font-size: 0.85rem;
+  .arts-category-header {
+    font-size: 1.1rem;
+  }
+
+  .arts-category-majors {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 0.625rem;
   }
 
   .arts-major-grid {
@@ -1387,23 +1429,23 @@ section h2 {
     padding: 1.5rem;
   }
 
-  .arts-ba-category-tabs {
+  .arts-categories-container {
+    gap: 1.5rem;
+  }
+
+  .arts-category-section {
+    padding: 1rem;
+  }
+
+  .arts-category-header {
+    font-size: 1rem;
     flex-direction: column;
+    align-items: flex-start;
     gap: 0.5rem;
   }
 
-  .arts-ba-category-tab {
-    width: 100%;
-    justify-content: space-between;
-    border-bottom: 2px solid #e0e0e0;
-    border-radius: 6px;
-    margin-bottom: 0;
-    padding: 0.75rem 1rem;
-  }
-
-  .arts-ba-category-tab.active {
-    background: #f0f4f8;
-    border-bottom-color: #002145;
+  .arts-category-majors {
+    grid-template-columns: 1fr;
   }
 
   .arts-major-grid {

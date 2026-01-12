@@ -1,0 +1,428 @@
+{
+  "successful": [
+    {
+      "major": "Ancient Mediterranean and Near Eastern Studies",
+      "url": "https://vancouver.calendar.ubc.ca/faculties-colleges-and-schools/faculty-arts/bachelor-arts/ancient-mediterranean-and-near-eastern-studies",
+      "format": "standard"
+    },
+    {
+      "major": "Anthropology",
+      "url": "https://vancouver.calendar.ubc.ca/faculties-colleges-and-schools/faculty-arts/bachelor-arts/anthropology",
+      "format": "standard"
+    },
+    {
+      "major": "Art History Visual Art and Theory",
+      "url": "https://vancouver.calendar.ubc.ca/faculties-colleges-and-schools/faculty-arts/bachelor-arts/art-history-visual-art-and-theory",
+      "format": "standard"
+    },
+    {
+      "major": "Canadian Studies",
+      "url": "https://vancouver.calendar.ubc.ca/faculties-colleges-and-schools/faculty-arts/bachelor-arts/canadian-studies",
+      "format": "standard"
+    },
+    {
+      "major": "Cinema Studies",
+      "url": "https://vancouver.calendar.ubc.ca/faculties-colleges-and-schools/faculty-arts/bachelor-arts/cinema-studies",
+      "format": "standard"
+    },
+    {
+      "major": "Computer Science",
+      "url": "https://vancouver.calendar.ubc.ca/faculties-colleges-and-schools/faculty-arts/bachelor-arts/computer-science",
+      "format": "standard"
+    },
+    {
+      "major": "English",
+      "url": "https://vancouver.calendar.ubc.ca/faculties-colleges-and-schools/faculty-arts/bachelor-arts/english",
+      "format": "standard"
+    },
+    {
+      "major": "Environment and Sustainability",
+      "url": "https://vancouver.calendar.ubc.ca/faculties-colleges-and-schools/faculty-arts/bachelor-arts/environment-and-sustainability",
+      "format": "standard"
+    },
+    {
+      "major": "First Nations and Endangered Languages",
+      "url": "https://vancouver.calendar.ubc.ca/faculties-colleges-and-schools/faculty-arts/bachelor-arts/first-nations-and-endangered-languages",
+      "format": "standard"
+    },
+    {
+      "major": "First Nations and Indigenous Studies",
+      "url": "https://vancouver.calendar.ubc.ca/faculties-colleges-and-schools/faculty-arts/bachelor-arts/first-nations-and-indigenous-studies",
+      "format": "standard"
+    },
+    {
+      "major": "French Language Literatures and Cultures",
+      "url": "https://vancouver.calendar.ubc.ca/faculties-colleges-and-schools/faculty-arts/bachelor-arts/french-language-literatures-and-cultures",
+      "format": "standard"
+    },
+    {
+      "major": "Gender Race Sexuality and Social Justice",
+      "url": "https://vancouver.calendar.ubc.ca/faculties-colleges-and-schools/faculty-arts/bachelor-arts/gender-race-sexuality-and-social-justice",
+      "format": "standard"
+    },
+    {
+      "major": "German Studies",
+      "url": "https://vancouver.calendar.ubc.ca/faculties-colleges-and-schools/faculty-arts/bachelor-arts/german-studies",
+      "format": "standard"
+    },
+    {
+      "major": "Human Geography",
+      "url": "https://vancouver.calendar.ubc.ca/faculties-colleges-and-schools/faculty-arts/bachelor-arts/human-geography",
+      "format": "standard"
+    },
+    {
+      "major": "International Relations",
+      "url": "https://vancouver.calendar.ubc.ca/faculties-colleges-and-schools/faculty-arts/bachelor-arts/international-relations",
+      "format": "standard"
+    },
+    {
+      "major": "Latin American Studies",
+      "url": "https://vancouver.calendar.ubc.ca/faculties-colleges-and-schools/faculty-arts/bachelor-arts/latin-american-studies",
+      "format": "standard"
+    },
+    {
+      "major": "Linguistics",
+      "url": "https://vancouver.calendar.ubc.ca/faculties-colleges-and-schools/faculty-arts/bachelor-arts/linguistics",
+      "format": "standard"
+    },
+    {
+      "major": "Mathematics",
+      "url": "https://vancouver.calendar.ubc.ca/faculties-colleges-and-schools/faculty-arts/bachelor-arts/mathematics",
+      "format": "standard"
+    },
+    {
+      "major": "Medieval Studies",
+      "url": "https://vancouver.calendar.ubc.ca/faculties-colleges-and-schools/faculty-arts/bachelor-arts/medieval-studies",
+      "format": "standard"
+    },
+    {
+      "major": "Modern European Studies",
+      "url": "https://vancouver.calendar.ubc.ca/faculties-colleges-and-schools/faculty-arts/bachelor-arts/modern-european-studies",
+      "format": "standard"
+    },
+    {
+      "major": "Philosophy",
+      "url": "https://vancouver.calendar.ubc.ca/faculties-colleges-and-schools/faculty-arts/bachelor-arts/philosophy",
+      "format": "standard"
+    },
+    {
+      "major": "Political Science",
+      "url": "https://vancouver.calendar.ubc.ca/faculties-colleges-and-schools/faculty-arts/bachelor-arts/political-science",
+      "format": "standard"
+    },
+    {
+      "major": "Psychology",
+      "url": "https://vancouver.calendar.ubc.ca/faculties-colleges-and-schools/faculty-arts/bachelor-arts/psychology",
+      "format": "standard"
+    },
+    {
+      "major": "Romance Studies",
+      "url": "https://vancouver.calendar.ubc.ca/faculties-colleges-and-schools/faculty-arts/bachelor-arts/romance-studies",
+      "format": "standard"
+    },
+    {
+      "major": "Sociology",
+      "url": "https://vancouver.calendar.ubc.ca/faculties-colleges-and-schools/faculty-arts/bachelor-arts/sociology",
+      "format": "standard"
+    },
+    {
+      "major": "Spanish",
+      "url": "https://vancouver.calendar.ubc.ca/faculties-colleges-and-schools/faculty-arts/bachelor-arts/spanish",
+      "format": "standard"
+    },
+    {
+      "major": "Urban Studies",
+      "url": "https://vancouver.calendar.ubc.ca/faculties-colleges-and-schools/faculty-arts/bachelor-arts/urban-studies",
+      "format": "standard"
+    }
+  ],
+  "failed": [
+    {
+      "major": "Art History",
+      "url": "https://vancouver.calendar.ubc.ca/faculties-colleges-and-schools/faculty-arts/bachelor-arts/art-history",
+      "status": 404,
+      "reason": "URL not found",
+      "alternatives_tried": []
+    },
+    {
+      "major": "Classical Studies",
+      "url": "https://vancouver.calendar.ubc.ca/faculties-colleges-and-schools/faculty-arts/bachelor-arts/classical-studies",
+      "status": 404,
+      "reason": "URL not found",
+      "alternatives_tried": []
+    },
+    {
+      "major": "Critical Studies in Sexuality",
+      "url": "https://vancouver.calendar.ubc.ca/faculties-colleges-and-schools/faculty-arts/bachelor-arts/critical-studies-in-sexuality",
+      "status": 404,
+      "reason": "URL not found",
+      "alternatives_tried": []
+    },
+    {
+      "major": "Film Production",
+      "url": "https://vancouver.calendar.ubc.ca/faculties-colleges-and-schools/faculty-arts/bachelor-arts/film-production",
+      "status": 404,
+      "reason": "URL not found",
+      "alternatives_tried": []
+    },
+    {
+      "major": "Germanic Studies",
+      "url": "https://vancouver.calendar.ubc.ca/faculties-colleges-and-schools/faculty-arts/bachelor-arts/germanic-studies",
+      "status": 404,
+      "reason": "URL not found",
+      "alternatives_tried": []
+    },
+    {
+      "major": "Program in the Study of Religion",
+      "url": "https://vancouver.calendar.ubc.ca/faculties-colleges-and-schools/faculty-arts/bachelor-arts/program-in-the-study-of-religion",
+      "status": 404,
+      "reason": "URL not found",
+      "alternatives_tried": []
+    }
+  ],
+  "different_format": [],
+  "no_data": [
+    {
+      "major": "African Studies",
+      "url": "https://vancouver.calendar.ubc.ca/faculties-colleges-and-schools/faculty-arts/bachelor-arts/african-studies",
+      "reason": "No curriculum data found"
+    },
+    {
+      "major": "Arabic",
+      "url": "https://vancouver.calendar.ubc.ca/faculties-colleges-and-schools/faculty-arts/bachelor-arts/arabic",
+      "reason": "No curriculum data found"
+    },
+    {
+      "major": "Archaeology",
+      "url": "https://vancouver.calendar.ubc.ca/faculties-colleges-and-schools/faculty-arts/bachelor-arts/archaeology",
+      "reason": "No curriculum data found"
+    },
+    {
+      "major": "Arts Studies",
+      "url": "https://vancouver.calendar.ubc.ca/faculties-colleges-and-schools/faculty-arts/bachelor-arts/arts-studies",
+      "reason": "No curriculum data found"
+    },
+    {
+      "major": "Asian Canadian and Asian Migration Studies",
+      "url": "https://vancouver.calendar.ubc.ca/faculties-colleges-and-schools/faculty-arts/bachelor-arts/asian-canadian-and-asian-migration-studies",
+      "reason": "No curriculum data found"
+    },
+    {
+      "major": "Asian Studies",
+      "url": "https://vancouver.calendar.ubc.ca/faculties-colleges-and-schools/faculty-arts/bachelor-arts/asian-studies",
+      "reason": "No curriculum data found"
+    },
+    {
+      "major": "Chinese",
+      "url": "https://vancouver.calendar.ubc.ca/faculties-colleges-and-schools/faculty-arts/bachelor-arts/chinese",
+      "reason": "No curriculum data found"
+    },
+    {
+      "major": "Cognitive Systems",
+      "url": "https://vancouver.calendar.ubc.ca/faculties-colleges-and-schools/faculty-arts/bachelor-arts/cognitive-systems",
+      "reason": "No curriculum data found"
+    },
+    {
+      "major": "Creative Writing",
+      "url": "https://vancouver.calendar.ubc.ca/faculties-colleges-and-schools/faculty-arts/bachelor-arts/creative-writing",
+      "reason": "No curriculum data found"
+    },
+    {
+      "major": "Danish",
+      "url": "https://vancouver.calendar.ubc.ca/faculties-colleges-and-schools/faculty-arts/bachelor-arts/danish",
+      "reason": "No curriculum data found"
+    },
+    {
+      "major": "Economics",
+      "url": "https://vancouver.calendar.ubc.ca/faculties-colleges-and-schools/faculty-arts/bachelor-arts/economics",
+      "reason": "No curriculum data found"
+    },
+    {
+      "major": "Environment and Society",
+      "url": "https://vancouver.calendar.ubc.ca/faculties-colleges-and-schools/faculty-arts/bachelor-arts/environment-and-society",
+      "reason": "No curriculum data found"
+    },
+    {
+      "major": "Family Studies",
+      "url": "https://vancouver.calendar.ubc.ca/faculties-colleges-and-schools/faculty-arts/bachelor-arts/family-studies",
+      "reason": "No curriculum data found"
+    },
+    {
+      "major": "Geographic Information Science and Geographical Computation",
+      "url": "https://vancouver.calendar.ubc.ca/faculties-colleges-and-schools/faculty-arts/bachelor-arts/geographic-information-science-and-geographical-computation",
+      "reason": "No curriculum data found"
+    },
+    {
+      "major": "Geography",
+      "url": "https://vancouver.calendar.ubc.ca/faculties-colleges-and-schools/faculty-arts/bachelor-arts/geography",
+      "reason": "No curriculum data found"
+    },
+    {
+      "major": "Greek",
+      "url": "https://vancouver.calendar.ubc.ca/faculties-colleges-and-schools/faculty-arts/bachelor-arts/greek",
+      "reason": "No curriculum data found"
+    },
+    {
+      "major": "Health and Society",
+      "url": "https://vancouver.calendar.ubc.ca/faculties-colleges-and-schools/faculty-arts/bachelor-arts/health-and-society",
+      "reason": "No curriculum data found"
+    },
+    {
+      "major": "Hebrew",
+      "url": "https://vancouver.calendar.ubc.ca/faculties-colleges-and-schools/faculty-arts/bachelor-arts/hebrew",
+      "reason": "No curriculum data found"
+    },
+    {
+      "major": "Hindi",
+      "url": "https://vancouver.calendar.ubc.ca/faculties-colleges-and-schools/faculty-arts/bachelor-arts/hindi",
+      "reason": "No curriculum data found"
+    },
+    {
+      "major": "History",
+      "url": "https://vancouver.calendar.ubc.ca/faculties-colleges-and-schools/faculty-arts/bachelor-arts/history",
+      "reason": "No curriculum data found"
+    },
+    {
+      "major": "Indigenous Land-Based Studies",
+      "url": "https://vancouver.calendar.ubc.ca/faculties-colleges-and-schools/faculty-arts/bachelor-arts/indigenous-land-based-studies",
+      "reason": "No curriculum data found"
+    },
+    {
+      "major": "Indonesian",
+      "url": "https://vancouver.calendar.ubc.ca/faculties-colleges-and-schools/faculty-arts/bachelor-arts/indonesian",
+      "reason": "No curriculum data found"
+    },
+    {
+      "major": "Informatics",
+      "url": "https://vancouver.calendar.ubc.ca/faculties-colleges-and-schools/faculty-arts/bachelor-arts/informatics",
+      "reason": "No curriculum data found"
+    },
+    {
+      "major": "Interdisciplinary Studies",
+      "url": "https://vancouver.calendar.ubc.ca/faculties-colleges-and-schools/faculty-arts/bachelor-arts/interdisciplinary-studies",
+      "reason": "No curriculum data found"
+    },
+    {
+      "major": "Italian and Italian Studies",
+      "url": "https://vancouver.calendar.ubc.ca/faculties-colleges-and-schools/faculty-arts/bachelor-arts/italian-and-italian-studies",
+      "reason": "No curriculum data found"
+    },
+    {
+      "major": "Japanese",
+      "url": "https://vancouver.calendar.ubc.ca/faculties-colleges-and-schools/faculty-arts/bachelor-arts/japanese",
+      "reason": "No curriculum data found"
+    },
+    {
+      "major": "Jewish Studies",
+      "url": "https://vancouver.calendar.ubc.ca/faculties-colleges-and-schools/faculty-arts/bachelor-arts/jewish-studies",
+      "reason": "No curriculum data found"
+    },
+    {
+      "major": "Korean",
+      "url": "https://vancouver.calendar.ubc.ca/faculties-colleges-and-schools/faculty-arts/bachelor-arts/korean",
+      "reason": "No curriculum data found"
+    },
+    {
+      "major": "Latin",
+      "url": "https://vancouver.calendar.ubc.ca/faculties-colleges-and-schools/faculty-arts/bachelor-arts/latin",
+      "reason": "No curriculum data found"
+    },
+    {
+      "major": "Law and Society",
+      "url": "https://vancouver.calendar.ubc.ca/faculties-colleges-and-schools/faculty-arts/bachelor-arts/law-and-society",
+      "reason": "No curriculum data found"
+    },
+    {
+      "major": "Middle East Studies",
+      "url": "https://vancouver.calendar.ubc.ca/faculties-colleges-and-schools/faculty-arts/bachelor-arts/middle-east-studies",
+      "reason": "No curriculum data found"
+    },
+    {
+      "major": "Museum Studies",
+      "url": "https://vancouver.calendar.ubc.ca/faculties-colleges-and-schools/faculty-arts/bachelor-arts/museum-studies",
+      "reason": "No curriculum data found"
+    },
+    {
+      "major": "Music",
+      "url": "https://vancouver.calendar.ubc.ca/faculties-colleges-and-schools/faculty-arts/bachelor-arts/music",
+      "reason": "No curriculum data found"
+    },
+    {
+      "major": "Nordic Studies",
+      "url": "https://vancouver.calendar.ubc.ca/faculties-colleges-and-schools/faculty-arts/bachelor-arts/nordic-studies",
+      "reason": "No curriculum data found"
+    },
+    {
+      "major": "Portuguese",
+      "url": "https://vancouver.calendar.ubc.ca/faculties-colleges-and-schools/faculty-arts/bachelor-arts/portuguese",
+      "reason": "No curriculum data found"
+    },
+    {
+      "major": "Punjabi",
+      "url": "https://vancouver.calendar.ubc.ca/faculties-colleges-and-schools/faculty-arts/bachelor-arts/punjabi",
+      "reason": "No curriculum data found"
+    },
+    {
+      "major": "Sanskrit",
+      "url": "https://vancouver.calendar.ubc.ca/faculties-colleges-and-schools/faculty-arts/bachelor-arts/sanskrit",
+      "reason": "No curriculum data found"
+    },
+    {
+      "major": "Science Studies",
+      "url": "https://vancouver.calendar.ubc.ca/faculties-colleges-and-schools/faculty-arts/bachelor-arts/science-studies",
+      "reason": "No curriculum data found"
+    },
+    {
+      "major": "Slavic and Eastern European Studies",
+      "url": "https://vancouver.calendar.ubc.ca/faculties-colleges-and-schools/faculty-arts/bachelor-arts/slavic-and-eastern-european-studies",
+      "reason": "No curriculum data found"
+    },
+    {
+      "major": "South Asian Studies",
+      "url": "https://vancouver.calendar.ubc.ca/faculties-colleges-and-schools/faculty-arts/bachelor-arts/south-asian-studies",
+      "reason": "No curriculum data found"
+    },
+    {
+      "major": "Speech Sciences",
+      "url": "https://vancouver.calendar.ubc.ca/faculties-colleges-and-schools/faculty-arts/bachelor-arts/speech-sciences",
+      "reason": "No curriculum data found"
+    },
+    {
+      "major": "Swedish",
+      "url": "https://vancouver.calendar.ubc.ca/faculties-colleges-and-schools/faculty-arts/bachelor-arts/swedish",
+      "reason": "No curriculum data found"
+    },
+    {
+      "major": "Theatre",
+      "url": "https://vancouver.calendar.ubc.ca/faculties-colleges-and-schools/faculty-arts/bachelor-arts/theatre",
+      "reason": "No curriculum data found"
+    },
+    {
+      "major": "United States Studies",
+      "url": "https://vancouver.calendar.ubc.ca/faculties-colleges-and-schools/faculty-arts/bachelor-arts/united-states-studies",
+      "reason": "No curriculum data found"
+    },
+    {
+      "major": "Urdu",
+      "url": "https://vancouver.calendar.ubc.ca/faculties-colleges-and-schools/faculty-arts/bachelor-arts/urdu",
+      "reason": "No curriculum data found"
+    },
+    {
+      "major": "Visual Art",
+      "url": "https://vancouver.calendar.ubc.ca/faculties-colleges-and-schools/faculty-arts/bachelor-arts/visual-art",
+      "reason": "No curriculum data found"
+    },
+    {
+      "major": "Writing and Communication",
+      "url": "https://vancouver.calendar.ubc.ca/faculties-colleges-and-schools/faculty-arts/bachelor-arts/writing-and-communication",
+      "reason": "No curriculum data found"
+    }
+  ],
+  "summary": {
+    "total": 80,
+    "successful": 27,
+    "failed": 6,
+    "different_format": 0,
+    "no_data": 47
+  }
+}

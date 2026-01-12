@@ -2,7 +2,14 @@ import React, { useState, useMemo } from 'react'
 import Navigation from '../components/Navigation'
 import { standardFirstYearCourses, getAllMajors, getMajorByCode } from '../data/firstYearRequirements'
 import { getAllScienceMajors, getScienceMajorYearCourses } from '../data/scienceCurriculum'
-import { getAllArtsMajors, getBAMajorsByCategory, baMajorsByCategory } from '../data/artsData'
+import { 
+  getAllArtsMajors, 
+  baMajorsByCategory,
+  isLanguageProgram,
+  isInterdisciplinaryProgram,
+  getSpecialCaseMessage
+} from '../data/artsData'
+import { getArtsMajorYearCourses, hasArtsMajor } from '../data/artsCurriculum'
 import './FirstYearGuide.css'
 
 // CollapsibleSection Component
@@ -52,11 +59,17 @@ const FirstYearGuide = () => {
   
   // Arts faculty state
   const [selectedArtsCategory, setSelectedArtsCategory] = useState(null) // null | 'BA' | 'BFA'
-  const [selectedBACategory, setSelectedBACategory] = useState(null) // null | 'Social Sciences' | 'Humanities' | etc.
+  const [selectedBACategoryFilter, setSelectedBACategoryFilter] = useState('All') // 'All' | category name
   const [selectedArtsMajor, setSelectedArtsMajor] = useState(null)
   const [artsMajorSearch, setArtsMajorSearch] = useState('')
+  const [selectedArtsYearTab, setSelectedArtsYearTab] = useState(1)
   const [isArtsCategorySelectorExpanded, setIsArtsCategorySelectorExpanded] = useState(true)
   const [isArtsMajorSelectorExpanded, setIsArtsMajorSelectorExpanded] = useState(false)
+  
+  // Get Arts curriculum courses for selected major and year
+  const artsYearCourses = selectedArtsMajor && hasArtsMajor(selectedArtsMajor)
+    ? getArtsMajorYearCourses(selectedArtsMajor, selectedArtsYearTab)
+    : []
   
   const scienceMajors = getAllScienceMajors()
   
@@ -123,9 +136,10 @@ const FirstYearGuide = () => {
     setIsMajorSelectorExpanded(true) // Reset to expanded when going back
     // Reset Arts state
     setSelectedArtsCategory(null)
-    setSelectedBACategory(null)
+    setSelectedBACategoryFilter('All')
     setSelectedArtsMajor(null)
     setArtsMajorSearch('')
+    setSelectedArtsYearTab(1)
     setIsArtsCategorySelectorExpanded(true)
     setIsArtsMajorSelectorExpanded(false)
   }
@@ -144,64 +158,76 @@ const FirstYearGuide = () => {
   // Arts faculty handlers
   const handleArtsCategorySelect = (category) => {
     setSelectedArtsCategory(category)
-    setSelectedBACategory(null) // Reset BA category tab
     setSelectedArtsMajor(null) // Reset major selection
     setArtsMajorSearch('') // Reset search
+    setSelectedBACategoryFilter('All') // Reset BA category filter
     setIsArtsCategorySelectorExpanded(false) // Hide category selector
     setIsArtsMajorSelectorExpanded(true) // Show major selector
-  }
-  
-  const handleBACategoryTabSelect = (categoryName) => {
-    setSelectedBACategory(categoryName)
-    setSelectedArtsMajor(null) // Reset major selection
-    setArtsMajorSearch('') // Reset search
   }
   
   const handleArtsMajorSelect = (majorName) => {
     setSelectedArtsMajor(majorName)
     setArtsMajorSearch('') // Reset search
+    setSelectedArtsYearTab(1) // Reset to Year 1 when selecting a new major
     setIsArtsMajorSelectorExpanded(false) // Collapse the grid when a major is selected
   }
   
   const handleChangeArtsCategory = () => {
     setSelectedArtsCategory(null) // Reset category
-    setSelectedBACategory(null) // Reset BA category tab
     setSelectedArtsMajor(null) // Reset major
     setArtsMajorSearch('') // Reset search
+    setSelectedBACategoryFilter('All') // Reset BA category filter
     setIsArtsCategorySelectorExpanded(true) // Show category selector
     setIsArtsMajorSelectorExpanded(false) // Hide major selector
   }
   
-  // Get Arts majors based on category and BA subcategory
-  const artsMajors = useMemo(() => {
-    if (!selectedArtsCategory) return []
+  // Get all BA majors organized by category for display
+  const baMajorsByCategoryForDisplay = useMemo(() => {
+    if (selectedArtsCategory !== 'BA') return {}
     
-    if (selectedArtsCategory === 'BA') {
-      // If BA category tab is selected, show majors from that category
-      if (selectedBACategory && baMajorsByCategory[selectedBACategory]) {
-        return baMajorsByCategory[selectedBACategory]
+    // First filter by selected BA category if not "All"
+    let filteredCategories = baMajorsByCategory
+    if (selectedBACategoryFilter !== 'All' && baMajorsByCategory[selectedBACategoryFilter]) {
+      filteredCategories = {
+        [selectedBACategoryFilter]: baMajorsByCategory[selectedBACategoryFilter]
       }
-      // If no BA category tab selected, return empty (user needs to pick a tab)
-      return []
-    } else if (selectedArtsCategory === 'BFA') {
-      return getAllArtsMajors('BFA')
     }
-    return []
-  }, [selectedArtsCategory, selectedBACategory])
-  
-  // Filter Arts majors based on search
-  const filteredArtsMajors = useMemo(() => {
-    if (!artsMajorSearch.trim()) {
-      return artsMajors
+    
+    // Then filter by search if active
+    if (artsMajorSearch.trim()) {
+      const searchLower = artsMajorSearch.toLowerCase()
+      const filtered = {}
+      for (const [category, majors] of Object.entries(filteredCategories)) {
+        const filteredMajors = majors.filter(major => 
+          major.toLowerCase().includes(searchLower)
+        )
+        if (filteredMajors.length > 0) {
+          filtered[category] = filteredMajors
+        }
+      }
+      return filtered
     }
-    const searchLower = artsMajorSearch.toLowerCase()
-    return artsMajors.filter(major => 
-      major.toLowerCase().includes(searchLower)
-    )
-  }, [artsMajors, artsMajorSearch])
+    
+    // Return filtered categories
+    return filteredCategories
+  }, [selectedArtsCategory, selectedBACategoryFilter, artsMajorSearch])
   
-  // Get BA category names for tabs
-  const baCategoryNames = Object.keys(baMajorsByCategory)
+  // Get BFA majors
+  const bfaMajors = useMemo(() => {
+    if (selectedArtsCategory !== 'BFA') return []
+    
+    const allBFA = getAllArtsMajors('BFA')
+    
+    // Filter by search if active
+    if (artsMajorSearch.trim()) {
+      const searchLower = artsMajorSearch.toLowerCase()
+      return allBFA.filter(major => 
+        major.toLowerCase().includes(searchLower)
+      )
+    }
+    
+    return allBFA
+  }, [selectedArtsCategory, artsMajorSearch])
 
   return (
     <div className="first-year-guide-page">
@@ -642,52 +668,87 @@ const FirstYearGuide = () => {
                 <div className={`arts-major-selector-content ${isArtsMajorSelectorExpanded ? 'expanded' : 'collapsed'}`}>
                   <p className="section-description">
                     {selectedArtsCategory === 'BA' 
-                      ? 'Select a category below to view available majors, then choose a specialization.'
+                      ? 'Select a category to filter majors, or use search to find a specific major.'
                       : 'Choose a specialization to view the curriculum requirements.'}
                   </p>
                   
-                  {/* BA Category Tabs */}
+                  {/* BA Category Filter Tabs */}
                   {selectedArtsCategory === 'BA' && (
                     <div className="arts-ba-category-tabs">
-                      {baCategoryNames.map((categoryName) => (
+                      <button
+                        className={`arts-category-tab ${selectedBACategoryFilter === 'All' ? 'active' : ''}`}
+                        onClick={() => {
+                          setSelectedBACategoryFilter('All')
+                          setArtsMajorSearch('') // Clear search when changing category
+                        }}
+                      >
+                        All
+                      </button>
+                      {Object.keys(baMajorsByCategory).map((categoryName) => (
                         <button
                           key={categoryName}
-                          className={`arts-ba-category-tab ${selectedBACategory === categoryName ? 'active' : ''}`}
-                          onClick={() => handleBACategoryTabSelect(categoryName)}
+                          className={`arts-category-tab ${selectedBACategoryFilter === categoryName ? 'active' : ''}`}
+                          onClick={() => {
+                            setSelectedBACategoryFilter(categoryName)
+                            setArtsMajorSearch('') // Clear search when changing category
+                          }}
                         >
-                          {categoryName}
-                          <span className="category-count">
-                            ({baMajorsByCategory[categoryName]?.length || 0})
-                          </span>
+                          {categoryName} ({baMajorsByCategory[categoryName]?.length || 0})
                         </button>
                       ))}
                     </div>
                   )}
                   
-                  {/* Show majors only if BA category tab is selected (for BA) or always (for BFA) */}
-                  {(selectedArtsCategory === 'BFA' || (selectedArtsCategory === 'BA' && selectedBACategory)) && (
+                  {/* Search Bar */}
+                  <div className="arts-major-search-wrapper">
+                    <input
+                      type="text"
+                      className="arts-major-search"
+                      placeholder={`Search for a ${selectedArtsCategory === 'BA' ? 'BA' : 'BFA'} major...`}
+                      value={artsMajorSearch}
+                      onChange={(e) => setArtsMajorSearch(e.target.value)}
+                    />
+                  </div>
+
+                  {/* BA: Display majors grouped by category headers */}
+                  {selectedArtsCategory === 'BA' && (
                     <>
-                      <div className="arts-major-search-wrapper">
-                        <input
-                          type="text"
-                          className="arts-major-search"
-                          placeholder={`Search for a ${selectedArtsCategory === 'BA' ? selectedBACategory : 'BFA'} major...`}
-                          value={artsMajorSearch}
-                          onChange={(e) => setArtsMajorSearch(e.target.value)}
-                        />
-                      </div>
-
-                      {artsMajorSearch && filteredArtsMajors.length === 0 && (
+                      {Object.keys(baMajorsByCategoryForDisplay).length === 0 ? (
                         <p className="no-results-message">No majors found matching "{artsMajorSearch}"</p>
-                      )}
-
-                      {!selectedBACategory && selectedArtsCategory === 'BA' ? (
-                        <div className="arts-category-prompt">
-                          <p>Please select a category above to view available majors.</p>
+                      ) : (
+                        <div className="arts-categories-container">
+                          {Object.entries(baMajorsByCategoryForDisplay).map(([categoryName, majors]) => (
+                            <div key={categoryName} className="arts-category-section">
+                              <h3 className="arts-category-header">
+                                {categoryName}
+                                <span className="category-count">({majors.length})</span>
+                              </h3>
+                              <div className="arts-category-majors">
+                                {majors.map((major) => (
+                                  <button
+                                    key={major}
+                                    className={`arts-major-button ${selectedArtsMajor === major ? 'selected' : ''}`}
+                                    onClick={() => handleArtsMajorSelect(major)}
+                                  >
+                                    {major}
+                                  </button>
+                                ))}
+                              </div>
+                            </div>
+                          ))}
                         </div>
+                      )}
+                    </>
+                  )}
+
+                  {/* BFA: Display majors directly */}
+                  {selectedArtsCategory === 'BFA' && (
+                    <>
+                      {bfaMajors.length === 0 ? (
+                        <p className="no-results-message">No majors found matching "{artsMajorSearch}"</p>
                       ) : (
                         <div className="arts-major-grid">
-                          {filteredArtsMajors.map((major) => (
+                          {bfaMajors.map((major) => (
                             <button
                               key={major}
                               className={`arts-major-button ${selectedArtsMajor === major ? 'selected' : ''}`}
@@ -704,14 +765,205 @@ const FirstYearGuide = () => {
               </section>
             )}
 
-            {/* Curriculum Display Placeholder */}
+            {/* Curriculum Display */}
             {selectedArtsMajor ? (
               <CollapsibleSection title={`${selectedArtsMajor} - Degree Requirements`} defaultOpen={true}>
-                <div className="curriculum-placeholder">
-                  <p>Curriculum information for {selectedArtsMajor} will be available soon.</p>
-                  <p className="placeholder-note">
-                    This section will display degree requirements and course information once the curriculum data is populated.
-                  </p>
+                {/* Year Tabs */}
+                <div className="year-tabs-container">
+                  {[1, 2, 3, 4].map((year) => {
+                    const yearData = hasArtsMajor(selectedArtsMajor) 
+                      ? getArtsMajorYearCourses(selectedArtsMajor, year)
+                      : []
+                    // Only show tabs for years that have data
+                    if (yearData.length === 0 && year > 1) {
+                      // Check if any later years have data
+                      const hasLaterYears = [year + 1, year + 2, year + 3].some(y => {
+                        const laterData = hasArtsMajor(selectedArtsMajor)
+                          ? getArtsMajorYearCourses(selectedArtsMajor, y)
+                          : []
+                        return laterData.length > 0
+                      })
+                      if (!hasLaterYears) return null
+                    }
+                    
+                    return (
+                      <button
+                        key={year}
+                        className={`year-tab ${selectedArtsYearTab === year ? 'active' : ''}`}
+                        onClick={() => setSelectedArtsYearTab(year)}
+                      >
+                        Year {year}
+                      </button>
+                    )
+                  })}
+                </div>
+
+                {/* Curriculum Table */}
+                <div className="curriculum-table-wrapper science-curriculum-table">
+                  {artsYearCourses.length > 0 ? (
+                    <table className="curriculum-table">
+                      <thead>
+                        <tr>
+                          <th>Course Code</th>
+                          <th>Credits</th>
+                          <th>Title / Notes</th>
+                        </tr>
+                      </thead>
+                      <tbody 
+                        key={`year-${selectedArtsYearTab}`}
+                        className="science-curriculum-tbody"
+                      >
+                        {(() => {
+                          // Process courses to handle "or" options
+                          const processedCourses = []
+                          let i = 0
+                          
+                          while (i < artsYearCourses.length) {
+                            const course = artsYearCourses[i]
+                            
+                            // Check if this is an "or option" course (old format with separate entries)
+                            if (course.notes === 'or option') {
+                              // Collect all consecutive "or option" courses
+                              const orCourses = [course]
+                              let j = i + 1
+                              while (j < artsYearCourses.length && artsYearCourses[j].notes === 'or option') {
+                                orCourses.push(artsYearCourses[j])
+                                j++
+                              }
+                              
+                              // Combine: first course in code, rest in notes as "or COURSE (credits)"
+                              const firstCourse = orCourses[0]
+                              const orParts = orCourses.slice(1).map(c => {
+                                return `or ${c.code} (${c.credits})`
+                              })
+                              
+                              processedCourses.push({
+                                ...firstCourse,
+                                notes: orParts.join(' ')
+                              })
+                              
+                              i = j // Skip the courses we just grouped
+                            } else {
+                              // Regular course or already formatted "or" course
+                              processedCourses.push(course)
+                              i++
+                            }
+                          }
+                          
+                          return processedCourses.map((course, index) => {
+                            // Check if notes start with "or" - this means it's an "or" option
+                            const isOrOption = course.notes && course.notes.trim().toLowerCase().startsWith('or')
+                            
+                            return (
+                              <tr key={index} className="science-course-row">
+                                <td className="course-code">
+                                  {course.code}
+                                  {course.code === 'Electives' && course.notes && (
+                                    <span 
+                                      className="elective-info-icon"
+                                      title={course.notes}
+                                    >
+                                      ℹ️
+                                    </span>
+                                  )}
+                                </td>
+                                <td className="course-credits">{course.credits} cr</td>
+                                <td className="course-title">
+                                  {course.title && <span className="course-title-text">{course.title}</span>}
+                                  {course.notes && (
+                                    <span className={`course-notes ${isOrOption ? 'or-option-note' : ''}`}>
+                                      {course.notes}
+                                    </span>
+                                  )}
+                                </td>
+                              </tr>
+                            )
+                          })
+                        })()}
+                      </tbody>
+                    </table>
+                  ) : hasArtsMajor(selectedArtsMajor) ? (
+                    <div className="no-courses-message">
+                      <p>No courses found for Year {selectedArtsYearTab} of {selectedArtsMajor}.</p>
+                    </div>
+                  ) : (
+                    <div className="curriculum-placeholder">
+                      {(() => {
+                        // Check for special case messages
+                        const specialMessage = getSpecialCaseMessage(selectedArtsMajor);
+                        if (specialMessage) {
+                          return (
+                            <>
+                              <p className="placeholder-title">Special Program Information</p>
+                              <p className="placeholder-note">{specialMessage}</p>
+                            </>
+                          );
+                        }
+                        
+                        // Check if it's a language program
+                        if (isLanguageProgram(selectedArtsMajor)) {
+                          // Determine which department it belongs to
+                          const asianStudiesLanguages = ['Arabic', 'Chinese', 'Hindi', 'Indonesian', 'Japanese', 'Korean', 'Punjabi', 'Sanskrit', 'Urdu'];
+                          const amneLanguages = ['Greek', 'Hebrew', 'Latin'];
+                          const department = asianStudiesLanguages.includes(selectedArtsMajor) 
+                            ? 'Asian Studies' 
+                            : amneLanguages.includes(selectedArtsMajor)
+                            ? 'Ancient Mediterranean and Near Eastern Studies'
+                            : null;
+                          
+                          return (
+                            <>
+                              <p className="placeholder-title">Language Program</p>
+                              <p className="placeholder-note">
+                                {selectedArtsMajor} is offered as a language focus within the{' '}
+                                {department ? (
+                                  <strong>{department}</strong>
+                                ) : (
+                                  'Asian Studies or Ancient Mediterranean and Near Eastern Studies'
+                                )}{' '}
+                                department. Curriculum requirements for this program will be available soon.
+                              </p>
+                            </>
+                          );
+                        }
+                        
+                        // Check if it's an interdisciplinary program
+                        if (isInterdisciplinaryProgram(selectedArtsMajor)) {
+                          // Determine the program type based on the major
+                          let programType = 'Minor or Second Degree';
+                          if (selectedArtsMajor === 'Arts Studies') {
+                            programType = 'Individual courses (e.g., First-Year Seminar)';
+                          } else if (selectedArtsMajor === 'Interdisciplinary Studies') {
+                            programType = 'Customized program';
+                          } else if (['Museum Studies', 'Writing and Communication'].includes(selectedArtsMajor)) {
+                            programType = 'Minor or Post-Baccalaureate';
+                          }
+                          
+                          return (
+                            <>
+                              <p className="placeholder-title">Interdisciplinary Program</p>
+                              <p className="placeholder-note">
+                                {selectedArtsMajor} is available as a <strong>{programType}</strong> program.
+                                {selectedArtsMajor === 'Interdisciplinary Studies' 
+                                  ? ' This program is entirely customized by the student with no fixed year-by-year curriculum.'
+                                  : ' This program uses flexible approved course lists rather than a fixed year-by-year curriculum.'}
+                              </p>
+                            </>
+                          );
+                        }
+                        
+                        // Default message
+                        return (
+                          <>
+                            <p>Curriculum information for {selectedArtsMajor} will be available soon.</p>
+                            <p className="placeholder-note">
+                              This section will display degree requirements and course information once the curriculum data is populated.
+                            </p>
+                          </>
+                        );
+                      })()}
+                    </div>
+                  )}
                 </div>
               </CollapsibleSection>
             ) : selectedArtsCategory ? (
